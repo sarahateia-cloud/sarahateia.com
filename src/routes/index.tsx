@@ -512,7 +512,15 @@ function Index() {
             </p>
           </div>
           <div className="text-sm text-muted-foreground sm:text-right">
-            <p>For waitlist inquiries: hello@sarahateia.com</p>
+            <p>
+              For waitlist inquiries:{" "}
+              <a
+                href="mailto:sarah.ateia@gmail.com"
+                className="transition hover:text-foreground"
+              >
+                sarah.ateia@gmail.com
+              </a>
+            </p>
             <p className="mt-2 text-xs">
               © {new Date().getFullYear()} Sarah Ateia. Not currently providing clinical services.
             </p>
