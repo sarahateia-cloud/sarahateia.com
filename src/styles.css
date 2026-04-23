@@ -42,39 +42,39 @@
 :root {
   --radius: 0.875rem;
 
-  /* Warm, calming palette */
-  --background: oklch(0.985 0.012 80);          /* warm white */
-  --foreground: oklch(0.28 0.02 50);            /* deep warm taupe */
+  /* Green/sage palette */
+  --background: oklch(0.975 0.008 85); /* cream */
+  --foreground: oklch(0.24 0.01 60); /* deep neutral text */
 
-  --card: oklch(0.975 0.014 78);
-  --card-foreground: oklch(0.28 0.02 50);
-  --popover: oklch(0.985 0.012 80);
-  --popover-foreground: oklch(0.28 0.02 50);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.24 0.01 60);
+  --popover: oklch(0.975 0.008 85);
+  --popover-foreground: oklch(0.24 0.01 60);
 
-  --primary: oklch(0.42 0.035 45);              /* muted clay/taupe */
-  --primary-foreground: oklch(0.985 0.012 80);
+  --primary: oklch(0.5 0.055 150); /* dark sage */
+  --primary-foreground: oklch(0.98 0.008 85);
 
-  --secondary: oklch(0.93 0.02 75);             /* sand */
-  --secondary-foreground: oklch(0.32 0.025 50);
+  --secondary: oklch(0.94 0.014 85); /* beige */
+  --secondary-foreground: oklch(0.3 0.02 150);
 
-  --muted: oklch(0.94 0.014 78);
-  --muted-foreground: oklch(0.5 0.02 55);
+  --muted: oklch(0.94 0.014 85);
+  --muted-foreground: oklch(0.5 0.015 70);
 
-  --accent: oklch(0.86 0.03 130);               /* soft sage */
-  --accent-foreground: oklch(0.3 0.025 50);
+  --accent: oklch(0.84 0.04 145); /* light sage */
+  --accent-foreground: oklch(0.3 0.04 150);
 
   --destructive: oklch(0.55 0.18 25);
-  --destructive-foreground: oklch(0.985 0.012 80);
+  --destructive-foreground: oklch(0.98 0.008 85);
 
-  --border: oklch(0.89 0.018 75);
-  --input: oklch(0.92 0.016 78);
-  --ring: oklch(0.72 0.04 60);
+  --border: oklch(0.9 0.012 85);
+  --input: oklch(0.92 0.012 85);
+  --ring: oklch(0.65 0.05 145);
 
-  --sand: oklch(0.93 0.022 78);
-  --clay: oklch(0.78 0.045 45);
-  --sage: oklch(0.82 0.035 135);
-  --rose: oklch(0.84 0.04 25);
-  --taupe: oklch(0.55 0.025 55);
+  --sand: oklch(0.94 0.014 85);
+  --clay: oklch(0.68 0.06 145); /* repointed to sage for util compat */
+  --sage: oklch(0.68 0.06 145);
+  --rose: oklch(0.84 0.04 145); /* repointed to light sage */
+  --taupe: oklch(0.45 0.05 150); /* dark sage for em emphasis */
 }
 
 @layer base {
@@ -91,7 +91,10 @@
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-serif);
     font-weight: 400;
     letter-spacing: -0.01em;
