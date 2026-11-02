@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Phone } from "lucide-react";
+import { BreathingExercise } from "@/components/breathing-exercise";
+import { Tilt, useScrollReveal } from "@/components/motion";
 import sarahPortrait from "@/assets/sarah-ateia.jpeg";
 import chicoPortrait from "@/assets/chico.jpeg";
 
@@ -57,7 +59,55 @@ const DISCLOSURES = [
   "Any genetic or biological discussion is educational only — never medical advice, diagnosis, or treatment. I don’t prescribe or interpret labs; I refer to physicians for medical concerns.",
 ];
 
+const STEPS = [
+  {
+    title: "Reach out",
+    body: `Call ${PHONE_DISPLAY}, or leave your details and I’ll call you back.`,
+  },
+  {
+    title: "Free 15-minute consultation",
+    body: "We talk about what you’re looking for and whether we’re a good fit — no commitment.",
+  },
+  {
+    title: "Your first session",
+    body: "In person in Dallas–Fort Worth or by telehealth anywhere in Texas, in English or Arabic.",
+  },
+];
+
+// Keep in sync with the FAQPage structured data in index.html.
+const FAQS = [
+  {
+    q: "What is an LPC Associate?",
+    a: "An LPC Associate is a counselor licensed by the Texas Behavioral Health Executive Council who provides counseling under the supervision of a Licensed Professional Counselor–Supervisor (LPC-S). I’m supervised by Don Zablosky, LPC-S.",
+  },
+  {
+    q: "Do you take insurance?",
+    a: "No. My practice is self-pay only, and I don’t bill insurance. Sliding fee scale options are available — we can talk about them during your free consultation.",
+  },
+  {
+    q: "What happens in the free consultation?",
+    a: `It’s a free 15-minute phone call to talk about what you’re looking for and whether we’re a good fit. There’s no commitment. Call ${PHONE_DISPLAY} or request a call back.`,
+  },
+  {
+    q: "Do you offer telehealth?",
+    a: "Yes. Telehealth is available to clients who are located in Texas at the time of each session. In-person sessions are available in the Dallas–Fort Worth area.",
+  },
+  {
+    q: "Do you offer sessions in Arabic?",
+    a: "Yes. Sessions are available in English or Arabic.",
+  },
+  {
+    q: "What is genetics-informed psychoeducation?",
+    a: "It’s an educational way of talking about how biology may relate to patterns in mood, stress, and attention. It’s never medical advice, diagnosis, or treatment — I don’t order or interpret lab tests, and I refer to physicians for medical questions.",
+  },
+  {
+    q: "What if I’m in crisis?",
+    a: "This practice isn’t a crisis service. If you’re in crisis, call or text 988 (Suicide & Crisis Lifeline) or go to your nearest emergency room.",
+  },
+];
+
 function Index() {
+  useScrollReveal();
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -112,6 +162,9 @@ function Index() {
             <a href="#support" className="transition hover:text-foreground">
               Support
             </a>
+            <a href="#faq" className="transition hover:text-foreground">
+              FAQ
+            </a>
             <a
               href={PHONE_HREF}
               className="inline-flex items-center gap-2 transition hover:text-foreground"
@@ -145,6 +198,28 @@ function Index() {
               "radial-gradient(60% 50% at 75% 20%, color-mix(in oklab, var(--sage) 32%, transparent), transparent 70%), radial-gradient(50% 60% at 10% 80%, color-mix(in oklab, var(--sage) 28%, transparent), transparent 70%)",
           }}
         />
+        <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden>
+          <div
+            className="glow-orb"
+            style={{
+              top: "8%",
+              right: "6%",
+              width: "28rem",
+              height: "28rem",
+              background: "color-mix(in oklab, var(--sage) 30%, transparent)",
+            }}
+          />
+          <div
+            className="glow-orb glow-orb-alt"
+            style={{
+              bottom: "-10%",
+              left: "-6%",
+              width: "24rem",
+              height: "24rem",
+              background: "color-mix(in oklab, var(--sage) 22%, transparent)",
+            }}
+          />
+        </div>
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-7">
             <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-muted-foreground backdrop-blur">
@@ -190,30 +265,32 @@ function Index() {
           </div>
 
           <div className="relative lg:col-span-5">
-            <div className="relative mx-auto w-full max-w-md">
-              <div
-                className="absolute -inset-4 -z-10 rounded-[2rem] opacity-70 blur-2xl"
-                style={{
-                  background:
-                    "linear-gradient(135deg, color-mix(in oklab, var(--sage) 55%, transparent), color-mix(in oklab, var(--sage) 25%, transparent))",
-                }}
-              />
-              <div className="overflow-hidden rounded-[2rem] border border-border bg-card shadow-[0_30px_80px_-30px_rgba(80,60,40,0.35)]">
-                <img
-                  src={sarahPortrait}
-                  alt="Portrait of Sarah Ateia Khattab"
-                  className="h-full w-full object-cover"
+            <Tilt>
+              <div className="relative mx-auto w-full max-w-md">
+                <div
+                  className="absolute -inset-4 -z-10 rounded-[2rem] opacity-70 blur-2xl"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, color-mix(in oklab, var(--sage) 55%, transparent), color-mix(in oklab, var(--sage) 25%, transparent))",
+                  }}
                 />
+                <div className="overflow-hidden rounded-[2rem] border border-border bg-card shadow-[0_30px_80px_-30px_rgba(80,60,40,0.35)]">
+                  <img
+                    src={sarahPortrait}
+                    alt="Portrait of Sarah Ateia Khattab"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-5 -left-5 rounded-2xl border border-border bg-background/90 px-5 py-3 backdrop-blur">
+                  <p className="font-serif text-lg leading-tight text-foreground">
+                    Sarah Ateia Khattab
+                  </p>
+                  <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
+                    M.S., LPC Associate, NCC
+                  </p>
+                </div>
               </div>
-              <div className="absolute -bottom-5 -left-5 rounded-2xl border border-border bg-background/90 px-5 py-3 backdrop-blur">
-                <p className="font-serif text-lg leading-tight text-foreground">
-                  Sarah Ateia Khattab
-                </p>
-                <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                  M.S., LPC Associate, NCC
-                </p>
-              </div>
-            </div>
+            </Tilt>
           </div>
         </div>
       </section>
@@ -232,7 +309,7 @@ function Index() {
 
       {/* About */}
       <section id="about" className="border-t border-border/60 bg-secondary/40 py-24">
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:gap-16">
+        <div className="reveal mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">About</p>
             <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-4xl">
@@ -243,8 +320,8 @@ function Index() {
             <p>
               I’m a Licensed Professional Counselor Associate in Texas and a National Certified
               Counselor, with a background in healthcare. I grew up in a multicultural environment,
-              which shaped how I connect with people and how I hold space for different
-              backgrounds and lived experiences. I offer sessions in English and Arabic.
+              which shaped how I connect with people and how I hold space for different backgrounds
+              and lived experiences. I offer sessions in English and Arabic.
             </p>
             <p>
               I believe everyone has a blueprint — most people just haven’t been given the tools to
@@ -270,12 +347,8 @@ function Index() {
                 <p className="text-sm text-muted-foreground">The University of Texas at Dallas</p>
               </div>
               <div className="rounded-2xl border border-border bg-card p-5">
-                <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                  License
-                </p>
-                <p className="mt-2 font-serif text-lg text-foreground">
-                  LPC Associate #104391
-                </p>
+                <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">License</p>
+                <p className="mt-2 font-serif text-lg text-foreground">LPC Associate #104391</p>
                 <p className="text-sm text-muted-foreground">
                   Texas BHEC · Supervised by Don Zablosky, LPC-S
                 </p>
@@ -296,7 +369,7 @@ function Index() {
 
       {/* Meet Chico — character section */}
       <section className="relative py-20">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="reveal mx-auto max-w-5xl px-6">
           <div className="grid grid-cols-1 items-center gap-10 sm:grid-cols-5 sm:gap-14">
             <div className="sm:col-span-2">
               <div className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-[2rem] border border-border bg-secondary shadow-[0_20px_60px_-30px_rgba(80,60,40,0.3)]">
@@ -326,7 +399,7 @@ function Index() {
 
       {/* Support areas */}
       <section id="support" className="py-24">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="reveal mx-auto max-w-5xl px-6">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
               Who I support
@@ -362,7 +435,7 @@ function Index() {
               "radial-gradient(40% 60% at 80% 50%, color-mix(in oklab, var(--sage) 35%, transparent), transparent 70%)",
           }}
         />
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12">
+        <div className="reveal mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Approach</p>
             <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
@@ -404,13 +477,58 @@ function Index() {
         </div>
       </section>
 
+      {/* Breathing exercise */}
+      <section id="breathe" className="py-24">
+        <div className="reveal mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              A moment for you
+            </p>
+            <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
+              Take one slow breath with me.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Slow, steady breathing is one simple way many people find to settle when things feel
+              like a lot. Follow the circle — breathe in as it grows, hold, and breathe out as it
+              softens.
+            </p>
+            <p className="mt-4 text-xs text-muted-foreground">
+              A general wellness exercise, not treatment. Stop if you feel lightheaded.
+            </p>
+          </div>
+          <BreathingExercise />
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="border-t border-border/60 bg-secondary/40 py-24">
+        <div className="reveal mx-auto max-w-5xl px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">How it works</p>
+            <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-4xl">
+              Getting started is simple.
+            </h2>
+          </div>
+          <ol className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {STEPS.map((step, i) => (
+              <li
+                key={step.title}
+                className="rounded-2xl border border-border bg-card p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-30px_rgba(80,60,40,0.35)]"
+              >
+                <span className="font-serif text-4xl text-taupe">{i + 1}</span>
+                <p className="mt-3 font-serif text-xl text-foreground">{step.title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       {/* Consultation Form */}
       <section id="consult" className="py-24">
-        <div className="mx-auto max-w-3xl px-6">
+        <div className="reveal mx-auto max-w-3xl px-6">
           <div className="text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              Get started
-            </p>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Get started</p>
             <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-5xl">
               A free 15-minute consultation.
             </h2>
@@ -420,9 +538,7 @@ function Index() {
             </p>
           </div>
 
-          <div
-            className="relative mt-10 overflow-hidden rounded-3xl bg-primary px-6 py-10 text-center text-primary-foreground shadow-[0_30px_80px_-30px_color-mix(in_oklab,var(--primary)_70%,transparent)] sm:px-10"
-          >
+          <div className="relative mt-10 overflow-hidden rounded-3xl bg-primary px-6 py-10 text-center text-primary-foreground shadow-[0_30px_80px_-30px_color-mix(in_oklab,var(--primary)_70%,transparent)] sm:px-10">
             <div
               className="pointer-events-none absolute inset-0 opacity-60"
               style={{
@@ -518,6 +634,36 @@ function Index() {
                 </div>
               </form>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="pb-24">
+        <div className="reveal mx-auto max-w-3xl px-6">
+          <div className="text-center">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">FAQ</p>
+            <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-4xl">
+              Common questions.
+            </h2>
+          </div>
+          <div className="mt-10 divide-y divide-border rounded-3xl border border-border bg-card">
+            {FAQS.map((item) => (
+              <details key={item.q} className="group px-6 py-5 sm:px-8">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg text-foreground [&::-webkit-details-marker]:hidden">
+                  <h3 className="text-lg">{item.q}</h3>
+                  <span
+                    className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition group-open:rotate-45"
+                    aria-hidden
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  {item.a}
+                </p>
+              </details>
+            ))}
           </div>
         </div>
       </section>
