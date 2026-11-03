@@ -126,7 +126,7 @@ export function SiteFooter() {
           </p>
           <p className="mt-2 max-w-md text-xs text-muted-foreground">
             Serving Irving, Las Colinas, Coppell, Grand Prairie, Carrollton, Farmers Branch, Dallas,
-            Fort Worth, and Arlington.
+            Fort Worth, Arlington, Garland, Mesquite, and Wilmer.
           </p>
         </div>
         <div className="text-sm text-muted-foreground sm:text-right">
