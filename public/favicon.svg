@@ -1,13 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#5C8060"/>
-  <text
-    x="32"
-    y="44"
-    font-family="Georgia, 'Cormorant Garamond', serif"
-    font-size="32"
-    font-weight="500"
-    text-anchor="middle"
-    fill="#FAF7F2"
-    letter-spacing="-0.02em"
-  >SA</text>
+  <rect width="64" height="64" rx="14" fill="#F7F4EE"/>
+  <g transform="translate(8 7)">
+    <path d="M11 41V23a13 13 0 0 1 26 0v18" fill="none" stroke="#5C7A62" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M7 41h34" stroke="#5C7A62" stroke-width="2.6" stroke-linecap="round"/>
+    <circle cx="30.5" cy="17" r="2.8" fill="#C7896B"/>
+    <path d="M24 41V27" stroke="#5C7A62" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M24 33c-5.5-.3-8.5-3.6-8.5-8 4.6 0 8.5 3 8.5 8Z" fill="#8FA88F"/>
+    <path d="M24 29.5c5-.4 8-4 8-8.5-4.8.1-8 3.6-8 8.5Z" fill="#5C7A62"/>
+  </g>
 </svg>

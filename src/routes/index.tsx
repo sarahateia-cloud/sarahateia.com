@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Phone } from "lucide-react";
 import { BreathingExercise } from "@/components/breathing-exercise";
 import { Tilt, useScrollReveal } from "@/components/motion";
+import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
 import sarahPortrait from "@/assets/sarah-ateia.jpeg";
 import chicoPortrait from "@/assets/chico.jpeg";
 
@@ -12,14 +13,11 @@ export const Route = createFileRoute("/")({
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzdvlop";
 
-const PHONE_DISPLAY = "(972) 482-9526";
-const PHONE_HREF = "tel:+19724829526";
-
 const HIGHLIGHTS = [
   "LPC Associate",
   "National Certified Counselor",
   "English & Arabic",
-  "Sliding fee scale",
+  "Sliding scale $60–$100/hour",
   "Free 15-min consultation",
 ];
 
@@ -39,11 +37,11 @@ const SUPPORT_AREAS = [
 const CONSULT_PERKS = [
   {
     title: "Sliding fee scale",
-    body: "Self-pay with sliding fee scale options available — just ask during your call.",
+    body: "Self-pay, with sliding scale rates from $60 to $100 per hour — just ask during your call.",
   },
   {
-    title: "In-person or telehealth",
-    body: "In-person in Dallas–Fort Worth, or telehealth anywhere in Texas.",
+    title: "Outdoors or telehealth",
+    body: "In-person sessions in a Dallas–Fort Worth park, or telehealth anywhere in Texas.",
   },
   {
     title: "English or Arabic",
@@ -55,8 +53,52 @@ const DISCLOSURES = [
   "Sarah Ateia Khattab is a Licensed Professional Counselor Associate (LPC Associate #104391, Texas BHEC), practicing under the supervision of Don Zablosky, LPC-S (LPC #18541).",
   "Submitting this form doesn’t create a therapist–client relationship. Your information is used only to contact you about scheduling — please don’t include sensitive health details.",
   "Telehealth is available only to clients who are physically located in Texas at the time of each session.",
-  "Self-pay only; I don’t bill insurance. Sliding fee scale options are available. You have the right to receive a Good Faith Estimate of expected charges before services begin.",
+  "Outdoor sessions take place in public parks, where complete privacy can’t be guaranteed. We choose quieter spots, and we can pause, move, or switch to telehealth at any time. A signed outdoor-session consent form is required.",
+  "Self-pay only; I don’t bill insurance. Sliding scale rates range from $60 to $100 per hour. You have the right to receive a Good Faith Estimate of expected charges before services begin.",
   "Any genetic or biological discussion is educational only — never medical advice, diagnosis, or treatment. I don’t prescribe or interpret labs; I refer to physicians for medical concerns.",
+];
+
+const PRINCIPLES = [
+  {
+    title: "Cultural humility",
+    body: "I won’t assume I already know your story. I stay curious about your culture, faith, family, and language — and I welcome being corrected when I get something wrong.",
+  },
+  {
+    title: "Shared direction",
+    body: "You know your life in a way no one else does. I bring my counseling training; you bring your history and what you want. We decide where to go together.",
+  },
+  {
+    title: "The whole person",
+    body: "Mood, body, relationships, and culture are all connected, so we make room for all of them — not just the part that brought you in.",
+  },
+];
+
+const OUTDOOR_NOTES = [
+  {
+    title: "Where we meet",
+    body: "A quiet park in the Dallas–Fort Worth area that we choose together — somewhere easy for you to reach.",
+  },
+  {
+    title: "Walk or sit",
+    body: "We can walk at an easy pace or settle on a bench or blanket. You set the pace, and we can stop anytime.",
+  },
+  {
+    title: "Privacy",
+    body: "Parks are public, so we pick quieter spots and can pause or move whenever someone’s nearby.",
+  },
+  {
+    title: "Weather",
+    body: "Texas heat and storms happen. If it’s not comfortable outside, we switch that session to telehealth.",
+  },
+];
+
+const FEES = [
+  { service: "Phone consultation", detail: "15 minutes", price: "Free" },
+  {
+    service: "Individual session",
+    detail: "Outdoors in a park, or telehealth",
+    price: "$60–$100 / hour",
+  },
 ];
 
 const STEPS = [
@@ -70,7 +112,7 @@ const STEPS = [
   },
   {
     title: "Your first session",
-    body: "In person in Dallas–Fort Worth or by telehealth anywhere in Texas, in English or Arabic.",
+    body: "Outdoors in a Dallas–Fort Worth park or by telehealth anywhere in Texas, in English or Arabic.",
   },
 ];
 
@@ -82,7 +124,7 @@ const FAQS = [
   },
   {
     q: "Do you take insurance?",
-    a: "No. My practice is self-pay only, and I don’t bill insurance. Sliding fee scale options are available — we can talk about them during your free consultation.",
+    a: "No. My practice is self-pay only, and I don’t bill insurance. I offer a sliding scale from $60 to $100 per hour — we can talk about what fits during your free consultation.",
   },
   {
     q: "What happens in the free consultation?",
@@ -90,7 +132,19 @@ const FAQS = [
   },
   {
     q: "Do you offer telehealth?",
-    a: "Yes. Telehealth is available to clients who are located in Texas at the time of each session. In-person sessions are available in the Dallas–Fort Worth area.",
+    a: "Yes. Telehealth is available to clients who are located in Texas at the time of each session. In-person sessions are held outdoors, in parks around Dallas–Fort Worth.",
+  },
+  {
+    q: "Where do in-person sessions take place?",
+    a: "Outdoors, instead of an office. We meet in a quiet park in the Dallas–Fort Worth area that we choose together, and either walk at an easy pace or sit, whichever feels right for you.",
+  },
+  {
+    q: "Is there a consent form for outdoor sessions?",
+    a: "Yes. Before your first outdoor session, you’ll review and sign a short consent form that covers privacy, weather, and safety. I’ll walk you through it when we get started.",
+  },
+  {
+    q: "What happens if the weather is bad?",
+    a: "If it’s too hot, cold, or stormy to meet comfortably outside, we move that session to telehealth.",
   },
   {
     q: "Do you offer sessions in Arabic?",
@@ -146,48 +200,7 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Nav */}
-      <header className="absolute top-0 left-0 right-0 z-20">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 sm:py-8">
-          <a href="#top" className="font-serif text-xl tracking-tight text-foreground">
-            Sarah Ateia Khattab
-          </a>
-          <div className="hidden items-center gap-8 text-sm text-muted-foreground sm:flex">
-            <a href="#about" className="transition hover:text-foreground">
-              About
-            </a>
-            <a href="#approach" className="transition hover:text-foreground">
-              Approach
-            </a>
-            <a href="#support" className="transition hover:text-foreground">
-              Support
-            </a>
-            <a href="#faq" className="transition hover:text-foreground">
-              FAQ
-            </a>
-            <a
-              href={PHONE_HREF}
-              className="inline-flex items-center gap-2 transition hover:text-foreground"
-            >
-              <Phone className="h-3.5 w-3.5" aria-hidden />
-              {PHONE_DISPLAY}
-            </a>
-            <a
-              href="#consult"
-              className="rounded-full bg-primary px-5 py-2 text-primary-foreground transition hover:opacity-90"
-            >
-              Free 15-min Consultation
-            </a>
-          </div>
-          <a
-            href={PHONE_HREF}
-            className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs text-primary-foreground sm:hidden"
-          >
-            <Phone className="h-3 w-3" aria-hidden />
-            Call
-          </a>
-        </nav>
-      </header>
+      <SiteHeader />
 
       {/* Hero */}
       <section id="top" className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
@@ -233,7 +246,7 @@ function Index() {
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               There’s a reason your mind works the way it does — your stress response, your
               attention, your emotional patterns. My practice is rooted in that belief, with
-              sessions in-person in Dallas–Fort Worth and by telehealth across Texas.
+              sessions outdoors in Dallas–Fort Worth parks and by telehealth across Texas.
             </p>
             <div className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <a
@@ -255,10 +268,10 @@ function Index() {
               <a href={PHONE_HREF} className="font-medium text-foreground/80 hover:text-foreground">
                 {PHONE_DISPLAY}
               </a>{" "}
-              · Sliding fee scale options available
+              · Sliding scale $60–$100 per hour
             </p>
             <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-              <span>Dallas–Fort Worth · In-person</span>
+              <span>Dallas–Fort Worth · Outdoor sessions</span>
               <span className="hidden h-4 w-px bg-border sm:inline-block" />
               <span>Texas · Telehealth</span>
             </div>
@@ -456,7 +469,7 @@ function Index() {
               medical advice, always alongside the relational work itself.
             </p>
             <div className="grid grid-cols-2 gap-3 pt-2 sm:grid-cols-4">
-              {["Psychoeducation", "Mind–body", "Self-awareness", "Relational"].map((tag) => (
+              {["Grounding", "Mind–body", "Nature-based", "Relational"].map((tag) => (
                 <div
                   key={tag}
                   className="rounded-full border border-border bg-background px-4 py-2 text-center text-xs uppercase tracking-[0.16em] text-muted-foreground"
@@ -475,6 +488,69 @@ function Index() {
             </blockquote>
           </div>
         </div>
+      </section>
+
+      {/* Outdoor sessions */}
+      <section id="outdoors" className="py-24">
+        <div className="reveal mx-auto max-w-5xl px-6">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                Sessions outdoors
+              </p>
+              <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
+                Therapy under open sky, <em className="text-taupe">not</em> in an office.
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                In-person sessions happen outside, in a park. Many people find it easier to talk
+                side by side, with fresh air, trees, and room to move, than across a desk.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Nature becomes a gentle part of the work: noticing your breath, your feet on the
+                ground, the sounds around you. These are simple grounding practices you can take
+                home with you.
+              </p>
+            </div>
+            <NatureScene />
+          </div>
+          <ul className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {OUTDOOR_NOTES.map((note) => (
+              <li key={note.title} className="rounded-2xl border border-border bg-card p-5">
+                <p className="font-serif text-lg text-foreground">{note.title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{note.body}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-center text-sm text-muted-foreground">
+            Before your first outdoor session, you’ll sign a short consent form covering privacy,
+            weather, and safety. I’ll walk you through it.
+          </p>
+        </div>
+      </section>
+
+      {/* Principles */}
+      <section className="relative bg-primary text-primary-foreground">
+        <Wave className="text-background" />
+        <div className="reveal mx-auto max-w-5xl px-6 py-20 sm:py-24">
+          <p className="text-xs uppercase tracking-[0.2em] text-primary-foreground/70">
+            What I bring
+          </p>
+          <h2 className="mt-3 max-w-2xl font-serif text-3xl leading-tight sm:text-5xl">
+            Three things I hold in every session.
+          </h2>
+          <ol className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">
+            {PRINCIPLES.map((item, i) => (
+              <li key={item.title} className="border-t border-primary-foreground/25 pt-6">
+                <span className="font-serif text-5xl text-primary-foreground/50">0{i + 1}</span>
+                <h3 className="mt-4 font-serif text-2xl">{item.title}</h3>
+                <p className="mt-3 text-base leading-relaxed text-primary-foreground/80">
+                  {item.body}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <Wave className="text-background" flip />
       </section>
 
       {/* Breathing exercise */}
@@ -524,6 +600,58 @@ function Index() {
         </div>
       </section>
 
+      {/* Fees */}
+      <section id="fees" className="py-24">
+        <div className="reveal mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              Services &amp; fees
+            </p>
+            <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
+              Clear, flexible rates.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+              My practice is self-pay, and I don’t bill insurance. I keep a sliding scale so that
+              cost is less of a barrier to getting support.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              I’m licensed in Texas. If you live outside Texas, I’m glad to help point you toward
+              other options.
+            </p>
+          </div>
+          <div className="lg:col-span-7">
+            <div className="overflow-hidden rounded-3xl border border-border bg-card">
+              <ul className="divide-y divide-border">
+                {FEES.map((fee) => (
+                  <li
+                    key={fee.service}
+                    className="flex items-baseline justify-between gap-6 px-6 py-5 sm:px-8"
+                  >
+                    <div>
+                      <p className="font-serif text-xl text-foreground">{fee.service}</p>
+                      <p className="mt-1 text-sm text-muted-foreground">{fee.detail}</p>
+                    </div>
+                    <p className="whitespace-nowrap font-serif text-xl text-taupe">{fee.price}</p>
+                  </li>
+                ))}
+              </ul>
+              <div className="border-t border-border bg-secondary/50 px-6 py-6 sm:px-8">
+                <p className="font-serif text-lg text-foreground">How the sliding scale works</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  We settle on your rate together during the free consultation, based on what’s
+                  manageable for you. It stays private, and we can revisit it if your circumstances
+                  change.
+                </p>
+              </div>
+            </div>
+            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+              You have the right to receive a Good Faith Estimate of expected charges before
+              services begin.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Consultation Form */}
       <section id="consult" className="py-24">
         <div className="reveal mx-auto max-w-3xl px-6">
@@ -564,7 +692,7 @@ function Index() {
                 Call Now
               </a>
               <p className="mt-4 text-sm text-primary-foreground/75">
-                Sliding fee scale options available — ask on the call.
+                Sliding scale from $60 to $100 per hour — ask on the call.
               </p>
             </div>
           </div>
@@ -698,40 +826,20 @@ function Index() {
               </span>
               <span>
                 In crisis? Call or text <span className="font-medium">988</span> (Suicide &amp;
-                Crisis Lifeline) or go to your nearest emergency room.
+                Crisis Lifeline) or go to your nearest emergency room.{" "}
+                <a
+                  href="/crisis/"
+                  className="font-medium text-primary underline-offset-4 hover:underline"
+                >
+                  See Dallas–Fort Worth crisis resources →
+                </a>
               </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border/60 bg-secondary/30">
-        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-12 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="font-serif text-2xl text-foreground">Sarah Ateia Khattab</p>
-            <p className="mt-1 text-sm text-muted-foreground">M.S., LPC Associate, NCC</p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Irving, Texas · In-person in Dallas–Fort Worth · Telehealth across Texas
-            </p>
-          </div>
-          <div className="text-sm text-muted-foreground sm:text-right">
-            <p>
-              <a href="mailto:attya.llc@gmail.com" className="transition hover:text-foreground">
-                attya.llc@gmail.com
-              </a>
-              {" · "}
-              <a href={PHONE_HREF} className="transition hover:text-foreground">
-                {PHONE_DISPLAY}
-              </a>
-            </p>
-            <p className="mt-2 text-xs">
-              LPC Associate #104391 · Supervised by Don Zablosky, LPC-S
-            </p>
-            <p className="mt-1 text-xs">© {new Date().getFullYear()} Attya LLC.</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
@@ -762,5 +870,77 @@ function Field({
         className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground transition placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25"
       />
     </label>
+  );
+}
+
+/** A soft wave edge between a colored band and the page background. */
+function Wave({ className, flip }: { className?: string; flip?: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 1440 60"
+      preserveAspectRatio="none"
+      className={`block h-10 w-full sm:h-14 ${flip ? "rotate-180" : ""} ${className ?? ""}`}
+      aria-hidden
+    >
+      <path
+        fill="currentColor"
+        d="M0 0h1440v22c-120 18-260 30-420 24S760 18 600 16 300 34 160 38 40 34 0 30Z"
+      />
+    </svg>
+  );
+}
+
+/** A calm illustrated park scene for the outdoor sessions section. */
+function NatureScene() {
+  return (
+    <div className="overflow-hidden rounded-[2rem] border border-border shadow-[0_30px_80px_-40px_rgba(80,60,40,0.4)]">
+      <svg
+        viewBox="0 0 480 360"
+        className="block h-auto w-full"
+        role="img"
+        aria-label="Illustration of a quiet park with trees, rolling hills, and a path"
+      >
+        <rect width="480" height="360" fill="var(--secondary)" />
+        <circle cx="350" cy="96" r="38" fill="var(--terracotta)" opacity="0.55" />
+        <path d="M0 220c70-40 150-52 240-30s170 20 240-10v180H0Z" fill="var(--accent)" />
+        <path
+          d="M0 262c90-34 190-38 280-14s150 18 200 0v112H0Z"
+          fill="var(--sage)"
+          opacity="0.85"
+        />
+        <path
+          d="M0 300c110-24 230-22 330-6s120 10 150 4v62H0Z"
+          fill="var(--primary)"
+          opacity="0.9"
+        />
+        <path
+          d="M250 360c-10-40 6-70 40-96s46-44 40-62"
+          fill="none"
+          stroke="var(--background)"
+          strokeWidth="14"
+          strokeLinecap="round"
+          opacity="0.7"
+        />
+        <g fill="var(--primary)">
+          <rect x="92" y="170" width="7" height="70" rx="3" />
+          <circle cx="95" cy="158" r="34" />
+          <circle cx="74" cy="178" r="22" />
+          <circle cx="118" cy="180" r="24" />
+        </g>
+        <g fill="var(--taupe)" opacity="0.85">
+          <rect x="398" y="196" width="6" height="56" rx="3" />
+          <circle cx="401" cy="186" r="26" />
+          <circle cx="384" cy="200" r="16" />
+        </g>
+        <path
+          d="M150 120c10-8 20-8 30 0M174 108c8-6 16-6 24 0"
+          fill="none"
+          stroke="var(--taupe)"
+          strokeWidth="2.4"
+          strokeLinecap="round"
+          opacity="0.6"
+        />
+      </svg>
+    </div>
   );
 }
