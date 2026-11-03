@@ -1,4 +1,4 @@
-/** The logo mark: a sprout growing inside an open arch, with a small warm sun. */
+/** The logo mark: leaves growing from a DNA-helix stem inside an open arch, with a small warm sun. */
 export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
   return (
     <svg viewBox="0 0 48 48" className={className} aria-hidden>
@@ -10,10 +10,18 @@ export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
         strokeLinecap="round"
       />
       <path d="M7 41h34" stroke="var(--primary)" strokeWidth="2.4" strokeLinecap="round" />
-      <circle cx="30.5" cy="17" r="2.6" fill="var(--terracotta)" />
-      <path d="M24 41V27" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" />
-      <path d="M24 33c-5.5-.3-8.5-3.6-8.5-8 4.6 0 8.5 3 8.5 8Z" fill="var(--sage)" />
-      <path d="M24 29.5c5-.4 8-4 8-8.5-4.8.1-8 3.6-8 8.5Z" fill="var(--primary)" />
+      <circle cx="17.5" cy="15.5" r="2.4" fill="var(--terracotta)" />
+      <g strokeLinecap="round" fill="none">
+        <path
+          d="M21.6 38h4.8M22.6 35.9h2.8M22.6 34.1h2.8M21.6 32h4.8"
+          stroke="var(--sage)"
+          strokeWidth="1.1"
+        />
+        <path d="M24 41c3.6-2 3.6-4 0-6s-3.6-4 0-6" stroke="var(--sage)" strokeWidth="1.7" />
+        <path d="M24 41c-3.6-2-3.6-4 0-6s3.6-4 0-6" stroke="var(--primary)" strokeWidth="1.7" />
+      </g>
+      <path d="M24 29.5c-5.5-.3-8.5-3.6-8.5-8 4.6 0 8.5 3 8.5 8Z" fill="var(--sage)" />
+      <path d="M24 28c5-.4 8-4 8-8.5-4.8.1-8 3.6-8 8.5Z" fill="var(--primary)" />
     </svg>
   );
 }

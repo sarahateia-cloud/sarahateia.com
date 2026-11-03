@@ -2,10 +2,19 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Phone } from "lucide-react";
 import { BreathingExercise } from "@/components/breathing-exercise";
-import { Tilt, useScrollReveal } from "@/components/motion";
+import { WatercolorBloom } from "@/components/watercolor-bloom";
+import {
+  RiseWords,
+  ScrollProgress,
+  Tilt,
+  useCardGlow,
+  useScrollReveal,
+  useSpotlight,
+} from "@/components/motion";
 import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
 import sarahPortrait from "@/assets/sarah-ateia.jpeg";
 import chicoPortrait from "@/assets/chico.jpeg";
+import brainArt from "@/assets/brain-watercolor.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -162,6 +171,8 @@ const FAQS = [
 
 function Index() {
   useScrollReveal();
+  useCardGlow();
+  const heroRef = useSpotlight<HTMLElement>();
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -200,18 +211,17 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <SiteHeader />
+      <ScrollProgress />
+      <SiteHeader dark />
 
       {/* Hero */}
-      <section id="top" className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
-        <div
-          className="pointer-events-none absolute inset-0 -z-10"
-          style={{
-            background:
-              "radial-gradient(60% 50% at 75% 20%, color-mix(in oklab, var(--sage) 32%, transparent), transparent 70%), radial-gradient(50% 60% at 10% 80%, color-mix(in oklab, var(--sage) 28%, transparent), transparent 70%)",
-          }}
-        />
+      <section
+        id="top"
+        ref={heroRef}
+        className="dark-scope luxe-dark luxe-grid spotlight overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32"
+      >
         <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden>
+          <div className="aurora" />
           <div
             className="glow-orb"
             style={{
@@ -229,29 +239,46 @@ function Index() {
               left: "-6%",
               width: "24rem",
               height: "24rem",
-              background: "color-mix(in oklab, var(--sage) 22%, transparent)",
+              background: "color-mix(in oklab, var(--gold) 14%, transparent)",
             }}
           />
         </div>
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-7">
-            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-muted-foreground backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-sage" />
+            <p
+              style={{ "--i": 0 } as React.CSSProperties}
+              className="rise glass mb-7 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.22em] text-muted-foreground"
+            >
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold" />
               Now accepting new clients
             </p>
-            <h1 className="font-serif text-4xl leading-[1.05] text-foreground sm:text-6xl lg:text-[4.25rem]">
-              You’ve tried managing it. What if you could finally{" "}
-              <em className="text-taupe">understand</em> it?
+            <h1 className="font-serif text-[2.6rem] font-light leading-[1.02] tracking-[-0.02em] text-foreground sm:text-6xl lg:text-[4.75rem]">
+              <span className="sr-only">
+                You’ve tried managing it. What if you could finally understand it?
+              </span>
+              <span aria-hidden>
+                <RiseWords text="You’ve tried managing it. What if you could finally" start={1} />
+                <em className="rise text-gold-sheen" style={{ "--i": 10 } as React.CSSProperties}>
+                  understand
+                </em>{" "}
+                <RiseWords text="it?" start={11} />
+              </span>
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p
+              style={{ "--i": 13 } as React.CSSProperties}
+              className="rise mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+            >
               There’s a reason your mind works the way it does — your stress response, your
               attention, your emotional patterns. My practice is rooted in that belief, with
               sessions outdoors in Dallas–Fort Worth parks and by telehealth across Texas.
             </p>
-            <div className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+            <div
+              style={{ "--i": 15 } as React.CSSProperties}
+              className="rise mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
+            >
               <a
                 href={PHONE_HREF}
-                className="inline-flex items-center justify-center gap-2.5 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_8px_30px_-12px_color-mix(in_oklab,var(--primary)_60%,transparent)] transition hover:opacity-90"
+                className="btn-shine inline-flex items-center justify-center gap-2.5 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_10px_40px_-12px_color-mix(in_oklab,var(--primary)_70%,transparent)] transition hover:-translate-y-0.5"
               >
                 <Phone className="h-4 w-4" aria-hidden />
                 Call for a Free 15-Min Consultation
@@ -287,14 +314,14 @@ function Index() {
                       "linear-gradient(135deg, color-mix(in oklab, var(--sage) 55%, transparent), color-mix(in oklab, var(--sage) 25%, transparent))",
                   }}
                 />
-                <div className="overflow-hidden rounded-[2rem] border border-border bg-card shadow-[0_30px_80px_-30px_rgba(80,60,40,0.35)]">
+                <div className="overflow-hidden rounded-[2rem] border border-[color:color-mix(in_oklab,var(--gold)_35%,transparent)] bg-card p-1.5 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.6)]">
                   <img
                     src={sarahPortrait}
                     alt="Portrait of Sarah Ateia Khattab"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full rounded-[1.6rem] object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-5 -left-5 rounded-2xl border border-border bg-background/90 px-5 py-3 backdrop-blur">
+                <div className="absolute -bottom-5 -left-5 rounded-2xl border border-border bg-night/85 px-5 py-3 backdrop-blur-md">
                   <p className="font-serif text-lg leading-tight text-foreground">
                     Sarah Ateia Khattab
                   </p>
@@ -309,15 +336,25 @@ function Index() {
       </section>
 
       {/* Highlights strip */}
-      <div className="border-t border-border/60 bg-card/50">
-        <ul className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6 py-6 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-          {HIGHLIGHTS.map((item) => (
-            <li key={item} className="flex items-center gap-2.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-sage" aria-hidden />
-              {item}
-            </li>
-          ))}
-        </ul>
+      <div className="dark-scope marquee-wrap overflow-hidden border-t border-border bg-night py-6">
+        <div className="[mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
+          <div className="marquee">
+            {[0, 1].map((copy) => (
+              <ul
+                key={copy}
+                aria-hidden={copy === 1}
+                className="flex shrink-0 items-center gap-x-10 pr-10 text-xs uppercase tracking-[0.2em] text-muted-foreground"
+              >
+                {[...HIGHLIGHTS, ...HIGHLIGHTS].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 whitespace-nowrap">
+                    <span className="h-1 w-1 rotate-45 bg-gold" aria-hidden />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* About */}
@@ -410,6 +447,28 @@ function Index() {
         </div>
       </section>
 
+      {/* Art interlude */}
+      <section className="relative overflow-hidden py-24">
+        <div className="reveal mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-12">
+          <figure className="lg:col-span-7">
+            <div className="glow-card -rotate-1 rounded-[2rem] border border-border bg-[#fbf8f1] p-4 shadow-[0_40px_90px_-50px_rgba(60,50,40,0.55)] transition-transform duration-700 hover:rotate-0 sm:p-6">
+              <WatercolorBloom className="block h-auto w-full" />
+            </div>
+          </figure>
+          <div className="lg:col-span-5">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">A pause</p>
+            <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
+              Feelings rarely stay inside the lines.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              They bleed into each other, like watercolor: worry into tiredness, grief into anger,
+              hope into fear. Therapy can be a place to notice the colors without needing to tidy
+              them up first.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Support areas */}
       <section id="support" className="py-24">
         <div className="reveal mx-auto max-w-5xl px-6">
@@ -426,7 +485,7 @@ function Index() {
             {SUPPORT_AREAS.map((item) => (
               <li
                 key={item}
-                className="group flex items-start gap-3 rounded-2xl border border-border bg-card/60 px-5 py-4 transition hover:border-clay/60 hover:bg-card"
+                className="glow-card group flex items-start gap-3 rounded-2xl border border-border bg-card/60 px-5 py-4"
               >
                 <span
                   className="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"
@@ -454,6 +513,18 @@ function Index() {
             <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
               A thoughtful, emerging approach to emotional wellness.
             </h2>
+            <figure className="mt-10 w-full max-w-[13rem] lg:max-w-[15rem]">
+              <div className="glow-card overflow-hidden rounded-[1.75rem] border border-border bg-[#fbf8f1] p-2 shadow-[0_40px_90px_-50px_rgba(60,50,40,0.6)]">
+                <img
+                  src={brainArt}
+                  alt="Ink artwork of a brain in blue, rose, and amber, with fine lines branching like roots"
+                  width={192}
+                  height={336}
+                  loading="lazy"
+                  className="h-auto w-full rounded-[1.4rem]"
+                />
+              </div>
+            </figure>
           </div>
           <div className="space-y-6 lg:col-span-7">
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -515,7 +586,10 @@ function Index() {
           </div>
           <ul className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {OUTDOOR_NOTES.map((note) => (
-              <li key={note.title} className="rounded-2xl border border-border bg-card p-5">
+              <li
+                key={note.title}
+                className="glow-card rounded-2xl border border-border bg-card p-5"
+              >
                 <p className="font-serif text-lg text-foreground">{note.title}</p>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{note.body}</p>
               </li>
@@ -529,28 +603,25 @@ function Index() {
       </section>
 
       {/* Principles */}
-      <section className="relative bg-primary text-primary-foreground">
-        <Wave className="text-background" />
+      <section className="dark-scope luxe-dark luxe-grid overflow-hidden">
+        <div className="aurora" aria-hidden />
+        <Wave className="text-cream" />
         <div className="reveal mx-auto max-w-5xl px-6 py-20 sm:py-24">
-          <p className="text-xs uppercase tracking-[0.2em] text-primary-foreground/70">
-            What I bring
-          </p>
+          <p className="text-xs uppercase tracking-[0.2em] text-gold">What I bring</p>
           <h2 className="mt-3 max-w-2xl font-serif text-3xl leading-tight sm:text-5xl">
             Three things I hold in every session.
           </h2>
           <ol className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">
             {PRINCIPLES.map((item, i) => (
-              <li key={item.title} className="border-t border-primary-foreground/25 pt-6">
-                <span className="font-serif text-5xl text-primary-foreground/50">0{i + 1}</span>
+              <li key={item.title} className="glass glow-card rounded-3xl p-7">
+                <span className="text-gold-sheen font-serif text-5xl font-light">0{i + 1}</span>
                 <h3 className="mt-4 font-serif text-2xl">{item.title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-primary-foreground/80">
-                  {item.body}
-                </p>
+                <p className="mt-3 text-base leading-relaxed text-muted-foreground">{item.body}</p>
               </li>
             ))}
           </ol>
         </div>
-        <Wave className="text-background" flip />
+        <Wave className="text-cream" flip />
       </section>
 
       {/* Breathing exercise */}
@@ -589,7 +660,7 @@ function Index() {
             {STEPS.map((step, i) => (
               <li
                 key={step.title}
-                className="rounded-2xl border border-border bg-card p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-30px_rgba(80,60,40,0.35)]"
+                className="glow-card rounded-2xl border border-border bg-card p-6"
               >
                 <span className="font-serif text-4xl text-taupe">{i + 1}</span>
                 <p className="mt-3 font-serif text-xl text-foreground">{step.title}</p>
@@ -666,7 +737,8 @@ function Index() {
             </p>
           </div>
 
-          <div className="relative mt-10 overflow-hidden rounded-3xl bg-primary px-6 py-10 text-center text-primary-foreground shadow-[0_30px_80px_-30px_color-mix(in_oklab,var(--primary)_70%,transparent)] sm:px-10">
+          <div className="dark-scope luxe-dark luxe-grid mt-10 overflow-hidden rounded-3xl px-6 py-12 text-center shadow-[0_40px_100px_-40px_rgba(0,0,0,0.55)] sm:px-10">
+            <div className="aurora" aria-hidden />
             <div
               className="pointer-events-none absolute inset-0 opacity-60"
               style={{
@@ -675,7 +747,7 @@ function Index() {
               }}
             />
             <div className="relative">
-              <p className="text-xs uppercase tracking-[0.2em] text-primary-foreground/75">
+              <p className="text-xs uppercase tracking-[0.2em] text-gold">
                 Call for your free 15-minute consultation
               </p>
               <a
@@ -686,12 +758,12 @@ function Index() {
               </a>
               <a
                 href={PHONE_HREF}
-                className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-primary-foreground px-7 py-3.5 text-sm font-medium text-primary transition hover:opacity-90"
+                className="btn-shine mt-6 inline-flex items-center gap-2.5 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition hover:-translate-y-0.5"
               >
                 <Phone className="h-4 w-4" aria-hidden />
                 Call Now
               </a>
-              <p className="mt-4 text-sm text-primary-foreground/75">
+              <p className="mt-4 text-sm text-muted-foreground">
                 Sliding scale from $60 to $100 per hour — ask on the call.
               </p>
             </div>
@@ -699,7 +771,10 @@ function Index() {
 
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
             {CONSULT_PERKS.map((perk) => (
-              <div key={perk.title} className="rounded-2xl border border-border bg-card p-5">
+              <div
+                key={perk.title}
+                className="glow-card rounded-2xl border border-border bg-card p-5"
+              >
                 <p className="font-serif text-lg text-foreground">{perk.title}</p>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{perk.body}</p>
               </div>

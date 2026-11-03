@@ -36,6 +36,9 @@
   --color-rose: var(--rose);
   --color-taupe: var(--taupe);
   --color-terracotta: var(--terracotta);
+  --color-gold: var(--gold);
+  --color-night: var(--night);
+  --color-cream: var(--cream);
   --font-serif: "Cormorant Garamond", "Cormorant", ui-serif, Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
@@ -77,6 +80,9 @@
   --rose: oklch(0.84 0.04 145); /* repointed to light sage */
   --taupe: oklch(0.45 0.05 150); /* dark sage for em emphasis */
   --terracotta: oklch(0.68 0.1 45); /* warm accent, used sparingly (logo sun) */
+  --gold: oklch(0.8 0.065 35); /* rose gold accent for dark sections (swap here to recolor) */
+  --night: oklch(0.33 0.03 160); /* soft deep sage, dark sections */
+  --cream: oklch(0.975 0.008 85);
 }
 
 @layer base {
@@ -100,6 +106,211 @@
     font-family: var(--font-serif);
     font-weight: 400;
     letter-spacing: -0.01em;
+  }
+}
+
+/* Luxe dark sections: re-points the theme tokens so existing utilities read light-on-dark. */
+.dark-scope {
+  --background: var(--night);
+  --foreground: oklch(0.96 0.01 85);
+  --card: oklch(1 0 0 / 0.05);
+  --card-foreground: oklch(0.96 0.01 85);
+  --muted-foreground: oklch(0.8 0.015 85);
+  --secondary: oklch(1 0 0 / 0.06);
+  --border: oklch(1 0 0 / 0.12);
+  --primary: var(--gold);
+  --primary-foreground: var(--night);
+  --taupe: var(--gold);
+  --sage: oklch(0.72 0.07 160);
+  color: var(--foreground);
+}
+
+.luxe-dark {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(55% 60% at 80% 10%, oklch(0.52 0.06 160 / 0.6), transparent 70%),
+    radial-gradient(45% 55% at 5% 95%, oklch(0.72 0.06 35 / 0.2), transparent 70%),
+    var(--night);
+}
+
+/* Faint architectural grid that fades toward the edges. */
+.luxe-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 0.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 80%);
+}
+
+/* Soft light that follows the pointer (position set by useSpotlight). */
+.spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--mx, 70%) var(--my, 30%),
+    oklch(0.8 0.065 35 / 0.14),
+    transparent 60%
+  );
+}
+
+.glass {
+  background: oklch(1 0 0 / 0.05);
+  border: 1px solid oklch(1 0 0 / 0.12);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+
+.text-gold-sheen {
+  background: linear-gradient(100deg, oklch(0.93 0.03 40), var(--gold) 40%, oklch(0.82 0.06 150), oklch(0.93 0.03 40));
+  background-size: 220% 100%;
+  animation: sheen 8s ease-in-out infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, oklch(0.8 0.065 35 / 0.6), transparent);
+}
+
+/* A light sweep across a button on hover. */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%) skewX(-20deg);
+  background: linear-gradient(90deg, transparent, oklch(1 0 0 / 0.45), transparent);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-shine:hover::after {
+  transform: translateX(120%) skewX(-20deg);
+}
+
+/* Slowly shifting aurora light behind dark sections. */
+.aurora {
+  position: absolute;
+  inset: -30%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    conic-gradient(
+      from 0deg at 60% 40%,
+      oklch(0.6 0.07 160 / 0.35),
+      oklch(0.78 0.06 35 / 0.22),
+      oklch(0.7 0.05 200 / 0.25),
+      oklch(0.6 0.07 160 / 0.35)
+    );
+  filter: blur(80px);
+  animation: aurora-spin 40s linear infinite;
+}
+
+@keyframes aurora-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sheen {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Headline words rise in one after another (delay set per word via --i). */
+.rise {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(0, 0.5em, 0);
+  filter: blur(6px);
+  animation: rise 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 70ms + 150ms);
+}
+
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+/* Cards light up with a soft glow that tracks the pointer (see useCardGlow). */
+.glow-card {
+  position: relative;
+  isolation: isolate;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease,
+    border-color 0.5s ease;
+}
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    320px circle at var(--gx, 50%) var(--gy, 50%),
+    color-mix(in oklab, var(--gold) 22%, transparent),
+    transparent 65%
+  );
+}
+.glow-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in oklab, var(--gold) 55%, transparent);
+  box-shadow: 0 24px 60px -30px color-mix(in oklab, var(--gold) 60%, transparent);
+}
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+/* Thin rose-gold reading progress line at the top of the page. */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 2px;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--sage), var(--gold));
+  pointer-events: none;
+}
+
+/* Endless ticker for the highlights strip. */
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.marquee-wrap:hover .marquee {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
   }
 }
 
@@ -169,7 +380,28 @@
     transition: none;
   }
   .tilt,
-  .breath-circle {
+  .breath-circle,
+  .btn-shine::after {
+    transition: none;
+  }
+  .spotlight::after,
+  .scroll-progress {
+    display: none;
+  }
+  .aurora,
+  .marquee,
+  .text-gold-sheen {
+    animation: none;
+  }
+  .rise {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  .glow-card,
+  .glow-card:hover {
+    transform: none;
     transition: none;
   }
 }

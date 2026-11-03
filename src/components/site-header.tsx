@@ -14,7 +14,8 @@ const NAV_LINKS = [
   { label: "Crisis Resources", href: "/crisis/" },
 ];
 
-export function SiteHeader() {
+/** `dark` styles the header for the dark hero it sits over. */
+export function SiteHeader({ dark = false }: { dark?: boolean }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -26,7 +27,7 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-30">
+    <header className={`absolute top-0 left-0 right-0 z-30 ${dark ? "dark-scope" : ""}`}>
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 sm:py-8">
         <a href="/" aria-label="Sarah Ateia Khattab, home">
           <Logo />
@@ -39,7 +40,7 @@ export function SiteHeader() {
           ))}
           <a
             href="/#consult"
-            className="rounded-full bg-primary px-5 py-2 text-primary-foreground transition hover:opacity-90"
+            className="btn-shine rounded-full bg-primary px-5 py-2 text-primary-foreground transition hover:-translate-y-0.5"
           >
             Free 15-min Consultation
           </a>
@@ -57,7 +58,7 @@ export function SiteHeader() {
             onClick={() => setOpen(true)}
             aria-label="Open menu"
             aria-expanded={open}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/70 text-foreground backdrop-blur"
+            className="glass flex h-9 w-9 items-center justify-center rounded-full text-foreground"
           >
             <Menu className="h-4 w-4" aria-hidden />
           </button>
@@ -66,7 +67,7 @@ export function SiteHeader() {
 
       {open && (
         <div
-          className="menu-overlay fixed inset-0 z-40 flex flex-col bg-primary text-primary-foreground"
+          className="dark-scope luxe-dark luxe-grid fixed inset-0 z-40 flex flex-col"
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
@@ -76,7 +77,7 @@ export function SiteHeader() {
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Close menu"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/30"
+              className="glass flex h-10 w-10 items-center justify-center rounded-full"
             >
               <X className="h-5 w-5" aria-hidden />
             </button>
@@ -87,7 +88,7 @@ export function SiteHeader() {
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="font-serif text-4xl transition hover:opacity-80"
+                  className="font-serif text-4xl font-light transition hover:text-gold"
                 >
                   {link.label}
                 </a>
@@ -97,12 +98,12 @@ export function SiteHeader() {
           <div className="space-y-3 px-10 pb-12">
             <a
               href={PHONE_HREF}
-              className="inline-flex items-center gap-2.5 rounded-full bg-primary-foreground px-6 py-3 text-sm font-medium text-primary"
+              className="btn-shine inline-flex items-center gap-2.5 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground"
             >
               <Phone className="h-4 w-4" aria-hidden />
               {PHONE_DISPLAY}
             </a>
-            <p className="text-sm text-primary-foreground/75">
+            <p className="text-sm text-muted-foreground">
               Free 15-minute consultation · Sliding scale $60–$100 per hour
             </p>
           </div>
@@ -114,7 +115,8 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border/60 bg-secondary/30">
+    <footer className="dark-scope luxe-dark">
+      <div className="gold-rule" />
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-12 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <Logo tagline={false} />
