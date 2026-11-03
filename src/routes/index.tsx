@@ -15,7 +15,7 @@ import {
 } from "@/components/motion";
 import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
 import sarahPortrait from "@/assets/sarah-harbor.jpg";
-import sarahHeadshot from "@/assets/sarah-ateia.jpeg";
+import sarahHeadshot from "@/assets/sarah-headshot.jpg";
 import sarahGraduation from "@/assets/sarah-graduation.jpg";
 import sarahOverlook from "@/assets/sarah-overlook.jpg";
 import chicoPortrait from "@/assets/chico.jpeg";
@@ -345,7 +345,7 @@ function Index() {
                 <img
                   src={sarahHeadshot}
                   alt="Sarah Ateia Khattab smiling"
-                  className="absolute -top-6 -right-4 aspect-square w-28 rounded-full border-4 border-card object-cover shadow-[0_20px_50px_-20px_oklch(0.35_0.04_70_/_0.5)] sm:-right-6 sm:w-32"
+                  className="absolute -top-6 -left-4 aspect-square w-28 rounded-full border-4 border-card object-cover object-top shadow-[0_20px_50px_-20px_oklch(0.35_0.04_70_/_0.5)] sm:-left-6 sm:w-32"
                 />
               </div>
             </Tilt>
