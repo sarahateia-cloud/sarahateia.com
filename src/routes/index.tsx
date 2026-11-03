@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Phone } from "lucide-react";
 import { BreathingExercise } from "@/components/breathing-exercise";
+import { DnaHelix, FloralNeuron } from "@/components/bio-motifs";
+import { NeuralField } from "@/components/neural-field";
 import { WatercolorBloom } from "@/components/watercolor-bloom";
 import {
   RiseWords,
@@ -12,8 +14,13 @@ import {
   useSpotlight,
 } from "@/components/motion";
 import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
-import sarahPortrait from "@/assets/sarah-ateia.jpeg";
+import sarahPortrait from "@/assets/sarah-harbor.jpg";
+import sarahHeadshot from "@/assets/sarah-ateia.jpeg";
+import sarahGraduation from "@/assets/sarah-graduation.jpg";
+import sarahOverlook from "@/assets/sarah-overlook.jpg";
 import chicoPortrait from "@/assets/chico.jpeg";
+import chicoSoft from "@/assets/chico-soft.jpg";
+import chicoSleeping from "@/assets/chico-sleeping.jpg";
 import brainArt from "@/assets/brain-watercolor.png";
 
 export const Route = createFileRoute("/")({
@@ -46,7 +53,7 @@ const SUPPORT_AREAS = [
 const CONSULT_PERKS = [
   {
     title: "Sliding fee scale",
-    body: "Self-pay, with sliding scale rates from $60 to $100 per hour — just ask during your call.",
+    body: "Self-pay, with sliding scale rates from $60 to $100 per hour. Just ask during your call.",
   },
   {
     title: "Outdoors or telehealth",
@@ -60,17 +67,17 @@ const CONSULT_PERKS = [
 
 const DISCLOSURES = [
   "Sarah Ateia Khattab is a Licensed Professional Counselor Associate (LPC Associate #104391, Texas BHEC), practicing under the supervision of Don Zablosky, LPC-S (LPC #18541).",
-  "Submitting this form doesn’t create a therapist–client relationship. Your information is used only to contact you about scheduling — please don’t include sensitive health details.",
+  "Submitting this form doesn’t create a therapist–client relationship. Your information is used only to contact you about scheduling. Please don’t include sensitive health details.",
   "Telehealth is available only to clients who are physically located in Texas at the time of each session.",
   "Outdoor sessions take place in public parks, where complete privacy can’t be guaranteed. We choose quieter spots, and we can pause, move, or switch to telehealth at any time. A signed outdoor-session consent form is required.",
   "Self-pay only; I don’t bill insurance. Sliding scale rates range from $60 to $100 per hour. You have the right to receive a Good Faith Estimate of expected charges before services begin.",
-  "Any genetic or biological discussion is educational only — never medical advice, diagnosis, or treatment. I don’t prescribe or interpret labs; I refer to physicians for medical concerns.",
+  "Any genetic or biological discussion is educational only, never medical advice, diagnosis, or treatment. I don’t prescribe or interpret labs; I refer to physicians for medical concerns.",
 ];
 
 const PRINCIPLES = [
   {
     title: "Cultural humility",
-    body: "I won’t assume I already know your story. I stay curious about your culture, faith, family, and language — and I welcome being corrected when I get something wrong.",
+    body: "I won’t assume I already know your story. I stay curious about your culture, faith, family, and language, and I welcome being corrected when I get something wrong.",
   },
   {
     title: "Shared direction",
@@ -78,14 +85,14 @@ const PRINCIPLES = [
   },
   {
     title: "The whole person",
-    body: "Mood, body, relationships, and culture are all connected, so we make room for all of them — not just the part that brought you in.",
+    body: "Mood, body, relationships, and culture are all connected, so we make room for all of them, not just the part that brought you in.",
   },
 ];
 
 const OUTDOOR_NOTES = [
   {
     title: "Where we meet",
-    body: "A quiet park in the Dallas–Fort Worth area that we choose together — somewhere easy for you to reach.",
+    body: "A quiet park in the Dallas–Fort Worth area that we choose together, somewhere easy for you to reach.",
   },
   {
     title: "Walk or sit",
@@ -117,7 +124,7 @@ const STEPS = [
   },
   {
     title: "Free 15-minute consultation",
-    body: "We talk about what you’re looking for and whether we’re a good fit — no commitment.",
+    body: "We talk about what you’re looking for and whether we’re a good fit. No commitment.",
   },
   {
     title: "Your first session",
@@ -133,7 +140,7 @@ const FAQS = [
   },
   {
     q: "Do you take insurance?",
-    a: "No. My practice is self-pay only, and I don’t bill insurance. I offer a sliding scale from $60 to $100 per hour — we can talk about what fits during your free consultation.",
+    a: "No. My practice is self-pay only, and I don’t bill insurance. I offer a sliding scale from $60 to $100 per hour, and we can talk about what fits during your free consultation.",
   },
   {
     q: "What happens in the free consultation?",
@@ -157,11 +164,15 @@ const FAQS = [
   },
   {
     q: "Do you offer sessions in Arabic?",
-    a: "Yes. Sessions are available in English or Arabic.",
+    a: "Yes. I’m an Arabic-speaking counselor based in Irving, offering sessions in Arabic or English, outdoors around Dallas–Fort Worth or by telehealth anywhere in Texas.",
+  },
+  {
+    q: "Do you offer affordable therapy in Dallas–Fort Worth?",
+    a: "Yes. I offer a sliding scale from $60 to $100 per hour, set together during a free 15-minute consultation, for clients in Irving, Dallas, Fort Worth, and across Texas by telehealth.",
   },
   {
     q: "What is genetics-informed psychoeducation?",
-    a: "It’s an educational way of talking about how biology may relate to patterns in mood, stress, and attention. It’s never medical advice, diagnosis, or treatment — I don’t order or interpret lab tests, and I refer to physicians for medical questions.",
+    a: "It’s an educational way of talking about how biology may relate to patterns in mood, stress, and attention. It’s never medical advice, diagnosis, or treatment. I don’t order or interpret lab tests, and I refer to physicians for medical questions.",
   },
   {
     q: "What if I’m in crisis?",
@@ -218,10 +229,12 @@ function Index() {
       <section
         id="top"
         ref={heroRef}
-        className="dark-scope luxe-dark luxe-grid spotlight overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32"
+        className="holo-scope holo-bg holo-grid spotlight overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24"
       >
         <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden>
           <div className="aurora" />
+          <NeuralField className="absolute inset-0 h-full w-full opacity-80" />
+          <DnaHelix className="absolute top-0 right-[3%] hidden h-full w-14 opacity-50 lg:block" />
           <div
             className="glow-orb"
             style={{
@@ -268,7 +281,7 @@ function Index() {
               style={{ "--i": 13 } as React.CSSProperties}
               className="rise mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
             >
-              There’s a reason your mind works the way it does — your stress response, your
+              There’s a reason your mind works the way it does: your stress response, your
               attention, your emotional patterns. My practice is rooted in that belief, with
               sessions outdoors in Dallas–Fort Worth parks and by telehealth across Texas.
             </p>
@@ -314,11 +327,11 @@ function Index() {
                       "linear-gradient(135deg, color-mix(in oklab, var(--sage) 55%, transparent), color-mix(in oklab, var(--sage) 25%, transparent))",
                   }}
                 />
-                <div className="overflow-hidden rounded-[2rem] border border-[color:color-mix(in_oklab,var(--gold)_35%,transparent)] bg-card p-1.5 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.6)]">
+                <div className="overflow-hidden rounded-[2rem] border border-[color:color-mix(in_oklab,var(--gold)_35%,transparent)] bg-card p-1.5 shadow-[0_40px_100px_-40px_oklch(0.35_0.04_70_/_0.45)]">
                   <img
                     src={sarahPortrait}
                     alt="Portrait of Sarah Ateia Khattab"
-                    className="h-full w-full rounded-[1.6rem] object-cover"
+                    className="aspect-[4/5] h-full w-full rounded-[1.6rem] object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-5 -left-5 rounded-2xl border border-border bg-night/85 px-5 py-3 backdrop-blur-md">
@@ -329,6 +342,11 @@ function Index() {
                     M.S., LPC Associate, NCC
                   </p>
                 </div>
+                <img
+                  src={sarahHeadshot}
+                  alt="Sarah Ateia Khattab smiling"
+                  className="absolute -top-6 -right-4 aspect-square w-28 rounded-full border-4 border-card object-cover shadow-[0_20px_50px_-20px_oklch(0.35_0.04_70_/_0.5)] sm:-right-6 sm:w-32"
+                />
               </div>
             </Tilt>
           </div>
@@ -336,7 +354,7 @@ function Index() {
       </section>
 
       {/* Highlights strip */}
-      <div className="dark-scope marquee-wrap overflow-hidden border-t border-border bg-night py-6">
+      <div className="holo-scope marquee-wrap overflow-hidden border-t border-border bg-night py-6">
         <div className="[mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
           <div className="marquee">
             {[0, 1].map((copy) => (
@@ -358,25 +376,34 @@ function Index() {
       </div>
 
       {/* About */}
-      <section id="about" className="border-t border-border/60 bg-secondary/40 py-24">
+      <section id="about" className="border-t border-border/60 bg-secondary/40 py-16 sm:py-20">
         <div className="reveal mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">About</p>
             <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-4xl">
               A relational, considered approach.
             </h2>
+            <figure className="mx-auto mt-8 max-w-xs lg:max-w-none">
+              <img
+                src={sarahGraduation}
+                alt="Sarah at her graduate commencement, holding flowers"
+                loading="lazy"
+                className="aspect-[4/5] w-full rotate-1 rounded-[2rem] border border-border object-cover shadow-[0_30px_70px_-40px_oklch(0.35_0.04_70_/_0.5)]"
+              />
+            </figure>
           </div>
           <div className="space-y-5 text-base leading-relaxed text-muted-foreground lg:col-span-8 sm:text-lg">
             <p>
-              I’m a Licensed Professional Counselor Associate in Texas and a National Certified
-              Counselor, with a background in healthcare. I grew up in a multicultural environment,
-              which shaped how I connect with people and how I hold space for different backgrounds
-              and lived experiences. I offer sessions in English and Arabic.
+              I am a Licensed Professional Counselor Associate (LPC Associate) in Texas and a
+              National Certified Counselor (NCC), with a background in healthcare. I grew up in a
+              multicultural environment, which shaped how I connect with people and how I hold space
+              for different backgrounds and lived experiences. I offer sessions in English and
+              Arabic.
             </p>
             <p>
-              I believe everyone has a blueprint — most people just haven’t been given the tools to
-              read it. Mood, sleep, stress, focus, emotional patterns — it’s all connected. The work
-              I want to do is about learning to move <em className="text-taupe">with</em> your
+              I believe everyone has a blueprint, but most people have not been given the tools to
+              read it. Mood, sleep, stress, focus, and emotional patterns are all connected. The
+              work I want to do is about learning to move <em className="text-taupe">with</em> your
               biology instead of against it, as you work toward the changes that matter to you.
             </p>
             <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -385,7 +412,7 @@ function Index() {
                   Graduate Study
                 </p>
                 <p className="mt-2 font-serif text-lg text-foreground">
-                  M.S., Psychology – Counseling &amp; Human Development
+                  M.S., Psychology (Counseling &amp; Human Development)
                 </p>
                 <p className="text-sm text-muted-foreground">Texas Woman’s University</p>
               </div>
@@ -417,16 +444,33 @@ function Index() {
         </div>
       </section>
 
-      {/* Meet Chico — character section */}
-      <section className="relative py-20">
+      {/* Meet Chico: character section */}
+      <section className="relative isolate overflow-hidden py-14 sm:py-16">
+        {/* A dreamy, out-of-focus close-up of Chico as a soft painterly wash. */}
+        <img
+          src={chicoSoft}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover object-[60%_45%] opacity-35"
+        />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/70 to-background/20" />
         <div className="reveal mx-auto max-w-5xl px-6">
           <div className="grid grid-cols-1 items-center gap-10 sm:grid-cols-5 sm:gap-14">
             <div className="sm:col-span-2">
-              <div className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-[2rem] border border-border bg-secondary shadow-[0_20px_60px_-30px_rgba(80,60,40,0.3)]">
+              <div className="relative mx-auto w-full max-w-xs">
+                <div className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-[2rem] border border-border bg-secondary shadow-[0_20px_60px_-30px_rgba(80,60,40,0.3)]">
+                  <img
+                    src={chicoPortrait}
+                    alt="Chico, Sarah’s orange cat"
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
                 <img
-                  src={chicoPortrait}
-                  alt="Chico, Sarah’s orange cat"
-                  className="h-full w-full object-cover object-top"
+                  src={chicoSleeping}
+                  alt="Chico asleep under a floral blanket"
+                  loading="lazy"
+                  className="absolute -right-4 -bottom-6 w-32 rotate-3 rounded-2xl border-4 border-card object-cover shadow-[0_20px_50px_-25px_rgba(80,60,40,0.45)] sm:-right-8 sm:w-36"
                 />
               </div>
             </div>
@@ -440,7 +484,7 @@ function Index() {
               <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
                 My orange cat is calm, loving, and surprisingly good at just being present. For
                 clients who’d like a little extra comfort, he’s available to join sessions on
-                request — no agenda, no opinions, just a quiet warmth when you need it.
+                request. No agenda, no opinions, just a quiet warmth when you need it.
               </p>
             </div>
           </div>
@@ -448,7 +492,7 @@ function Index() {
       </section>
 
       {/* Art interlude */}
-      <section className="relative overflow-hidden py-24">
+      <section className="relative overflow-hidden py-16 sm:py-20">
         <div className="reveal mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-12">
           <figure className="lg:col-span-7">
             <div className="glow-card -rotate-1 rounded-[2rem] border border-border bg-[#fbf8f1] p-4 shadow-[0_40px_90px_-50px_rgba(60,50,40,0.55)] transition-transform duration-700 hover:rotate-0 sm:p-6">
@@ -470,36 +514,40 @@ function Index() {
       </section>
 
       {/* Support areas */}
-      <section id="support" className="py-24">
-        <div className="reveal mx-auto max-w-5xl px-6">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              Who I support
-            </p>
-            <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-4xl">
-              If any of this sounds familiar, you’re welcome here.
-            </h2>
-            <p className="mt-4 text-muted-foreground">Some of the areas I focus on.</p>
-          </div>
-          <ul className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <section id="support" className="py-14 sm:py-16">
+        <div className="reveal mx-auto max-w-4xl px-6 text-center">
+          <h2 className="font-serif text-3xl text-foreground sm:text-4xl">Who I support</h2>
+          <p className="mt-2 text-muted-foreground">Some of the areas I focus on.</p>
+          <ul className="mt-6 flex flex-wrap justify-center gap-2">
             {SUPPORT_AREAS.map((item) => (
               <li
                 key={item}
-                className="glow-card group flex items-start gap-3 rounded-2xl border border-border bg-card/60 px-5 py-4"
+                className="glow-card rounded-full border border-border bg-card/70 px-4 py-2 text-sm text-foreground/90"
               >
-                <span
-                  className="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay"
-                  aria-hidden
-                />
-                <span className="text-sm text-foreground/90">{item}</span>
+                {item}
               </li>
             ))}
           </ul>
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            <span className="font-medium text-foreground">Everyone is welcome here</span>, whatever
+            your culture, language, faith or lack of one, gender, sexual orientation, age, body,
+            ability, or background.
+          </p>
         </div>
       </section>
 
       {/* Approach */}
-      <section id="approach" className="relative overflow-hidden border-y border-border/60 py-24">
+      <section
+        id="approach"
+        className="relative isolate overflow-hidden border-y border-border/60 py-16 sm:py-20"
+      >
+        <img
+          src={brainArt}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          className="pointer-events-none absolute top-1/2 -right-16 -z-10 h-[125%] w-auto max-w-none -translate-y-1/2 opacity-[0.22] mix-blend-multiply blur-[1.5px] [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_72%)] sm:-right-4 sm:opacity-30 lg:right-auto lg:left-[-3rem]"
+        />
         <div
           className="pointer-events-none absolute inset-0 -z-10 opacity-70"
           style={{
@@ -513,30 +561,18 @@ function Index() {
             <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
               A thoughtful, emerging approach to emotional wellness.
             </h2>
-            <figure className="mt-10 w-full max-w-[13rem] lg:max-w-[15rem]">
-              <div className="glow-card overflow-hidden rounded-[1.75rem] border border-border bg-[#fbf8f1] p-2 shadow-[0_40px_90px_-50px_rgba(60,50,40,0.6)]">
-                <img
-                  src={brainArt}
-                  alt="Ink artwork of a brain in blue, rose, and amber, with fine lines branching like roots"
-                  width={192}
-                  height={336}
-                  loading="lazy"
-                  className="h-auto w-full rounded-[1.4rem]"
-                />
-              </div>
-            </figure>
           </div>
           <div className="space-y-6 lg:col-span-7">
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
               I’m drawn to the <em className="text-taupe">why</em> behind how you feel. Together we
-              work on practical tools alongside a deeper understanding of yourself — why your
-              nervous system responds the way it does, and how that can shape the way you relate to
+              work on practical tools alongside a deeper understanding of yourself: why your nervous
+              system responds the way it does, and how that can shape the way you relate to
               yourself.
             </p>
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
               My practice pairs traditional counseling foundations with genetics-informed
-              psychoeducation and emerging research in neurobiology — held as an educational lens
-              for noticing patterns in mood, stress, attention, and regulation. Not diagnosis, not
+              psychoeducation and emerging research in neurobiology, held as an educational lens for
+              noticing patterns in mood, stress, attention, and regulation. Not diagnosis, not
               medical advice, always alongside the relational work itself.
             </p>
             <div className="grid grid-cols-2 gap-3 pt-2 sm:grid-cols-4">
@@ -562,17 +598,19 @@ function Index() {
       </section>
 
       {/* Outdoor sessions */}
-      <section id="outdoors" className="py-24">
+      <section id="outdoors" className="py-16 sm:py-20">
         <div className="reveal mx-auto max-w-5xl px-6">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-            <div>
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-5">
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
                 Sessions outdoors
               </p>
               <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
                 Therapy under open sky, <em className="text-taupe">not</em> in an office.
               </h2>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            </div>
+            <div className="lg:col-span-7">
+              <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
                 In-person sessions happen outside, in a park. Many people find it easier to talk
                 side by side, with fresh air, trees, and room to move, than across a desk.
               </p>
@@ -582,9 +620,16 @@ function Index() {
                 home with you.
               </p>
             </div>
-            <NatureScene />
           </div>
-          <ul className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <figure className="mt-10 overflow-hidden rounded-[2rem] border border-border shadow-[0_40px_90px_-50px_oklch(0.35_0.04_70_/_0.5)]">
+            <img
+              src={sarahOverlook}
+              alt="Sarah looking out over the city from an open-air terrace"
+              loading="lazy"
+              className="aspect-[16/9] w-full object-cover object-[60%_50%] sm:aspect-[21/9]"
+            />
+          </figure>
+          <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {OUTDOOR_NOTES.map((note) => (
               <li
                 key={note.title}
@@ -603,15 +648,17 @@ function Index() {
       </section>
 
       {/* Principles */}
-      <section className="dark-scope luxe-dark luxe-grid overflow-hidden">
+      <section className="holo-scope holo-bg holo-grid overflow-hidden">
         <div className="aurora" aria-hidden />
+        <FloralNeuron className="pointer-events-none absolute -top-2 right-[-2rem] -z-10 h-72 w-auto rotate-12 opacity-60 sm:right-[4%] sm:h-96" />
+        <FloralNeuron className="pointer-events-none absolute bottom-6 left-[-3rem] -z-10 hidden h-64 w-auto -rotate-[20deg] opacity-40 md:block" />
         <Wave className="text-cream" />
-        <div className="reveal mx-auto max-w-5xl px-6 py-20 sm:py-24">
-          <p className="text-xs uppercase tracking-[0.2em] text-gold">What I bring</p>
+        <div className="reveal mx-auto max-w-5xl px-6 py-20 sm:py-16 sm:py-20">
+          <p className="text-xs uppercase tracking-[0.2em] text-taupe">What I bring</p>
           <h2 className="mt-3 max-w-2xl font-serif text-3xl leading-tight sm:text-5xl">
             Three things I hold in every session.
           </h2>
-          <ol className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">
+          <ol className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">
             {PRINCIPLES.map((item, i) => (
               <li key={item.title} className="glass glow-card rounded-3xl p-7">
                 <span className="text-gold-sheen font-serif text-5xl font-light">0{i + 1}</span>
@@ -625,7 +672,7 @@ function Index() {
       </section>
 
       {/* Breathing exercise */}
-      <section id="breathe" className="py-24">
+      <section id="breathe" className="py-16 sm:py-20">
         <div className="reveal mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
@@ -636,7 +683,7 @@ function Index() {
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               Slow, steady breathing is one simple way many people find to settle when things feel
-              like a lot. Follow the circle — breathe in as it grows, hold, and breathe out as it
+              like a lot. Follow the circle. Breathe in as it grows, hold, and breathe out as it
               softens.
             </p>
             <p className="mt-4 text-xs text-muted-foreground">
@@ -648,7 +695,7 @@ function Index() {
       </section>
 
       {/* How it works */}
-      <section className="border-t border-border/60 bg-secondary/40 py-24">
+      <section className="border-t border-border/60 bg-secondary/40 py-16 sm:py-20">
         <div className="reveal mx-auto max-w-5xl px-6">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">How it works</p>
@@ -656,7 +703,7 @@ function Index() {
               Getting started is simple.
             </h2>
           </div>
-          <ol className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <ol className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
             {STEPS.map((step, i) => (
               <li
                 key={step.title}
@@ -672,7 +719,7 @@ function Index() {
       </section>
 
       {/* Fees */}
-      <section id="fees" className="py-24">
+      <section id="fees" className="py-16 sm:py-20">
         <div className="reveal mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
@@ -724,7 +771,7 @@ function Index() {
       </section>
 
       {/* Consultation Form */}
-      <section id="consult" className="py-24">
+      <section id="consult" className="py-16 sm:py-20">
         <div className="reveal mx-auto max-w-3xl px-6">
           <div className="text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Get started</p>
@@ -732,12 +779,12 @@ function Index() {
               A free 15-minute consultation.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-              A short call to see if we’re a good fit — no pressure, no commitment. Call me
+              A short call to see if we’re a good fit, with no pressure and no commitment. Call me
               directly, or leave your details below and I’ll reach out.
             </p>
           </div>
 
-          <div className="dark-scope luxe-dark luxe-grid mt-10 overflow-hidden rounded-3xl px-6 py-12 text-center shadow-[0_40px_100px_-40px_rgba(0,0,0,0.55)] sm:px-10">
+          <div className="holo-scope holo-bg holo-grid mt-10 overflow-hidden rounded-3xl px-6 py-12 text-center shadow-[0_40px_100px_-40px_oklch(0.35_0.04_70_/_0.4)] sm:px-10">
             <div className="aurora" aria-hidden />
             <div
               className="pointer-events-none absolute inset-0 opacity-60"
@@ -747,7 +794,7 @@ function Index() {
               }}
             />
             <div className="relative">
-              <p className="text-xs uppercase tracking-[0.2em] text-gold">
+              <p className="text-xs uppercase tracking-[0.2em] text-taupe">
                 Call for your free 15-minute consultation
               </p>
               <a
@@ -764,7 +811,7 @@ function Index() {
                 Call Now
               </a>
               <p className="mt-4 text-sm text-muted-foreground">
-                Sliding scale from $60 to $100 per hour — ask on the call.
+                Sliding scale from $60 to $100 per hour. Ask on the call.
               </p>
             </div>
           </div>
@@ -781,7 +828,7 @@ function Index() {
             ))}
           </div>
 
-          <div className="mt-12 flex items-center gap-4 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <div className="mt-10 flex items-center gap-4 text-xs uppercase tracking-[0.2em] text-muted-foreground">
             <span className="h-px flex-1 bg-border" />
             Prefer to write? Request a call back
             <span className="h-px flex-1 bg-border" />
@@ -842,7 +889,7 @@ function Index() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="pb-24">
+      <section id="faq" className="pb-16 sm:pb-20">
         <div className="reveal mx-auto max-w-3xl px-6">
           <div className="text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">FAQ</p>
@@ -872,7 +919,7 @@ function Index() {
       </section>
 
       {/* Disclaimer */}
-      <section className="pb-24">
+      <section className="pb-16 sm:pb-20">
         <div className="mx-auto max-w-3xl px-6">
           <div className="rounded-2xl border border-border bg-secondary/40 p-8 sm:p-10">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Disclosures</p>
@@ -885,7 +932,7 @@ function Index() {
             </ul>
             <div className="mt-6 flex items-start gap-3 rounded-xl bg-background px-5 py-4 text-sm text-foreground/90">
               <span
-                className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary/40 text-primary-foreground"
                 aria-hidden
               >
                 <svg
@@ -904,7 +951,7 @@ function Index() {
                 Crisis Lifeline) or go to your nearest emergency room.{" "}
                 <a
                   href="/crisis/"
-                  className="font-medium text-primary underline-offset-4 hover:underline"
+                  className="font-medium text-primary-foreground underline-offset-4 hover:underline"
                 >
                   See Dallas–Fort Worth crisis resources →
                 </a>
@@ -962,60 +1009,5 @@ function Wave({ className, flip }: { className?: string; flip?: boolean }) {
         d="M0 0h1440v22c-120 18-260 30-420 24S760 18 600 16 300 34 160 38 40 34 0 30Z"
       />
     </svg>
-  );
-}
-
-/** A calm illustrated park scene for the outdoor sessions section. */
-function NatureScene() {
-  return (
-    <div className="overflow-hidden rounded-[2rem] border border-border shadow-[0_30px_80px_-40px_rgba(80,60,40,0.4)]">
-      <svg
-        viewBox="0 0 480 360"
-        className="block h-auto w-full"
-        role="img"
-        aria-label="Illustration of a quiet park with trees, rolling hills, and a path"
-      >
-        <rect width="480" height="360" fill="var(--secondary)" />
-        <circle cx="350" cy="96" r="38" fill="var(--terracotta)" opacity="0.55" />
-        <path d="M0 220c70-40 150-52 240-30s170 20 240-10v180H0Z" fill="var(--accent)" />
-        <path
-          d="M0 262c90-34 190-38 280-14s150 18 200 0v112H0Z"
-          fill="var(--sage)"
-          opacity="0.85"
-        />
-        <path
-          d="M0 300c110-24 230-22 330-6s120 10 150 4v62H0Z"
-          fill="var(--primary)"
-          opacity="0.9"
-        />
-        <path
-          d="M250 360c-10-40 6-70 40-96s46-44 40-62"
-          fill="none"
-          stroke="var(--background)"
-          strokeWidth="14"
-          strokeLinecap="round"
-          opacity="0.7"
-        />
-        <g fill="var(--primary)">
-          <rect x="92" y="170" width="7" height="70" rx="3" />
-          <circle cx="95" cy="158" r="34" />
-          <circle cx="74" cy="178" r="22" />
-          <circle cx="118" cy="180" r="24" />
-        </g>
-        <g fill="var(--taupe)" opacity="0.85">
-          <rect x="398" y="196" width="6" height="56" rx="3" />
-          <circle cx="401" cy="186" r="26" />
-          <circle cx="384" cy="200" r="16" />
-        </g>
-        <path
-          d="M150 120c10-8 20-8 30 0M174 108c8-6 16-6 24 0"
-          fill="none"
-          stroke="var(--taupe)"
-          strokeWidth="2.4"
-          strokeLinecap="round"
-          opacity="0.6"
-        />
-      </svg>
-    </div>
   );
 }

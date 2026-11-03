@@ -62,13 +62,13 @@ const NATIONAL: Resource[] = [
 
 const COUNTY_LINES: Resource[] = [
   {
-    name: "Dallas County — NTBHA",
+    name: "Dallas County: NTBHA",
     detail:
       "North Texas Behavioral Health Authority, 24/7 crisis line and mobile crisis. Also serves Ellis, Hunt, Kaufman, Navarro, and Rockwall counties.",
     contacts: [{ label: "866-260-8000", href: "tel:+18662608000" }],
   },
   {
-    name: "Tarrant County — My Health My Resources (MHMR)",
+    name: "Tarrant County: My Health My Resources (MHMR)",
     detail: "24/7 ICARE crisis line, including mobile crisis outreach.",
     contacts: [
       { label: "817-335-3022", href: "tel:+18173353022" },
@@ -76,7 +76,7 @@ const COUNTY_LINES: Resource[] = [
     ],
   },
   {
-    name: "Collin County — LifePath Systems",
+    name: "Collin County: LifePath Systems",
     detail: "24/7 crisis line.",
     contacts: [{ label: "877-422-5939", href: "tel:+18774225939" }],
   },
@@ -86,7 +86,7 @@ const COUNTY_LINES: Resource[] = [
     contacts: [{ label: "800-762-0157", href: "tel:+18007620157" }],
   },
   {
-    name: "Johnson County — Pecan Valley Centers",
+    name: "Johnson County: Pecan Valley Centers",
     detail: "24/7 crisis line.",
     contacts: [{ label: "800-772-5987", href: "tel:+18007725987" }],
   },
@@ -176,7 +176,7 @@ function Crisis() {
         <ResourceGroup title="Domestic violence & sexual assault" items={SAFETY} />
 
         <p className="mt-14 text-xs leading-relaxed text-muted-foreground">
-          Last reviewed {LAST_REVIEWED}. Numbers can change — if one doesn’t connect, call or text
+          Last reviewed {LAST_REVIEWED}. Numbers can change. If one doesn’t connect, call or text
           988. These organizations are independent of my practice.
         </p>
       </main>
@@ -214,7 +214,7 @@ function ResourceGroup({
                 <a
                   key={c.label}
                   href={c.href}
-                  className="whitespace-nowrap rounded-full border border-primary/30 bg-background px-4 py-2 text-sm text-primary transition hover:border-primary hover:bg-secondary"
+                  className="whitespace-nowrap rounded-full border border-primary/30 bg-background px-4 py-2 text-sm text-primary-foreground transition hover:border-primary hover:bg-secondary"
                 >
                   {c.label}
                 </a>

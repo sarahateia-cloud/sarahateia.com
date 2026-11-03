@@ -3,12 +3,12 @@ import { useId } from "react";
 // Washes for the left half; the right half is a mirror image.
 const WASHES = [
   { cx: 170, cy: 300, rx: 170, ry: 170, color: "#d9c79a", opacity: 0.5 },
-  { cx: 310, cy: 125, rx: 135, ry: 85, color: "#5b3f9a", opacity: 0.9 },
-  { cx: 325, cy: 195, rx: 125, ry: 62, color: "#4f7fc4", opacity: 0.65 },
-  { cx: 300, cy: 290, rx: 165, ry: 100, color: "#4f9a58", opacity: 0.75 },
-  { cx: 230, cy: 365, rx: 165, ry: 115, color: "#9db36e", opacity: 0.6 },
-  { cx: 350, cy: 375, rx: 70, ry: 85, color: "#9a86b8", opacity: 0.5 },
-  { cx: 330, cy: 505, rx: 130, ry: 115, color: "#e3913f", opacity: 0.8 },
+  { cx: 310, cy: 125, rx: 135, ry: 85, color: "#7f9a82", opacity: 0.75 },
+  { cx: 325, cy: 195, rx: 125, ry: 62, color: "#a9bcc5", opacity: 0.65 },
+  { cx: 300, cy: 290, rx: 165, ry: 100, color: "#93ad90", opacity: 0.7 },
+  { cx: 230, cy: 365, rx: 165, ry: 115, color: "#b7c29a", opacity: 0.6 },
+  { cx: 350, cy: 375, rx: 70, ry: 85, color: "#c9b48a", opacity: 0.5 },
+  { cx: 330, cy: 505, rx: 130, ry: 115, color: "#d8ad86", opacity: 0.75 },
   { cx: 250, cy: 450, rx: 100, ry: 85, color: "#d7a868", opacity: 0.55 },
 ];
 
@@ -20,7 +20,7 @@ export function WatercolorBloom({ className }: { className?: string }) {
       viewBox="0 0 800 640"
       className={className}
       role="img"
-      aria-label="Watercolor artwork: a symmetric bloom of violet, blue, green, and amber"
+      aria-label="Watercolor artwork: a symmetric bloom of sage, mist blue, sand, and soft clay"
     >
       <defs>
         {WASHES.map((w, i) => (

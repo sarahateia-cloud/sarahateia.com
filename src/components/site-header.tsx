@@ -27,7 +27,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
   }, [open]);
 
   return (
-    <header className={`absolute top-0 left-0 right-0 z-30 ${dark ? "dark-scope" : ""}`}>
+    <header className={`absolute top-0 left-0 right-0 z-30 ${dark ? "holo-scope" : ""}`}>
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 sm:py-8">
         <a href="/" aria-label="Sarah Ateia Khattab, home">
           <Logo />
@@ -67,7 +67,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
 
       {open && (
         <div
-          className="dark-scope luxe-dark luxe-grid fixed inset-0 z-40 flex flex-col"
+          className="holo-scope holo-bg holo-grid fixed inset-0 z-40 flex flex-col"
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
@@ -115,7 +115,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
 
 export function SiteFooter() {
   return (
-    <footer className="dark-scope luxe-dark">
+    <footer className="holo-scope holo-bg">
       <div className="gold-rule" />
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-12 sm:flex-row sm:items-end sm:justify-between">
         <div>
@@ -123,6 +123,10 @@ export function SiteFooter() {
           <p className="mt-3 text-sm text-muted-foreground">M.S., LPC Associate, NCC</p>
           <p className="mt-2 text-sm text-muted-foreground">
             Irving, Texas · Outdoor sessions in Dallas–Fort Worth · Telehealth across Texas
+          </p>
+          <p className="mt-2 max-w-md text-xs text-muted-foreground">
+            Serving Irving, Las Colinas, Coppell, Grand Prairie, Carrollton, Farmers Branch, Dallas,
+            Fort Worth, and Arlington.
           </p>
         </div>
         <div className="text-sm text-muted-foreground sm:text-right">

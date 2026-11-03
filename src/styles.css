@@ -46,43 +46,43 @@
 :root {
   --radius: 0.875rem;
 
-  /* Green/sage palette */
-  --background: oklch(0.975 0.008 85); /* cream */
-  --foreground: oklch(0.24 0.01 60); /* deep neutral text */
+  /* Linen and sage mist: neutral pastels with soft charcoal text */
+  --background: oklch(0.965 0.007 80); /* linen */
+  --foreground: oklch(0.34 0.008 80); /* soft charcoal */
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.24 0.01 60);
-  --popover: oklch(0.975 0.008 85);
-  --popover-foreground: oklch(0.24 0.01 60);
+  --card: oklch(0.995 0.004 80);
+  --card-foreground: oklch(0.34 0.008 80);
+  --popover: oklch(0.995 0.004 80);
+  --popover-foreground: oklch(0.34 0.008 80);
 
-  --primary: oklch(0.5 0.055 150); /* dark sage */
-  --primary-foreground: oklch(0.98 0.008 85);
+  --primary: oklch(0.87 0.03 140); /* pastel sage, for buttons */
+  --primary-foreground: oklch(0.33 0.03 145); /* deep sage, text on buttons and links */
 
-  --secondary: oklch(0.94 0.014 85); /* beige */
-  --secondary-foreground: oklch(0.3 0.02 150);
+  --secondary: oklch(0.925 0.013 80); /* oat */
+  --secondary-foreground: oklch(0.34 0.01 80);
 
-  --muted: oklch(0.94 0.014 85);
-  --muted-foreground: oklch(0.5 0.015 70);
+  --muted: oklch(0.94 0.01 80);
+  --muted-foreground: oklch(0.53 0.01 70);
 
-  --accent: oklch(0.84 0.04 145); /* light sage */
-  --accent-foreground: oklch(0.3 0.04 150);
+  --accent: oklch(0.905 0.01 220); /* mist blue */
+  --accent-foreground: oklch(0.37 0.02 225);
 
   --destructive: oklch(0.55 0.18 25);
-  --destructive-foreground: oklch(0.98 0.008 85);
+  --destructive-foreground: oklch(0.99 0 0);
 
-  --border: oklch(0.9 0.012 85);
-  --input: oklch(0.92 0.012 85);
-  --ring: oklch(0.65 0.05 145);
+  --border: oklch(0.9 0.01 80);
+  --input: oklch(0.9 0.01 80);
+  --ring: oklch(0.75 0.04 140);
 
-  --sand: oklch(0.94 0.014 85);
-  --clay: oklch(0.68 0.06 145); /* repointed to sage for util compat */
-  --sage: oklch(0.68 0.06 145);
-  --rose: oklch(0.84 0.04 145); /* repointed to light sage */
-  --taupe: oklch(0.45 0.05 150); /* dark sage for em emphasis */
-  --terracotta: oklch(0.68 0.1 45); /* warm accent, used sparingly (logo sun) */
-  --gold: oklch(0.8 0.065 35); /* rose gold accent for dark sections (swap here to recolor) */
-  --night: oklch(0.33 0.03 160); /* soft deep sage, dark sections */
-  --cream: oklch(0.975 0.008 85);
+  --sand: oklch(0.925 0.013 80);
+  --clay: oklch(0.72 0.045 140); /* kept for util compat */
+  --sage: oklch(0.72 0.045 140); /* mid sage */
+  --rose: oklch(0.905 0.01 220); /* mist */
+  --taupe: oklch(0.5 0.045 145); /* deep sage for em emphasis */
+  --terracotta: oklch(0.76 0.06 78); /* logo orchid, soft gold */
+  --gold: oklch(0.72 0.045 140); /* accent (swap here to recolor) */
+  --night: oklch(0.955 0.009 90); /* base for the hero */
+  --cream: oklch(0.965 0.007 80);
 }
 
 @layer base {
@@ -109,42 +109,34 @@
   }
 }
 
-/* Luxe dark sections: re-points the theme tokens so existing utilities read light-on-dark. */
-.dark-scope {
+/* Light hero section: re-points theme tokens inside it. */
+.holo-scope {
   --background: var(--night);
-  --foreground: oklch(0.96 0.01 85);
-  --card: oklch(1 0 0 / 0.05);
-  --card-foreground: oklch(0.96 0.01 85);
-  --muted-foreground: oklch(0.8 0.015 85);
-  --secondary: oklch(1 0 0 / 0.06);
-  --border: oklch(1 0 0 / 0.12);
-  --primary: var(--gold);
-  --primary-foreground: var(--night);
-  --taupe: var(--gold);
-  --sage: oklch(0.72 0.07 160);
+  --card: oklch(0.995 0.004 80 / 0.7);
+  --secondary: oklch(0.995 0.004 80 / 0.6);
+  --border: oklch(0.34 0.008 80 / 0.1);
   color: var(--foreground);
 }
 
-.luxe-dark {
+.holo-bg {
   position: relative;
   isolation: isolate;
   background:
-    radial-gradient(55% 60% at 80% 10%, oklch(0.52 0.06 160 / 0.6), transparent 70%),
-    radial-gradient(45% 55% at 5% 95%, oklch(0.72 0.06 35 / 0.2), transparent 70%),
-    var(--night);
+    radial-gradient(55% 65% at 85% 10%, oklch(0.92 0.025 140 / 0.6), transparent 70%),
+    radial-gradient(45% 55% at 5% 95%, oklch(0.93 0.012 220 / 0.7), transparent 70%), var(--night);
 }
 
-/* Faint architectural grid that fades toward the edges. */
-.luxe-grid::before {
+/* Faint lab-grid that fades toward the edges. */
+.holo-grid::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, oklch(1 0 0 / 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(1 0 0 / 0.04) 1px, transparent 1px);
-  background-size: 72px 72px;
+    linear-gradient(to right, oklch(0.34 0.008 80 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.34 0.008 80 / 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 80%);
 }
 
@@ -156,21 +148,29 @@
   z-index: -1;
   pointer-events: none;
   background: radial-gradient(
-    600px circle at var(--mx, 70%) var(--my, 30%),
-    oklch(0.8 0.065 35 / 0.14),
+    520px circle at var(--mx, 70%) var(--my, 30%),
+    oklch(1 0 0 / 0.55),
     transparent 60%
   );
 }
 
 .glass {
-  background: oklch(1 0 0 / 0.05);
-  border: 1px solid oklch(1 0 0 / 0.12);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  background: oklch(1 0 0 / 0.5);
+  border: 1px solid oklch(1 0 0 / 0.75);
+  box-shadow: 0 10px 40px -24px oklch(0.18 0 0 / 0.2);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
 }
 
+/* Shimmering green text. */
 .text-gold-sheen {
-  background: linear-gradient(100deg, oklch(0.93 0.03 40), var(--gold) 40%, oklch(0.82 0.06 150), oklch(0.93 0.03 40));
+  background: linear-gradient(
+    100deg,
+    var(--taupe),
+    oklch(0.62 0.05 160) 45%,
+    oklch(0.55 0.03 220) 75%,
+    var(--taupe)
+  );
   background-size: 220% 100%;
   animation: sheen 8s ease-in-out infinite;
   -webkit-background-clip: text;
@@ -180,7 +180,13 @@
 
 .gold-rule {
   height: 1px;
-  background: linear-gradient(90deg, transparent, oklch(0.8 0.065 35 / 0.6), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(0.72 0.045 140 / 0.7),
+    oklch(0.8 0.02 220 / 0.7),
+    transparent
+  );
 }
 
 /* A light sweep across a button on hover. */
@@ -206,15 +212,14 @@
   inset: -30%;
   z-index: -1;
   pointer-events: none;
-  background:
-    conic-gradient(
-      from 0deg at 60% 40%,
-      oklch(0.6 0.07 160 / 0.35),
-      oklch(0.78 0.06 35 / 0.22),
-      oklch(0.7 0.05 200 / 0.25),
-      oklch(0.6 0.07 160 / 0.35)
-    );
-  filter: blur(80px);
+  background: conic-gradient(
+    from 0deg at 60% 40%,
+    oklch(0.9 0.03 140 / 0.45),
+    oklch(0.92 0.015 220 / 0.4),
+    oklch(0.9 0.02 80 / 0.35),
+    oklch(0.9 0.03 140 / 0.45)
+  );
+  filter: blur(70px);
   animation: aurora-spin 40s linear infinite;
 }
 
@@ -295,7 +300,7 @@
   height: 2px;
   transform-origin: 0 50%;
   transform: scaleX(0);
-  background: linear-gradient(90deg, var(--sage), var(--gold));
+  background: var(--gold);
   pointer-events: none;
 }
 
@@ -311,6 +316,16 @@
 @keyframes marquee {
   to {
     transform: translateX(-50%);
+  }
+}
+
+/* Endlessly twisting helix (period set per SVG via --helix-period). */
+.helix-scroll {
+  animation: helix-scroll 6s linear infinite;
+}
+@keyframes helix-scroll {
+  to {
+    transform: translateY(calc(-1 * var(--helix-period, 80px)));
   }
 }
 
@@ -390,6 +405,7 @@
   }
   .aurora,
   .marquee,
+  .helix-scroll,
   .text-gold-sheen {
     animation: none;
   }
