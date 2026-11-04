@@ -9,7 +9,9 @@ import {
 } from "@/components/ui/dialog";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzdvlop";
+// Google Apps Script web app that saves each request to the "Call Requests" Sheet.
+const CALL_REQUEST_ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbxX5Nf0xY_yfHNPQuIbxQ12k9ugFAJbCcNNS_DABaqw4CXt_vH9Mc6R3UnePhyukbHk/exec";
 
 const INPUT_CLASS =
   "w-full rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground transition placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25 sm:text-sm";
@@ -32,22 +34,20 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
     setSubmitting(true);
     setError(null);
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      // Sent as plain text because Apps Script can't answer the browser's JSON preflight.
+      const res = await fetch(CALL_REQUEST_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify({
           name: formData.get("name"),
           phone,
           best_time: formData.get("best_time"),
           reason: formData.get("reason"),
           _gotcha: formData.get("_gotcha"),
-          _subject: "New consultation request",
         }),
       });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data?.errors?.[0]?.message ?? "Submission failed.");
-      }
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) throw new Error(data.error ?? "Submission failed.");
       setSubmitted(true);
       onSent?.();
     } catch (err) {
@@ -111,7 +111,7 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
           className={`${INPUT_CLASS} resize-none`}
         />
       </Field>
-      {/* Hidden from people. Formspree discards anything a bot fills in here. */}
+      {/* Hidden from people. The Sheet script discards anything a bot fills in here. */}
       <input
         name="_gotcha"
         type="text"
