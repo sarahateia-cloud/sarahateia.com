@@ -1,14 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Phone } from "lucide-react";
 import { BreathingExercise } from "@/components/breathing-exercise";
-import { ConsultationButton } from "@/components/consultation-dialog";
+import { ConsultationButton, ConsultationForm } from "@/components/consultation-dialog";
 import { DnaHelix, FloralNeuron } from "@/components/bio-motifs";
 import { NeuralField } from "@/components/neural-field";
 import { WatercolorBloom } from "@/components/watercolor-bloom";
 import {
   RiseWords,
   ScrollProgress,
-  Tilt,
   useCardGlow,
   useScrollReveal,
   useSpotlight,
@@ -224,7 +223,7 @@ function Index() {
             }}
           />
         </div>
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-12 lg:gap-10">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-x-12 lg:gap-y-0">
           <div className="lg:col-span-7">
             <p
               style={{ "--i": 0 } as React.CSSProperties}
@@ -245,73 +244,57 @@ function Index() {
                 <RiseWords text="it?" start={11} />
               </span>
             </h1>
+          </div>
+
+          <div
+            id="request-call"
+            className="scroll-mt-6 rounded-3xl border border-border bg-card p-5 shadow-[0_40px_100px_-40px_oklch(0.35_0.04_70_/_0.45)] sm:p-7 lg:col-span-5 lg:col-start-8 lg:row-span-2 lg:row-start-1 lg:self-start"
+          >
+            <div className="mb-5 flex items-center gap-4">
+              <img
+                src={sarahHeadshot}
+                alt="Sarah Ateia Khattab smiling"
+                className="aspect-square w-16 flex-shrink-0 rounded-full border-2 border-border object-cover object-top"
+              />
+              <div>
+                <h2 className="font-serif text-2xl leading-tight text-foreground">
+                  Request a call
+                </h2>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Free 15-minute consultation. I’ll call you back.
+                </p>
+              </div>
+            </div>
+            <ConsultationForm />
+            <a
+              href={PHONE_HREF}
+              className="mt-4 flex items-center justify-center gap-2 border-t border-border pt-4 text-sm text-foreground/80 transition hover:text-foreground"
+            >
+              <Phone className="h-3.5 w-3.5" aria-hidden />
+              Or call <span className="font-medium">{PHONE_DISPLAY}</span>
+            </a>
+          </div>
+
+          <div className="lg:col-span-7 lg:row-start-2">
             <p
               style={{ "--i": 13 } as React.CSSProperties}
-              className="rise mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+              className="rise max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mt-6"
             >
               There’s a reason your mind works the way it does: your stress response, your
               attention, your emotional patterns. My practice is rooted in that belief, with
               sessions outdoors in Dallas–Fort Worth parks and by telehealth across Texas.
             </p>
-            <div style={{ "--i": 15 } as React.CSSProperties} className="rise mt-9 w-full">
-              <div className="flex flex-col items-center gap-4 sm:flex-row">
-                <ConsultationButton className="btn-shine inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-primary px-9 py-4 text-base font-medium text-primary-foreground shadow-[0_10px_40px_-12px_color-mix(in_oklab,var(--primary)_70%,transparent)] transition hover:-translate-y-0.5 sm:w-auto">
-                  <Phone className="h-4 w-4" aria-hidden />
-                  Request a Call
-                </ConsultationButton>
-                <a
-                  href={PHONE_HREF}
-                  className="text-sm text-foreground/80 transition hover:text-foreground"
-                >
-                  Or call <span className="font-medium">{PHONE_DISPLAY}</span>
-                </a>
-              </div>
-            </div>
-            <p className="mt-4 text-center text-sm text-muted-foreground sm:text-left">
-              Free 15-minute consultation · $100 per session · Reduced rates available
+            <p className="mt-5 text-sm text-muted-foreground">
+              $100 per session · Reduced rates available
             </p>
-            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
+            <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
               <span>Dallas–Fort Worth · Outdoor sessions</span>
               <span className="hidden h-4 w-px bg-border sm:inline-block" />
               <span>Texas · Telehealth</span>
             </div>
-          </div>
-
-          <div className="relative lg:col-span-5">
-            <Tilt>
-              <div className="relative mx-auto w-full max-w-md">
-                <div
-                  className="absolute -inset-4 -z-10 rounded-[2rem] opacity-70 blur-2xl"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, color-mix(in oklab, var(--sage) 55%, transparent), color-mix(in oklab, var(--sage) 25%, transparent))",
-                  }}
-                />
-                <div className="overflow-hidden rounded-[2rem] border border-[color:color-mix(in_oklab,var(--gold)_35%,transparent)] bg-card p-1.5 shadow-[0_40px_100px_-40px_oklch(0.35_0.04_70_/_0.45)]">
-                  <img
-                    src={sarahPortrait}
-                    alt="Portrait of Sarah Ateia Khattab"
-                    className="aspect-[4/5] h-full w-full rounded-[1.6rem] object-cover"
-                  />
-                </div>
-                <div className="absolute -bottom-5 -left-5 rounded-2xl border border-border bg-night/85 px-5 py-3 backdrop-blur-md">
-                  <p className="font-serif text-lg leading-tight text-foreground">
-                    Sarah Ateia Khattab
-                  </p>
-                  <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                    M.S., LPC Associate, NCC
-                  </p>
-                  <p className="mt-1 text-[0.68rem] text-muted-foreground">
-                    Supervised by Don Zablosky, LPC-S
-                  </p>
-                </div>
-                <img
-                  src={sarahHeadshot}
-                  alt="Sarah Ateia Khattab smiling"
-                  className="absolute -top-6 -left-4 aspect-square w-28 rounded-full border-4 border-card object-cover object-top shadow-[0_20px_50px_-20px_oklch(0.35_0.04_70_/_0.5)] sm:-left-6 sm:w-32"
-                />
-              </div>
-            </Tilt>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Sarah Ateia Khattab, M.S., LPC Associate, NCC. Supervised by Don Zablosky, LPC-S.
+            </p>
           </div>
         </div>
       </section>
@@ -346,12 +329,18 @@ function Index() {
             <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-4xl">
               A relational, considered approach.
             </h2>
-            <figure className="mx-auto mt-8 max-w-xs lg:max-w-none">
+            <figure className="relative mx-auto mt-8 max-w-xs lg:max-w-none">
+              <img
+                src={sarahPortrait}
+                alt="Portrait of Sarah Ateia Khattab"
+                loading="lazy"
+                className="aspect-[4/5] w-full rounded-[2rem] border border-border object-cover shadow-[0_30px_70px_-40px_oklch(0.35_0.04_70_/_0.5)]"
+              />
               <img
                 src={sarahGraduation}
                 alt="Sarah at her graduate commencement, holding flowers"
                 loading="lazy"
-                className="aspect-[4/5] w-full rotate-1 rounded-[2rem] border border-border object-cover shadow-[0_30px_70px_-40px_oklch(0.35_0.04_70_/_0.5)]"
+                className="absolute -right-4 -bottom-6 aspect-[4/5] w-32 rotate-3 rounded-2xl border-4 border-card object-cover shadow-[0_20px_50px_-20px_oklch(0.35_0.04_70_/_0.5)]"
               />
             </figure>
           </div>
