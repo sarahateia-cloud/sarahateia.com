@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import {
   Dialog,
@@ -13,6 +13,38 @@ import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 const CALL_REQUEST_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbxX5Nf0xY_yfHNPQuIbxQ12k9ugFAJbCcNNS_DABaqw4CXt_vH9Mc6R3UnePhyukbHk/exec";
 
+// Cloudflare Turnstile's public site key. The form runs without the spam check while this is empty.
+const TURNSTILE_SITE_KEY: string = "";
+const TURNSTILE_SCRIPT = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (container: HTMLElement, options: Record<string, unknown>) => string;
+      reset: (widgetId: string) => void;
+      remove: (widgetId: string) => void;
+    };
+  }
+}
+
+let turnstileLoading: Promise<void> | undefined;
+
+function loadTurnstile() {
+  turnstileLoading ??= new Promise<void>((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = TURNSTILE_SCRIPT;
+    script.async = true;
+    script.onload = () => resolve();
+    script.onerror = () => {
+      turnstileLoading = undefined;
+      script.remove();
+      reject(new Error("The spam check couldn't load."));
+    };
+    document.head.appendChild(script);
+  });
+  return turnstileLoading;
+}
+
 const INPUT_CLASS =
   "w-full rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground transition placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25 sm:text-sm";
 
@@ -21,6 +53,34 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const turnstileBox = useRef<HTMLDivElement>(null);
+  const turnstileId = useRef<string | undefined>(undefined);
+  const turnstileStarted = useRef(false);
+
+  // Loaded once someone starts the form, so other visitors never contact Cloudflare.
+  const startSpamCheck = () => {
+    if (!TURNSTILE_SITE_KEY || turnstileStarted.current) return;
+    turnstileStarted.current = true;
+    loadTurnstile()
+      .then(() => {
+        if (!turnstileBox.current || !window.turnstile) return;
+        turnstileId.current = window.turnstile.render(turnstileBox.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          appearance: "interaction-only",
+          size: "flexible",
+        });
+      })
+      .catch(() => {
+        turnstileStarted.current = false;
+      });
+  };
+
+  useEffect(
+    () => () => {
+      if (turnstileId.current) window.turnstile?.remove(turnstileId.current);
+    },
+    [],
+  );
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,6 +88,13 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
     const phone = String(formData.get("phone") ?? "");
     if (phone.replace(/\D/g, "").length < 10) {
       setError("Please enter a 10-digit phone number so I can call you back.");
+      return;
+    }
+
+    const turnstileToken = formData.get("cf-turnstile-response");
+    if (TURNSTILE_SITE_KEY && !turnstileToken) {
+      startSpamCheck();
+      setError("The spam check is still finishing. Please wait a moment and try again.");
       return;
     }
 
@@ -44,6 +111,7 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
           best_time: formData.get("best_time"),
           reason: formData.get("reason"),
           _gotcha: formData.get("_gotcha"),
+          turnstile_token: turnstileToken,
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -52,6 +120,8 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
       onSent?.();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      // Each spam check token only works once, so a retry needs a new one.
+      if (turnstileId.current) window.turnstile?.reset(turnstileId.current);
     } finally {
       setSubmitting(false);
     }
@@ -84,7 +154,7 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} onFocusCapture={startSpamCheck} className="space-y-4">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Field label="Name">
           <input name="name" type="text" autoComplete="name" required className={INPUT_CLASS} />
@@ -120,6 +190,7 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
         className="hidden"
         aria-hidden
       />
+      {TURNSTILE_SITE_KEY && <div ref={turnstileBox} />}
 
       <button
         type="submit"
@@ -141,6 +212,21 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
         Used only to contact you about scheduling. Please save private health details for our call.
         This form isn’t watched around the clock. If you’re in crisis, call or text 988, or call
         911.
+        {TURNSTILE_SITE_KEY && (
+          <>
+            {" "}
+            Spam protection by{" "}
+            <a
+              href="https://www.cloudflare.com/turnstile-privacy-policy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2"
+            >
+              Cloudflare Turnstile
+            </a>
+            .
+          </>
+        )}
       </p>
     </form>
   );
