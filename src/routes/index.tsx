@@ -253,26 +253,22 @@ function Index() {
               attention, your emotional patterns. My practice is rooted in that belief, with
               sessions outdoors in Dallas–Fort Worth parks and by telehealth across Texas.
             </p>
-            <div
-              style={{ "--i": 15 } as React.CSSProperties}
-              className="rise mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
-            >
-              <ConsultationButton className="btn-shine inline-flex items-center justify-center gap-2.5 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_10px_40px_-12px_color-mix(in_oklab,var(--primary)_70%,transparent)] transition hover:-translate-y-0.5">
-                Get Your Free 15-Min Consultation
-              </ConsultationButton>
-              <a
-                href={PHONE_HREF}
-                className="inline-flex items-center gap-2 text-sm text-foreground/80 transition hover:text-foreground"
-              >
-                <Phone className="h-3.5 w-3.5" aria-hidden />
-                Or call me now
-              </a>
+            <div style={{ "--i": 15 } as React.CSSProperties} className="rise mt-9 w-full">
+              <div className="flex flex-col items-center gap-4 sm:flex-row">
+                <ConsultationButton className="btn-shine inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-primary px-9 py-4 text-base font-medium text-primary-foreground shadow-[0_10px_40px_-12px_color-mix(in_oklab,var(--primary)_70%,transparent)] transition hover:-translate-y-0.5 sm:w-auto">
+                  <Phone className="h-4 w-4" aria-hidden />
+                  Request a Call
+                </ConsultationButton>
+                <a
+                  href={PHONE_HREF}
+                  className="text-sm text-foreground/80 transition hover:text-foreground"
+                >
+                  Or call <span className="font-medium">{PHONE_DISPLAY}</span>
+                </a>
+              </div>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              <a href={PHONE_HREF} className="font-medium text-foreground/80 hover:text-foreground">
-                {PHONE_DISPLAY}
-              </a>{" "}
-              · $100 per session · Reduced rates available
+            <p className="mt-4 text-center text-sm text-muted-foreground sm:text-left">
+              Free 15-minute consultation · $100 per session · Reduced rates available
             </p>
             <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
               <span>Dallas–Fort Worth · Outdoor sessions</span>
@@ -761,8 +757,9 @@ function Index() {
               }}
             />
             <div className="relative">
-              <ConsultationButton className="btn-shine inline-flex items-center justify-center rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition hover:-translate-y-0.5">
-                Get Your Free 15-Min Consultation
+              <ConsultationButton className="btn-shine inline-flex w-full max-w-xs items-center justify-center gap-2.5 rounded-full bg-primary px-9 py-4 text-base font-medium text-primary-foreground transition hover:-translate-y-0.5">
+                <Phone className="h-4 w-4" aria-hidden />
+                Request a Call
               </ConsultationButton>
               <p className="mt-8 text-xs uppercase tracking-[0.2em] text-taupe">
                 Or call me directly

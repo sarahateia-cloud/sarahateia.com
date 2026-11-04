@@ -40,7 +40,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
             </a>
           ))}
           <ConsultationButton className="btn-shine rounded-full bg-primary px-5 py-2 text-primary-foreground transition hover:-translate-y-0.5">
-            Free 15-min Consultation
+            Request a Call
           </ConsultationButton>
         </div>
         <div className="flex items-center gap-2 lg:hidden">
@@ -95,7 +95,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
           </ul>
           <div className="space-y-3 px-10 pb-12">
             <ConsultationButton className="btn-shine inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground">
-              Free 15-min Consultation
+              Request a Call
             </ConsultationButton>
             <a
               href={PHONE_HREF}

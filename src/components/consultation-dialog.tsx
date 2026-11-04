@@ -107,10 +107,11 @@ export function ConsultationButton({
           <>
             <div className="pr-6">
               <DialogTitle className="font-serif text-2xl font-normal leading-tight text-foreground sm:text-3xl">
-                Your free 15-minute consultation
+                Request a call
               </DialogTitle>
               <DialogDescription className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Leave your details and I’ll call you. No pressure and no commitment.
+                Leave your details and I’ll call you back for a free 15-minute consultation. No
+                pressure and no commitment.
               </DialogDescription>
             </div>
 
@@ -166,7 +167,7 @@ export function ConsultationButton({
                 disabled={submitting}
                 className="w-full rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_8px_30px_-12px_color-mix(in_oklab,var(--primary)_60%,transparent)] transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {submitting ? "Sending…" : "Request My Free Consultation"}
+                {submitting ? "Sending…" : "Request a Call"}
               </button>
               {error && (
                 <p role="alert" className="text-center text-sm text-destructive">
