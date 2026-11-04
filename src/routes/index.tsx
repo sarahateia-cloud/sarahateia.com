@@ -15,6 +15,7 @@ import {
 import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
 import sarahHeadshot from "@/assets/sarah-headshot.jpg";
 import sarahGraduation from "@/assets/sarah-graduation.jpg";
+import sarahHarbor from "@/assets/sarah-harbor.jpg";
 import sarahOverlook from "@/assets/sarah-overlook.jpg";
 import chicoPortrait from "@/assets/chico.jpeg";
 import chicoSoft from "@/assets/chico-soft.jpg";
@@ -328,12 +329,18 @@ function Index() {
             <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-4xl">
               A relational, considered approach.
             </h2>
-            <figure className="mx-auto mt-8 max-w-xs lg:max-w-none">
+            <figure className="mx-auto mt-8 grid max-w-md grid-cols-2 gap-4 lg:max-w-none lg:grid-cols-1 lg:gap-8">
               <img
                 src={sarahGraduation}
                 alt="Sarah at her graduate commencement, holding flowers"
                 loading="lazy"
                 className="aspect-[4/5] w-full rotate-1 rounded-[2rem] border border-border object-cover shadow-[0_30px_70px_-40px_oklch(0.35_0.04_70_/_0.5)]"
+              />
+              <img
+                src={sarahHarbor}
+                alt="Sarah in a blue hijab, sitting at a table by the water"
+                loading="lazy"
+                className="aspect-[4/5] w-full -rotate-1 rounded-[2rem] border border-border object-cover shadow-[0_30px_70px_-40px_oklch(0.35_0.04_70_/_0.5)]"
               />
             </figure>
           </div>
