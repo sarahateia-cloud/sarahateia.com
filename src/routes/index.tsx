@@ -3,6 +3,7 @@ import { Phone } from "lucide-react";
 import { BreathingExercise } from "@/components/breathing-exercise";
 import { ConsultationButton, ConsultationForm } from "@/components/consultation-dialog";
 import { DnaHelix, FloralNeuron } from "@/components/bio-motifs";
+import { Introspection } from "@/components/introspection";
 import { NeuralField } from "@/components/neural-field";
 import { WatercolorBloom } from "@/components/watercolor-bloom";
 import {
@@ -645,6 +646,8 @@ function Index() {
           <BreathingExercise />
         </div>
       </section>
+
+      <Introspection />
 
       {/* How it works */}
       <section className="border-t border-border/60 bg-secondary/40 py-16 sm:py-20">
