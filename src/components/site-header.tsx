@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
+import { ConsultationButton } from "@/components/consultation-dialog";
 import { Logo } from "@/components/logo";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 
-export const PHONE_DISPLAY = "(972) 482-9526";
-export const PHONE_HREF = "tel:+19724829526";
+export { PHONE_DISPLAY, PHONE_HREF };
 
 // Root-relative so the same links work from the crisis page.
 const NAV_LINKS = [
@@ -32,18 +33,15 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
         <a href="/" aria-label="Sarah Ateia Khattab, home">
           <Logo />
         </a>
-        <div className="hidden items-center gap-7 text-sm text-muted-foreground lg:flex">
+        <div className="hidden flex-shrink-0 items-center gap-5 whitespace-nowrap text-sm text-muted-foreground lg:flex xl:gap-7">
           {NAV_LINKS.map((link) => (
             <a key={link.href} href={link.href} className="transition hover:text-foreground">
               {link.label}
             </a>
           ))}
-          <a
-            href="/#consult"
-            className="btn-shine rounded-full bg-primary px-5 py-2 text-primary-foreground transition hover:-translate-y-0.5"
-          >
+          <ConsultationButton className="btn-shine rounded-full bg-primary px-5 py-2 text-primary-foreground transition hover:-translate-y-0.5">
             Free 15-min Consultation
-          </a>
+          </ConsultationButton>
         </div>
         <div className="flex items-center gap-2 lg:hidden">
           <a
@@ -96,15 +94,18 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
             ))}
           </ul>
           <div className="space-y-3 px-10 pb-12">
+            <ConsultationButton className="btn-shine inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground">
+              Free 15-min Consultation
+            </ConsultationButton>
             <a
               href={PHONE_HREF}
-              className="btn-shine inline-flex items-center gap-2.5 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground"
+              className="flex items-center gap-2.5 text-sm font-medium text-foreground/80"
             >
               <Phone className="h-4 w-4" aria-hidden />
               {PHONE_DISPLAY}
             </a>
             <p className="text-sm text-muted-foreground">
-              Free 15-minute consultation · Sliding scale $60–$100 per hour
+              Free 15-minute consultation · $100 per session · Reduced rates available
             </p>
           </div>
         </div>
@@ -141,16 +142,70 @@ export function SiteFooter() {
           </p>
           <p className="mt-2">
             <a
+              href={PSYCHOLOGY_TODAY_URL}
+              className="underline-offset-4 transition hover:text-foreground hover:underline"
+            >
+              Psychology Today profile
+            </a>
+          </p>
+          <p className="mt-2">
+            <a
               href="/crisis/"
               className="underline-offset-4 transition hover:text-foreground hover:underline"
             >
               In crisis? Find 24/7 help
             </a>
           </p>
-          <p className="mt-2 text-xs">LPC Associate #104391 · Supervised by Don Zablosky, LPC-S</p>
+          <p className="mt-2 text-xs">
+            LPC Associate #104391 · Supervised by Don Zablosky, LPC-S ·{" "}
+            <a
+              href={LICENSE_VERIFY_URL}
+              className="underline underline-offset-4 transition hover:text-foreground"
+            >
+              Verify license
+            </a>
+          </p>
           <p className="mt-1 text-xs">© {new Date().getFullYear()} Attya LLC.</p>
         </div>
       </div>
+      <div className="mx-auto max-w-6xl px-6 pb-10">
+        <NoticeToClients className="text-xs" />
+      </div>
     </footer>
+  );
+}
+
+export const PSYCHOLOGY_TODAY_URL =
+  "https://www.psychologytoday.com/us/therapists/sarah-ateia-khattab-supervised-by-don-zablosky-l-irving-tx/1869085";
+
+export const LICENSE_VERIFY_URL = "https://vo.licensing.hpc.texas.gov/datamart/selSearchType.do";
+
+/** Complaint-process notice required by 22 TAC §884.31, with the Council's contact details. */
+export function NoticeToClients({ className = "" }: { className?: string }) {
+  return (
+    <div
+      className={`rounded-2xl border border-border bg-card/60 p-5 leading-relaxed text-muted-foreground ${className}`}
+    >
+      <p className="font-medium uppercase tracking-[0.16em] text-foreground">Notice to clients</p>
+      <p className="mt-2">
+        The Texas Behavioral Health Executive Council investigates and prosecutes professional
+        misconduct committed by marriage and family therapists, professional counselors,
+        psychologists, psychological associates, social workers, and licensed specialists in school
+        psychology. Although not every complaint against or dispute with a licensee involves
+        professional misconduct, the Executive Council will provide you with information about how
+        to file a complaint. Please call{" "}
+        <a href="tel:+18008213205" className="underline underline-offset-4">
+          1-800-821-3205
+        </a>{" "}
+        for more information.
+      </p>
+      <p className="mt-2">
+        Texas Behavioral Health Executive Council · 1801 Congress Ave., Ste. 7.300, Austin, Texas
+        78701 · (512) 305-7700 ·{" "}
+        <a href="https://bhec.texas.gov/" className="underline underline-offset-4">
+          bhec.texas.gov
+        </a>
+      </p>
+    </div>
   );
 }

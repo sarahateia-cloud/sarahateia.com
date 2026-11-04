@@ -85,8 +85,9 @@ export function Logo({ tagline = true }: { tagline?: boolean }) {
           Sarah Ateia Khattab
         </span>
         {tagline && (
-          <span className="mt-1 text-[0.62rem] uppercase tracking-[0.22em] text-muted-foreground">
-            Counseling · LPC Associate
+          <span className="mt-1 text-[0.58rem] uppercase leading-snug tracking-[0.14em] text-muted-foreground sm:text-[0.62rem] sm:tracking-[0.22em]">
+            LPC Associate ·{" "}
+            <span className="block sm:inline">Supervised by Don Zablosky, LPC-S</span>
           </span>
         )}
       </span>

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import { Phone } from "lucide-react";
 import { BreathingExercise } from "@/components/breathing-exercise";
+import { ConsultationButton } from "@/components/consultation-dialog";
 import { DnaHelix, FloralNeuron } from "@/components/bio-motifs";
 import { NeuralField } from "@/components/neural-field";
 import { WatercolorBloom } from "@/components/watercolor-bloom";
@@ -27,13 +27,11 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzdvlop";
-
 const HIGHLIGHTS = [
   "LPC Associate",
   "National Certified Counselor",
   "English & Arabic",
-  "Sliding scale $60–$100/hour",
+  "Reduced rates available",
   "Free 15-min consultation",
 ];
 
@@ -52,8 +50,8 @@ const SUPPORT_AREAS = [
 
 const CONSULT_PERKS = [
   {
-    title: "Sliding fee scale",
-    body: "Self-pay, with sliding scale rates from $60 to $100 per hour. Just ask during your call.",
+    title: "Reduced rates available",
+    body: "Self-pay. The standard fee is $100 per session, and reduced rates are available. Just ask during your call.",
   },
   {
     title: "Outdoors or telehealth",
@@ -70,7 +68,7 @@ const DISCLOSURES = [
   "Submitting this form doesn’t create a therapist–client relationship. Your information is used only to contact you about scheduling. Please don’t include sensitive health details.",
   "Telehealth is available only to clients who are physically located in Texas at the time of each session.",
   "Outdoor sessions take place in public parks, where complete privacy can’t be guaranteed. We choose quieter spots, and we can pause, move, or switch to telehealth at any time. A signed outdoor-session consent form is required.",
-  "Self-pay only; I don’t bill insurance. Sliding scale rates range from $60 to $100 per hour. You have the right to receive a Good Faith Estimate of expected charges before services begin.",
+  "Self-pay only; I don’t bill insurance. The standard fee is $100 per session, and reduced rates are available. You have the right to receive a Good Faith Estimate of expected charges before services begin.",
   "Any genetic or biological discussion is educational only, never medical advice, diagnosis, or treatment. I don’t prescribe or interpret labs; I refer to physicians for medical concerns.",
 ];
 
@@ -113,7 +111,12 @@ const FEES = [
   {
     service: "Individual session",
     detail: "Outdoors in a park, or telehealth",
-    price: "$60–$100 / hour",
+    price: "$100",
+  },
+  {
+    service: "Reduced rate",
+    detail: "Based on household income",
+    price: "Ask",
   },
 ];
 
@@ -140,7 +143,7 @@ const FAQS = [
   },
   {
     q: "Do you take insurance?",
-    a: "No. My practice is self-pay only, and I don’t bill insurance. I offer a sliding scale from $60 to $100 per hour, and we can talk about what fits during your free consultation.",
+    a: "No. My practice is self-pay only, and I don’t bill insurance. My standard fee is $100 per session, and reduced rates are available. Ask about them during your free consultation.",
   },
   {
     q: "What happens in the free consultation?",
@@ -168,7 +171,7 @@ const FAQS = [
   },
   {
     q: "Do you offer affordable therapy in Dallas–Fort Worth?",
-    a: "Yes. I offer a sliding scale from $60 to $100 per hour, set together during a free 15-minute consultation, for clients in Irving, Dallas, Fort Worth, and across Texas by telehealth.",
+    a: "Yes. My standard fee is $100 per session, and I offer reduced rates based on household income for clients in Irving, Dallas, Fort Worth, and across Texas by telehealth. Ask during a free 15-minute consultation.",
   },
   {
     q: "What is genetics-informed psychoeducation?",
@@ -184,41 +187,6 @@ function Index() {
   useScrollReveal();
   useCardGlow();
   const heroRef = useSpotlight<HTMLElement>();
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const payload = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      location: formData.get("location"),
-      best_time: formData.get("best_time"),
-      _subject: "New consultation request",
-    };
-
-    setSubmitting(true);
-    setError(null);
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data?.errors?.[0]?.message ?? "Submission failed.");
-      }
-      setSubmitted(true);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
-    } finally {
-      setSubmitting(false);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -289,26 +257,22 @@ function Index() {
               style={{ "--i": 15 } as React.CSSProperties}
               className="rise mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
             >
+              <ConsultationButton className="btn-shine inline-flex items-center justify-center gap-2.5 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_10px_40px_-12px_color-mix(in_oklab,var(--primary)_70%,transparent)] transition hover:-translate-y-0.5">
+                Get Your Free 15-Min Consultation
+              </ConsultationButton>
               <a
                 href={PHONE_HREF}
-                className="btn-shine inline-flex items-center justify-center gap-2.5 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_10px_40px_-12px_color-mix(in_oklab,var(--primary)_70%,transparent)] transition hover:-translate-y-0.5"
-              >
-                <Phone className="h-4 w-4" aria-hidden />
-                Call for a Free 15-Min Consultation
-              </a>
-              <a
-                href="#consult"
                 className="inline-flex items-center gap-2 text-sm text-foreground/80 transition hover:text-foreground"
               >
-                Or request a call back
-                <span aria-hidden>→</span>
+                <Phone className="h-3.5 w-3.5" aria-hidden />
+                Or call me now
               </a>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
               <a href={PHONE_HREF} className="font-medium text-foreground/80 hover:text-foreground">
                 {PHONE_DISPLAY}
               </a>{" "}
-              · Sliding scale $60–$100 per hour
+              · $100 per session · Reduced rates available
             </p>
             <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
               <span>Dallas–Fort Worth · Outdoor sessions</span>
@@ -340,6 +304,9 @@ function Index() {
                   </p>
                   <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
                     M.S., LPC Associate, NCC
+                  </p>
+                  <p className="mt-1 text-[0.68rem] text-muted-foreground">
+                    Supervised by Don Zablosky, LPC-S
                   </p>
                 </div>
                 <img
@@ -729,7 +696,7 @@ function Index() {
               Clear, flexible rates.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              My practice is self-pay, and I don’t bill insurance. I keep a sliding scale so that
+              My practice is self-pay, and I don’t bill insurance. I offer reduced rates so that
               cost is less of a barrier to getting support.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -754,11 +721,11 @@ function Index() {
                 ))}
               </ul>
               <div className="border-t border-border bg-secondary/50 px-6 py-6 sm:px-8">
-                <p className="font-serif text-lg text-foreground">How the sliding scale works</p>
+                <p className="font-serif text-lg text-foreground">How reduced rates work</p>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  We settle on your rate together during the free consultation, based on what’s
-                  manageable for you. It stays private, and we can revisit it if your circumstances
-                  change.
+                  Reduced rates are based on your household income, which you simply tell me.
+                  There’s no need to explain your circumstances. Your rate stays private and is
+                  reviewed every six months, or sooner if your income changes.
                 </p>
               </div>
             </div>
@@ -770,7 +737,7 @@ function Index() {
         </div>
       </section>
 
-      {/* Consultation Form */}
+      {/* Consultation */}
       <section id="consult" className="py-16 sm:py-20">
         <div className="reveal mx-auto max-w-3xl px-6">
           <div className="text-center">
@@ -779,8 +746,8 @@ function Index() {
               A free 15-minute consultation.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-              A short call to see if we’re a good fit, with no pressure and no commitment. Call me
-              directly, or leave your details below and I’ll reach out.
+              A short call to see if we’re a good fit, with no pressure and no commitment. Leave
+              your details and I’ll call you, or call me directly.
             </p>
           </div>
 
@@ -794,24 +761,21 @@ function Index() {
               }}
             />
             <div className="relative">
-              <p className="text-xs uppercase tracking-[0.2em] text-taupe">
-                Call for your free 15-minute consultation
+              <ConsultationButton className="btn-shine inline-flex items-center justify-center rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition hover:-translate-y-0.5">
+                Get Your Free 15-Min Consultation
+              </ConsultationButton>
+              <p className="mt-8 text-xs uppercase tracking-[0.2em] text-taupe">
+                Or call me directly
               </p>
               <a
                 href={PHONE_HREF}
-                className="mt-3 block font-serif text-4xl tracking-tight transition hover:opacity-90 sm:text-5xl"
+                className="mt-3 inline-flex items-center gap-3 font-serif text-3xl tracking-tight transition hover:opacity-90 sm:text-4xl"
               >
+                <Phone className="h-5 w-5" aria-hidden />
                 {PHONE_DISPLAY}
               </a>
-              <a
-                href={PHONE_HREF}
-                className="btn-shine mt-6 inline-flex items-center gap-2.5 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition hover:-translate-y-0.5"
-              >
-                <Phone className="h-4 w-4" aria-hidden />
-                Call Now
-              </a>
               <p className="mt-4 text-sm text-muted-foreground">
-                Sliding scale from $60 to $100 per hour. Ask on the call.
+                Standard fee $100 per session. Reduced rates available.
               </p>
             </div>
           </div>
@@ -826,64 +790,6 @@ function Index() {
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{perk.body}</p>
               </div>
             ))}
-          </div>
-
-          <div className="mt-10 flex items-center gap-4 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            <span className="h-px flex-1 bg-border" />
-            Prefer to write? Request a call back
-            <span className="h-px flex-1 bg-border" />
-          </div>
-
-          <div className="mt-6 rounded-3xl border border-border bg-card p-6 shadow-[0_20px_60px_-30px_rgba(80,60,40,0.25)] sm:p-10">
-            {submitted ? (
-              <div className="py-12 text-center">
-                <div
-                  className="mx-auto flex h-14 w-14 items-center justify-center rounded-full"
-                  style={{ background: "color-mix(in oklab, var(--sage) 50%, transparent)" }}
-                >
-                  <svg
-                    className="h-6 w-6 text-foreground"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <h3 className="mt-6 font-serif text-2xl text-foreground">Thank you.</h3>
-                <p className="mx-auto mt-3 max-w-md text-muted-foreground">
-                  I’ll call you soon for your free 15-minute consultation.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <Field label="Name" name="name" type="text" required />
-                  <Field label="Email" name="email" type="email" required />
-                  <Field label="Phone" name="phone" type="tel" required />
-                  <Field label="City" name="location" type="text" optional />
-                  <div className="sm:col-span-2">
-                    <Field label="Best time to call" name="best_time" type="text" optional />
-                  </div>
-                </div>
-
-                <div className="border-t border-border pt-6">
-                  <button
-                    type="submit"
-                    disabled={submitting}
-                    className="w-full rounded-full bg-primary px-7 py-4 text-sm font-medium text-primary-foreground shadow-[0_8px_30px_-12px_color-mix(in_oklab,var(--primary)_60%,transparent)] transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
-                  >
-                    {submitting ? "Sending…" : "Request a Call Back"}
-                  </button>
-                  {error && <p className="mt-3 text-center text-sm text-destructive">{error}</p>}
-                  <p className="mt-3 text-center text-xs text-muted-foreground">
-                    Used only to contact you about scheduling. Please don’t include sensitive health
-                    details.
-                  </p>
-                </div>
-              </form>
-            )}
           </div>
         </div>
       </section>
@@ -963,35 +869,6 @@ function Index() {
 
       <SiteFooter />
     </div>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type,
-  required,
-  optional,
-}: {
-  label: string;
-  name: string;
-  type: string;
-  required?: boolean;
-  optional?: boolean;
-}) {
-  return (
-    <label className="block">
-      <span className="mb-2 flex items-baseline justify-between text-sm font-medium text-foreground">
-        <span>{label}</span>
-        {optional && <span className="text-xs font-normal text-muted-foreground">optional</span>}
-      </span>
-      <input
-        name={name}
-        type={type}
-        required={required}
-        className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground transition placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25"
-      />
-    </label>
   );
 }
 
