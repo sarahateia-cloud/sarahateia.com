@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
 
 const PHASES = [
   { label: "Breathe in", seconds: 4, scale: 1 },
@@ -43,74 +42,88 @@ export function BreathingExercise() {
 
   useEffect(() => {
     if (!running) return;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const shapes = [circle.current, ...halos.current];
-    gsap.killTweensOf([...shapes, glow.current, orbit.current]);
+    let stopped = false;
+    let stopAnimation: (() => void) | undefined;
 
-    let shownPhase = -1;
-    const timeline = gsap.timeline({
-      repeat: -1,
-      onUpdate: () => {
-        const { index, count } = phaseAt(timeline.time());
-        setPhase(index);
-        setCount(count);
-        if (index !== shownPhase) {
-          shownPhase = index;
-          if (!reduced) {
-            gsap.fromTo(
-              label.current,
-              { opacity: 0, y: 6 },
-              { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
-            );
-          }
-        }
-      },
-    });
+    // Loaded on the first press so visitors who never start the exercise don't download it.
+    import("gsap")
+      .then(({ gsap }) => {
+        if (stopped) return;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const shapes = [circle.current, ...halos.current];
+        gsap.killTweensOf([...shapes, glow.current, orbit.current]);
 
-    if (reduced) {
-      // No growing or orbiting. The words, the count, and a soft glow guide the breath instead.
-      gsap.set(shapes, { scale: REDUCED_MOTION_SCALE });
-    } else {
-      gsap.set(shapes, { scale: REST_SCALE });
-      gsap.to(orbit.current, { opacity: 1, duration: 0.6 });
-      timeline.fromTo(
-        orbit.current,
-        { rotation: 0 },
-        { rotation: 360, duration: CYCLE_SECONDS, ease: "none" },
-        0,
-      );
-    }
-
-    let start = 0;
-    for (const { seconds, scale } of PHASES) {
-      const ease = "sine.inOut";
-      timeline.to(
-        glow.current,
-        { opacity: scale === 1 ? 0.75 : 0.4, duration: seconds, ease },
-        start,
-      );
-      if (!reduced) {
-        timeline.to(circle.current, { scale, duration: seconds, ease }, start);
-        HALOS.forEach(({ size, lag }, i) => {
-          timeline.to(
-            halos.current[i],
-            { scale: scale === 1 ? size : REST_SCALE, duration: seconds - lag, ease },
-            start + lag,
-          );
+        let shownPhase = -1;
+        const timeline = gsap.timeline({
+          repeat: -1,
+          onUpdate: () => {
+            const { index, count } = phaseAt(timeline.time());
+            setPhase(index);
+            setCount(count);
+            if (index !== shownPhase) {
+              shownPhase = index;
+              if (!reduced) {
+                gsap.fromTo(
+                  label.current,
+                  { opacity: 0, y: 6 },
+                  { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+                );
+              }
+            }
+          },
         });
-      }
-      start += seconds;
-    }
+
+        if (reduced) {
+          // No growing or orbiting. The words, the count, and a soft glow guide the breath instead.
+          gsap.set(shapes, { scale: REDUCED_MOTION_SCALE });
+        } else {
+          gsap.set(shapes, { scale: REST_SCALE });
+          gsap.to(orbit.current, { opacity: 1, duration: 0.6 });
+          timeline.fromTo(
+            orbit.current,
+            { rotation: 0 },
+            { rotation: 360, duration: CYCLE_SECONDS, ease: "none" },
+            0,
+          );
+        }
+
+        let start = 0;
+        for (const { seconds, scale } of PHASES) {
+          const ease = "sine.inOut";
+          timeline.to(
+            glow.current,
+            { opacity: scale === 1 ? 0.75 : 0.4, duration: seconds, ease },
+            start,
+          );
+          if (!reduced) {
+            timeline.to(circle.current, { scale, duration: seconds, ease }, start);
+            HALOS.forEach(({ size, lag }, i) => {
+              timeline.to(
+                halos.current[i],
+                { scale: scale === 1 ? size : REST_SCALE, duration: seconds - lag, ease },
+                start + lag,
+              );
+            });
+          }
+          start += seconds;
+        }
+
+        stopAnimation = () => {
+          timeline.kill();
+          // Settle back to rest instead of snapping when the exercise stops.
+          const duration = reduced ? 0 : 0.9;
+          gsap.to(shapes, { scale: REST_SCALE, duration, ease: "power2.out" });
+          gsap.to(glow.current, { opacity: 0.4, duration });
+          gsap.to(orbit.current, { opacity: 0, duration: duration / 2 });
+          gsap.killTweensOf(label.current);
+          gsap.set(label.current, { opacity: 1, y: 0 });
+        };
+      })
+      .catch(() => setRunning(false));
 
     return () => {
-      timeline.kill();
-      // Settle back to rest instead of snapping when the exercise stops.
-      const duration = reduced ? 0 : 0.9;
-      gsap.to(shapes, { scale: REST_SCALE, duration, ease: "power2.out" });
-      gsap.to(glow.current, { opacity: 0.4, duration });
-      gsap.to(orbit.current, { opacity: 0, duration: duration / 2 });
-      gsap.killTweensOf(label.current);
-      gsap.set(label.current, { opacity: 1, y: 0 });
+      stopped = true;
+      stopAnimation?.();
     };
   }, [running]);
 
