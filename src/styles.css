@@ -381,10 +381,6 @@
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.breath-circle {
-  transition: transform var(--breath-duration, 4s) ease-in-out;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .glow-orb {
     animation: none;
@@ -395,7 +391,6 @@
     transition: none;
   }
   .tilt,
-  .breath-circle,
   .btn-shine::after {
     transition: none;
   }
