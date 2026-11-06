@@ -1,3 +1,5 @@
+import { GLOSSARY } from "./glossary";
+
 // The topic pages and articles. Each one also becomes its own built page with search labels,
 // so add new entries here, then add the page to public/sitemap.xml and public/llms.txt.
 
@@ -362,7 +364,12 @@ const breadcrumbs = (...crumbs: [string, string][]) => ({
 });
 
 /** Everything the build needs to give each page its own title, description, and search labels. */
-export const SITE_PAGES = [
+export const SITE_PAGES: {
+  path: string;
+  title: string;
+  description: string;
+  graph: object[];
+}[] = [
   ...TOPICS.map((page) => ({
     path: page.path,
     title: page.title,
@@ -427,5 +434,31 @@ export const SITE_PAGES = [
     ],
   })),
 ];
+
+SITE_PAGES.push({
+  path: "glossary",
+  title: `Counseling Glossary in English and Arabic | ${NAME}`,
+  description:
+    "Plain-language meanings of common counseling words, each with its Arabic term, from anxiety and burnout to informed consent and telehealth.",
+  graph: [
+    {
+      "@type": "DefinedTermSet",
+      "@id": `${url("glossary")}#terms`,
+      name: "Counseling glossary in English and Arabic",
+      url: url("glossary"),
+      hasDefinedTerm: GLOSSARY.map(({ term, arabic, definition }) => ({
+        "@type": "DefinedTerm",
+        name: term,
+        alternateName: arabic,
+        description: definition,
+      })),
+    },
+    breadcrumbs(
+      ["Home", "https://www.sarahateia.com/"],
+      ["Resources", url("resources")],
+      ["Glossary", url("glossary")],
+    ),
+  ],
+});
 
 export const PUBLISHED_LABEL = "November 2026";

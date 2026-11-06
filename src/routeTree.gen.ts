@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TelehealthCounselingRouteImport } from './routes/telehealth-counseling'
 import { Route as OutdoorCounselingRouteImport } from './routes/outdoor-counseling'
 import { Route as NewClientsRouteImport } from './routes/new-clients'
+import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as CrisisRouteImport } from './routes/crisis'
 import { Route as ArabicCounselingRouteImport } from './routes/arabic-counseling'
 import { Route as IndexRouteImport } from './routes/index'
@@ -31,6 +32,11 @@ const OutdoorCounselingRoute = OutdoorCounselingRouteImport.update({
 const NewClientsRoute = NewClientsRouteImport.update({
   id: '/new-clients',
   path: '/new-clients',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlossaryRoute = GlossaryRouteImport.update({
+  id: '/glossary',
+  path: '/glossary',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CrisisRoute = CrisisRouteImport.update({
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
   '/crisis': typeof CrisisRoute
+  '/glossary': typeof GlossaryRoute
   '/new-clients': typeof NewClientsRoute
   '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
   '/crisis': typeof CrisisRoute
+  '/glossary': typeof GlossaryRoute
   '/new-clients': typeof NewClientsRoute
   '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
   '/crisis': typeof CrisisRoute
+  '/glossary': typeof GlossaryRoute
   '/new-clients': typeof NewClientsRoute
   '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/arabic-counseling'
     | '/crisis'
+    | '/glossary'
     | '/new-clients'
     | '/outdoor-counseling'
     | '/telehealth-counseling'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/arabic-counseling'
     | '/crisis'
+    | '/glossary'
     | '/new-clients'
     | '/outdoor-counseling'
     | '/telehealth-counseling'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/arabic-counseling'
     | '/crisis'
+    | '/glossary'
     | '/new-clients'
     | '/outdoor-counseling'
     | '/telehealth-counseling'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ArabicCounselingRoute: typeof ArabicCounselingRoute
   CrisisRoute: typeof CrisisRoute
+  GlossaryRoute: typeof GlossaryRoute
   NewClientsRoute: typeof NewClientsRoute
   OutdoorCounselingRoute: typeof OutdoorCounselingRoute
   TelehealthCounselingRoute: typeof TelehealthCounselingRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/new-clients'
       fullPath: '/new-clients'
       preLoaderRoute: typeof NewClientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/glossary': {
+      id: '/glossary'
+      path: '/glossary'
+      fullPath: '/glossary'
+      preLoaderRoute: typeof GlossaryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/crisis': {
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ArabicCounselingRoute: ArabicCounselingRoute,
   CrisisRoute: CrisisRoute,
+  GlossaryRoute: GlossaryRoute,
   NewClientsRoute: NewClientsRoute,
   OutdoorCounselingRoute: OutdoorCounselingRoute,
   TelehealthCounselingRoute: TelehealthCounselingRoute,
