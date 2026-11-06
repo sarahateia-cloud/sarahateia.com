@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Phone } from "lucide-react";
 import { ConsultationButton } from "@/components/consultation-dialog";
 import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
@@ -10,12 +11,12 @@ export function ContentPageView({
 }: {
   page: ContentPage;
   parent?: { label: string; href: string };
-  note?: string;
+  note?: ReactNode;
 }) {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
-      <main className="mx-auto max-w-3xl px-6 pt-32 pb-20 sm:pt-40">
+      <main id="main" className="mx-auto max-w-3xl px-6 pt-32 max-[340px]:pt-36 pb-20 sm:pt-40">
         <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
           <a href="/" className="underline-offset-4 hover:text-foreground hover:underline">
             Home

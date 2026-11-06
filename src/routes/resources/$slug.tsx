@@ -16,7 +16,16 @@ function Article() {
     <ContentPageView
       page={Route.useLoaderData()}
       parent={{ label: "Resources", href: "/resources/" }}
-      note={`Written by Sarah Ateia Khattab, M.S., LPC Associate, NCC. Published ${PUBLISHED_LABEL}.`}
+      note={
+        <>
+          Written by{" "}
+          <a href="/#about" className="underline underline-offset-4">
+            Sarah Ateia Khattab
+          </a>
+          , M.S., LPC Associate, NCC, supervised by Don Zablosky, LPC-S. Published {PUBLISHED_LABEL}
+          .
+        </>
+      }
     />
   );
 }

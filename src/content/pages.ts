@@ -348,6 +348,9 @@ const faqLabel = (page: ContentPage) =>
       ]
     : [];
 
+// The page's own visible heading, so the search label names what the reader sees.
+const crumb = (page: ContentPage) => page.heading.replace(/\.$/, "");
+
 const breadcrumbs = (...crumbs: [string, string][]) => ({
   "@type": "BreadcrumbList",
   itemListElement: crumbs.map(([name, item], i) => ({
@@ -372,10 +375,13 @@ export const SITE_PAGES = [
         description: page.description,
         url: url(page.path),
         provider: PRACTICE,
-        areaServed: { "@type": "State", name: "Texas" },
-        availableLanguage: ["English", "Arabic"],
+        // Outdoor sessions only happen in Dallas–Fort Worth parks. Telehealth reaches all of Texas.
+        areaServed:
+          page.path === "outdoor-counseling"
+            ? { "@type": "Place", name: "Dallas–Fort Worth metroplex" }
+            : { "@type": "State", name: "Texas" },
       },
-      breadcrumbs(["Home", "https://www.sarahateia.com/"], [page.eyebrow, url(page.path)]),
+      breadcrumbs(["Home", "https://www.sarahateia.com/"], [crumb(page), url(page.path)]),
       ...faqLabel(page),
     ],
   })),
@@ -416,7 +422,7 @@ export const SITE_PAGES = [
       breadcrumbs(
         ["Home", "https://www.sarahateia.com/"],
         ["Resources", url("resources")],
-        [page.eyebrow, url(page.path)],
+        [crumb(page), url(page.path)],
       ),
     ],
   })),

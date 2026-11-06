@@ -127,7 +127,7 @@ function Crisis() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
 
-      <main className="mx-auto max-w-4xl px-6 pt-32 pb-24 sm:pt-40">
+      <main id="main" className="mx-auto max-w-4xl px-6 pt-32 max-[340px]:pt-36 pb-24 sm:pt-40">
         <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Crisis resources</p>
         <h1 className="mt-3 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
           If you need help right now.
