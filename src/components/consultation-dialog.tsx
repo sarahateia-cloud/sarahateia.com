@@ -14,7 +14,7 @@ const CALL_REQUEST_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbxX5Nf0xY_yfHNPQuIbxQ12k9ugFAJbCcNNS_DABaqw4CXt_vH9Mc6R3UnePhyukbHk/exec";
 
 // Cloudflare Turnstile's public site key. The form runs without the spam check while this is empty.
-const TURNSTILE_SITE_KEY: string = "";
+const TURNSTILE_SITE_KEY: string = "0x4AAAAAAF1wDbU0Wz_KgOYl";
 const TURNSTILE_SCRIPT = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
 
 declare global {
