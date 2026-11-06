@@ -7,8 +7,12 @@ import "./styles.css";
 const rootEl = document.getElementById("root");
 if (!rootEl) throw new Error("Root element #root not found");
 
-createRoot(rootEl).render(
+const router = getRouter();
+const app = (
   <StrictMode>
-    <RouterProvider router={getRouter()} />
-  </StrictMode>,
+    <RouterProvider router={router} />
+  </StrictMode>
 );
+
+// Built pages arrive with their text already in place, so keep it showing until the route is ready.
+router.load().then(() => createRoot(rootEl).render(app));
