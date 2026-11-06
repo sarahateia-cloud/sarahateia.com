@@ -9,12 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TelehealthCounselingRouteImport } from './routes/telehealth-counseling'
+import { Route as OutdoorCounselingRouteImport } from './routes/outdoor-counseling'
 import { Route as CrisisRouteImport } from './routes/crisis'
+import { Route as ArabicCounselingRouteImport } from './routes/arabic-counseling'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ResourcesIndexRouteImport } from './routes/resources/index'
+import { Route as ResourcesSlugRouteImport } from './routes/resources/$slug'
 
+const TelehealthCounselingRoute = TelehealthCounselingRouteImport.update({
+  id: '/telehealth-counseling',
+  path: '/telehealth-counseling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OutdoorCounselingRoute = OutdoorCounselingRouteImport.update({
+  id: '/outdoor-counseling',
+  path: '/outdoor-counseling',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CrisisRoute = CrisisRouteImport.update({
   id: '/crisis',
   path: '/crisis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArabicCounselingRoute = ArabicCounselingRouteImport.update({
+  id: '/arabic-counseling',
+  path: '/arabic-counseling',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -22,40 +42,113 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
+  id: '/resources/',
+  path: '/resources/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
+  id: '/resources/$slug',
+  path: '/resources/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/arabic-counseling': typeof ArabicCounselingRoute
   '/crisis': typeof CrisisRoute
+  '/outdoor-counseling': typeof OutdoorCounselingRoute
+  '/telehealth-counseling': typeof TelehealthCounselingRoute
+  '/resources/$slug': typeof ResourcesSlugRoute
+  '/resources/': typeof ResourcesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/arabic-counseling': typeof ArabicCounselingRoute
   '/crisis': typeof CrisisRoute
+  '/outdoor-counseling': typeof OutdoorCounselingRoute
+  '/telehealth-counseling': typeof TelehealthCounselingRoute
+  '/resources/$slug': typeof ResourcesSlugRoute
+  '/resources': typeof ResourcesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/arabic-counseling': typeof ArabicCounselingRoute
   '/crisis': typeof CrisisRoute
+  '/outdoor-counseling': typeof OutdoorCounselingRoute
+  '/telehealth-counseling': typeof TelehealthCounselingRoute
+  '/resources/$slug': typeof ResourcesSlugRoute
+  '/resources/': typeof ResourcesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/crisis'
+  fullPaths:
+    | '/'
+    | '/arabic-counseling'
+    | '/crisis'
+    | '/outdoor-counseling'
+    | '/telehealth-counseling'
+    | '/resources/$slug'
+    | '/resources/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/crisis'
-  id: '__root__' | '/' | '/crisis'
+  to:
+    | '/'
+    | '/arabic-counseling'
+    | '/crisis'
+    | '/outdoor-counseling'
+    | '/telehealth-counseling'
+    | '/resources/$slug'
+    | '/resources'
+  id:
+    | '__root__'
+    | '/'
+    | '/arabic-counseling'
+    | '/crisis'
+    | '/outdoor-counseling'
+    | '/telehealth-counseling'
+    | '/resources/$slug'
+    | '/resources/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArabicCounselingRoute: typeof ArabicCounselingRoute
   CrisisRoute: typeof CrisisRoute
+  OutdoorCounselingRoute: typeof OutdoorCounselingRoute
+  TelehealthCounselingRoute: typeof TelehealthCounselingRoute
+  ResourcesSlugRoute: typeof ResourcesSlugRoute
+  ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/telehealth-counseling': {
+      id: '/telehealth-counseling'
+      path: '/telehealth-counseling'
+      fullPath: '/telehealth-counseling'
+      preLoaderRoute: typeof TelehealthCounselingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/outdoor-counseling': {
+      id: '/outdoor-counseling'
+      path: '/outdoor-counseling'
+      fullPath: '/outdoor-counseling'
+      preLoaderRoute: typeof OutdoorCounselingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/crisis': {
       id: '/crisis'
       path: '/crisis'
       fullPath: '/crisis'
       preLoaderRoute: typeof CrisisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/arabic-counseling': {
+      id: '/arabic-counseling'
+      path: '/arabic-counseling'
+      fullPath: '/arabic-counseling'
+      preLoaderRoute: typeof ArabicCounselingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -65,12 +158,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/resources/': {
+      id: '/resources/'
+      path: '/resources'
+      fullPath: '/resources/'
+      preLoaderRoute: typeof ResourcesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources/$slug': {
+      id: '/resources/$slug'
+      path: '/resources/$slug'
+      fullPath: '/resources/$slug'
+      preLoaderRoute: typeof ResourcesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArabicCounselingRoute: ArabicCounselingRoute,
   CrisisRoute: CrisisRoute,
+  OutdoorCounselingRoute: OutdoorCounselingRoute,
+  TelehealthCounselingRoute: TelehealthCounselingRoute,
+  ResourcesSlugRoute: ResourcesSlugRoute,
+  ResourcesIndexRoute: ResourcesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

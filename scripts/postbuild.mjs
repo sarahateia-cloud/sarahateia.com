@@ -3,6 +3,8 @@
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 
+const { render, SITE_PAGES } = await import(pathToFileURL("dist-ssr/entry-prerender.js").href);
+
 const SITE = "https://www.sarahateia.com";
 const html = readFileSync("dist/index.html", "utf8");
 
@@ -15,8 +17,19 @@ const PAGES = [
   },
 ];
 
-const setMeta = (doc, { path, title, description }) =>
-  doc
+// The home page's FAQ labels only describe the home page, so each other page gets its own labels.
+const setLabels = (doc, graph = []) =>
+  doc.replace(
+    /(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/,
+    (_, open, json, close) => {
+      const data = JSON.parse(json);
+      data["@graph"] = [...data["@graph"].filter((item) => item["@type"] !== "FAQPage"), ...graph];
+      return `${open}${JSON.stringify(data)}${close}`;
+    },
+  );
+
+const setMeta = (doc, { path, title, description, graph }) =>
+  setLabels(doc, graph)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`)
     .replace(/(<meta\s+name="description"\s+content=")[^"]*"/, `$1${description}"`)
     .replace(/(<link rel="canonical" href=")[^"]*"/, `$1${SITE}/${path}/"`)
@@ -25,7 +38,6 @@ const setMeta = (doc, { path, title, description }) =>
     .replace(/(<meta\s+property="og:description"\s+content=")[^"]*"/, `$1${description}"`);
 
 // Put each page's text in its HTML, and show it without waiting for the fade-in if JavaScript is off.
-const { render } = await import(pathToFileURL("dist-ssr/entry-prerender.js").href);
 const prerender = async (doc, route) =>
   doc
     .replace('<div id="root"></div>', `<div id="root">${await render(route)}</div>`)
@@ -35,7 +47,7 @@ const prerender = async (doc, route) =>
       "<noscript><style>.reveal,.rise{opacity:1!important;transform:none!important}</style></noscript></head>",
     );
 
-for (const page of PAGES) {
+for (const page of [...PAGES, ...SITE_PAGES]) {
   mkdirSync(`dist/${page.path}`, { recursive: true });
   writeFileSync(
     `dist/${page.path}/index.html`,

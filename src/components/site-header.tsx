@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { label: "About", href: "/#about" },
   { label: "Approach", href: "/#approach" },
   { label: "Fees", href: "/#fees" },
+  { label: "Resources", href: "/resources/" },
   { label: "FAQ", href: "/#faq" },
   { label: "Crisis Resources", href: "/crisis/" },
 ];
@@ -138,6 +139,28 @@ export function SiteFooter() {
             {" · "}
             <a href={PHONE_HREF} className="transition hover:text-foreground">
               {PHONE_DISPLAY}
+            </a>
+          </p>
+          <p className="mt-2">
+            <a
+              href="/arabic-counseling/"
+              className="underline-offset-4 transition hover:text-foreground hover:underline"
+            >
+              Counseling in Arabic
+            </a>
+            {" · "}
+            <a
+              href="/outdoor-counseling/"
+              className="underline-offset-4 transition hover:text-foreground hover:underline"
+            >
+              Outdoor sessions
+            </a>
+            {" · "}
+            <a
+              href="/telehealth-counseling/"
+              className="underline-offset-4 transition hover:text-foreground hover:underline"
+            >
+              Telehealth
             </a>
           </p>
           <p className="mt-2">
