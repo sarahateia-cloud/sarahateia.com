@@ -11,7 +11,8 @@ const html = readFileSync("dist/index.html", "utf8");
 const PAGES = [
   {
     path: "crisis",
-    title: "Crisis Resources in Dallas–Fort Worth | Sarah Ateia Khattab, LPC Associate",
+    title:
+      "Crisis Resources in Dallas–Fort Worth | Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S",
     description:
       "24/7 crisis lines for Dallas, Tarrant, Collin, Denton, and Johnson counties, plus 988, Crisis Text Line, and Dallas-area domestic violence and sexual assault hotlines.",
   },

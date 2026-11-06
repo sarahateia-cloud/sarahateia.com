@@ -15,7 +15,7 @@ export type ContentPage = {
   faqs?: Faq[];
 };
 
-const NAME = "Sarah Ateia Khattab, LPC Associate";
+const NAME = "Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S";
 const PUBLISHED = "2026-11-05";
 
 export const TOPICS: ContentPage[] = [

@@ -120,7 +120,8 @@ const SAFETY: Resource[] = [
 
 function Crisis() {
   useEffect(() => {
-    document.title = "Crisis Resources in Dallas–Fort Worth | Sarah Ateia Khattab, LPC Associate";
+    document.title =
+      "Crisis Resources in Dallas–Fort Worth | Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S";
   }, []);
 
   return (
