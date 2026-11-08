@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
-import { Phone } from "lucide-react";
-import { ConsultationButton } from "@/components/consultation-dialog";
-import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
+import { BookingActions, StickyCallBar } from "@/components/ds/booking";
+import { SiteFooter, SiteHeader } from "@/components/site-header";
 import type { ContentPage } from "@/content/pages";
 
 export function ContentPageView({
@@ -14,36 +13,44 @@ export function ContentPageView({
   note?: ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background pb-24 text-foreground md:pb-0">
       <SiteHeader />
       <main id="main" className="mx-auto max-w-3xl px-6 pt-32 max-[340px]:pt-36 pb-20 sm:pt-40">
-        <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
-          <a href="/" className="underline-offset-4 hover:text-foreground hover:underline">
-            Home
-          </a>
-          {parent && (
-            <>
-              {" / "}
-              <a
-                href={parent.href}
-                className="underline-offset-4 hover:text-foreground hover:underline"
-              >
-                {parent.label}
-              </a>
-            </>
-          )}
-        </nav>
-        <p className="mt-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          {page.eyebrow}
-        </p>
-        <h1 className="mt-3 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
-          {page.heading}
-        </h1>
-        <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{page.intro}</p>
+        <div id="top">
+          <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
+            <a
+              href="/"
+              className="inline-flex min-h-11 items-center underline-offset-4 hover:text-foreground hover:underline"
+            >
+              Home
+            </a>
+            {parent && (
+              <>
+                {" / "}
+                <a
+                  href={parent.href}
+                  className="inline-flex min-h-11 items-center underline-offset-4 hover:text-foreground hover:underline"
+                >
+                  {parent.label}
+                </a>
+              </>
+            )}
+          </nav>
+          <p className="mt-4 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            {page.eyebrow}
+          </p>
+          <h1 className="mt-3 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
+            {page.heading}
+          </h1>
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{page.intro}</p>
+          <BookingActions className="mt-8" />
+        </div>
 
         {page.blocks.map((block) => (
           <section key={block.heading} className="mt-12">
-            <h2 className="font-serif text-2xl text-foreground sm:text-3xl">{block.heading}</h2>
+            <h2 className="font-serif text-[1.75rem] leading-tight text-foreground sm:text-3xl">
+              {block.heading}
+            </h2>
             {block.paragraphs?.map((paragraph) => (
               <p key={paragraph} className="mt-4 leading-relaxed text-muted-foreground">
                 {paragraph}
@@ -73,22 +80,17 @@ export function ContentPageView({
           </section>
         )}
 
-        <section className="mt-14 rounded-3xl border border-border bg-card px-6 py-10 text-center sm:px-10">
+        <section
+          id="consult"
+          className="mt-14 rounded-3xl border border-border bg-card px-6 py-10 text-center sm:px-10"
+        >
           <h2 className="font-serif text-2xl text-foreground sm:text-3xl">
             Start with a free 15-minute consultation.
           </h2>
           <p className="mx-auto mt-3 max-w-md text-muted-foreground">
             A short call to see if we’re a good fit, with no pressure and no commitment.
           </p>
-          <div className="mt-6 flex flex-col items-center gap-4">
-            <ConsultationButton className="btn-shine inline-flex w-full max-w-xs items-center justify-center gap-2.5 rounded-full bg-primary px-9 py-4 text-base font-medium text-primary-foreground transition hover:-translate-y-0.5">
-              <Phone className="h-4 w-4" aria-hidden />
-              Request a Call
-            </ConsultationButton>
-            <a href={PHONE_HREF} className="font-serif text-xl text-foreground hover:opacity-80">
-              Or call {PHONE_DISPLAY}
-            </a>
-          </div>
+          <BookingActions className="mt-8 justify-center" />
         </section>
 
         {note && <p className="mt-8 text-xs leading-relaxed text-muted-foreground">{note}</p>}
@@ -102,6 +104,7 @@ export function ContentPageView({
         </p>
       </main>
       <SiteFooter />
+      <StickyCallBar />
     </div>
   );
 }

@@ -129,12 +129,14 @@ function Crisis() {
       <SiteHeader />
 
       <main id="main" className="mx-auto max-w-4xl px-6 pt-32 max-[340px]:pt-36 pb-24 sm:pt-40">
-        <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Crisis resources</p>
+        <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          Crisis resources
+        </p>
         <h1 className="mt-3 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
           If you need help right now.
         </h1>
 
-        <div className="mt-8 rounded-3xl bg-primary px-6 py-8 text-primary-foreground sm:px-10">
+        <div className="mt-8 rounded-3xl bg-cta px-6 py-8 text-cta-foreground sm:px-10">
           <p className="font-serif text-2xl leading-snug sm:text-3xl">
             If you or someone else is in immediate danger, call 911 or go to the nearest emergency
             room.
@@ -142,27 +144,27 @@ function Crisis() {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="tel:911"
-              className="inline-flex items-center gap-2 rounded-full bg-primary-foreground px-6 py-3 text-sm font-medium text-primary"
+              className="inline-flex min-h-12 items-center gap-2 rounded-full bg-cta-foreground px-6 text-base font-medium text-cta"
             >
               <Phone className="h-4 w-4" aria-hidden />
               Call 911
             </a>
             <a
               href="tel:988"
-              className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-6 py-3 text-sm font-medium"
+              className="inline-flex min-h-12 items-center gap-2 rounded-full border border-cta-foreground/50 px-6 text-base font-medium"
             >
               <Phone className="h-4 w-4" aria-hidden />
               Call or text 988
             </a>
           </div>
-          <p className="mt-6 text-sm leading-relaxed text-primary-foreground/80">
+          <p className="mt-6 text-sm leading-relaxed text-cta-foreground/90">
             My practice doesn’t provide emergency services, and calls and messages may not be
             answered right away. Please use the resources on this page instead.
           </p>
           <p
             lang="ar"
             dir="rtl"
-            className="mt-4 border-t border-primary-foreground/20 pt-4 text-base leading-relaxed"
+            className="mt-4 border-t border-cta-foreground/25 pt-4 text-base leading-relaxed"
           >
             هل تحتاج إلى مساعدة باللغة العربية؟ اتصل بالرقم 988 واطلب مترجمًا فوريًا.
           </p>
@@ -215,7 +217,7 @@ function ResourceGroup({
                 <a
                   key={c.label}
                   href={c.href}
-                  className="whitespace-nowrap rounded-full border border-primary/30 bg-background px-4 py-2 text-sm text-primary-foreground transition hover:border-primary hover:bg-secondary"
+                  className="inline-flex min-h-11 items-center whitespace-nowrap rounded-full border border-cta/30 bg-background px-4 text-sm font-medium text-cta transition-colors hover:border-cta"
                 >
                   {c.label}
                 </a>

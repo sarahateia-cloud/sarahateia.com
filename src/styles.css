@@ -39,6 +39,10 @@
   --color-gold: var(--gold);
   --color-night: var(--night);
   --color-cream: var(--cream);
+  /* Design-system concept: the one solid "book a consultation" color. */
+  --color-cta: var(--cta);
+  --color-cta-hover: var(--cta-hover);
+  --color-cta-foreground: var(--cta-foreground);
   --font-serif: "Cormorant Garamond", "Cormorant", ui-serif, Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
@@ -62,7 +66,7 @@
   --secondary-foreground: oklch(0.34 0.01 80);
 
   --muted: oklch(0.94 0.01 80);
-  --muted-foreground: oklch(0.53 0.01 70);
+  --muted-foreground: oklch(0.48 0.012 70); /* 5.9:1 on linen, 5.3:1 on oat */
 
   --accent: oklch(0.905 0.01 220); /* mist blue */
   --accent-foreground: oklch(0.37 0.02 225);
@@ -72,7 +76,7 @@
 
   --border: oklch(0.9 0.01 80);
   --input: oklch(0.9 0.01 80);
-  --ring: oklch(0.75 0.04 140);
+  --ring: oklch(0.42 0.05 150); /* = --cta, focus outlines */
 
   --sand: oklch(0.925 0.013 80);
   --clay: oklch(0.72 0.045 140); /* kept for util compat */
@@ -83,6 +87,20 @@
   --gold: oklch(0.72 0.045 140); /* accent (swap here to recolor) */
   --night: oklch(0.955 0.009 90); /* base for the hero */
   --cream: oklch(0.965 0.007 80);
+
+  /* The one solid "book a consultation" color. Use it only for booking. */
+  --cta: oklch(0.42 0.05 150); /* deep sage, 7.5:1 on linen */
+  --cta-hover: oklch(0.37 0.05 150);
+  --cta-foreground: oklch(0.99 0.004 80); /* cream, 8:1 on --cta */
+
+  /* One vertical rhythm for every section band. */
+  --section-y: 4.5rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --section-y: 6rem;
+  }
 }
 
 @layer base {
@@ -446,6 +464,35 @@
   .glow-card,
   .glow-card:hover {
     transform: none;
+    transition: none;
+  }
+}
+
+/* Clear, consistent keyboard focus on everything clickable. */
+:where(a, button, summary, input, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--cta);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+.ds-section {
+  padding-block: var(--section-y);
+}
+
+/* Phone booking bar: slides up once the page's opening section is out of view. */
+.sticky-call {
+  transform: translateY(110%);
+  transition: transform 250ms ease-out;
+}
+.sticky-call[data-show="true"] {
+  transform: translateY(0);
+}
+/* Never cover the visit-statistics question. */
+body:has([aria-label="Visit statistics choice"]) .sticky-call {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sticky-call {
     transition: none;
   }
 }

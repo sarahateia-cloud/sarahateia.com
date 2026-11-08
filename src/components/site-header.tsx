@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
 import { ConsultationButton } from "@/components/consultation-dialog";
+import { BUTTON } from "@/components/ds/buttons";
 import { Logo } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 
@@ -36,20 +37,23 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
         </a>
         <div className="hidden flex-shrink-0 items-center gap-5 whitespace-nowrap text-sm text-muted-foreground lg:flex xl:gap-7">
           {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="transition hover:text-foreground">
+            <a
+              key={link.href}
+              href={link.href}
+              className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
+            >
               {link.label}
             </a>
           ))}
-          <ConsultationButton className="btn-shine rounded-full bg-primary px-5 py-2 text-primary-foreground transition hover:-translate-y-0.5">
-            Request a Call
-          </ConsultationButton>
+          <ConsultationButton className={BUTTON.ctaSmall}>Request a Call</ConsultationButton>
         </div>
         <div className="flex items-center gap-2 lg:hidden">
           <a
             href={PHONE_HREF}
-            className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs text-primary-foreground"
+            className={`${BUTTON.ctaSmall} px-4`}
+            aria-label={`Call ${PHONE_DISPLAY}`}
           >
-            <Phone className="h-3 w-3" aria-hidden />
+            <Phone className="h-4 w-4" aria-hidden />
             Call
           </a>
           <button
@@ -57,16 +61,16 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
             onClick={() => setOpen(true)}
             aria-label="Open menu"
             aria-expanded={open}
-            className="glass flex h-9 w-9 items-center justify-center rounded-full text-foreground"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground"
           >
-            <Menu className="h-4 w-4" aria-hidden />
+            <Menu className="h-5 w-5" aria-hidden />
           </button>
         </div>
       </nav>
 
       {open && (
         <div
-          className="holo-scope holo-bg holo-grid fixed inset-0 z-40 flex flex-col"
+          className="fixed inset-0 z-40 flex flex-col bg-background"
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
@@ -76,7 +80,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Close menu"
-              className="glass flex h-10 w-10 items-center justify-center rounded-full"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card"
             >
               <X className="h-5 w-5" aria-hidden />
             </button>
@@ -87,7 +91,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="font-serif text-4xl font-light transition hover:text-gold"
+                  className="inline-flex min-h-12 items-center font-serif text-4xl font-light transition-colors hover:text-cta"
                 >
                   {link.label}
                 </a>
@@ -95,12 +99,10 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
             ))}
           </ul>
           <div className="space-y-3 px-10 pb-12">
-            <ConsultationButton className="btn-shine inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground">
-              Request a Call
-            </ConsultationButton>
+            <ConsultationButton className={BUTTON.cta}>Request a Call</ConsultationButton>
             <a
               href={PHONE_HREF}
-              className="flex items-center gap-2.5 text-sm font-medium text-foreground/80"
+              className="flex min-h-11 items-center gap-2.5 text-sm font-medium text-foreground"
             >
               <Phone className="h-4 w-4" aria-hidden />
               {PHONE_DISPLAY}
@@ -133,32 +135,38 @@ export function SiteFooter() {
         </div>
         <div className="text-sm text-muted-foreground sm:text-right">
           <p>
-            <a href="mailto:attya.llc@gmail.com" className="transition hover:text-foreground">
+            <a
+              href="mailto:attya.llc@gmail.com"
+              className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
+            >
               attya.llc@gmail.com
             </a>
             {" · "}
-            <a href={PHONE_HREF} className="transition hover:text-foreground">
+            <a
+              href={PHONE_HREF}
+              className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
+            >
               {PHONE_DISPLAY}
             </a>
           </p>
           <p className="mt-2">
             <a
               href="/arabic-counseling/"
-              className="underline-offset-4 transition hover:text-foreground hover:underline"
+              className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-foreground hover:underline"
             >
               Counseling in Arabic
             </a>
             {" · "}
             <a
               href="/outdoor-counseling/"
-              className="underline-offset-4 transition hover:text-foreground hover:underline"
+              className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-foreground hover:underline"
             >
               Outdoor sessions
             </a>
             {" · "}
             <a
               href="/telehealth-counseling/"
-              className="underline-offset-4 transition hover:text-foreground hover:underline"
+              className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-foreground hover:underline"
             >
               Telehealth
             </a>
@@ -166,7 +174,7 @@ export function SiteFooter() {
           <p className="mt-2">
             <a
               href={PSYCHOLOGY_TODAY_URL}
-              className="underline-offset-4 transition hover:text-foreground hover:underline"
+              className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-foreground hover:underline"
             >
               Psychology Today profile
             </a>
@@ -174,7 +182,7 @@ export function SiteFooter() {
           <p className="mt-2">
             <a
               href="/crisis/"
-              className="underline-offset-4 transition hover:text-foreground hover:underline"
+              className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-foreground hover:underline"
             >
               In crisis? Find 24/7 help
             </a>
@@ -183,7 +191,7 @@ export function SiteFooter() {
             LPC Associate #104391 · Supervised by Don Zablosky, LPC-S ·{" "}
             <a
               href={LICENSE_VERIFY_URL}
-              className="underline underline-offset-4 transition hover:text-foreground"
+              className="inline-flex min-h-11 items-center underline underline-offset-4 transition-colors hover:text-foreground"
             >
               Verify license
             </a>

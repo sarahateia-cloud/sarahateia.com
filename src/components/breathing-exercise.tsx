@@ -198,7 +198,7 @@ export function BreathingExercise() {
       <button
         type="button"
         onClick={toggle}
-        className="mt-8 rounded-full border border-primary/30 bg-background px-6 py-2.5 text-sm text-foreground transition hover:border-primary hover:bg-card"
+        className="mt-8 inline-flex min-h-12 items-center rounded-full border border-foreground/20 bg-card px-6 text-sm font-medium text-foreground transition-colors hover:border-foreground/40"
       >
         {running ? "Stop" : "Start a breathing exercise"}
       </button>

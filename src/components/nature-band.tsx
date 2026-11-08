@@ -1,6 +1,6 @@
 import { useId, type CSSProperties } from "react";
 
-type Scene = "forest" | "lake";
+type Scene = "lake";
 
 // Fixed-seed random numbers, so the server and the browser draw identical trees.
 function seeded(seed: number) {
@@ -23,54 +23,6 @@ function pineRidge(seed: number, baseY: number, minH: number, maxH: number, gap:
     d += ` M${p(0, 1)} L${p(0.22, 0.62)} L${p(0.12, 0.62)} L${p(0.36, 0.3)} L${p(0.2, 0.3)} L${p(0.5, 0)} L${p(-0.5, 0)} L${p(-0.2, 0.3)} L${p(-0.36, 0.3)} L${p(-0.12, 0.62)} L${p(-0.22, 0.62)} Z`;
   }
   return d;
-}
-
-function ForestScene({ id }: { id: string }) {
-  return (
-    <>
-      <defs>
-        <linearGradient id={`${id}-sky`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#56697a" />
-          <stop offset="0.55" stopColor="#9fb1b0" />
-          <stop offset="0.8" stopColor="#e6dcc6" />
-        </linearGradient>
-        <radialGradient id={`${id}-sun`}>
-          <stop offset="0" stopColor="#f8e8c4" stopOpacity="0.95" />
-          <stop offset="1" stopColor="#f8e8c4" stopOpacity="0" />
-        </radialGradient>
-        <linearGradient id={`${id}-ray`} x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0" stopColor="#fff8e6" stopOpacity="0.28" />
-          <stop offset="1" stopColor="#fff8e6" stopOpacity="0" />
-        </linearGradient>
-        <filter id={`${id}-haze`}>
-          <feGaussianBlur stdDeviation="1.6" />
-        </filter>
-        <filter id={`${id}-soft`} x="-50%" y="-20%" width="200%" height="140%">
-          <feGaussianBlur stdDeviation="14" />
-        </filter>
-      </defs>
-      <rect width="1600" height="800" fill={`url(#${id}-sky)`} />
-      <circle cx="1120" cy="470" r="430" fill={`url(#${id}-sun)`} />
-      <g filter={`url(#${id}-soft)`} opacity="0.8">
-        {[-38, -24, -12, 4].map((angle) => (
-          <polygon
-            key={angle}
-            points="1100,470 1050,-40 1190,-40"
-            fill={`url(#${id}-ray)`}
-            transform={`rotate(${angle} 1120 470)`}
-          />
-        ))}
-      </g>
-      <path
-        d={pineRidge(3, 500, 30, 80, 26)}
-        fill="#8fa2a0"
-        opacity="0.85"
-        filter={`url(#${id}-haze)`}
-      />
-      <path d={pineRidge(11, 590, 80, 170, 44)} fill="#5f7672" />
-      <path d={pineRidge(29, 740, 220, 430, 120)} fill="#33463f" />
-    </>
-  );
 }
 
 function LakeScene({ id }: { id: string }) {
@@ -131,10 +83,6 @@ function LakeScene({ id }: { id: string }) {
 }
 
 const FOG: Record<Scene, { top: string; height: string; opacity: number }[]> = {
-  forest: [
-    { top: "52%", height: "30%", opacity: 0.55 },
-    { top: "68%", height: "26%", opacity: 0.35 },
-  ],
   lake: [{ top: "58%", height: "16%", opacity: 0.3 }],
 };
 
@@ -153,7 +101,7 @@ export function NatureBand({ scene, lines }: { scene: Scene; lines: string[] }) 
           className="nature-scene absolute inset-0 -z-10 h-full w-full"
           aria-hidden
         >
-          {scene === "forest" ? <ForestScene id={id} /> : <LakeScene id={id} />}
+          <LakeScene id={id} />
         </svg>
         {FOG[scene].map((fog, i) => (
           <div

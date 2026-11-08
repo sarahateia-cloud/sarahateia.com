@@ -7,6 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { BUTTON } from "@/components/ds/buttons";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 
 // Google Apps Script web app that saves each request to the "Call Requests" Sheet.
@@ -46,7 +47,7 @@ function loadTurnstile() {
 }
 
 const INPUT_CLASS =
-  "w-full rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground transition placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25 sm:text-sm";
+  "w-full rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground transition placeholder:text-muted-foreground/60 focus:border-cta focus:outline-none focus:ring-2 focus:ring-cta/25 sm:text-sm";
 
 /** The call-back request form, used at the top of the home page and in the pop-up. */
 export function ConsultationForm({ onSent }: { onSent?: () => void }) {
@@ -195,7 +196,7 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_8px_30px_-12px_color-mix(in_oklab,var(--primary)_60%,transparent)] transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+        className={`${BUTTON.cta} w-full disabled:cursor-not-allowed disabled:opacity-60`}
       >
         {submitting ? "Sending…" : "Request a Call"}
       </button>

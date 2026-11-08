@@ -1,19 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Phone } from "lucide-react";
 import { BreathingExercise } from "@/components/breathing-exercise";
-import { ConsultationButton, ConsultationForm } from "@/components/consultation-dialog";
-import { DnaHelix, FloralNeuron } from "@/components/bio-motifs";
+import { ConsultationForm } from "@/components/consultation-dialog";
+import { BookingActions, SectionHeading, StickyCallBar } from "@/components/ds/booking";
 import { Introspection } from "@/components/introspection";
 import { NatureBand } from "@/components/nature-band";
-import { NeuralField } from "@/components/neural-field";
 import { WatercolorBloom } from "@/components/watercolor-bloom";
-import {
-  RiseWords,
-  ScrollProgress,
-  useCardGlow,
-  useScrollReveal,
-  useSpotlight,
-} from "@/components/motion";
+import { useScrollReveal } from "@/components/motion";
 import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
 import sarahHeadshot from "@/assets/sarah-headshot.jpg";
 import sarahGraduation from "@/assets/sarah-graduation.jpg";
@@ -27,14 +20,6 @@ import brainArt from "@/assets/brain-watercolor.png";
 export const Route = createFileRoute("/")({
   component: Index,
 });
-
-const HIGHLIGHTS = [
-  "LPC Associate",
-  "National Certified Counselor",
-  "English & Arabic",
-  "Reduced rates available",
-  "Free 15-min consultation",
-];
 
 const SUPPORT_AREAS = [
   "Anxiety / stress",
@@ -184,74 +169,64 @@ const FAQS = [
   },
 ];
 
+/** Card surface used for every small panel on the page. */
+const CARD = "rounded-2xl border border-border bg-card p-6";
+
 function Index() {
   useScrollReveal();
-  useCardGlow();
-  const heroRef = useSpotlight<HTMLElement>();
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <ScrollProgress />
+    <div className="min-h-screen bg-background pb-24 text-foreground md:pb-0">
       <SiteHeader dark />
 
       <main id="main">
-        {/* Hero */}
+        {/* 1. Hero: who, what, and both ways to book, with the form in reach. */}
         <section
           id="top"
-          ref={heroRef}
-          className="holo-scope holo-bg holo-grid spotlight overflow-hidden pt-28 pb-16 max-[380px]:pt-36 sm:pt-36 sm:pb-24"
+          className="holo-scope holo-bg overflow-hidden pt-28 pb-16 max-[380px]:pt-36 sm:pt-36 sm:pb-24"
         >
-          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden>
-            <div className="aurora" />
-            <NeuralField className="absolute inset-0 h-full w-full opacity-80" />
-            <DnaHelix className="absolute top-0 right-[3%] hidden h-full w-14 opacity-50 lg:block" />
-            <div
-              className="glow-orb"
-              style={{
-                top: "8%",
-                right: "6%",
-                width: "28rem",
-                height: "28rem",
-                background: "color-mix(in oklab, var(--sage) 30%, transparent)",
-              }}
-            />
-            <div
-              className="glow-orb glow-orb-alt"
-              style={{
-                bottom: "-10%",
-                left: "-6%",
-                width: "24rem",
-                height: "24rem",
-                background: "color-mix(in oklab, var(--gold) 14%, transparent)",
-              }}
-            />
-          </div>
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-x-12 lg:gap-y-0">
-            <div className="lg:col-span-7">
-              <p
-                style={{ "--i": 0 } as React.CSSProperties}
-                className="rise glass mb-7 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.22em] text-muted-foreground"
-              >
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold" />
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 lg:grid-cols-12 lg:gap-x-12">
+            <div className="lg:col-span-7 lg:pt-4">
+              <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                <span className="h-1.5 w-1.5 rounded-full bg-cta" aria-hidden />
                 Now accepting new clients
               </p>
-              <h1 className="font-serif text-[2.6rem] font-light leading-[1.02] tracking-[-0.02em] text-foreground sm:text-6xl lg:text-[4.75rem]">
-                <span className="sr-only">
-                  You’ve tried managing it. What if you could finally understand it?
-                </span>
-                <span aria-hidden>
-                  <RiseWords text="You’ve tried managing it. What if you could finally" start={1} />
-                  <em className="rise text-gold-sheen" style={{ "--i": 10 } as React.CSSProperties}>
-                    understand
-                  </em>{" "}
-                  <RiseWords text="it?" start={11} />
-                </span>
+              <h1 className="font-serif text-[2.6rem] font-light leading-[1.05] tracking-[-0.02em] text-foreground sm:text-6xl lg:text-[4.5rem]">
+                You’ve tried managing it. What if you could finally{" "}
+                <em className="text-taupe">understand</em> it?
               </h1>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                There’s a reason your mind works the way it does: your stress response, your
+                attention, your emotional patterns. My practice is rooted in that belief, with
+                sessions outdoors in Dallas–Fort Worth parks and by telehealth across Texas.
+              </p>
+              <BookingActions
+                requestHref="#request-call"
+                className="mt-8 lg:[&>a:first-child]:hidden"
+              />
+              <dl className="mt-8 grid max-w-xl grid-cols-1 gap-x-8 gap-y-3 border-t border-border pt-6 text-sm sm:grid-cols-2">
+                <div>
+                  <dt className="text-muted-foreground">Licensed in Texas</dt>
+                  <dd className="text-foreground">Sarah Ateia Khattab, M.S., LPC Associate, NCC</dd>
+                </div>
+                <div>
+                  <dt className="text-muted-foreground">Supervised by</dt>
+                  <dd className="text-foreground">Don Zablosky, LPC-S</dd>
+                </div>
+                <div>
+                  <dt className="text-muted-foreground">Fees</dt>
+                  <dd className="text-foreground">$100 per session · Reduced rates available</dd>
+                </div>
+                <div>
+                  <dt className="text-muted-foreground">Sessions</dt>
+                  <dd className="text-foreground">Dallas–Fort Worth outdoors · Texas telehealth</dd>
+                </div>
+              </dl>
             </div>
 
             <div
               id="request-call"
-              className="scroll-mt-6 rounded-3xl border border-border bg-card p-5 shadow-[0_40px_100px_-40px_oklch(0.35_0.04_70_/_0.45)] sm:p-7 lg:col-span-5 lg:col-start-8 lg:row-span-2 lg:row-start-1 lg:self-start"
+              className="scroll-mt-6 rounded-3xl border border-border bg-card p-5 shadow-[0_30px_80px_-40px_oklch(0.35_0.04_70_/_0.4)] sm:p-7 lg:col-span-5"
             >
               <div className="mb-5 flex items-center gap-4">
                 <img
@@ -273,61 +248,33 @@ function Index() {
               <ConsultationForm />
               <a
                 href={PHONE_HREF}
-                className="mt-4 flex items-center justify-center gap-2 border-t border-border pt-4 text-sm text-foreground/80 transition hover:text-foreground"
+                className="mt-4 flex min-h-12 items-center justify-center gap-2 border-t border-border pt-4 text-sm text-foreground transition-colors hover:text-cta"
               >
-                <Phone className="h-3.5 w-3.5" aria-hidden />
+                <Phone className="h-4 w-4" aria-hidden />
                 Or call <span className="font-medium">{PHONE_DISPLAY}</span>
               </a>
-            </div>
-
-            <div className="lg:col-span-7 lg:row-start-2">
-              <p
-                style={{ "--i": 13 } as React.CSSProperties}
-                className="rise max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mt-6"
-              >
-                There’s a reason your mind works the way it does: your stress response, your
-                attention, your emotional patterns. My practice is rooted in that belief, with
-                sessions outdoors in Dallas–Fort Worth parks and by telehealth across Texas.
-              </p>
-              <p className="mt-5 text-sm text-muted-foreground">
-                $100 per session · Reduced rates available
-              </p>
-              <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                <span>Dallas–Fort Worth · Outdoor sessions</span>
-                <span className="hidden h-4 w-px bg-border sm:inline-block" />
-                <span>Texas · Telehealth</span>
-              </div>
-              <p className="mt-6 text-sm text-muted-foreground">
-                Sarah Ateia Khattab, M.S., LPC Associate, NCC. Supervised by Don Zablosky, LPC-S.
-              </p>
             </div>
           </div>
         </section>
 
-        {/* Highlights strip */}
-        <div className="holo-scope marquee-wrap overflow-hidden border-t border-border bg-night py-6">
-          <div className="[mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
-            <div className="marquee">
-              {[0, 1].map((copy) => (
-                <ul
-                  key={copy}
-                  aria-hidden={copy === 1}
-                  className="flex shrink-0 items-center gap-x-10 pr-10 text-xs uppercase tracking-[0.2em] text-muted-foreground"
-                >
-                  {[...HIGHLIGHTS, ...HIGHLIGHTS].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 whitespace-nowrap">
-                      <span className="h-1 w-1 rotate-45 bg-gold" aria-hidden />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              ))}
-            </div>
-          </div>
-        </div>
+        {/* 2. At a glance: the facts people check before booking. */}
+        <section aria-label="At a glance" className="border-y border-border bg-card">
+          <ul className="mx-auto grid max-w-6xl grid-cols-1 divide-y divide-border px-6 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4">
+            <li className="py-6 sm:pr-6">
+              <p className="font-serif text-xl text-foreground">Free 15-minute consultation</p>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{STEPS[1].body}</p>
+            </li>
+            {CONSULT_PERKS.map((perk) => (
+              <li key={perk.title} className="py-6 sm:pr-6">
+                <p className="font-serif text-xl text-foreground">{perk.title}</p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{perk.body}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-        {/* One-line summary with small photos set inside the sentence */}
-        <section className="py-16 sm:py-24">
+        {/* 3. The photo headline. */}
+        <section className="ds-section">
           <p className="reveal mx-auto max-w-4xl px-6 text-center font-serif text-[2rem] font-light leading-[1.3] tracking-[-0.01em] text-foreground sm:text-5xl sm:leading-[1.25]">
             Counseling outdoors{" "}
             <InlinePhoto
@@ -349,22 +296,41 @@ function Index() {
           </p>
         </section>
 
-        {/* About */}
-        <section id="about" className="border-t border-border/60 bg-secondary/40 py-16 sm:py-20">
+        {/* 4. How it works, early, so booking feels simple. */}
+        <section className="ds-section border-t border-border/60 bg-secondary/50">
+          <div className="reveal mx-auto max-w-5xl px-6">
+            <SectionHeading eyebrow="How it works" title="Three steps. No pressure." center />
+            <ol className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {STEPS.map((step, i) => (
+                <li key={step.title} className={CARD}>
+                  <span
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-cta font-serif text-lg text-cta-foreground"
+                    aria-hidden
+                  >
+                    {i + 1}
+                  </span>
+                  <p className="mt-4 font-serif text-xl text-foreground">{step.title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
+                </li>
+              ))}
+            </ol>
+            <BookingActions className="mt-10 justify-center" />
+          </div>
+        </section>
+
+        {/* 5. About and credentials. */}
+        <section id="about" className="ds-section">
           <div className="reveal mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">About</p>
-              <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-4xl">
-                A relational, considered approach.
-              </h2>
-              <figure className="mx-auto mt-8 grid max-w-md grid-cols-2 gap-4 lg:max-w-none lg:grid-cols-1 lg:gap-8">
+              <SectionHeading eyebrow="About" title="A relational, considered approach." />
+              <figure className="mx-auto mt-8 grid max-w-md grid-cols-2 gap-4 lg:max-w-none lg:grid-cols-1 lg:gap-6">
                 <img
                   src={sarahGraduation}
                   width={800}
                   height={1000}
                   alt="Sarah at her graduate commencement, holding flowers"
                   loading="lazy"
-                  className="aspect-[4/5] w-full rotate-1 rounded-[2rem] border border-border object-cover shadow-[0_30px_70px_-40px_oklch(0.35_0.04_70_/_0.5)]"
+                  className="aspect-[4/5] w-full rounded-[1.75rem] border border-border object-cover"
                 />
                 <img
                   src={sarahHarbor}
@@ -372,11 +338,11 @@ function Index() {
                   height={1000}
                   alt="Sarah in a blue hijab, sitting at a table by the water"
                   loading="lazy"
-                  className="aspect-[4/5] w-full -rotate-1 rounded-[2rem] border border-border object-cover shadow-[0_30px_70px_-40px_oklch(0.35_0.04_70_/_0.5)]"
+                  className="aspect-[4/5] w-full rounded-[1.75rem] border border-border object-cover"
                 />
               </figure>
             </div>
-            <div className="space-y-5 text-base leading-relaxed text-muted-foreground lg:col-span-8 sm:text-lg">
+            <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg lg:col-span-8">
               <p>
                 I am a Licensed Professional Counselor Associate (LPC Associate) in Texas and a
                 National Certified Counselor (NCC), with a background in healthcare. I grew up in a
@@ -391,49 +357,199 @@ function Index() {
                 your biology instead of against it, as you work toward the changes that matter to
                 you.
               </p>
-              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-border bg-card p-5">
-                  <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                    Graduate Study
-                  </p>
-                  <p className="mt-2 font-serif text-lg text-foreground">
-                    M.S., Psychology (Counseling &amp; Human Development)
-                  </p>
-                  <p className="text-sm text-muted-foreground">Texas Woman’s University</p>
-                </div>
-                <div className="rounded-2xl border border-border bg-card p-5">
-                  <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                    Undergraduate
-                  </p>
-                  <p className="mt-2 font-serif text-lg text-foreground">B.S., Psychology</p>
-                  <p className="text-sm text-muted-foreground">The University of Texas at Dallas</p>
-                </div>
-                <div className="rounded-2xl border border-border bg-card p-5">
-                  <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                    License
-                  </p>
-                  <p className="mt-2 font-serif text-lg text-foreground">LPC Associate #104391</p>
-                  <p className="text-sm text-muted-foreground">
-                    Texas BHEC · Supervised by Don Zablosky, LPC-S
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-border bg-card p-5">
-                  <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                    Certification
-                  </p>
-                  <p className="mt-2 font-serif text-lg text-foreground">
-                    National Certified Counselor
-                  </p>
-                  <p className="text-sm text-muted-foreground">NBCC · NCC #1746909</p>
-                </div>
-              </div>
+              <dl className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {[
+                  [
+                    "Graduate Study",
+                    "M.S., Psychology (Counseling & Human Development)",
+                    "Texas Woman’s University",
+                  ],
+                  ["Undergraduate", "B.S., Psychology", "The University of Texas at Dallas"],
+                  [
+                    "License",
+                    "LPC Associate #104391",
+                    "Texas BHEC · Supervised by Don Zablosky, LPC-S",
+                  ],
+                  ["Certification", "National Certified Counselor", "NBCC · NCC #1746909"],
+                ].map(([label, title, detail]) => (
+                  <div key={label} className="rounded-2xl border border-border bg-card p-5">
+                    <dt className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                      {label}
+                    </dt>
+                    <dd className="mt-2 font-serif text-lg text-foreground">{title}</dd>
+                    <dd className="text-sm text-muted-foreground">{detail}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
         </section>
 
-        {/* Meet Chico: character section */}
-        <section className="relative isolate overflow-hidden py-14 sm:py-16">
-          {/* A dreamy, out-of-focus close-up of Chico as a soft painterly wash. */}
+        {/* 6. Who I support. */}
+        <section id="support" className="ds-section border-t border-border/60 bg-secondary/50">
+          <div className="reveal mx-auto max-w-4xl px-6 text-center">
+            <SectionHeading title="Who I support" center>
+              <p>Some of the areas I focus on.</p>
+            </SectionHeading>
+            <ul className="mt-8 flex flex-wrap justify-center gap-2">
+              {SUPPORT_AREAS.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="mx-auto mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+              <span className="font-medium text-foreground">Everyone is welcome here</span>,
+              whatever your culture, language, faith or lack of one, gender, sexual orientation,
+              age, body, ability, or background.
+            </p>
+          </div>
+        </section>
+
+        {/* 7. Approach and the three principles. */}
+        <section id="approach" className="ds-section relative isolate overflow-hidden">
+          <img
+            src={brainArt}
+            width={192}
+            height={336}
+            alt=""
+            aria-hidden
+            loading="lazy"
+            className="pointer-events-none absolute top-24 -right-16 -z-10 h-[28rem] w-auto max-w-none opacity-20 mix-blend-multiply [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_72%)] sm:right-0 lg:right-auto lg:left-[-3rem]"
+          />
+          <div className="reveal mx-auto max-w-5xl px-6">
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
+              <div className="lg:col-span-5">
+                <SectionHeading eyebrow="Approach" title="Understand yourself, gently." />
+              </div>
+              <div className="space-y-6 lg:col-span-7">
+                <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  I’m drawn to the <em className="text-taupe">why</em> behind how you feel. Together
+                  we work on practical tools alongside a deeper understanding of yourself: why your
+                  nervous system responds the way it does, and how that can shape the way you relate
+                  to yourself.
+                </p>
+                <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  My practice pairs traditional counseling foundations with genetics-informed
+                  psychoeducation and emerging research in neurobiology, held as an educational lens
+                  for noticing patterns in mood, stress, attention, and regulation. Not diagnosis,
+                  not medical advice, always alongside the relational work itself.
+                </p>
+                <ul className="flex flex-wrap gap-2 pt-2">
+                  {["Grounding", "Mind–body", "Nature-based", "Relational"].map((tag) => (
+                    <li
+                      key={tag}
+                      className="rounded-full border border-border bg-card px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+                <blockquote className="border-l-2 border-cta/40 pl-5 font-serif text-lg italic leading-relaxed text-foreground/85">
+                  Understanding why you feel the way you do can be a meaningful part of change.
+                </blockquote>
+              </div>
+            </div>
+
+            <div className="mt-16">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                What I bring
+              </p>
+              <h3 className="mt-3 max-w-2xl font-serif text-2xl leading-tight text-foreground sm:text-3xl">
+                Three things I hold in every session.
+              </h3>
+              <ol className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+                {PRINCIPLES.map((item, i) => (
+                  <li key={item.title} className={CARD}>
+                    <span className="font-serif text-3xl font-light text-taupe" aria-hidden>
+                      0{i + 1}
+                    </span>
+                    <h4 className="mt-3 font-serif text-xl text-foreground">{item.title}</h4>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                      {item.body}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        {/* 8. Outdoor sessions. */}
+        <section id="outdoors" className="ds-section">
+          <div className="reveal mx-auto max-w-5xl px-6">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-12">
+              <div className="lg:col-span-5">
+                <SectionHeading
+                  eyebrow="Sessions outdoors"
+                  title={
+                    <>
+                      Therapy under open sky, <em className="text-taupe">not</em> in an office.
+                    </>
+                  }
+                />
+              </div>
+              <div className="text-base leading-relaxed text-muted-foreground sm:text-lg lg:col-span-7">
+                <p>
+                  In-person sessions happen outside, in a park. Many people find it easier to talk
+                  side by side, with fresh air, trees, and room to move, than across a desk.
+                </p>
+                <p className="mt-4">
+                  Nature becomes a gentle part of the work: noticing your breath, your feet on the
+                  ground, the sounds around you. These are simple grounding practices you can take
+                  home with you.
+                </p>
+              </div>
+            </div>
+            <figure className="mt-10 overflow-hidden rounded-[1.75rem] border border-border">
+              <img
+                src={sarahOverlook}
+                width={1600}
+                height={1066}
+                alt="Sarah looking out over the city from an open-air terrace"
+                loading="lazy"
+                className="aspect-[16/9] w-full object-cover object-[60%_50%] sm:aspect-[21/9]"
+              />
+            </figure>
+            <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {OUTDOOR_NOTES.map((note) => (
+                <li key={note.title} className="rounded-2xl border border-border bg-card p-5">
+                  <p className="font-serif text-lg text-foreground">{note.title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{note.body}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-center text-sm text-muted-foreground">
+              Before your first outdoor session, you’ll sign a short consent form covering privacy,
+              weather, and safety. I’ll walk you through it.
+            </p>
+          </div>
+        </section>
+
+        {/* 9. A pause: watercolor and Chico. */}
+        <section className="ds-section border-t border-border/60 bg-secondary/50">
+          <div className="reveal mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-12">
+            <figure className="lg:col-span-7">
+              <div className="rounded-[1.75rem] border border-border bg-[#fbf8f1] p-4 sm:p-6">
+                <WatercolorBloom className="block h-auto w-full" />
+              </div>
+            </figure>
+            <div className="lg:col-span-5">
+              <SectionHeading eyebrow="A pause" title="Feelings rarely stay inside the lines.">
+                <p>
+                  They bleed into each other, like watercolor: worry into tiredness, grief into
+                  anger, hope into fear. Therapy can be a place to notice the colors without needing
+                  to tidy them up first.
+                </p>
+              </SectionHeading>
+            </div>
+          </div>
+        </section>
+
+        <section className="ds-section relative isolate overflow-hidden">
           <img
             src={chicoSoft}
             width={900}
@@ -441,14 +557,14 @@ function Index() {
             alt=""
             aria-hidden
             loading="lazy"
-            className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover object-[60%_45%] opacity-35"
+            className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover object-[60%_45%] opacity-25"
           />
-          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/70 to-background/20" />
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/80 to-background/30" />
           <div className="reveal mx-auto max-w-5xl px-6">
             <div className="grid grid-cols-1 items-center gap-10 sm:grid-cols-5 sm:gap-14">
               <div className="sm:col-span-2">
                 <div className="relative mx-auto w-full max-w-xs">
-                  <div className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-[2rem] border border-border bg-secondary shadow-[0_20px_60px_-30px_rgba(80,60,40,0.3)]">
+                  <div className="aspect-square w-full overflow-hidden rounded-[1.75rem] border border-border bg-secondary">
                     <img
                       src={chicoPortrait}
                       width={900}
@@ -464,239 +580,35 @@ function Index() {
                     height={600}
                     alt="Chico asleep under a floral blanket"
                     loading="lazy"
-                    className="absolute -right-4 -bottom-6 w-32 rotate-3 rounded-2xl border-4 border-card object-cover shadow-[0_20px_50px_-25px_rgba(80,60,40,0.45)] sm:-right-8 sm:w-36"
+                    className="absolute -right-4 -bottom-6 w-32 rotate-3 rounded-2xl border-4 border-card object-cover sm:-right-8 sm:w-36"
                   />
                 </div>
               </div>
               <div className="sm:col-span-3">
-                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  A warm presence
-                </p>
-                <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
-                  Meet Chico.
-                </h2>
-                <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  My orange cat is calm, loving, and surprisingly good at just being present. For
-                  clients who’d like a little extra comfort, he’s available to join sessions on
-                  request. No agenda, no opinions, just a quiet warmth when you need it.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Art interlude */}
-        <section className="relative overflow-hidden py-16 sm:py-20">
-          <div className="reveal mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-12">
-            <figure className="lg:col-span-7">
-              <div className="glow-card -rotate-1 rounded-[2rem] border border-border bg-[#fbf8f1] p-4 shadow-[0_40px_90px_-50px_rgba(60,50,40,0.55)] transition-transform duration-700 hover:rotate-0 sm:p-6">
-                <WatercolorBloom className="block h-auto w-full" />
-              </div>
-            </figure>
-            <div className="lg:col-span-5">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">A pause</p>
-              <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
-                Feelings rarely stay inside the lines.
-              </h2>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                They bleed into each other, like watercolor: worry into tiredness, grief into anger,
-                hope into fear. Therapy can be a place to notice the colors without needing to tidy
-                them up first.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Support areas */}
-        <section id="support" className="py-14 sm:py-16">
-          <div className="reveal mx-auto max-w-4xl px-6 text-center">
-            <h2 className="font-serif text-3xl text-foreground sm:text-4xl">Who I support</h2>
-            <p className="mt-2 text-muted-foreground">Some of the areas I focus on.</p>
-            <ul className="mt-6 flex flex-wrap justify-center gap-2">
-              {SUPPORT_AREAS.map((item) => (
-                <li
-                  key={item}
-                  className="glow-card rounded-full border border-border bg-card/70 px-4 py-2 text-sm text-foreground/90"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              <span className="font-medium text-foreground">Everyone is welcome here</span>,
-              whatever your culture, language, faith or lack of one, gender, sexual orientation,
-              age, body, ability, or background.
-            </p>
-          </div>
-        </section>
-
-        {/* Approach */}
-        <section
-          id="approach"
-          className="relative isolate overflow-hidden border-y border-border/60 py-16 sm:py-20"
-        >
-          <img
-            src={brainArt}
-            width={192}
-            height={336}
-            alt=""
-            aria-hidden
-            loading="lazy"
-            className="pointer-events-none absolute top-1/2 -right-16 -z-10 h-[125%] w-auto max-w-none -translate-y-1/2 opacity-[0.22] mix-blend-multiply blur-[1.5px] [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_72%)] sm:-right-4 sm:opacity-30 lg:right-auto lg:left-[-3rem]"
-          />
-          <div
-            className="pointer-events-none absolute inset-0 -z-10 opacity-70"
-            style={{
-              background:
-                "radial-gradient(40% 60% at 80% 50%, color-mix(in oklab, var(--sage) 35%, transparent), transparent 70%)",
-            }}
-          />
-          <div className="reveal mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12">
-            <div className="lg:col-span-5">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Approach</p>
-              <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
-                Understand yourself, gently.
-              </h2>
-            </div>
-            <div className="space-y-6 lg:col-span-7">
-              <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-                I’m drawn to the <em className="text-taupe">why</em> behind how you feel. Together
-                we work on practical tools alongside a deeper understanding of yourself: why your
-                nervous system responds the way it does, and how that can shape the way you relate
-                to yourself.
-              </p>
-              <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-                My practice pairs traditional counseling foundations with genetics-informed
-                psychoeducation and emerging research in neurobiology, held as an educational lens
-                for noticing patterns in mood, stress, attention, and regulation. Not diagnosis, not
-                medical advice, always alongside the relational work itself.
-              </p>
-              <div className="grid grid-cols-2 gap-3 pt-2 sm:grid-cols-4">
-                {["Grounding", "Mind–body", "Nature-based", "Relational"].map((tag) => (
-                  <div
-                    key={tag}
-                    className="rounded-full border border-border bg-background px-4 py-2 text-center text-xs uppercase tracking-[0.16em] text-muted-foreground"
-                  >
-                    {tag}
-                  </div>
-                ))}
-              </div>
-              <blockquote
-                className="mt-4 border-l-2 pl-5 font-serif text-lg italic leading-relaxed text-foreground/80"
-                style={{
-                  borderColor: "color-mix(in oklab, var(--sage) 70%, transparent)",
-                }}
-              >
-                Understanding why you feel the way you do can be a meaningful part of change.
-              </blockquote>
-            </div>
-          </div>
-        </section>
-
-        <div className="pt-16 sm:pt-20">
-          <NatureBand
-            scene="forest"
-            lines={["No couch. No office.", "Just trees and fresh air."]}
-          />
-        </div>
-
-        {/* Outdoor sessions */}
-        <section id="outdoors" className="py-16 sm:py-20">
-          <div className="reveal mx-auto max-w-5xl px-6">
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-12">
-              <div className="lg:col-span-5">
-                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  Sessions outdoors
-                </p>
-                <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
-                  Therapy under open sky, <em className="text-taupe">not</em> in an office.
-                </h2>
-              </div>
-              <div className="lg:col-span-7">
-                <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  In-person sessions happen outside, in a park. Many people find it easier to talk
-                  side by side, with fresh air, trees, and room to move, than across a desk.
-                </p>
-                <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  Nature becomes a gentle part of the work: noticing your breath, your feet on the
-                  ground, the sounds around you. These are simple grounding practices you can take
-                  home with you.
-                </p>
-              </div>
-            </div>
-            <figure className="mt-10 overflow-hidden rounded-[2rem] border border-border shadow-[0_40px_90px_-50px_oklch(0.35_0.04_70_/_0.5)]">
-              <img
-                src={sarahOverlook}
-                width={1600}
-                height={1066}
-                alt="Sarah looking out over the city from an open-air terrace"
-                loading="lazy"
-                className="aspect-[16/9] w-full object-cover object-[60%_50%] sm:aspect-[21/9]"
-              />
-            </figure>
-            <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {OUTDOOR_NOTES.map((note) => (
-                <li
-                  key={note.title}
-                  className="glow-card rounded-2xl border border-border bg-card p-5"
-                >
-                  <p className="font-serif text-lg text-foreground">{note.title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{note.body}</p>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-center text-sm text-muted-foreground">
-              Before your first outdoor session, you’ll sign a short consent form covering privacy,
-              weather, and safety. I’ll walk you through it.
-            </p>
-          </div>
-        </section>
-
-        {/* Principles */}
-        <section className="holo-scope holo-bg holo-grid overflow-hidden">
-          <div className="aurora" aria-hidden />
-          <FloralNeuron className="pointer-events-none absolute -top-2 right-[-2rem] -z-10 h-72 w-auto rotate-12 opacity-60 sm:right-[4%] sm:h-96" />
-          <FloralNeuron className="pointer-events-none absolute bottom-6 left-[-3rem] -z-10 hidden h-64 w-auto -rotate-[20deg] opacity-40 md:block" />
-          <Wave className="text-cream" />
-          <div className="reveal mx-auto max-w-5xl px-6 py-20 sm:py-16 sm:py-20">
-            <p className="text-xs uppercase tracking-[0.2em] text-taupe">What I bring</p>
-            <h2 className="mt-3 max-w-2xl font-serif text-3xl leading-tight sm:text-5xl">
-              Three things I hold in every session.
-            </h2>
-            <ol className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">
-              {PRINCIPLES.map((item, i) => (
-                <li key={item.title} className="glass glow-card rounded-3xl p-7">
-                  <span className="text-gold-sheen font-serif text-5xl font-light">0{i + 1}</span>
-                  <h3 className="mt-4 font-serif text-2xl">{item.title}</h3>
-                  <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                    {item.body}
+                <SectionHeading eyebrow="A warm presence" title="Meet Chico.">
+                  <p>
+                    My orange cat is calm, loving, and surprisingly good at just being present. For
+                    clients who’d like a little extra comfort, he’s available to join sessions on
+                    request. No agenda, no opinions, just a quiet warmth when you need it.
                   </p>
-                </li>
-              ))}
-            </ol>
+                </SectionHeading>
+              </div>
+            </div>
           </div>
-          <Wave className="text-cream" flip />
         </section>
 
-        <div className="pt-6 sm:pt-10">
-          <NatureBand scene="lake" lines={["Slow down.", "Breathe.", "One moment at a time."]} />
-        </div>
-
-        {/* Breathing exercise */}
-        <section id="breathe" className="py-16 sm:py-20">
+        {/* 10. Breathing. */}
+        <NatureBand scene="lake" lines={["Slow down.", "Breathe.", "One moment at a time."]} />
+        <section id="breathe" className="ds-section">
           <div className="reveal mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                A moment for you
-              </p>
-              <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
-                Take one slow breath with me.
-              </h2>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Slow, steady breathing is one simple way many people find to settle when things feel
-                like a lot. Follow the circle. Breathe in as it grows, hold, and breathe out as it
-                softens.
-              </p>
+              <SectionHeading eyebrow="A moment for you" title="Take one slow breath with me.">
+                <p>
+                  Slow, steady breathing is one simple way many people find to settle when things
+                  feel like a lot. Follow the circle. Breathe in as it grows, hold, and breathe out
+                  as it softens.
+                </p>
+              </SectionHeading>
               <p className="mt-4 text-xs text-muted-foreground">
                 A general wellness exercise, not treatment. Stop if you feel lightheaded.
               </p>
@@ -707,50 +619,23 @@ function Index() {
 
         <Introspection />
 
-        {/* How it works */}
-        <section className="border-t border-border/60 bg-secondary/40 py-16 sm:py-20">
-          <div className="reveal mx-auto max-w-5xl px-6">
-            <div className="mx-auto max-w-2xl text-center">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                How it works
-              </p>
-              <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-4xl">
-                Three steps. No pressure.
-              </h2>
-            </div>
-            <ol className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {STEPS.map((step, i) => (
-                <li
-                  key={step.title}
-                  className="glow-card rounded-2xl border border-border bg-card p-6"
-                >
-                  <span className="font-serif text-4xl text-taupe">{i + 1}</span>
-                  <p className="mt-3 font-serif text-xl text-foreground">{step.title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        {/* Fees */}
-        <section id="fees" className="py-16 sm:py-20">
+        {/* 11. Fees. */}
+        <section id="fees" className="ds-section border-t border-border/60 bg-secondary/50">
           <div className="reveal mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                Services &amp; fees
-              </p>
-              <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
-                Clear rates. Reduced rates available.
-              </h2>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                My practice is self-pay, and I don’t bill insurance. I offer reduced rates so that
-                cost is less of a barrier to getting support.
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                I’m licensed in Texas. If you live outside Texas, I’m glad to help point you toward
-                other options.
-              </p>
+              <SectionHeading
+                eyebrow="Services & fees"
+                title="Clear rates. Reduced rates available."
+              >
+                <p>
+                  My practice is self-pay, and I don’t bill insurance. I offer reduced rates so that
+                  cost is less of a barrier to getting support.
+                </p>
+                <p className="mt-4">
+                  I’m licensed in Texas. If you live outside Texas, I’m glad to help point you
+                  toward other options.
+                </p>
+              </SectionHeading>
             </div>
             <div className="lg:col-span-7">
               <div className="overflow-hidden rounded-3xl border border-border bg-card">
@@ -785,88 +670,41 @@ function Index() {
           </div>
         </section>
 
-        {/* Consultation */}
-        <section id="consult" className="py-16 sm:py-20">
+        {/* 12. Book. */}
+        <section id="consult" className="ds-section">
           <div className="reveal mx-auto max-w-3xl px-6">
-            <div className="text-center">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                Get started
-              </p>
-              <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-5xl">
-                A free 15-minute consultation.
-              </h2>
-              <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-                No pressure. No commitment. Just a short call to see if we’re a good fit. Leave your
-                details and I’ll call you, or call me directly.
-              </p>
-            </div>
-
-            <div className="holo-scope holo-bg holo-grid mt-10 overflow-hidden rounded-3xl px-6 py-12 text-center shadow-[0_40px_100px_-40px_oklch(0.35_0.04_70_/_0.4)] sm:px-10">
-              <div className="aurora" aria-hidden />
-              <div
-                className="pointer-events-none absolute inset-0 opacity-60"
-                style={{
-                  background:
-                    "radial-gradient(50% 80% at 85% 0%, color-mix(in oklab, var(--sage) 70%, transparent), transparent 70%), radial-gradient(40% 70% at 0% 100%, color-mix(in oklab, var(--sage) 50%, transparent), transparent 70%)",
-                }}
-              />
-              <div className="relative">
-                <ConsultationButton className="btn-shine inline-flex w-full max-w-xs items-center justify-center gap-2.5 rounded-full bg-primary px-9 py-4 text-base font-medium text-primary-foreground transition hover:-translate-y-0.5">
-                  <Phone className="h-4 w-4" aria-hidden />
-                  Request a Call
-                </ConsultationButton>
-                <p className="mt-8 text-xs uppercase tracking-[0.2em] text-taupe">
-                  Or call me directly
+            <div className="rounded-3xl border border-border bg-card px-6 py-12 text-center sm:px-12">
+              <SectionHeading eyebrow="Get started" title="A free 15-minute consultation." center>
+                <p>
+                  No pressure. No commitment. Just a short call to see if we’re a good fit. Leave
+                  your details and I’ll call you, or call me directly.
                 </p>
-                <a
-                  href={PHONE_HREF}
-                  className="mt-3 inline-flex items-center gap-3 font-serif text-3xl tracking-tight transition hover:opacity-90 sm:text-4xl"
-                >
-                  <Phone className="h-5 w-5" aria-hidden />
-                  {PHONE_DISPLAY}
-                </a>
-                <p className="mt-4 text-sm text-muted-foreground">
-                  Standard fee $100 per session. Reduced rates available.
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {CONSULT_PERKS.map((perk) => (
-                <div
-                  key={perk.title}
-                  className="glow-card rounded-2xl border border-border bg-card p-5"
-                >
-                  <p className="font-serif text-lg text-foreground">{perk.title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{perk.body}</p>
-                </div>
-              ))}
+              </SectionHeading>
+              <BookingActions className="mt-8 justify-center" />
+              <p className="mt-6 text-sm text-muted-foreground">
+                Standard fee $100 per session. Reduced rates available.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* FAQ */}
-        <section id="faq" className="pb-16 sm:pb-20">
+        {/* 13. FAQ. */}
+        <section id="faq" className="pb-[var(--section-y)]">
           <div className="reveal mx-auto max-w-3xl px-6">
-            <div className="text-center">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">FAQ</p>
-              <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-4xl">
-                Common questions.
-              </h2>
-            </div>
+            <SectionHeading eyebrow="FAQ" title="Common questions." center />
             <div className="mt-10 divide-y divide-border rounded-3xl border border-border bg-card">
               {FAQS.map((item) => (
-                <details key={item.q} className="group px-6 py-5 sm:px-8">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg text-foreground [&::-webkit-details-marker]:hidden">
+                <details key={item.q} className="group">
+                  <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 font-serif text-lg text-foreground sm:px-8 [&::-webkit-details-marker]:hidden">
                     <h3 className="text-lg">{item.q}</h3>
                     <span
-                      className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition group-open:rotate-45"
+                      className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-transform duration-200 group-open:rotate-45"
                       aria-hidden
                     >
                       +
                     </span>
                   </summary>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  <p className="px-6 pb-5 text-sm leading-relaxed text-muted-foreground sm:px-8 sm:text-base">
                     {item.a}
                   </p>
                 </details>
@@ -875,13 +713,13 @@ function Index() {
           </div>
         </section>
 
-        {/* Disclaimer */}
-        <section className="pb-16 sm:pb-20">
+        {/* 14. Disclosures and crisis help. */}
+        <section className="pb-[var(--section-y)]">
           <div className="mx-auto max-w-3xl px-6">
-            <div className="rounded-2xl border border-border bg-secondary/40 p-8 sm:p-10">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            <div className="rounded-2xl border border-border bg-secondary/50 p-8 sm:p-10">
+              <h2 className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground [font-family:var(--font-sans)]">
                 Disclosures
-              </p>
+              </h2>
               <ul className="mt-5 divide-y divide-border/60 text-sm leading-relaxed text-muted-foreground">
                 {DISCLOSURES.map((item) => (
                   <li key={item} className="py-3 first:pt-0 last:pb-0">
@@ -889,32 +727,12 @@ function Index() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 flex items-start gap-3 rounded-xl bg-background px-5 py-4 text-sm text-foreground/90">
-                <span
-                  className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary/40 text-primary-foreground"
-                  aria-hidden
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-3 w-3"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3m0 4h.01" />
-                    <circle cx="12" cy="12" r="9" />
-                  </svg>
-                </span>
-                <span>
-                  In crisis? Call or text <span className="font-medium">988</span> (Suicide &amp;
-                  Crisis Lifeline) or go to your nearest emergency room.{" "}
-                  <a
-                    href="/crisis/"
-                    className="font-medium text-primary-foreground underline-offset-4 hover:underline"
-                  >
-                    See Dallas–Fort Worth crisis resources →
-                  </a>
-                </span>
+              <div className="mt-6 rounded-xl bg-background px-5 py-4 text-sm text-foreground">
+                In crisis? Call or text <span className="font-medium">988</span> (Suicide &amp;
+                Crisis Lifeline) or go to your nearest emergency room.{" "}
+                <a href="/crisis/" className="font-medium text-cta underline underline-offset-4">
+                  See Dallas–Fort Worth crisis resources →
+                </a>
               </div>
             </div>
           </div>
@@ -922,6 +740,7 @@ function Index() {
       </main>
 
       <SiteFooter />
+      <StickyCallBar />
     </div>
   );
 }
@@ -942,7 +761,7 @@ function InlinePhoto({
 }) {
   return (
     <span
-      className={`inline-block h-[0.9em] w-[1.55em] overflow-hidden rounded-full border-2 border-card align-[-0.12em] shadow-[0_10px_24px_-12px_oklch(0.35_0.04_70_/_0.6)] transition-transform duration-500 hover:rotate-0 hover:scale-110 ${tilt}`}
+      className={`inline-block h-[0.9em] w-[1.55em] overflow-hidden rounded-full border-2 border-card align-[-0.12em] shadow-[0_10px_24px_-12px_oklch(0.35_0.04_70_/_0.6)] ${tilt}`}
       aria-hidden
     >
       <img
@@ -955,22 +774,5 @@ function InlinePhoto({
         style={{ objectPosition: position }}
       />
     </span>
-  );
-}
-
-/** A soft wave edge between a colored band and the page background. */
-function Wave({ className, flip }: { className?: string; flip?: boolean }) {
-  return (
-    <svg
-      viewBox="0 0 1440 60"
-      preserveAspectRatio="none"
-      className={`block h-10 w-full sm:h-14 ${flip ? "rotate-180" : ""} ${className ?? ""}`}
-      aria-hidden
-    >
-      <path
-        fill="currentColor"
-        d="M0 0h1440v22c-120 18-260 30-420 24S760 18 600 16 300 34 160 38 40 34 0 30Z"
-      />
-    </svg>
   );
 }

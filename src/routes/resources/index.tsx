@@ -7,14 +7,16 @@ export const Route = createFileRoute("/resources/")({
 });
 
 const LINK_CARD =
-  "block rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-0.5 hover:border-primary";
+  "block rounded-2xl border border-border bg-card p-6 transition-colors duration-200 hover:border-cta/50";
 
 function Resources() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
       <main id="main" className="mx-auto max-w-3xl px-6 pt-32 max-[340px]:pt-36 pb-20 sm:pt-40">
-        <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Resources</p>
+        <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          Resources
+        </p>
         <h1 className="mt-3 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
           Guides for starting counseling.
         </h1>
