@@ -381,8 +381,41 @@
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Painted nature bands: soft mist drifting sideways, and a slow settle-in zoom while scrolling past. */
+.nature-fog {
+  background: radial-gradient(50% 50% at 50% 50%, #f4f1ea 0%, transparent 70%);
+  animation: fog-drift 46s ease-in-out infinite alternate;
+  animation-delay: var(--fog-delay, 0s);
+  will-change: transform;
+}
+@keyframes fog-drift {
+  from {
+    transform: translate3d(-8%, 0, 0);
+  }
+  to {
+    transform: translate3d(8%, 0, 0);
+  }
+}
+@supports (animation-timeline: view()) {
+  .nature-scene {
+    animation: scene-settle linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+}
+@keyframes scene-settle {
+  from {
+    transform: scale(1.14);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .glow-orb {
+  .glow-orb,
+  .nature-fog,
+  .nature-scene {
     animation: none;
   }
   .reveal {

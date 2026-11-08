@@ -4,6 +4,7 @@ import { BreathingExercise } from "@/components/breathing-exercise";
 import { ConsultationButton, ConsultationForm } from "@/components/consultation-dialog";
 import { DnaHelix, FloralNeuron } from "@/components/bio-motifs";
 import { Introspection } from "@/components/introspection";
+import { NatureBand } from "@/components/nature-band";
 import { NeuralField } from "@/components/neural-field";
 import { WatercolorBloom } from "@/components/watercolor-bloom";
 import {
@@ -325,6 +326,29 @@ function Index() {
           </div>
         </div>
 
+        {/* One-line summary with small photos set inside the sentence */}
+        <section className="py-16 sm:py-24">
+          <p className="reveal mx-auto max-w-4xl px-6 text-center font-serif text-[2rem] font-light leading-[1.3] tracking-[-0.01em] text-foreground sm:text-5xl sm:leading-[1.25]">
+            Counseling outdoors{" "}
+            <InlinePhoto
+              src={sarahOverlook}
+              width={1600}
+              height={1066}
+              position="60% 45%"
+              tilt="-rotate-3"
+            />{" "}
+            or from home{" "}
+            <InlinePhoto
+              src={chicoPortrait}
+              width={900}
+              height={675}
+              position="50% 20%"
+              tilt="rotate-3"
+            />
+            , in <em className="text-taupe">English</em> or <em className="text-taupe">Arabic</em>.
+          </p>
+        </section>
+
         {/* About */}
         <section id="about" className="border-t border-border/60 bg-secondary/40 py-16 sm:py-20">
           <div className="reveal mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:gap-16">
@@ -531,7 +555,7 @@ function Index() {
             <div className="lg:col-span-5">
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Approach</p>
               <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
-                A thoughtful, emerging approach to emotional wellness.
+                Understand yourself, gently.
               </h2>
             </div>
             <div className="space-y-6 lg:col-span-7">
@@ -568,6 +592,13 @@ function Index() {
             </div>
           </div>
         </section>
+
+        <div className="pt-16 sm:pt-20">
+          <NatureBand
+            scene="forest"
+            lines={["No couch. No office.", "Just trees and fresh air."]}
+          />
+        </div>
 
         {/* Outdoor sessions */}
         <section id="outdoors" className="py-16 sm:py-20">
@@ -647,6 +678,10 @@ function Index() {
           <Wave className="text-cream" flip />
         </section>
 
+        <div className="pt-6 sm:pt-10">
+          <NatureBand scene="lake" lines={["Slow down.", "Breathe.", "One moment at a time."]} />
+        </div>
+
         {/* Breathing exercise */}
         <section id="breathe" className="py-16 sm:py-20">
           <div className="reveal mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
@@ -680,7 +715,7 @@ function Index() {
                 How it works
               </p>
               <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-4xl">
-                Getting started is simple.
+                Three steps. No pressure.
               </h2>
             </div>
             <ol className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -706,7 +741,7 @@ function Index() {
                 Services &amp; fees
               </p>
               <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
-                Clear, flexible rates.
+                Clear rates. Reduced rates available.
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
                 My practice is self-pay, and I don’t bill insurance. I offer reduced rates so that
@@ -761,8 +796,8 @@ function Index() {
                 A free 15-minute consultation.
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-                A short call to see if we’re a good fit, with no pressure and no commitment. Leave
-                your details and I’ll call you, or call me directly.
+                No pressure. No commitment. Just a short call to see if we’re a good fit. Leave your
+                details and I’ll call you, or call me directly.
               </p>
             </div>
 
@@ -888,6 +923,38 @@ function Index() {
 
       <SiteFooter />
     </div>
+  );
+}
+
+/** A small rounded photo that sits inside a line of text, like a word. Decorative only. */
+function InlinePhoto({
+  src,
+  width,
+  height,
+  position,
+  tilt,
+}: {
+  src: string;
+  width: number;
+  height: number;
+  position: string;
+  tilt: string;
+}) {
+  return (
+    <span
+      className={`inline-block h-[0.9em] w-[1.55em] overflow-hidden rounded-full border-2 border-card align-[-0.12em] shadow-[0_10px_24px_-12px_oklch(0.35_0.04_70_/_0.6)] transition-transform duration-500 hover:rotate-0 hover:scale-110 ${tilt}`}
+      aria-hidden
+    >
+      <img
+        src={src}
+        width={width}
+        height={height}
+        alt=""
+        loading="lazy"
+        className="h-full w-full object-cover"
+        style={{ objectPosition: position }}
+      />
+    </span>
   );
 }
 
