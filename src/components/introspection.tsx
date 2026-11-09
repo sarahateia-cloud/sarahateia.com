@@ -9,6 +9,8 @@ import {
   Puzzle,
   Sparkles,
 } from "lucide-react";
+import type { CSSProperties } from "react";
+import { Tilt } from "@/components/motion";
 
 const TESTS = [
   {
@@ -168,37 +170,68 @@ export function Introspection() {
         </p>
 
         <div className="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-2">
-          {FAMILIES.map((family) => (
-            <div
-              key={family.name}
-              className="rounded-3xl border border-border p-4 sm:p-5"
-              style={{ background: `color-mix(in oklab, ${family.color} 14%, var(--card))` }}
-            >
-              <p className="font-serif text-xl text-foreground">{family.name}</p>
-              <p className="text-sm text-muted-foreground">{family.question}</p>
-              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {family.functions.map((fn) => (
-                  <div key={fn.code} className="rounded-2xl bg-card p-4">
-                    <div className="flex items-center justify-between">
-                      <span
-                        className="flex h-11 w-11 items-center justify-center rounded-full font-serif text-lg text-foreground"
-                        style={{
-                          background: `color-mix(in oklab, ${family.color} 40%, transparent)`,
-                        }}
+          {FAMILIES.map((family, i) => {
+            // Cards float in one after another: left column, then right, then each pair inside.
+            const start = (i % 2) * 140;
+            return (
+              <div
+                key={family.name}
+                className="reveal rounded-3xl border border-border p-4 sm:p-5"
+                style={
+                  {
+                    "--fam": family.color,
+                    background: `color-mix(in oklab, ${family.color} 14%, var(--card))`,
+                    transitionDelay: `${start}ms`,
+                  } as CSSProperties
+                }
+              >
+                <p className="font-serif text-xl text-foreground">{family.name}</p>
+                <p className="text-sm text-muted-foreground">{family.question}</p>
+                <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  {family.functions.map((fn, j) => {
+                    // Introverted functions draw rings flowing in; extraverted ones send them out.
+                    const ring = fn.code.endsWith("i")
+                      ? "cf-ring cf-ring-in"
+                      : "cf-ring cf-ring-out";
+                    return (
+                      <div
+                        key={fn.code}
+                        className="reveal reveal-3d"
+                        style={{ transitionDelay: `${start + 200 + j * 160}ms` }}
                       >
-                        {fn.code}
-                      </span>
-                      <fn.icon className="h-5 w-5 text-muted-foreground" aria-hidden />
-                    </div>
-                    <p className="mt-3 font-medium text-foreground">{fn.nickname}</p>
-                    <p className="text-xs text-muted-foreground">{fn.title}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{fn.body}</p>
-                    <p className="mt-2 text-sm italic text-foreground/80">“{fn.quote}”</p>
-                  </div>
-                ))}
+                        <Tilt max={8}>
+                          <div className="cf-card h-full rounded-2xl bg-card p-4">
+                            <div className="flex items-center justify-between">
+                              <span
+                                className="relative flex h-11 w-11 items-center justify-center rounded-full font-serif text-lg text-foreground"
+                                style={{
+                                  background: `color-mix(in oklab, ${family.color} 40%, transparent)`,
+                                }}
+                              >
+                                <span className={ring} aria-hidden />
+                                <span className={ring} aria-hidden />
+                                {fn.code}
+                              </span>
+                              <fn.icon
+                                className="cf-icon h-5 w-5 text-muted-foreground"
+                                aria-hidden
+                              />
+                            </div>
+                            <p className="mt-3 font-medium text-foreground">{fn.nickname}</p>
+                            <p className="text-xs text-muted-foreground">{fn.title}</p>
+                            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                              {fn.body}
+                            </p>
+                            <p className="mt-2 text-sm italic text-foreground/80">“{fn.quote}”</p>
+                          </div>
+                        </Tilt>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-muted-foreground">

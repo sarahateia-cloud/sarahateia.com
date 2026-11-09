@@ -1,6 +1,6 @@
-/** Button looks shared across the site. Every one is at least 44px tall. */
+/** Button looks shared across the site. Every one is at least 44px tall and presses in slightly when tapped. */
 const BASE =
-  "inline-flex items-center justify-center gap-2.5 rounded-full font-medium transition-colors duration-200";
+  "inline-flex items-center justify-center gap-2.5 rounded-full font-medium transition-[color,background-color,border-color,transform] duration-200 active:scale-[0.97] motion-reduce:active:scale-100";
 
 export const BUTTON = {
   /** The booking color. Only for "Request a Call" and other booking actions. */

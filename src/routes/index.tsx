@@ -6,7 +6,7 @@ import { BookingActions, SectionHeading, StickyCallBar } from "@/components/ds/b
 import { Introspection } from "@/components/introspection";
 import { NatureBand } from "@/components/nature-band";
 import { WatercolorBloom } from "@/components/watercolor-bloom";
-import { useScrollReveal } from "@/components/motion";
+import { Tilt, useScrollReveal } from "@/components/motion";
 import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
 import sarahHeadshot from "@/assets/sarah-headshot.jpg";
 import sarahGraduation from "@/assets/sarah-graduation.jpg";
@@ -302,15 +302,25 @@ function Index() {
             <SectionHeading eyebrow="How it works" title="Three steps. No pressure." center />
             <ol className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
               {STEPS.map((step, i) => (
-                <li key={step.title} className={CARD}>
-                  <span
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-cta font-serif text-lg text-cta-foreground"
-                    aria-hidden
-                  >
-                    {i + 1}
-                  </span>
-                  <p className="mt-4 font-serif text-xl text-foreground">{step.title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
+                <li
+                  key={step.title}
+                  className="reveal reveal-3d"
+                  style={{ transitionDelay: `${i * 150}ms` }}
+                >
+                  <Tilt>
+                    <div className={`${CARD} h-full`}>
+                      <span
+                        className="flex h-10 w-10 items-center justify-center rounded-full bg-cta font-serif text-lg text-cta-foreground"
+                        aria-hidden
+                      >
+                        {i + 1}
+                      </span>
+                      <p className="mt-4 font-serif text-xl text-foreground">{step.title}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {step.body}
+                      </p>
+                    </div>
+                  </Tilt>
                 </li>
               ))}
             </ol>
@@ -324,22 +334,26 @@ function Index() {
             <div className="lg:col-span-4">
               <SectionHeading eyebrow="About" title="A relational, considered approach." />
               <figure className="mx-auto mt-8 grid max-w-md grid-cols-2 gap-4 lg:max-w-none lg:grid-cols-1 lg:gap-6">
-                <img
-                  src={sarahGraduation}
-                  width={800}
-                  height={1000}
-                  alt="Sarah at her graduate commencement, holding flowers"
-                  loading="lazy"
-                  className="aspect-[4/5] w-full rounded-[1.75rem] border border-border object-cover"
-                />
-                <img
-                  src={sarahHarbor}
-                  width={800}
-                  height={1000}
-                  alt="Sarah in a blue hijab, sitting at a table by the water"
-                  loading="lazy"
-                  className="aspect-[4/5] w-full rounded-[1.75rem] border border-border object-cover"
-                />
+                <Tilt>
+                  <img
+                    src={sarahGraduation}
+                    width={800}
+                    height={1000}
+                    alt="Sarah at her graduate commencement, holding flowers"
+                    loading="lazy"
+                    className="depth-far aspect-[4/5] w-full rounded-[1.75rem] border border-border object-cover"
+                  />
+                </Tilt>
+                <Tilt>
+                  <img
+                    src={sarahHarbor}
+                    width={800}
+                    height={1000}
+                    alt="Sarah in a blue hijab, sitting at a table by the water"
+                    loading="lazy"
+                    className="depth-near aspect-[4/5] w-full rounded-[1.75rem] border border-border object-cover"
+                  />
+                </Tilt>
               </figure>
             </div>
             <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg lg:col-span-8">
@@ -694,7 +708,7 @@ function Index() {
             <SectionHeading eyebrow="FAQ" title="Common questions." center />
             <div className="mt-10 divide-y divide-border rounded-3xl border border-border bg-card">
               {FAQS.map((item) => (
-                <details key={item.q} className="group">
+                <details key={item.q} className="faq-item group">
                   <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 font-serif text-lg text-foreground sm:px-8 [&::-webkit-details-marker]:hidden">
                     <h3 className="text-lg">{item.q}</h3>
                     <span

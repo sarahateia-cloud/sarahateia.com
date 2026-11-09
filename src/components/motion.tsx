@@ -64,8 +64,8 @@ export function Tilt({ children, max = 6 }: { children: ReactNode; max?: number 
   };
 
   return (
-    <div style={{ perspective: "1000px" }}>
-      <div ref={ref} className="tilt" onPointerMove={handleMove} onPointerLeave={reset}>
+    <div className="h-full" style={{ perspective: "1000px" }}>
+      <div ref={ref} className="tilt h-full" onPointerMove={handleMove} onPointerLeave={reset}>
         {children}
       </div>
     </div>
