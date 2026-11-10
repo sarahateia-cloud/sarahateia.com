@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { BUTTON } from "@/components/ds/buttons";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
+import { restoreEarlyInput } from "@/lib/early-input";
 
 // Google Apps Script web app that saves each request to the "Call Requests" Sheet.
 const CALL_REQUEST_ENDPOINT =
@@ -54,6 +55,9 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // False until this page's script is running. Until then the button stays off, so the
+  // browser can never send the form on its own or put what's typed into the page address.
+  const [ready, setReady] = useState(false);
   const turnstileBox = useRef<HTMLDivElement>(null);
   const turnstileId = useRef<string | undefined>(undefined);
   const turnstileStarted = useRef(false);
@@ -76,12 +80,15 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
       });
   };
 
-  useEffect(
-    () => () => {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    restoreEarlyInput(formRef.current);
+    setReady(true);
+    return () => {
       if (turnstileId.current) window.turnstile?.remove(turnstileId.current);
-    },
-    [],
-  );
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -155,7 +162,17 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} onFocusCapture={startSpamCheck} className="space-y-4">
+    // POST to the same Sheet script the page's code uses, so details never go in the address.
+    // The browser can't submit this on its own anyway: the button is off until the script runs.
+    <form
+      ref={formRef}
+      data-booking-form=""
+      method="post"
+      action={CALL_REQUEST_ENDPOINT}
+      onSubmit={handleSubmit}
+      onFocusCapture={startSpamCheck}
+      className="space-y-4"
+    >
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Field label="Name">
           <input name="name" type="text" autoComplete="name" required className={INPUT_CLASS} />
@@ -195,11 +212,20 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
 
       <button
         type="submit"
-        disabled={submitting}
+        disabled={!ready || submitting}
         className={`${BUTTON.cta} w-full disabled:cursor-not-allowed disabled:opacity-60`}
       >
         {submitting ? "Sending…" : "Request a Call"}
       </button>
+      {!ready && (
+        <p className="text-center text-sm text-muted-foreground">
+          The form is still loading. If it doesn’t start working, please call{" "}
+          <a href={PHONE_HREF} className="underline underline-offset-4">
+            {PHONE_DISPLAY}
+          </a>
+          .
+        </p>
+      )}
       {error && (
         <p role="alert" className="text-center text-sm text-destructive">
           {error} You can also call{" "}

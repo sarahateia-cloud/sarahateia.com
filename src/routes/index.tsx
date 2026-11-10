@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Phone } from "lucide-react";
+import { Download, Phone } from "lucide-react";
 import { BreathingExercise } from "@/components/breathing-exercise";
 import { ConsultationForm } from "@/components/consultation-dialog";
 import { BookingActions, SectionHeading, StickyCallBar } from "@/components/ds/booking";
@@ -629,6 +629,25 @@ function Index() {
               <p className="mt-4 text-xs text-muted-foreground">
                 A general wellness exercise, not treatment. Stop if you feel lightheaded.
               </p>
+              <a
+                href="/guides/grounding-guide.pdf"
+                className="mt-6 flex items-center gap-4 rounded-2xl border border-border bg-card p-4 transition-colors duration-200 hover:border-cta/50"
+              >
+                <span
+                  className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full"
+                  style={{ background: "color-mix(in oklab, var(--sage) 50%, transparent)" }}
+                >
+                  <Download className="h-5 w-5 text-foreground" aria-hidden />
+                </span>
+                <span>
+                  <span className="block font-medium text-foreground">
+                    Free grounding guide (PDF)
+                  </span>
+                  <span className="block text-sm text-muted-foreground">
+                    One page in English and Arabic. Keep it, print it, or share it.
+                  </span>
+                </span>
+              </a>
             </div>
             <BreathingExercise />
           </div>

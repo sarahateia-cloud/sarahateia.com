@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
+import { VisitStatisticsNote } from "@/components/analytics";
 import { ConsultationButton } from "@/components/consultation-dialog";
 import { BUTTON } from "@/components/ds/buttons";
 import { Logo } from "@/components/logo";
@@ -14,6 +15,7 @@ const NAV_LINKS = [
   { label: "Fees", href: "/#fees" },
   { label: "Resources", href: "/resources/" },
   { label: "FAQ", href: "/#faq" },
+  { label: "New Clients", href: "/new-clients/" },
   { label: "Crisis Resources", href: "/crisis/" },
 ];
 
@@ -201,6 +203,7 @@ export function SiteFooter() {
       </div>
       <div className="mx-auto max-w-6xl px-6 pb-10">
         <NoticeToClients className="text-xs" />
+        <VisitStatisticsNote className="mt-4 max-w-2xl text-xs leading-relaxed text-muted-foreground" />
       </div>
     </footer>
   );

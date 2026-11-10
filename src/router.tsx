@@ -59,7 +59,12 @@ export const getRouter = () => {
     routeTree,
     context: {},
     scrollRestoration: true,
-    defaultViewTransition: true,
+    // Fade only when moving to another page within an already-open page. Not on first load
+    // (the stylesheet already fades between pages) and not for section links like "#fees":
+    // both were starting fades that the browser then skipped, logging an error.
+    defaultViewTransition: {
+      types: ({ fromLocation, pathChanged }) => (fromLocation && pathChanged ? ["page"] : false),
+    },
     defaultPreloadStaleTime: 0,
     defaultErrorComponent: DefaultErrorComponent,
   });

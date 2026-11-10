@@ -16,6 +16,13 @@ const PAGES = [
     description:
       "24/7 crisis lines for Dallas, Tarrant, Collin, Denton, and Johnson counties, plus 988, Crisis Text Line, and Dallas-area domestic violence and sexual assault hotlines.",
   },
+  {
+    path: "new-clients",
+    title:
+      "New Client Forms | Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S",
+    description:
+      "What to expect before your first session: the client information, disclosure and consent form with fees and Good Faith Estimate, intake questionnaire, privacy notice, and release of information.",
+  },
 ];
 
 // The home page's FAQ labels only describe the home page, so each other page gets its own labels.
