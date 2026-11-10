@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 // Google Analytics measurement ID, like "G-XXXXXXXXXX". Nothing loads or shows while this is empty.
-const ANALYTICS_ID: string = "";
+const ANALYTICS_ID: string = "G-JTW95BFYPB";
 
 const CHOICE_KEY = "analytics-choice";
 const OPEN_CHOICE_EVENT = "analytics-choice-open";
@@ -18,9 +18,8 @@ const COLLECTED =
 
 const CONSENT_TEXT = `With your permission, I’d use Google Analytics to count visits and see which pages are useful. If you accept, Google receives ${COLLECTED}. It also sets a cookie so it can recognize your browser on later visits. Google Analytics collects nothing unless you accept, and the site works the same either way.`;
 
-// Only pages that are live belong here. When the New Clients page is published, change this to
-// "Visits to the crisis and New Clients pages aren’t counted". Both are already excluded below.
-const NOT_COUNTED = "Visits to the crisis page aren’t counted";
+// Only pages that are live belong here. Both are excluded by PRIVATE_PATHS above.
+const NOT_COUNTED = "Visits to the crisis and New Clients pages aren’t counted";
 
 const FOOTER_TEXT = `This site uses Google Analytics only if you accept. If you do, Google receives ${COLLECTED}, and a cookie lets it recognize your browser on later visits. Advertising features are turned off, and clicks on links to other sites aren’t counted. ${NOT_COUNTED}, and analytics isn’t set up to collect what you type into the booking form.`;
 
