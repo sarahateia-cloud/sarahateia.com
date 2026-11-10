@@ -144,9 +144,9 @@ export function QuoteFeature({
 
   useEffect(() => {
     if (!rotating) return;
-    // About half a second per word, plus a few seconds, so even the long ones can be read.
+    // About a third of a second per word, plus a few seconds, so even the long ones can be read.
     const words = pool[current].text.split(/\s+/).length;
-    const wait = Math.max(10000, words * 450 + 6000);
+    const wait = Math.max(6000, words * 300 + 3500);
     const timer = window.setTimeout(() => setCurrent((c) => (c + 1) % count), wait);
     return () => window.clearTimeout(timer);
   }, [rotating, current, count, pool]);

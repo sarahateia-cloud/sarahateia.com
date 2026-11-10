@@ -913,13 +913,13 @@
   visibility: hidden;
   opacity: 0;
   transition:
-    opacity 700ms ease,
-    visibility 0s linear 700ms;
+    opacity 500ms ease,
+    visibility 0s linear 500ms;
 }
 .quote-slide.is-current {
   visibility: visible;
   opacity: 1;
-  transition: opacity 700ms ease;
+  transition: opacity 500ms ease;
 }
 .quote-word {
   display: inline-block;
