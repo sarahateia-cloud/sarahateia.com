@@ -9,8 +9,8 @@ import {
   Puzzle,
   Sparkles,
 } from "lucide-react";
-import type { CSSProperties } from "react";
-import { Tilt } from "@/components/motion";
+import { useState, type CSSProperties } from "react";
+import { Enneagram } from "@/components/enneagram";
 
 const TESTS = [
   {
@@ -120,10 +120,77 @@ const FAMILIES = [
   },
 ];
 
+const ALL = FAMILIES.flatMap((family) => family.functions.map((fn) => ({ ...fn, family })));
+
+/** The eight functions as a compact picker: tap a badge to read about it. */
+function CognitiveFunctions() {
+  const [code, setCode] = useState("Ni");
+  const fn = ALL.find((f) => f.code === code) ?? ALL[0];
+  // Introverted functions draw rings flowing in; extraverted ones send them out.
+  const ring = fn.code.endsWith("i") ? "cf-ring cf-ring-in" : "cf-ring cf-ring-out";
+
+  return (
+    <div>
+      <div className="grid grid-cols-4 gap-2">
+        {FAMILIES.map((family) => (
+          <div key={family.name} className="text-center">
+            <p className="text-[0.7rem] uppercase tracking-[0.14em] text-muted-foreground">
+              {family.name}
+            </p>
+            <div className="mt-2 flex flex-col items-center gap-2">
+              {family.functions.map((f) => (
+                <button
+                  key={f.code}
+                  type="button"
+                  aria-pressed={f.code === code}
+                  aria-label={`${f.title}, ${f.nickname}`}
+                  onClick={() => setCode(f.code)}
+                  className="cf-pick"
+                  style={{ "--fam": family.color } as CSSProperties}
+                >
+                  {f.code}
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div
+        className="cf-card mt-6 rounded-2xl bg-card p-5"
+        style={{ "--fam": fn.family.color } as CSSProperties}
+        aria-live="polite"
+      >
+        <div key={fn.code} className="enn-detail-in flex gap-4">
+          <span
+            className="relative flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full font-serif text-lg text-foreground"
+            style={{ background: `color-mix(in oklab, ${fn.family.color} 40%, transparent)` }}
+          >
+            <span className={ring} aria-hidden />
+            <span className={ring} aria-hidden />
+            {fn.code}
+          </span>
+          <div className="min-w-0">
+            <div className="flex items-center gap-2">
+              <p className="font-serif text-xl text-foreground">{fn.nickname}</p>
+              <fn.icon className="cf-icon h-4 w-4 text-muted-foreground" aria-hidden />
+            </div>
+            <p className="text-xs text-muted-foreground">
+              {fn.title} · {fn.family.question}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{fn.body}</p>
+            <p className="mt-2 text-sm italic text-foreground/80">“{fn.quote}”</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function Introspection() {
   return (
     <section id="introspection" className="border-t border-border/60 py-16 sm:py-20">
-      <div className="reveal mx-auto max-w-5xl px-6">
+      <div className="reveal mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
             For fun and introspection
@@ -137,18 +204,18 @@ export function Introspection() {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2">
           {TESTS.map((test) => (
             <a
               key={test.name}
               href={test.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-start justify-between gap-4 rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-0.5 hover:border-primary"
+              className="group flex items-start justify-between gap-4 rounded-2xl border border-border bg-card px-5 py-4 transition hover:-translate-y-0.5 hover:border-primary"
             >
               <span>
-                <span className="block font-serif text-xl text-foreground">{test.name}</span>
-                <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
+                <span className="block font-serif text-lg text-foreground">{test.name}</span>
+                <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
                   {test.body}
                 </span>
               </span>
@@ -160,85 +227,42 @@ export function Introspection() {
           ))}
         </div>
 
-        <h3 className="mt-14 text-center font-serif text-2xl text-foreground sm:text-3xl">
-          The eight cognitive functions
-        </h3>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground sm:text-base">
-          These come from personality type theory, which grew out of Carl Jung’s work. Each pair
-          shows the same mental skill pointed inward or outward. Which ones sound like you? The
-          nicknames are just my own for fun.
-        </p>
+        <div className="mt-12 grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
+          <div className="reveal reveal-3d rounded-3xl border border-border bg-secondary/40 p-5 sm:p-7">
+            <h3 className="font-serif text-2xl text-foreground sm:text-3xl">
+              The eight cognitive functions
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              From personality type theory, which grew out of Carl Jung’s work. Each pair is the
+              same mental skill pointed inward (i) or outward (e). Tap one to see if it sounds like
+              you. The nicknames are just my own for fun.
+            </p>
+            <div className="mt-6">
+              <CognitiveFunctions />
+            </div>
+          </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-2">
-          {FAMILIES.map((family, i) => {
-            // Cards float in one after another: left column, then right, then each pair inside.
-            const start = (i % 2) * 140;
-            return (
-              <div
-                key={family.name}
-                className="reveal rounded-3xl border border-border p-4 sm:p-5"
-                style={
-                  {
-                    "--fam": family.color,
-                    background: `color-mix(in oklab, ${family.color} 14%, var(--card))`,
-                    transitionDelay: `${start}ms`,
-                  } as CSSProperties
-                }
-              >
-                <p className="font-serif text-xl text-foreground">{family.name}</p>
-                <p className="text-sm text-muted-foreground">{family.question}</p>
-                <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                  {family.functions.map((fn, j) => {
-                    // Introverted functions draw rings flowing in; extraverted ones send them out.
-                    const ring = fn.code.endsWith("i")
-                      ? "cf-ring cf-ring-in"
-                      : "cf-ring cf-ring-out";
-                    return (
-                      <div
-                        key={fn.code}
-                        className="reveal reveal-3d"
-                        style={{ transitionDelay: `${start + 200 + j * 160}ms` }}
-                      >
-                        <Tilt max={8}>
-                          <div className="cf-card h-full rounded-2xl bg-card p-4">
-                            <div className="flex items-center justify-between">
-                              <span
-                                className="relative flex h-11 w-11 items-center justify-center rounded-full font-serif text-lg text-foreground"
-                                style={{
-                                  background: `color-mix(in oklab, ${family.color} 40%, transparent)`,
-                                }}
-                              >
-                                <span className={ring} aria-hidden />
-                                <span className={ring} aria-hidden />
-                                {fn.code}
-                              </span>
-                              <fn.icon
-                                className="cf-icon h-5 w-5 text-muted-foreground"
-                                aria-hidden
-                              />
-                            </div>
-                            <p className="mt-3 font-medium text-foreground">{fn.nickname}</p>
-                            <p className="text-xs text-muted-foreground">{fn.title}</p>
-                            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                              {fn.body}
-                            </p>
-                            <p className="mt-2 text-sm italic text-foreground/80">“{fn.quote}”</p>
-                          </div>
-                        </Tilt>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
+          <div
+            className="reveal reveal-3d rounded-3xl border border-border bg-secondary/40 p-5 sm:p-7"
+            style={{ transitionDelay: "140ms" }}
+          >
+            <h3 className="font-serif text-2xl text-foreground sm:text-3xl">The Enneagram</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Nine types, each with its own core motivation, grouped into body, heart, and mind. The
+              arrows show where each type is said to move in growth and under stress. Tap a number
+              to explore. The nicknames are just my own for fun.
+            </p>
+            <div className="mt-6">
+              <Enneagram />
+            </div>
+          </div>
         </div>
 
         <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-muted-foreground">
-          Just for fun. These tests and this table aren’t scientific assessments or diagnoses, and
-          they aren’t part of my counseling services. Both tests are on outside websites that I’m
-          not affiliated with, and each has its own privacy policy. 16Personalities uses its own
-          model, so its results won’t list these eight functions.
+          Just for fun. These tests, the functions, and the Enneagram chart aren’t scientific
+          assessments or diagnoses, and they aren’t part of my counseling services. Both tests are
+          on outside websites that I’m not affiliated with, and each has its own privacy policy.
+          16Personalities uses its own model, so its results won’t list these eight functions.
         </p>
       </div>
     </section>

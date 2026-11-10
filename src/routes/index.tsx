@@ -4,6 +4,7 @@ import { BreathingExercise } from "@/components/breathing-exercise";
 import { ConsultationForm } from "@/components/consultation-dialog";
 import { BookingActions, SectionHeading, StickyCallBar } from "@/components/ds/booking";
 import { Introspection } from "@/components/introspection";
+import { QuoteFeature } from "@/components/quote-feature";
 import { NatureBand } from "@/components/nature-band";
 import { WatercolorBloom } from "@/components/watercolor-bloom";
 import { Tilt, useScrollReveal } from "@/components/motion";
@@ -423,6 +424,8 @@ function Index() {
           </div>
         </section>
 
+        <QuoteFeature slot={0} />
+
         {/* 7. Approach and the three principles. */}
         <section id="approach" className="ds-section relative isolate overflow-hidden">
           <img
@@ -632,6 +635,8 @@ function Index() {
         </section>
 
         <Introspection />
+
+        <QuoteFeature slot={1} align="left" />
 
         {/* 11. Fees. */}
         <section id="fees" className="ds-section border-t border-border/60 bg-secondary/50">
