@@ -110,5 +110,30 @@ for (const page of [...PAGES, ...SITE_PAGES]) {
   );
 }
 writeFileSync("dist/index.html", await prerender(html, "/"));
-writeFileSync("dist/404.html", html);
+// The fallback page for unknown addresses. It is served with a 404 status, so it should never
+// look like a copy of the home page: no canonical, no shared description, and noindex.
+const notFound = setAttribute(html, 'name="robots"', "noindex, follow")
+  .replace(
+    /<title>[\s\S]*?<\/title>/,
+    () =>
+      "<title>Page not found | Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S</title>",
+  )
+  .replace(/\s*<link rel="canonical"[^>]*>/, "")
+  .replace(/\s*<meta property="og:url"[^>]*>/, "")
+  .replace(/\s*<meta\s+name="description"\s+content="[^"]*"\s*\/>/, "");
+writeFileSync("dist/404.html", notFound);
+
+// Stop the build if any listed page could drop out of search by accident, or if the 404 page
+// could be mistaken for a real one.
+for (const url of builtUrls) {
+  const path = url.slice(SITE.length + 1);
+  const page = readFileSync(`dist/${path}index.html`, "utf8");
+  const robots = page.match(/<meta name="robots" content="([^"]*)"/)?.[1] ?? "";
+  const canonical = page.match(/<link rel="canonical" href="([^"]*)"/)?.[1];
+  if (robots.includes("noindex")) throw new Error(`Listed page is set to noindex: ${url}`);
+  if (canonical !== url) throw new Error(`Canonical for ${url} points to ${canonical}`);
+}
+if (!notFound.includes('content="noindex') || notFound.includes('rel="canonical"')) {
+  throw new Error("404.html must be noindex and have no canonical link");
+}
 rmSync("dist-ssr", { recursive: true, force: true });
