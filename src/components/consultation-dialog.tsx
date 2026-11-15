@@ -116,6 +116,7 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
         body: JSON.stringify({
           name: formData.get("name"),
           phone,
+          email: String(formData.get("email") ?? "").trim(),
           best_time: formData.get("best_time"),
           reason: formData.get("reason"),
           _gotcha: formData.get("_gotcha"),
@@ -181,6 +182,15 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
           <input name="phone" type="tel" autoComplete="tel" required className={INPUT_CLASS} />
         </Field>
       </div>
+      <Field label="Email" optional>
+        <input
+          name="email"
+          type="email"
+          autoComplete="email"
+          inputMode="email"
+          className={INPUT_CLASS}
+        />
+      </Field>
       <Field label="Best time to call">
         <input
           name="best_time"
