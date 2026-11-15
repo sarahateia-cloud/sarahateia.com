@@ -80,6 +80,26 @@ export function ContentPageView({
           </section>
         )}
 
+        {page.related && page.related.length > 0 && (
+          <nav aria-labelledby="keep-reading" className="mt-14">
+            <h2 id="keep-reading" className="font-serif text-2xl text-foreground sm:text-3xl">
+              Keep reading
+            </h2>
+            <ul className="mt-4 space-y-1">
+              {page.related.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="inline-flex min-h-11 items-center text-foreground underline underline-offset-4 hover:text-primary-foreground"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+
         <section
           id="consult"
           className="mt-14 rounded-3xl border border-border bg-card px-6 py-10 text-center sm:px-10"

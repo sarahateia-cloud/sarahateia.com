@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+# Blank client forms are for reading on the New Clients page, not for search results.
+Disallow: /forms/
 
 Sitemap: https://www.sarahateia.com/sitemap.xml
