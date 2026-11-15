@@ -1101,3 +1101,22 @@ body:has([aria-label="Visit statistics choice"]) .sticky-call {
     transition: none;
   }
 }
+
+/* External-link arrow on the Screening Tools page: a small nudge toward where the link goes.
+   Mouse only (touch screens fire hover on tap), and off for reduced motion. */
+.nudge-icon {
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .nudge-link:hover .nudge-icon {
+    transform: translate(2px, -2px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nudge-icon {
+    transition: none;
+  }
+  .nudge-link:hover .nudge-icon {
+    transform: none;
+  }
+}
