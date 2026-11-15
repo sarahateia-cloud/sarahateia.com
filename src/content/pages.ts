@@ -15,6 +15,30 @@ export type ContentPage = {
   intro: string;
   blocks: Block[];
   faqs?: Faq[];
+  /** Other pages on the site to suggest at the end, so every page is linked from more than one place. */
+  related?: { label: string; href: string }[];
+};
+
+const LINK = {
+  arabic: { label: "Counseling in Arabic", href: "/arabic-counseling/" },
+  outdoor: { label: "Walk and talk counseling outdoors", href: "/outdoor-counseling/" },
+  telehealth: { label: "Telehealth counseling anywhere in Texas", href: "/telehealth-counseling/" },
+  consultation: {
+    label: "What happens in a free counseling consultation?",
+    href: "/resources/free-counseling-consultation/",
+  },
+  associate: {
+    label: "What is an LPC Associate in Texas?",
+    href: "/resources/what-is-an-lpc-associate/",
+  },
+  outdoorFit: {
+    label: "Is outdoor counseling right for you?",
+    href: "/resources/is-outdoor-counseling-right-for-you/",
+  },
+  culture: {
+    label: "Choosing a counselor when language and culture matter",
+    href: "/resources/choosing-a-counselor-language-culture/",
+  },
 };
 
 const NAME = "Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S";
@@ -23,6 +47,7 @@ const PUBLISHED = "2026-11-05";
 export const TOPICS: ContentPage[] = [
   {
     path: "arabic-counseling",
+    related: [LINK.culture, LINK.consultation, LINK.telehealth],
     title: `Arabic-Speaking Counselor in Irving & Dallas–Fort Worth | ${NAME}`,
     description:
       "Counseling in Arabic or English, outdoors in Dallas–Fort Worth parks or by telehealth anywhere in Texas. $100 per session, reduced rates available, free 15-minute consultation.",
@@ -81,6 +106,7 @@ export const TOPICS: ContentPage[] = [
   },
   {
     path: "outdoor-counseling",
+    related: [LINK.outdoorFit, LINK.telehealth, LINK.consultation],
     title: `Walk and Talk Therapy & Outdoor Counseling in Dallas–Fort Worth | ${NAME}`,
     description:
       "Walk and talk therapy or seated sessions in a quiet Dallas–Fort Worth park, in English or Arabic. Here’s how privacy, weather, consent, and fees work.",
@@ -142,6 +168,7 @@ export const TOPICS: ContentPage[] = [
   },
   {
     path: "telehealth-counseling",
+    related: [LINK.outdoor, LINK.arabic, LINK.consultation],
     title: `Telehealth Counseling Anywhere in Texas | ${NAME}`,
     description:
       "Telehealth counseling in English or Arabic for clients located in Texas at the time of each session. $100 per session, reduced rates available, free 15-minute consultation.",
@@ -195,6 +222,7 @@ export const TOPICS: ContentPage[] = [
 export const ARTICLES: ContentPage[] = [
   {
     path: "resources/free-counseling-consultation",
+    related: [LINK.associate, LINK.outdoor, LINK.telehealth],
     title: `What Happens in a Free Counseling Consultation? | ${NAME}`,
     description:
       "What to expect from a free 15-minute counseling consultation, what you can ask, and what you don’t need to share yet.",
@@ -238,6 +266,7 @@ export const ARTICLES: ContentPage[] = [
   },
   {
     path: "resources/what-is-an-lpc-associate",
+    related: [LINK.consultation, LINK.arabic, LINK.outdoor],
     title: `What Is an LPC Associate in Texas? | ${NAME}`,
     description:
       "A plain-language explanation of what an LPC Associate is in Texas, what supervision means, and how to verify a counselor’s license.",
@@ -268,6 +297,7 @@ export const ARTICLES: ContentPage[] = [
   },
   {
     path: "resources/is-outdoor-counseling-right-for-you",
+    related: [LINK.outdoor, LINK.telehealth, LINK.consultation],
     title: `Is Outdoor Counseling Right for You? | ${NAME}`,
     description:
       "Questions to help you decide between outdoor counseling and telehealth, including privacy, weather, comfort, and getting to the park.",
@@ -302,6 +332,7 @@ export const ARTICLES: ContentPage[] = [
   },
   {
     path: "resources/choosing-a-counselor-language-culture",
+    related: [LINK.arabic, LINK.consultation, LINK.telehealth],
     title: `Choosing a Counselor When Language and Culture Matter | ${NAME}`,
     description:
       "Questions to ask when you’re looking for a counselor who respects your language, culture, faith, and family.",
