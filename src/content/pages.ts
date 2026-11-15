@@ -81,13 +81,13 @@ export const TOPICS: ContentPage[] = [
   },
   {
     path: "outdoor-counseling",
-    title: `Outdoor Counseling in Dallas–Fort Worth Parks | ${NAME}`,
+    title: `Walk and Talk Therapy & Outdoor Counseling in Dallas–Fort Worth | ${NAME}`,
     description:
-      "In-person counseling held outdoors in a quiet Dallas–Fort Worth park. Walk or sit, in English or Arabic. Here’s how privacy, weather, consent, and fees work.",
+      "Walk and talk therapy or seated sessions in a quiet Dallas–Fort Worth park, in English or Arabic. Here’s how privacy, weather, consent, and fees work.",
     eyebrow: "Outdoor sessions",
-    heading: "Outdoor counseling in Dallas–Fort Worth parks.",
+    heading: "Walk and talk counseling in Dallas–Fort Worth parks.",
     intro:
-      "My in-person sessions happen outdoors instead of in an office. We meet in a quiet park in the Dallas–Fort Worth area that we choose together, and we either walk at an easy pace or sit.",
+      "My in-person sessions happen outdoors instead of in an office, sometimes called walk and talk therapy. We meet in a quiet park in the Dallas–Fort Worth area that we choose together, and we either walk at an easy pace or sit.",
     blocks: [
       {
         heading: "What a session looks like",
@@ -118,6 +118,10 @@ export const TOPICS: ContentPage[] = [
       },
     ],
     faqs: [
+      {
+        q: "What is walk and talk therapy?",
+        a: "It’s counseling while walking side by side outdoors, instead of sitting across from each other in an office. If walking isn’t comfortable, we sit on a bench or blanket instead. It’s the same counseling, just outside.",
+      },
       {
         q: "Where do in-person sessions take place?",
         a: "Outdoors, in a quiet park in the Dallas–Fort Worth area that we choose together. I don’t see clients in an office.",
