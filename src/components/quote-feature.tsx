@@ -23,7 +23,7 @@ const QUOTES: { text: string; author?: string }[] = [
   },
   {
     text: "Between stimulus and response, there is a space. In the space there is the power to choose our response. In our response lies our growth and our freedom.",
-    author: "Victor Frankl",
+    author: "Often attributed to Viktor Frankl",
   },
   {
     text: "Freedom is not worth having if it does not include the freedom to make mistakes.",
