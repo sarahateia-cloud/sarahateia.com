@@ -10,7 +10,7 @@ const CHOICE_CHANGED_EVENT = "analytics-choice-changed";
 type Choice = "allow" | "decline";
 
 // Visiting these pages shouldn't be shared with an outside company.
-const PRIVATE_PATHS = ["/crisis", "/new-clients", "/forms"];
+const PRIVATE_PATHS = ["/crisis", "/new-clients", "/screening-tools", "/forms"];
 
 // What visitors are told. Keep these matching what the code below actually allows through.
 const COLLECTED =
@@ -18,8 +18,8 @@ const COLLECTED =
 
 const CONSENT_TEXT = `With your permission, I’d use Google Analytics to count visits and see which pages are useful. If you accept, Google receives ${COLLECTED}. It also sets a cookie so it can recognize your browser on later visits. Google Analytics collects nothing unless you accept, and the site works the same either way.`;
 
-// Only pages that are live belong here. Both are excluded by PRIVATE_PATHS above.
-const NOT_COUNTED = "Visits to the crisis and New Clients pages aren’t counted";
+// Only pages that are live belong here. All three are excluded by PRIVATE_PATHS above.
+const NOT_COUNTED = "Visits to the crisis, New Clients, and Screening Tools pages aren’t counted";
 
 const FOOTER_TEXT = `This site uses Google Analytics only if you accept. If you do, Google receives ${COLLECTED}, and a cookie lets it recognize your browser on later visits. Advertising features are turned off, and clicks on links to other sites aren’t counted. ${NOT_COUNTED}, and analytics isn’t set up to collect what you type into the booking form.`;
 

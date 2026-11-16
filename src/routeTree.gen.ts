@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TelehealthCounselingRouteImport } from './routes/telehealth-counseling'
+import { Route as ScreeningToolsRouteImport } from './routes/screening-tools'
 import { Route as OutdoorCounselingRouteImport } from './routes/outdoor-counseling'
 import { Route as NewClientsRouteImport } from './routes/new-clients'
 import { Route as GlossaryRouteImport } from './routes/glossary'
@@ -22,6 +23,11 @@ import { Route as ResourcesSlugRouteImport } from './routes/resources/$slug'
 const TelehealthCounselingRoute = TelehealthCounselingRouteImport.update({
   id: '/telehealth-counseling',
   path: '/telehealth-counseling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScreeningToolsRoute = ScreeningToolsRouteImport.update({
+  id: '/screening-tools',
+  path: '/screening-tools',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OutdoorCounselingRoute = OutdoorCounselingRouteImport.update({
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/glossary': typeof GlossaryRoute
   '/new-clients': typeof NewClientsRoute
   '/outdoor-counseling': typeof OutdoorCounselingRoute
+  '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources/': typeof ResourcesIndexRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/glossary': typeof GlossaryRoute
   '/new-clients': typeof NewClientsRoute
   '/outdoor-counseling': typeof OutdoorCounselingRoute
+  '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources': typeof ResourcesIndexRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/glossary': typeof GlossaryRoute
   '/new-clients': typeof NewClientsRoute
   '/outdoor-counseling': typeof OutdoorCounselingRoute
+  '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources/': typeof ResourcesIndexRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/new-clients'
     | '/outdoor-counseling'
+    | '/screening-tools'
     | '/telehealth-counseling'
     | '/resources/$slug'
     | '/resources/'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/new-clients'
     | '/outdoor-counseling'
+    | '/screening-tools'
     | '/telehealth-counseling'
     | '/resources/$slug'
     | '/resources'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/new-clients'
     | '/outdoor-counseling'
+    | '/screening-tools'
     | '/telehealth-counseling'
     | '/resources/$slug'
     | '/resources/'
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   GlossaryRoute: typeof GlossaryRoute
   NewClientsRoute: typeof NewClientsRoute
   OutdoorCounselingRoute: typeof OutdoorCounselingRoute
+  ScreeningToolsRoute: typeof ScreeningToolsRoute
   TelehealthCounselingRoute: typeof TelehealthCounselingRoute
   ResourcesSlugRoute: typeof ResourcesSlugRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
@@ -154,6 +167,13 @@ declare module '@tanstack/react-router' {
       path: '/telehealth-counseling'
       fullPath: '/telehealth-counseling'
       preLoaderRoute: typeof TelehealthCounselingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/screening-tools': {
+      id: '/screening-tools'
+      path: '/screening-tools'
+      fullPath: '/screening-tools'
+      preLoaderRoute: typeof ScreeningToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/outdoor-counseling': {
@@ -222,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   GlossaryRoute: GlossaryRoute,
   NewClientsRoute: NewClientsRoute,
   OutdoorCounselingRoute: OutdoorCounselingRoute,
+  ScreeningToolsRoute: ScreeningToolsRoute,
   TelehealthCounselingRoute: TelehealthCounselingRoute,
   ResourcesSlugRoute: ResourcesSlugRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,

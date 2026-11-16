@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { label: "Approach", href: "/#approach" },
   { label: "Fees", href: "/#fees" },
   { label: "Resources", href: "/resources/" },
+  { label: "Screening Tools", href: "/screening-tools/" },
   { label: "FAQ", href: "/#faq" },
   { label: "New Clients", href: "/new-clients/" },
   { label: "Crisis Resources", href: "/crisis/" },
