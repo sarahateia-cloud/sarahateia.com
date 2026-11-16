@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { FileText } from "lucide-react";
+import { ArrowUpRight, FileText } from "lucide-react";
 import {
   NoticeToClients,
   PHONE_DISPLAY,
@@ -8,6 +8,7 @@ import {
   SiteFooter,
   SiteHeader,
 } from "@/components/site-header";
+import { SCREENING_TOOLS } from "@/content/screening-tools";
 
 export const Route = createFileRoute("/new-clients")({
   component: NewClients,
@@ -107,6 +108,61 @@ function NewClients() {
             {PHONE_DISPLAY}
           </a>
           .
+        </p>
+
+        <h3 className="mt-10 font-serif text-2xl text-foreground">
+          Optional screening questionnaires
+        </h3>
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          Free, widely used check-ins you can complete before or during our work together. They
+          aren’t a diagnosis, and we’ll review the results together in session. Each one opens on
+          its official site, and nothing is filled out here. Not for emergencies: call or text{" "}
+          <a href="tel:988" className="underline underline-offset-4">
+            988
+          </a>{" "}
+          or call{" "}
+          <a href="tel:911" className="underline underline-offset-4">
+            911
+          </a>
+          .
+        </p>
+        <ul className="mt-4 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card">
+          {SCREENING_TOOLS.map((tool) => (
+            <li key={tool.name}>
+              <a
+                href={tool.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 px-5 py-4 transition hover:bg-secondary/50"
+              >
+                <ArrowUpRight className="mt-1 h-5 w-5 flex-shrink-0 text-taupe" aria-hidden />
+                <span>
+                  <span className="block font-medium text-foreground">{tool.name}</span>
+                  <span className="mt-1 block text-sm text-muted-foreground">
+                    {tool.description}
+                  </span>
+                  <span className="mt-1 block text-xs text-muted-foreground sm:hidden" aria-hidden>
+                    {tool.source}
+                  </span>
+                  <span className="sr-only"> (opens {tool.source} in a new tab)</span>
+                </span>
+                <span
+                  className="ml-auto hidden flex-shrink-0 pt-1 text-xs text-muted-foreground sm:block"
+                  aria-hidden
+                >
+                  {tool.source}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 text-sm text-muted-foreground">
+          <a
+            href="/screening-tools/"
+            className="text-primary-foreground underline underline-offset-4"
+          >
+            More about these questionnaires
+          </a>
         </p>
 
         <div className="mt-12 rounded-2xl border border-border bg-secondary/50 p-6">

@@ -5,44 +5,13 @@ import { BUTTON } from "@/components/ds/buttons";
 import { ConsultationButton } from "@/components/consultation-dialog";
 import { useScrollReveal } from "@/components/motion";
 import { SiteFooter, SiteHeader } from "@/components/site-header";
+import { SCREENING_TOOLS } from "@/content/screening-tools";
 
 export const Route = createFileRoute("/screening-tools")({
   component: ScreeningTools,
 });
 
-// Links only. This page never shows, collects, scores, or sends any questionnaire answers,
-// and analytics never loads here (see PRIVATE_PATHS in analytics.tsx).
-const TOOLS = [
-  {
-    name: "Depression – PHQ-9",
-    short: "PHQ-9",
-    description: "A 9-question check-in about mood over the past two weeks.",
-    href: "https://www.phqscreeners.com",
-    source: "phqscreeners.com",
-  },
-  {
-    name: "Anxiety – GAD-7",
-    short: "GAD-7",
-    description: "A 7-question check-in about worry and nervousness over the past two weeks.",
-    href: "https://www.phqscreeners.com",
-    source: "phqscreeners.com",
-  },
-  {
-    name: "ADHD – ASRS v1.1 (6-question screener)",
-    short: "ASRS v1.1",
-    description: "A short adult screener about attention, focus, and restlessness.",
-    href: "https://www.hcp.med.harvard.edu/ncs/asrs.php",
-    source: "Harvard Medical School",
-  },
-  {
-    name: "Trauma – PC-PTSD-5",
-    short: "PC-PTSD-5",
-    description:
-      "A brief screen about reactions to a frightening or overwhelming experience. I recommend completing this one together in session rather than alone.",
-    href: "https://www.ptsd.va.gov/professional/assessment/screens/pc-ptsd.asp",
-    source: "U.S. Department of Veterans Affairs",
-  },
-];
+// Links only (see src/content/screening-tools.ts). Analytics never loads here (PRIVATE_PATHS).
 
 // Short, uneven gaps so the cards settle in as one group rather than marching in order.
 const STAGGER_MS = [0, 60, 110, 150];
@@ -95,7 +64,7 @@ function ScreeningTools() {
 
         <h2 className="mt-14 font-serif text-3xl text-foreground">The questionnaires</h2>
         <ul className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {TOOLS.map((tool, i) => (
+          {SCREENING_TOOLS.map((tool, i) => (
             <li
               key={tool.name}
               className="reveal flex flex-col rounded-2xl border border-border bg-card p-6"
