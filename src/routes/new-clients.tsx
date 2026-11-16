@@ -20,7 +20,7 @@ const STEPS = [
   },
   {
     title: "Your forms, signed securely",
-    body: "If we decide to work together, I’ll send your forms through a secure client portal so you can read and sign them online. Please don’t email or text completed forms.",
+    body: "If we decide to work together, I’ll explain how to complete and sign your forms securely before your first session. Please don’t email or text completed forms.",
   },
   {
     title: "Your first session",
