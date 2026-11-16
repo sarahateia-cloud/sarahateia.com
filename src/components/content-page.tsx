@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { BookingActions, StickyCallBar } from "@/components/ds/booking";
+import { LogoMark } from "@/components/logo";
 import { SiteFooter, SiteHeader } from "@/components/site-header";
 import type { ContentPage } from "@/content/pages";
 
@@ -104,6 +105,7 @@ export function ContentPageView({
           id="consult"
           className="mt-14 rounded-3xl border border-border bg-card px-6 py-10 text-center sm:px-10"
         >
+          <LogoMark className="mx-auto mb-4 h-11 w-11" />
           <h2 className="font-serif text-2xl text-foreground sm:text-3xl">
             Start with a free 15-minute consultation.
           </h2>
