@@ -3,6 +3,7 @@ import { Download, Phone } from "lucide-react";
 import { BreathingExercise } from "@/components/breathing-exercise";
 import { ConsultationForm } from "@/components/consultation-dialog";
 import { BookingActions, SectionHeading, StickyCallBar } from "@/components/ds/booking";
+import { LogoMark } from "@/components/logo";
 import { Introspection } from "@/components/introspection";
 import { QuoteFeature } from "@/components/quote-feature";
 import { NatureBand } from "@/components/nature-band";
@@ -730,6 +731,7 @@ function Index() {
         <section id="consult" className="ds-section">
           <div className="reveal mx-auto max-w-3xl px-6">
             <div className="rounded-3xl border border-border bg-card px-6 py-12 text-center sm:px-12">
+              <LogoMark className="mx-auto mb-4 h-12 w-12" />
               <SectionHeading eyebrow="Get started" title="A free 15-minute consultation." center>
                 <p>
                   No pressure. No commitment. Just a short call to see if we’re a good fit. Leave

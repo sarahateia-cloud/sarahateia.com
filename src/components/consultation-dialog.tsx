@@ -8,6 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { BUTTON } from "@/components/ds/buttons";
+import { LogoMark } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 import { restoreEarlyInput } from "@/lib/early-input";
 
@@ -349,6 +350,7 @@ export function ConsultationButton({
       </DialogTrigger>
       <DialogContent className="max-h-[90dvh] w-[calc(100%-2rem)] max-w-md overflow-y-auto rounded-3xl border-border bg-card p-6 sm:rounded-3xl sm:p-8">
         <div className={sent ? "sr-only" : "pr-6"}>
+          <LogoMark className="mb-3 h-10 w-10" />
           <DialogTitle className="font-serif text-2xl font-normal leading-tight text-foreground sm:text-3xl">
             Request a call
           </DialogTitle>
