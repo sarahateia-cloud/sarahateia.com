@@ -101,6 +101,16 @@ const FEES = [
     price: "$100",
   },
   {
+    service: "6-session package",
+    detail: "$90 per session, paid upfront",
+    price: "$540",
+  },
+  {
+    service: "8-session package",
+    detail: "$80 per session, paid upfront",
+    price: "$640",
+  },
+  {
     service: "Reduced rate",
     detail: "Based on household income",
     price: "Ask",
@@ -691,6 +701,14 @@ function Index() {
                     </li>
                   ))}
                 </ul>
+                <div className="border-t border-border bg-secondary/50 px-6 py-6 sm:px-8">
+                  <p className="font-serif text-lg text-foreground">How packages work</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Packages are optional. If you decide not to continue, any sessions you haven’t
+                    used are refunded at the package rate. For example, if you’ve used 3 sessions of
+                    an 8-session package, you’re refunded $400 (5 × $80).
+                  </p>
+                </div>
                 <div className="border-t border-border bg-secondary/50 px-6 py-6 sm:px-8">
                   <p className="font-serif text-lg text-foreground">How reduced rates work</p>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
