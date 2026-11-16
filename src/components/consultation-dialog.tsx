@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import {
   Dialog,
@@ -48,13 +48,23 @@ function loadTurnstile() {
 }
 
 const INPUT_CLASS =
-  "w-full rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground transition placeholder:text-muted-foreground/60 focus:border-cta focus:outline-none focus:ring-2 focus:ring-cta/25 sm:text-sm";
+  "w-full rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground transition placeholder:text-muted-foreground/60 focus:border-cta focus:outline-none focus:ring-2 focus:ring-cta/25 aria-[invalid=true]:border-destructive aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-destructive/20 aria-[invalid=true]:focus:border-destructive aria-[invalid=true]:focus:ring-destructive/30 sm:text-sm";
+
+const EMAIL_ERROR = "Please check your email address, or leave it blank.";
+
+/** Blank is fine. Anything typed must look like name@example.com, matching what the browser checks. */
+function isValidEmail(value: string) {
+  return value === "" || (value.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
+}
 
 /** The call-back request form, used at the top of the home page and in the pop-up. */
 export function ConsultationForm({ onSent }: { onSent?: () => void }) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [emailError, setEmailError] = useState<string | null>(null);
+  // The home page and the pop-up can both show this form, so each copy needs its own ids.
+  const emailErrorId = `${useId()}-email-error`;
   // False until this page's script is running. Until then the button stays off, so the
   // browser can never send the form on its own or put what's typed into the page address.
   const [ready, setReady] = useState(false);
@@ -93,6 +103,13 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
+    const email = String(formData.get("email") ?? "").trim();
+    // Backup for browsers that don't check email fields themselves.
+    if (!isValidEmail(email)) {
+      setEmailError(EMAIL_ERROR);
+      e.currentTarget.querySelector<HTMLInputElement>('input[name="email"]')?.focus();
+      return;
+    }
     const phone = String(formData.get("phone") ?? "");
     if (phone.replace(/\D/g, "").length < 10) {
       setError("Please enter a 10-digit phone number so I can call you back.");
@@ -116,6 +133,7 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
         body: JSON.stringify({
           name: formData.get("name"),
           phone,
+          email,
           best_time: formData.get("best_time"),
           reason: formData.get("reason"),
           _gotcha: formData.get("_gotcha"),
@@ -181,6 +199,32 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
           <input name="phone" type="tel" autoComplete="tel" required className={INPUT_CLASS} />
         </Field>
       </div>
+      <Field label="Email" optional>
+        <input
+          name="email"
+          type="email"
+          autoComplete="email"
+          inputMode="email"
+          maxLength={254}
+          aria-invalid={emailError ? true : undefined}
+          aria-describedby={emailError ? emailErrorId : undefined}
+          onInvalid={(e) => {
+            // Show the message under the field instead of the browser's pop-up bubble.
+            e.preventDefault();
+            setEmailError(EMAIL_ERROR);
+            if (e.currentTarget.form?.querySelector(":invalid") === e.currentTarget) {
+              e.currentTarget.focus();
+            }
+          }}
+          onInput={() => setEmailError(null)}
+          className={INPUT_CLASS}
+        />
+      </Field>
+      {emailError && (
+        <span id={emailErrorId} role="alert" className="mt-1.5 block text-sm text-destructive">
+          {emailError}
+        </span>
+      )}
       <Field label="Best time to call">
         <input
           name="best_time"
@@ -312,7 +356,11 @@ function Field({
     <label className="block">
       <span className="mb-1.5 flex items-baseline justify-between text-sm font-medium text-foreground">
         <span>{label}</span>
-        {optional && <span className="text-xs font-normal text-muted-foreground">optional</span>}
+        {optional && (
+          <span className="text-xs font-normal text-muted-foreground">
+            <span className="sr-only"> </span>(optional)
+          </span>
+        )}
       </span>
       {children}
     </label>
