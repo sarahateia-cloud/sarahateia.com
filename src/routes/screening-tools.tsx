@@ -70,8 +70,7 @@ function ScreeningTools() {
           Some clients find it helpful to complete a short screening questionnaire before or during
           our work together. These tools are optional, widely used, and free. They are not a
           diagnosis. Results are simply a starting point for conversation, and we will review them
-          together in session. If you are a current client, I may send you a secure link through my
-          client portal instead.
+          together in session.
         </p>
 
         {/* Never animated or delayed: this has to be readable the moment the page opens. */}
@@ -133,8 +132,7 @@ function ScreeningTools() {
           <p className="font-serif text-xl text-foreground">Your privacy</p>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             Please do not email or text me your answers or any personal health information. Bring
-            your results to your session, or complete them through my secure client portal if you
-            are a current client.
+            your results to your session, or we can complete them together there.
           </p>
         </div>
 
