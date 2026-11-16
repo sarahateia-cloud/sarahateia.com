@@ -51,6 +51,7 @@ const INPUT_CLASS =
   "w-full rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground transition placeholder:text-muted-foreground/60 focus:border-cta focus:outline-none focus:ring-2 focus:ring-cta/25 aria-[invalid=true]:border-destructive aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-destructive/20 aria-[invalid=true]:focus:border-destructive aria-[invalid=true]:focus:ring-destructive/30 sm:text-sm";
 
 const EMAIL_ERROR = "Please check your email address, or leave it blank.";
+const PHONE_ERROR = "Please enter a 10-digit phone number so I can call you back.";
 
 /** Blank is fine. Anything typed must look like name@example.com, matching what the browser checks. */
 function isValidEmail(value: string) {
@@ -65,6 +66,8 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
   const [emailError, setEmailError] = useState<string | null>(null);
   // The home page and the pop-up can both show this form, so each copy needs its own ids.
   const emailErrorId = `${useId()}-email-error`;
+  const [phoneError, setPhoneError] = useState<string | null>(null);
+  const phoneErrorId = `${useId()}-phone-error`;
   // False until this page's script is running. Until then the button stays off, so the
   // browser can never send the form on its own or put what's typed into the page address.
   const [ready, setReady] = useState(false);
@@ -105,14 +108,15 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
     const formData = new FormData(e.currentTarget);
     const email = String(formData.get("email") ?? "").trim();
     // Backup for browsers that don't check email fields themselves.
+    const phone = String(formData.get("phone") ?? "");
+    if (phone.replace(/\D/g, "").length < 10) {
+      setPhoneError(PHONE_ERROR);
+      e.currentTarget.querySelector<HTMLInputElement>('input[name="phone"]')?.focus();
+      return;
+    }
     if (!isValidEmail(email)) {
       setEmailError(EMAIL_ERROR);
       e.currentTarget.querySelector<HTMLInputElement>('input[name="email"]')?.focus();
-      return;
-    }
-    const phone = String(formData.get("phone") ?? "");
-    if (phone.replace(/\D/g, "").length < 10) {
-      setError("Please enter a 10-digit phone number so I can call you back.");
       return;
     }
 
@@ -195,9 +199,25 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
         <Field label="Name">
           <input name="name" type="text" autoComplete="name" required className={INPUT_CLASS} />
         </Field>
-        <Field label="Phone number">
-          <input name="phone" type="tel" autoComplete="tel" required className={INPUT_CLASS} />
-        </Field>
+        <div>
+          <Field label="Phone number">
+            <input
+              name="phone"
+              type="tel"
+              autoComplete="tel"
+              required
+              aria-invalid={phoneError ? true : undefined}
+              aria-describedby={phoneError ? phoneErrorId : undefined}
+              onInput={() => setPhoneError(null)}
+              className={INPUT_CLASS}
+            />
+          </Field>
+          {phoneError && (
+            <span id={phoneErrorId} role="alert" className="mt-1.5 block text-sm text-destructive">
+              {phoneError}
+            </span>
+          )}
+        </div>
       </div>
       <Field label="Email" optional>
         <input
