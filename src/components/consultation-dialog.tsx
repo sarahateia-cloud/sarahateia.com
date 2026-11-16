@@ -107,13 +107,13 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const email = String(formData.get("email") ?? "").trim();
-    // Backup for browsers that don't check email fields themselves.
     const phone = String(formData.get("phone") ?? "");
     if (phone.replace(/\D/g, "").length < 10) {
       setPhoneError(PHONE_ERROR);
       e.currentTarget.querySelector<HTMLInputElement>('input[name="phone"]')?.focus();
       return;
     }
+    // Backup for browsers that don't check email fields themselves.
     if (!isValidEmail(email)) {
       setEmailError(EMAIL_ERROR);
       e.currentTarget.querySelector<HTMLInputElement>('input[name="email"]')?.focus();
