@@ -34,6 +34,7 @@ const SUPPORT_AREAS = [
   "Identity / self-understanding",
   "Self-esteem concerns",
   "Genetics-informed psychoeducation",
+  "Men’s mental health",
 ];
 
 const CONSULT_PERKS = [
@@ -371,7 +372,10 @@ function Index() {
             <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg lg:col-span-8">
               <p>
                 I am a Licensed Professional Counselor Associate (LPC Associate) in Texas and a
-                National Certified Counselor (NCC), with a background in healthcare. I grew up in a
+                National Certified Counselor (NCC), with a background in healthcare. Before becoming
+                a counselor, I worked as a TMS technician in an integrative psychiatry practice, which
+                gave me a close look at how mood, the brain, and treatment fit together. (I don’t
+                provide TMS.) I grew up in a
                 multicultural environment, which shaped how I connect with people and how I hold
                 space for different backgrounds and lived experiences. I offer sessions in English
                 and Arabic.
@@ -466,8 +470,17 @@ function Index() {
                   for noticing patterns in mood, stress, attention, and regulation. Not diagnosis,
                   not medical advice, always alongside the relational work itself.
                 </p>
+                <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  My approach is holistic: mind and body are treated as one system, so we pay
+                  attention to sleep, movement, breath, and stress alongside thoughts and feelings.
+                  The relationship comes first. My work is person-centered, so you set the pace and
+                  the goals. I also draw on solution-focused counseling, which many men in particular
+                  find practical and direct: we look at what’s already working and build on it. And
+                  for clients drawn to deeper questions of meaning, dreams, and the parts of yourself
+                  you don’t usually show, I bring in Jungian-informed ideas.
+                </p>
                 <ul className="flex flex-wrap gap-2 pt-2">
-                  {["Grounding", "Mind–body", "Nature-based", "Relational"].map((tag) => (
+                  {["Holistic", "Mind–body", "Person-centered", "Solution-focused", "Jungian-informed", "Nature-based"].map((tag) => (
                     <li
                       key={tag}
                       className="rounded-full border border-border bg-card px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground"
