@@ -1,6 +1,6 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ContentPageView } from "@/components/content-page";
-import { ARTICLES, PUBLISHED_LABEL } from "@/content/pages";
+import { ARTICLES, publishedLabel } from "@/content/pages";
 
 export const Route = createFileRoute("/resources/$slug")({
   loader: ({ params }) => {
@@ -12,9 +12,10 @@ export const Route = createFileRoute("/resources/$slug")({
 });
 
 function Article() {
+  const page = Route.useLoaderData();
   return (
     <ContentPageView
-      page={Route.useLoaderData()}
+      page={page}
       parent={{ label: "Resources", href: "/resources/" }}
       note={
         <>
@@ -22,8 +23,8 @@ function Article() {
           <a href="/#about" className="underline underline-offset-4">
             Sarah Ateia Khattab
           </a>
-          , M.S., LPC Associate, NCC, supervised by Don Zablosky, LPC-S. Published {PUBLISHED_LABEL}
-          .
+          , M.S., LPC Associate, NCC, supervised by Don Zablosky, LPC-S. Published{" "}
+          {publishedLabel(page)}.
         </>
       }
     />
