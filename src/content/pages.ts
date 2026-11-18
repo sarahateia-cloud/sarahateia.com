@@ -17,6 +17,8 @@ export type ContentPage = {
   faqs?: Faq[];
   /** Other pages on the site to suggest at the end, so every page is linked from more than one place. */
   related?: { label: string; href: string }[];
+  /** Articles only: the date this article first went live (YYYY-MM-DD). Defaults to PUBLISHED. */
+  published?: string;
 };
 
 const LINK = {
@@ -39,6 +41,10 @@ const LINK = {
     label: "Choosing a counselor when language and culture matter",
     href: "/resources/choosing-a-counselor-language-culture/",
   },
+  muslimFaith: {
+    label: "How do I find a therapist who respects my Muslim faith?",
+    href: "/resources/therapist-who-respects-muslim-faith/",
+  },
 };
 
 const NAME = "Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S";
@@ -47,7 +53,7 @@ const PUBLISHED = "2026-11-05";
 export const TOPICS: ContentPage[] = [
   {
     path: "arabic-counseling",
-    related: [LINK.culture, LINK.consultation, LINK.telehealth],
+    related: [LINK.culture, LINK.muslimFaith, LINK.consultation, LINK.telehealth],
     title: `Arabic-Speaking Counselor in Irving & Dallas–Fort Worth | ${NAME}`,
     description:
       "Counseling in Arabic or English, outdoors in Dallas–Fort Worth parks or by telehealth anywhere in Texas. $100 per session, reduced rates available, free 15-minute consultation.",
@@ -332,7 +338,7 @@ export const ARTICLES: ContentPage[] = [
   },
   {
     path: "resources/choosing-a-counselor-language-culture",
-    related: [LINK.arabic, LINK.consultation, LINK.telehealth],
+    related: [LINK.arabic, LINK.muslimFaith, LINK.consultation, LINK.telehealth],
     title: `Choosing a Counselor When Language and Culture Matter | ${NAME}`,
     description:
       "Questions to ask when you’re looking for a counselor who respects your language, culture, faith, and family.",
@@ -361,6 +367,90 @@ export const ARTICLES: ContentPage[] = [
         paragraphs: [
           "I offer sessions in English and Arabic, and I welcome clients of every culture, language, faith or none, and background. I won’t assume I already know your story, and I welcome being corrected when I get something wrong.",
         ],
+      },
+    ],
+  },
+  {
+    path: "resources/therapist-who-respects-muslim-faith",
+    published: "2026-11-18",
+    related: [LINK.culture, LINK.arabic, LINK.consultation],
+    title: `How to Find a Therapist Who Respects Your Muslim Faith in Texas | ${NAME}`,
+    description:
+      "Looking for a Muslim-friendly therapist in Dallas–Fort Worth or online in Texas? Questions to ask, signs of respect for your faith, and what to expect.",
+    eyebrow: "Choosing a counselor",
+    heading: "How do I find a therapist who respects my Muslim faith?",
+    intro:
+      "Start with a short consultation call and ask directly how the counselor approaches faith, culture, and family. You don’t have to find a therapist who shares your religion, but you deserve one who respects your values, stays curious instead of assuming, and lets you decide how much your faith comes into sessions.",
+    blocks: [
+      {
+        heading: "Do you need a Muslim therapist?",
+        paragraphs: [
+          "Some people want a counselor who shares their faith, because it can feel easier not to explain the basics. Others would rather see someone from outside their community, for privacy or a fresh view. Both choices are okay.",
+          "What often matters most is whether you feel respected and heard. Many online therapist directories let you filter by faith, language, or gender. You can also simply ask a counselor how they work with clients whose faith is important to them.",
+        ],
+      },
+      {
+        heading: "Questions you might want to ask",
+        list: [
+          "How do you approach faith in counseling? Will you follow my lead on whether we talk about it?",
+          "Will you respect my values, even where they differ from yours?",
+          "Can we plan sessions around prayer times, Ramadan, or Eid?",
+          "Do you offer sessions in Arabic or another language I’m comfortable in?",
+          "How do you handle confidentiality, especially if we might know people in common?",
+        ],
+      },
+      {
+        heading: "Signs a counselor respects your faith",
+        list: [
+          "They ask about your beliefs instead of assuming",
+          "They don’t treat your faith as the problem",
+          "They don’t push you to give up practices or values that matter to you",
+          "They let you decide how much faith comes into your sessions",
+          "They welcome being corrected when they get something wrong",
+        ],
+      },
+      {
+        heading: "Counseling and faith can sit side by side",
+        paragraphs: [
+          "Many people find counseling fits alongside prayer, family, and community. Counseling is a place to talk through things like stress, anxiety, low mood, burnout, or relationship patterns.",
+          "A counselor isn’t a religious authority, and counseling doesn’t replace religious guidance. If you have questions about religious practice, an imam or scholar you trust is the right person to ask.",
+        ],
+      },
+      {
+        heading: "Privacy and community",
+        paragraphs: [
+          "In close communities, it’s common to worry about being seen or talked about. Telehealth lets you meet from a private place anywhere in Texas. Outdoor sessions happen in public parks, so complete privacy can’t be guaranteed, though we choose quieter spots and can pause or move anytime.",
+          "Counseling is confidential, with limits set by law, such as when someone’s safety is at risk. A counselor should explain those limits before you begin.",
+        ],
+      },
+      {
+        heading: "How I work",
+        paragraphs: [
+          "I’m an LPC Associate based in Irving, supervised by Don Zablosky, LPC-S. I offer sessions in English or Arabic, outdoors in Dallas–Fort Worth parks or by telehealth for clients located in Texas at the time of each session.",
+          "I welcome clients of every faith or none. I won’t assume I already know your story, and you decide how much your faith comes into our work. Sessions are $100, with packages and reduced rates available, and I’m self-pay only. A free 15-minute phone consultation is a good place to ask any of the questions above.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Do I need a Muslim therapist to feel understood?",
+        a: "Not necessarily. Some people prefer a counselor who shares their faith, and others prefer someone outside their community. What usually matters most is whether the counselor respects your values and stays curious about your experience.",
+      },
+      {
+        q: "Is it okay to talk about my faith in counseling?",
+        a: "Yes. You can bring your faith into sessions as much or as little as you like. A good counselor follows your lead.",
+      },
+      {
+        q: "Do you offer Islamic or religious counseling?",
+        a: "No. I offer general counseling, not religious counseling, and I’m not a religious authority. I welcome clients of every faith or none, and I respect the role faith plays in your life.",
+      },
+      {
+        q: "Can I see a female counselor in Dallas–Fort Worth?",
+        a: "You can ask any practice about this, and many directories let you filter by gender. I’m a female counselor offering outdoor sessions in Dallas–Fort Worth parks and telehealth across Texas.",
+      },
+      {
+        q: "Can I have online sessions if I don’t live in Dallas?",
+        a: "Yes, as long as you’re physically located in Texas at the time of each session. Telehealth is available in English or Arabic.",
       },
     ],
   },
@@ -455,8 +545,8 @@ export const SITE_PAGES: {
         headline: page.heading,
         description: page.description,
         url: url(page.path),
-        datePublished: PUBLISHED,
-        dateModified: PUBLISHED,
+        datePublished: page.published ?? PUBLISHED,
+        dateModified: page.published ?? PUBLISHED,
         inLanguage: "en-US",
         author: SARAH,
         publisher: PRACTICE,
@@ -497,3 +587,13 @@ SITE_PAGES.push({
 });
 
 export const PUBLISHED_LABEL = "November 2026";
+
+/** The month and year an article went live, for the byline under it. */
+export const publishedLabel = (page: ContentPage) =>
+  page.published
+    ? new Date(`${page.published}T12:00:00Z`).toLocaleDateString("en-US", {
+        month: "long",
+        year: "numeric",
+        timeZone: "UTC",
+      })
+    : PUBLISHED_LABEL;
