@@ -45,6 +45,24 @@ const LINK = {
     label: "How do I find a therapist who respects my Muslim faith?",
     href: "/resources/therapist-who-respects-muslim-faith/",
   },
+  adhd: {
+    label: "What are some creative strategies for adults with ADHD?",
+    href: "/resources/adhd-creative-strategies/",
+  },
+  attachment: {
+    label: "How do attachment styles affect relationships?",
+    href: "/resources/attachment-styles-in-relationships/",
+  },
+  abuseRecovery: {
+    label: "How do you heal after an abusive relationship?",
+    href: "/resources/healing-after-an-abusive-relationship/",
+  },
+  selfCare: {
+    label: "What does self-care for mental health actually look like?",
+    href: "/resources/self-care-for-mental-health/",
+  },
+  screening: { label: "Optional screening tools", href: "/screening-tools/" },
+  crisis: { label: "Crisis resources in Dallas–Fort Worth", href: "/crisis/" },
 };
 
 const NAME = "Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S";
@@ -373,68 +391,81 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/therapist-who-respects-muslim-faith",
     published: "2026-11-18",
-    related: [LINK.culture, LINK.arabic, LINK.consultation],
-    title: `How to Find a Therapist Who Respects Your Muslim Faith in Texas | ${NAME}`,
+    related: [
+      LINK.selfCare,
+      LINK.attachment,
+      LINK.adhd,
+      LINK.abuseRecovery,
+      LINK.culture,
+      LINK.consultation,
+    ],
+    title: `Finding a Holistic Therapist in Dallas Who Respects Your Faith | ${NAME}`,
     description:
-      "Looking for a Muslim-friendly therapist in Dallas–Fort Worth or online in Texas? Questions to ask, signs of respect for your faith, and what to expect.",
+      "How to find a counselor in Dallas–Fort Worth who respects your faith and culture, what holistic, mind-body counseling looks like, and what research says about grounding, sleep, movement, and nature.",
     eyebrow: "Choosing a counselor",
     heading: "How do I find a therapist who respects my Muslim faith?",
     intro:
-      "Start with a short consultation call and ask directly how the counselor approaches faith, culture, and family. You don’t have to find a therapist who shares your religion, but you deserve one who respects your values, stays curious instead of assuming, and lets you decide how much your faith comes into sessions.",
+      "Start with a short consultation and ask how the counselor approaches faith, culture, and the whole person, including the body. You don’t need a counselor who shares your religion, but you deserve one who respects your values, stays curious, and lets you decide how much faith comes into your sessions.",
     blocks: [
       {
-        heading: "Do you need a Muslim therapist?",
+        heading: "Look for respect, not a perfect match",
         paragraphs: [
-          "Some people want a counselor who shares their faith, because it can feel easier not to explain the basics. Others would rather see someone from outside their community, for privacy or a fresh view. Both choices are okay.",
-          "What often matters most is whether you feel respected and heard. Many online therapist directories let you filter by faith, language, or gender. You can also simply ask a counselor how they work with clients whose faith is important to them.",
+          "Some people want a counselor who shares their faith or background. Others prefer someone outside their community. Both are okay. What matters most is whether you feel respected and heard, and whether the counselor asks instead of assuming.",
         ],
       },
       {
-        heading: "Questions you might want to ask",
+        heading: "Questions to ask in a consultation",
         list: [
-          "How do you approach faith in counseling? Will you follow my lead on whether we talk about it?",
-          "Will you respect my values, even where they differ from yours?",
-          "Can we plan sessions around prayer times, Ramadan, or Eid?",
-          "Do you offer sessions in Arabic or another language I’m comfortable in?",
-          "How do you handle confidentiality, especially if we might know people in common?",
+          "How do you approach faith and culture? Will you follow my lead?",
+          "Do you work with the body as well as thoughts and feelings?",
+          "What do grounding or calming practices look like in your sessions?",
+          "Can sessions be outdoors, by telehealth, or in Arabic?",
+          "How do you handle confidentiality and its limits?",
         ],
       },
       {
-        heading: "Signs a counselor respects your faith",
-        list: [
-          "They ask about your beliefs instead of assuming",
-          "They don’t treat your faith as the problem",
-          "They don’t push you to give up practices or values that matter to you",
-          "They let you decide how much faith comes into your sessions",
-          "They welcome being corrected when they get something wrong",
-        ],
-      },
-      {
-        heading: "Counseling and faith can sit side by side",
+        heading: "What holistic counseling means",
         paragraphs: [
-          "Many people find counseling fits alongside prayer, family, and community. Counseling is a place to talk through things like stress, anxiety, low mood, burnout, or relationship patterns.",
-          "A counselor isn’t a religious authority, and counseling doesn’t replace religious guidance. If you have questions about religious practice, an imam or scholar you trust is the right person to ask.",
+          "Stress doesn’t only live in your thoughts. It can show up as a tight chest, shallow breathing, poor sleep, or feeling on edge. Holistic counseling looks at the whole picture: thoughts, emotions, the body, relationships, and the values and meaning that guide your life, including faith if it matters to you.",
+          "In practice, that can include grounding approaches such as slow breathing, noticing what you see and hear around you, gentle movement, and time outdoors. These are tools to help your nervous system settle so it’s easier to think clearly and talk about what’s hard.",
+          "A holistic approach can also reach into everyday struggles like ADHD-related stress, attachment and relationship patterns, healing after an abusive relationship, and self-care. You’ll find a guide on each at the end of this page.",
         ],
       },
       {
-        heading: "Privacy and community",
+        heading: "What research says about mind and body",
         paragraphs: [
-          "In close communities, it’s common to worry about being seen or talked about. Telehealth lets you meet from a private place anywhere in Texas. Outdoor sessions happen in public parks, so complete privacy can’t be guaranteed, though we choose quieter spots and can pause or move anytime.",
-          "Counseling is confidential, with limits set by law, such as when someone’s safety is at risk. A counselor should explain those limits before you begin.",
+          "The National Institute of Mental Health lists regular exercise, steady sleep, and relaxing activities such as breathing exercises among the basic ways to care for mental health. The National Center for Complementary and Integrative Health studies mind and body practices like meditation, yoga, and relaxation techniques. Research on them is growing, and results vary from person to person.",
+          "The American Psychological Association has also reported research linking time in nature with lower stress and better attention. That’s part of why some people like walking or sitting outside while they talk.",
+        ],
+      },
+      {
+        heading: "A note on biohacking",
+        paragraphs: [
+          "Biohacking trends like sleep trackers, wearables, and supplements get a lot of attention. The evidence behind them is mixed, and some can affect your physical health. The habits with the strongest research are often the simplest: sleep, movement, breathing, and connection. Talk with your doctor before trying supplements or anything that affects your body. Counseling supports your well-being, but it doesn’t replace medical care.",
+        ],
+      },
+      {
+        heading: "Faith and counseling can sit side by side",
+        paragraphs: [
+          "Many people find counseling fits alongside prayer, family, and community. A counselor isn’t a religious authority, and counseling doesn’t replace religious guidance. For questions about religious practice, an imam or scholar you trust is the right person to ask.",
         ],
       },
       {
         heading: "How I work",
         paragraphs: [
-          "I’m an LPC Associate based in Irving, supervised by Don Zablosky, LPC-S. I offer sessions in English or Arabic, outdoors in Dallas–Fort Worth parks or by telehealth for clients located in Texas at the time of each session.",
-          "I welcome clients of every faith or none. I won’t assume I already know your story, and you decide how much your faith comes into our work. Sessions are $100, with packages and reduced rates available, and I’m self-pay only. A free 15-minute phone consultation is a good place to ask any of the questions above.",
+          "I’m an LPC Associate based in Irving, supervised by Don Zablosky, LPC-S. I offer holistic, grounding counseling outdoors in Dallas–Fort Worth parks or by telehealth for clients located in Texas at the time of each session, in English or Arabic. I welcome clients of every faith or none.",
+          "Sessions are $100, with packages and reduced rates available, and I’m self-pay only. A free 15-minute phone consultation is a good place to ask any of the questions above. Outdoor sessions happen in public parks, so complete privacy can’t be guaranteed, and telehealth is always an option.",
         ],
       },
     ],
     faqs: [
       {
-        q: "Do I need a Muslim therapist to feel understood?",
-        a: "Not necessarily. Some people prefer a counselor who shares their faith, and others prefer someone outside their community. What usually matters most is whether the counselor respects your values and stays curious about your experience.",
+        q: "What is holistic counseling?",
+        a: "Holistic counseling looks at the whole person: thoughts, emotions, the body, relationships, and the values that give life meaning. It often includes practical tools for calming the body alongside talking.",
+      },
+      {
+        q: "What are grounding techniques?",
+        a: "Grounding techniques are simple ways to bring your attention back to the present moment, such as slow breathing, noticing five things you can see, or feeling your feet on the ground. They can help when you feel anxious or overwhelmed.",
       },
       {
         q: "Is it okay to talk about my faith in counseling?",
@@ -445,12 +476,273 @@ export const ARTICLES: ContentPage[] = [
         a: "No. I offer general counseling, not religious counseling, and I’m not a religious authority. I welcome clients of every faith or none, and I respect the role faith plays in your life.",
       },
       {
-        q: "Can I see a female counselor in Dallas–Fort Worth?",
-        a: "You can ask any practice about this, and many directories let you filter by gender. I’m a female counselor offering outdoor sessions in Dallas–Fort Worth parks and telehealth across Texas.",
+        q: "Is biohacking part of counseling?",
+        a: "Not as such. Counseling can include research-informed habits like breathing practices, movement, and time outdoors, but it doesn’t include supplements or medical advice. Talk with your doctor about anything that affects your physical health.",
+      },
+    ],
+  },
+  {
+    path: "resources/adhd-creative-strategies",
+    published: "2026-11-18",
+    related: [LINK.screening, LINK.selfCare, LINK.outdoor],
+    title: `Creative Strategies for Adults With ADHD in Dallas | ${NAME}`,
+    description:
+      "Practical, creative ways adults with ADHD can manage time, tasks, and stress, plus how the body, movement, and counseling fit in. Educational only, not a diagnosis.",
+    eyebrow: "ADHD",
+    heading: "What are some creative strategies for adults with ADHD?",
+    intro:
+      "Many adults with ADHD find it helps to work with how their brain works, not against it: make time visible, shrink tasks into tiny first steps, add movement, and use interest and novelty to get started. These strategies don’t replace an evaluation or treatment, but they can make daily life feel more manageable.",
+    blocks: [
+      {
+        heading: "What ADHD can look like in adults",
+        paragraphs: [
+          "The National Institute of Mental Health describes ADHD as an ongoing pattern of inattention, hyperactivity, or impulsivity that gets in the way of daily life. In adults, it can show up as trouble starting or finishing tasks, losing track of time, restlessness, forgetfulness, or feeling buried by details.",
+          "Stress, anxiety, poor sleep, and low mood can cause some of the same struggles, so only a qualified professional can evaluate what’s going on. A free screening questionnaire like the ASRS v1.1 can give you something to bring to that conversation. It isn’t a diagnosis.",
+        ],
       },
       {
-        q: "Can I have online sessions if I don’t live in Dallas?",
-        a: "Yes, as long as you’re physically located in Texas at the time of each session. Telehealth is available in English or Arabic.",
+        heading: "Creative strategies many people find helpful",
+        list: [
+          "Make time visible with a visual timer or a clock you can see from your desk",
+          "Shrink the first step: “open the document” instead of “write the report”",
+          "Try body doubling: work alongside someone, in person or on a video call",
+          "Add movement: walk while you think, or stretch between tasks",
+          "Get tasks out of your head with color, sticky notes, or a whiteboard",
+          "Pair dull tasks with something you enjoy, like music or a podcast",
+          "Set up your space so the next step is easy to see and start",
+        ],
+      },
+      {
+        heading: "The body matters too",
+        paragraphs: [
+          "Sleep, regular meals, and movement affect focus and mood for everyone, and they can matter even more with ADHD. When you feel overwhelmed, a quick grounding practice, like a slow breath out or noticing five things you can see, can help your body settle before you pick the next step.",
+          "NIMH notes that treatment for adults can include medication, psychotherapy, education or skills training, or a combination. Talk with a doctor about whether medication makes sense for you.",
+        ],
+      },
+      {
+        heading: "How counseling can help",
+        paragraphs: [
+          "Counseling can be a place to understand your patterns, build routines that fit your life, and work through the frustration or shame that often builds up over years of feeling behind. Some people find it easier to talk while walking, which is one reason I offer outdoor sessions in Dallas–Fort Worth parks. If you’re looking for a formal ADHD evaluation, a psychologist, psychiatrist, or your doctor can help with that.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can adults have ADHD?",
+        a: "Yes. NIMH notes that ADHD often continues into adulthood, and some people aren’t recognized as having it until they’re adults.",
+      },
+      {
+        q: "Do these strategies replace ADHD treatment?",
+        a: "No. They’re practical tools that many people find useful, alongside whatever care is right for them. A qualified professional can help you decide on treatment.",
+      },
+      {
+        q: "Can I take an ADHD test online?",
+        a: "Screening questionnaires like the ASRS v1.1 are free online and can help you notice patterns, but they can’t diagnose ADHD. Bring your results to a qualified professional.",
+      },
+      {
+        q: "Is walk and talk counseling a good fit if I have ADHD?",
+        a: "Some people find it easier to focus and talk while moving. It isn’t right for everyone, and we can talk about it during a free 15-minute consultation.",
+      },
+    ],
+  },
+  {
+    path: "resources/attachment-styles-in-relationships",
+    published: "2026-11-18",
+    related: [LINK.abuseRecovery, LINK.selfCare, LINK.consultation],
+    title: `How Attachment Styles Affect Relationships | ${NAME}`,
+    description:
+      "A plain-language guide to secure, anxious, avoidant, and disorganized attachment, how they show up in relationships, and how people move toward more secure ways of relating.",
+    eyebrow: "Relationships",
+    heading: "How do attachment styles affect relationships?",
+    intro:
+      "Attachment styles are patterns in how we seek closeness, handle conflict, and react when we’re unsure of someone. They often start in early relationships and show up later with partners, friends, and family. They aren’t fixed labels, and many people move toward more secure ways of relating over time.",
+    blocks: [
+      {
+        heading: "Where attachment theory comes from",
+        paragraphs: [
+          "Psychiatrist John Bowlby and psychologist Mary Ainsworth studied how young children bond with their caregivers. Later researchers applied those ideas to adult relationships. Attachment styles aren’t diagnoses. They’re a way to describe common patterns.",
+        ],
+      },
+      {
+        heading: "The four commonly described styles",
+        list: [
+          "Secure: generally comfortable with both closeness and independence",
+          "Anxious: wanting closeness and worrying about being left or not mattering",
+          "Avoidant: valuing independence and pulling back when things feel too close",
+          "Disorganized, sometimes called fearful-avoidant: wanting closeness and fearing it at the same time",
+        ],
+        paragraphs: [
+          "Researchers often describe four styles. Most people don’t fit neatly into one, and your patterns can look different with different people, at different times in your life, or under stress.",
+        ],
+      },
+      {
+        heading: "How it can show up in relationships",
+        list: [
+          "Needing a lot of reassurance, or feeling uneasy when a text goes unanswered",
+          "Shutting down or needing space during conflict",
+          "One person pursues while the other withdraws, and both feel hurt",
+          "Being drawn to relationships that feel familiar, even when they hurt",
+        ],
+      },
+      {
+        heading: "Moving toward security",
+        paragraphs: [
+          "Change usually starts with noticing your patterns without judging yourself. It helps to name what you need, calm your body before hard conversations, and spend time in relationships that feel steady and safe. Counseling can be a place to explore where your patterns came from and practice new ways of relating, at your own pace.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can your attachment style change?",
+        a: "Attachment patterns aren’t set in stone. Many people become more secure over time through supportive relationships, reflection, and practice.",
+      },
+      {
+        q: "Is an online attachment style quiz accurate?",
+        a: "A quiz can help you start thinking about your patterns, but attachment styles aren’t diagnoses, and a quiz can’t capture the whole picture.",
+      },
+      {
+        q: "Can counseling help with relationship patterns?",
+        a: "Counseling can be a place to understand your patterns, notice what triggers them, and practice responding differently. Results differ from person to person.",
+      },
+    ],
+  },
+  {
+    path: "resources/healing-after-an-abusive-relationship",
+    published: "2026-11-18",
+    related: [LINK.crisis, LINK.attachment, LINK.telehealth],
+    title: `How to Heal After an Abusive Relationship | ${NAME}`,
+    description:
+      "What recovery after an abusive relationship can look like, common reactions, steps that support healing, and where to find 24/7 help in Dallas–Fort Worth and across the U.S.",
+    eyebrow: "Healing",
+    heading: "How do you heal after an abusive relationship?",
+    intro:
+      "Healing after an abusive relationship usually starts with safety, then slowly rebuilding trust in yourself, your body, and other people. There’s no set timeline, and it’s common for recovery to have ups and downs.",
+    blocks: [
+      {
+        heading: "If you’re not safe right now",
+        paragraphs: [
+          "If you’re in danger, call 911. The National Domestic Violence Hotline is available 24/7 at 1-800-799-7233, or text START to 88788, and its advocates can help with safety planning. For a mental health crisis, call or text 988. You’ll also find local Dallas–Fort Worth crisis lines on my crisis resources page.",
+        ],
+      },
+      {
+        heading: "Abuse isn’t only physical",
+        list: [
+          "Emotional abuse, like constant criticism, put-downs, or making you doubt your memory",
+          "Controlling behavior, like isolating you from friends or tracking where you go",
+          "Financial abuse, like controlling your money or your ability to work",
+          "Threats, intimidation, or sexual coercion",
+        ],
+      },
+      {
+        heading: "Common reactions after leaving",
+        list: [
+          "Second-guessing your memory or judgment",
+          "Feeling on edge, jumpy, or having trouble sleeping",
+          "Missing the person, or feeling confused about your feelings",
+          "Shame or self-blame",
+          "Finding it hard to trust others",
+        ],
+        paragraphs: [
+          "After leaving, many people notice reactions like these. They’re common human responses to a painful experience, not signs that something is wrong with you.",
+        ],
+      },
+      {
+        heading: "Steps that can support healing",
+        list: [
+          "Rebuild a sense of safety and simple daily routines",
+          "Reconnect with people who feel trustworthy",
+          "Use grounding when memories or panic come up, like slow breathing or feeling your feet on the floor",
+          "Care for your body with sleep, food, and gentle movement",
+          "Practice small boundaries and notice how they feel",
+          "Be patient with yourself. Healing isn’t a straight line.",
+        ],
+      },
+      {
+        heading: "How counseling can help",
+        paragraphs: [
+          "Counseling can be a place to make sense of what happened at your own pace, without pressure to share more than you’re ready to. If you still live with or near the person, think about safety first: telehealth only works if no one can overhear, and outdoor sessions happen in public parks where complete privacy can’t be guaranteed. We can talk through what feels safest during a free consultation.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How long does it take to heal after an abusive relationship?",
+        a: "There’s no set timeline. Recovery often comes in waves, and setbacks are a normal part of it.",
+      },
+      {
+        q: "Is it normal to miss someone who hurt me?",
+        a: "Yes. Many people feel attached to someone who hurt them, especially after a long or intense relationship. Missing them doesn’t mean the abuse was okay.",
+      },
+      {
+        q: "What if I’m not sure it was abuse?",
+        a: "You don’t need a label to deserve support. Advocates at the National Domestic Violence Hotline (1-800-799-7233) can talk it through with you, and so can a counselor.",
+      },
+      {
+        q: "Is telehealth safe if I still live with the person?",
+        a: "Only if they can’t overhear or see your messages. Your safety comes first. The Hotline’s advocates can help you make a safety plan.",
+      },
+    ],
+  },
+  {
+    path: "resources/self-care-for-mental-health",
+    published: "2026-11-18",
+    related: [LINK.adhd, LINK.attachment, LINK.outdoor],
+    title: `What Self-Care for Mental Health Really Looks Like | ${NAME}`,
+    description:
+      "Research-informed self-care for mental health: sleep, movement, connection, grounding, and limits. A holistic check-in and signs it may be time to talk with a counselor.",
+    eyebrow: "Self-care",
+    heading: "What does self-care for mental health actually look like?",
+    intro:
+      "Self-care for mental health is the everyday care that helps your mind and body recover from stress: sleep, movement, food, rest, connection, and limits on what drains you. It’s less about treats and more about steady habits, adjusted to what you need right now.",
+    blocks: [
+      {
+        heading: "What research points to",
+        paragraphs: [
+          "The National Institute of Mental Health suggests regular exercise, healthy meals and enough water, making sleep a priority, relaxing activities like breathing exercises, setting goals and priorities, practicing gratitude, and staying connected with people who support you. None of these needs to be perfect. Small, steady steps count.",
+        ],
+      },
+      {
+        heading: "A holistic self-care check-in",
+        list: [
+          "Body: Have I slept, eaten, had water, and moved today?",
+          "Mind: Have I had a break from screens or a moment of quiet?",
+          "Emotions: Can I name how I feel right now?",
+          "Connection: Who is one person I could reach out to?",
+          "Meaning: What helps me feel grounded, like faith, nature, values, or creativity?",
+        ],
+      },
+      {
+        heading: "Grounding for hard days",
+        list: [
+          "Breathe out slowly, a little longer than you breathe in",
+          "Name five things you can see and four things you can hear",
+          "Press your feet into the floor and notice the support",
+          "Step outside for a few minutes, even just to your doorstep",
+        ],
+      },
+      {
+        heading: "When self-care isn’t enough",
+        paragraphs: [
+          "Self-care helps, but it can’t fix everything, and struggling isn’t a sign you’re doing it wrong. If stress, anxiety, or low mood has made daily life hard for more than a couple of weeks, consider talking with a counselor or your doctor. A free 15-minute consultation is a low-pressure way to start.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is self-care selfish?",
+        a: "No. Taking care of your health makes it easier to show up for the people and things that matter to you.",
+      },
+      {
+        q: "What are some simple self-care ideas?",
+        a: "Go to bed at a steady time, take a short walk, drink water, step outside, text a friend, or take five slow breaths. Small things done often tend to help more than big things done rarely.",
+      },
+      {
+        q: "What if I don’t have time for self-care?",
+        a: "Start very small. One minute of slow breathing or a five-minute walk still counts.",
+      },
+      {
+        q: "When should I talk to a counselor?",
+        a: "If stress or low mood is getting in the way of work, sleep, or relationships, or if you just want support, a counselor can help. If you’re in crisis, call or text 988.",
       },
     ],
   },
@@ -521,7 +813,7 @@ export const SITE_PAGES: {
     path: "resources",
     title: `Counseling Resources and Guides | ${NAME}`,
     description:
-      "Plain-language guides on starting counseling in Texas, choosing a counselor, outdoor sessions, and what an LPC Associate is.",
+      "Plain-language guides on starting counseling in Texas, choosing a counselor, outdoor sessions, ADHD, attachment styles, healing after abuse, and self-care.",
     graph: [
       {
         "@type": "CollectionPage",
