@@ -441,7 +441,7 @@ export const ARTICLES: ContentPage[] = [
       {
         heading: "A note on biohacking",
         paragraphs: [
-          "Biohacking trends like cold plunges, sleep trackers, and supplements get a lot of attention. The evidence behind them is mixed, and some can affect your physical health. The habits with the strongest research are often the simplest: sleep, movement, breathing, and connection. Talk with your doctor before trying supplements or anything that affects your body. Counseling supports your well-being, but it doesn’t replace medical care.",
+          "Biohacking trends like sleep trackers, wearables, and supplements get a lot of attention. The evidence behind them is mixed, and some can affect your physical health. The habits with the strongest research are often the simplest: sleep, movement, breathing, and connection. Talk with your doctor before trying supplements or anything that affects your body. Counseling supports your well-being, but it doesn’t replace medical care.",
         ],
       },
       {
