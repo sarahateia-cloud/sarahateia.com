@@ -373,68 +373,73 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/therapist-who-respects-muslim-faith",
     published: "2026-11-18",
-    related: [LINK.culture, LINK.arabic, LINK.consultation],
-    title: `How to Find a Therapist Who Respects Your Muslim Faith in Texas | ${NAME}`,
+    related: [LINK.culture, LINK.outdoor, LINK.consultation],
+    title: `Finding a Holistic Therapist in Dallas Who Respects Your Faith | ${NAME}`,
     description:
-      "Looking for a Muslim-friendly therapist in Dallas–Fort Worth or online in Texas? Questions to ask, signs of respect for your faith, and what to expect.",
+      "How to find a counselor in Dallas–Fort Worth who respects your faith and culture, what holistic, mind-body counseling looks like, and what research says about grounding, sleep, movement, and nature.",
     eyebrow: "Choosing a counselor",
     heading: "How do I find a therapist who respects my Muslim faith?",
     intro:
-      "Start with a short consultation call and ask directly how the counselor approaches faith, culture, and family. You don’t have to find a therapist who shares your religion, but you deserve one who respects your values, stays curious instead of assuming, and lets you decide how much your faith comes into sessions.",
+      "Start with a short consultation and ask how the counselor approaches faith, culture, and the whole person, including the body. You don’t need a counselor who shares your religion, but you deserve one who respects your values, stays curious, and lets you decide how much faith comes into your sessions.",
     blocks: [
       {
-        heading: "Do you need a Muslim therapist?",
+        heading: "Look for respect, not a perfect match",
         paragraphs: [
-          "Some people want a counselor who shares their faith, because it can feel easier not to explain the basics. Others would rather see someone from outside their community, for privacy or a fresh view. Both choices are okay.",
-          "What often matters most is whether you feel respected and heard. Many online therapist directories let you filter by faith, language, or gender. You can also simply ask a counselor how they work with clients whose faith is important to them.",
+          "Some people want a counselor who shares their faith or background. Others prefer someone outside their community. Both are okay. What matters most is whether you feel respected and heard, and whether the counselor asks instead of assuming.",
         ],
       },
       {
-        heading: "Questions you might want to ask",
+        heading: "Questions to ask in a consultation",
         list: [
-          "How do you approach faith in counseling? Will you follow my lead on whether we talk about it?",
-          "Will you respect my values, even where they differ from yours?",
-          "Can we plan sessions around prayer times, Ramadan, or Eid?",
-          "Do you offer sessions in Arabic or another language I’m comfortable in?",
-          "How do you handle confidentiality, especially if we might know people in common?",
+          "How do you approach faith and culture? Will you follow my lead?",
+          "Do you work with the body as well as thoughts and feelings?",
+          "What do grounding or calming practices look like in your sessions?",
+          "Can sessions be outdoors, by telehealth, or in Arabic?",
+          "How do you handle confidentiality and its limits?",
         ],
       },
       {
-        heading: "Signs a counselor respects your faith",
-        list: [
-          "They ask about your beliefs instead of assuming",
-          "They don’t treat your faith as the problem",
-          "They don’t push you to give up practices or values that matter to you",
-          "They let you decide how much faith comes into your sessions",
-          "They welcome being corrected when they get something wrong",
-        ],
-      },
-      {
-        heading: "Counseling and faith can sit side by side",
+        heading: "What holistic counseling means",
         paragraphs: [
-          "Many people find counseling fits alongside prayer, family, and community. Counseling is a place to talk through things like stress, anxiety, low mood, burnout, or relationship patterns.",
-          "A counselor isn’t a religious authority, and counseling doesn’t replace religious guidance. If you have questions about religious practice, an imam or scholar you trust is the right person to ask.",
+          "Stress doesn’t only live in your thoughts. It can show up as a tight chest, shallow breathing, poor sleep, or feeling on edge. Holistic counseling looks at the whole picture: thoughts, emotions, the body, relationships, and the values and meaning that guide your life, including faith if it matters to you.",
+          "In practice, that can include grounding approaches such as slow breathing, noticing what you see and hear around you, gentle movement, and time outdoors. These are tools to help your nervous system settle so it’s easier to think clearly and talk about what’s hard.",
         ],
       },
       {
-        heading: "Privacy and community",
+        heading: "What research says about mind and body",
         paragraphs: [
-          "In close communities, it’s common to worry about being seen or talked about. Telehealth lets you meet from a private place anywhere in Texas. Outdoor sessions happen in public parks, so complete privacy can’t be guaranteed, though we choose quieter spots and can pause or move anytime.",
-          "Counseling is confidential, with limits set by law, such as when someone’s safety is at risk. A counselor should explain those limits before you begin.",
+          "The National Institute of Mental Health lists regular exercise, steady sleep, and relaxing activities such as breathing exercises among the basic ways to care for mental health. The National Center for Complementary and Integrative Health studies mind and body practices like meditation, yoga, and relaxation techniques. Research on them is growing, and results vary from person to person.",
+          "The American Psychological Association has also reported research linking time in nature with lower stress and better attention. That’s part of why some people like walking or sitting outside while they talk.",
+        ],
+      },
+      {
+        heading: "A note on biohacking",
+        paragraphs: [
+          "Biohacking trends like cold plunges, sleep trackers, and supplements get a lot of attention. The evidence behind them is mixed, and some can affect your physical health. The habits with the strongest research are often the simplest: sleep, movement, breathing, and connection. Talk with your doctor before trying supplements or anything that affects your body. Counseling supports your well-being, but it doesn’t replace medical care.",
+        ],
+      },
+      {
+        heading: "Faith and counseling can sit side by side",
+        paragraphs: [
+          "Many people find counseling fits alongside prayer, family, and community. A counselor isn’t a religious authority, and counseling doesn’t replace religious guidance. For questions about religious practice, an imam or scholar you trust is the right person to ask.",
         ],
       },
       {
         heading: "How I work",
         paragraphs: [
-          "I’m an LPC Associate based in Irving, supervised by Don Zablosky, LPC-S. I offer sessions in English or Arabic, outdoors in Dallas–Fort Worth parks or by telehealth for clients located in Texas at the time of each session.",
-          "I welcome clients of every faith or none. I won’t assume I already know your story, and you decide how much your faith comes into our work. Sessions are $100, with packages and reduced rates available, and I’m self-pay only. A free 15-minute phone consultation is a good place to ask any of the questions above.",
+          "I’m an LPC Associate based in Irving, supervised by Don Zablosky, LPC-S. I offer holistic, grounding counseling outdoors in Dallas–Fort Worth parks or by telehealth for clients located in Texas at the time of each session, in English or Arabic. I welcome clients of every faith or none.",
+          "Sessions are $100, with packages and reduced rates available, and I’m self-pay only. A free 15-minute phone consultation is a good place to ask any of the questions above. Outdoor sessions happen in public parks, so complete privacy can’t be guaranteed, and telehealth is always an option.",
         ],
       },
     ],
     faqs: [
       {
-        q: "Do I need a Muslim therapist to feel understood?",
-        a: "Not necessarily. Some people prefer a counselor who shares their faith, and others prefer someone outside their community. What usually matters most is whether the counselor respects your values and stays curious about your experience.",
+        q: "What is holistic counseling?",
+        a: "Holistic counseling looks at the whole person: thoughts, emotions, the body, relationships, and the values that give life meaning. It often includes practical tools for calming the body alongside talking.",
+      },
+      {
+        q: "What are grounding techniques?",
+        a: "Grounding techniques are simple ways to bring your attention back to the present moment, such as slow breathing, noticing five things you can see, or feeling your feet on the ground. They can help when you feel anxious or overwhelmed.",
       },
       {
         q: "Is it okay to talk about my faith in counseling?",
@@ -445,12 +450,8 @@ export const ARTICLES: ContentPage[] = [
         a: "No. I offer general counseling, not religious counseling, and I’m not a religious authority. I welcome clients of every faith or none, and I respect the role faith plays in your life.",
       },
       {
-        q: "Can I see a female counselor in Dallas–Fort Worth?",
-        a: "You can ask any practice about this, and many directories let you filter by gender. I’m a female counselor offering outdoor sessions in Dallas–Fort Worth parks and telehealth across Texas.",
-      },
-      {
-        q: "Can I have online sessions if I don’t live in Dallas?",
-        a: "Yes, as long as you’re physically located in Texas at the time of each session. Telehealth is available in English or Arabic.",
+        q: "Is biohacking part of counseling?",
+        a: "Not as such. Counseling can include research-informed habits like breathing practices, movement, and time outdoors, but it doesn’t include supplements or medical advice. Talk with your doctor about anything that affects your physical health.",
       },
     ],
   },
