@@ -441,7 +441,7 @@ export const ARTICLES: ContentPage[] = [
       {
         heading: "A note on biohacking",
         paragraphs: [
-          "Biohacking trends like sleep trackers, wearables, and supplements get a lot of attention. The evidence behind them is mixed, and some can affect your physical health. The habits with the strongest research are often the simplest: sleep, movement, breathing, and connection. Talk with your doctor before trying supplements or anything that affects your body. Counseling supports your well-being, but it doesn’t replace medical care.",
+          "Biohacking trends like cold plunges, sleep trackers, wearables, and supplements get a lot of attention. Cold-water immersion is a good example of where the research stands. A 2025 systematic review in PLOS One found some studies linked it with lower stress in the hours afterward and with better sleep and quality of life, but the studies were small and mostly short-term. Cold water also carries real risks, especially for people with heart conditions, so talk with your doctor before trying it. The habits with the strongest research are often the simplest: sleep, movement, breathing, and connection. Counseling supports your well-being, but it doesn’t replace medical care.",
         ],
       },
       {
