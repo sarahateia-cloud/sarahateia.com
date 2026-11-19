@@ -10,14 +10,15 @@ import { NatureBand } from "@/components/nature-band";
 import { WatercolorBloom } from "@/components/watercolor-bloom";
 import { Tilt, useScrollReveal } from "@/components/motion";
 import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
-import sarahHeadshot from "@/assets/sarah-headshot.jpg";
-import sarahGraduation from "@/assets/sarah-graduation.jpg";
-import sarahHarbor from "@/assets/sarah-harbor.jpg";
-import sarahOverlook from "@/assets/sarah-overlook.jpg";
-import chicoPortrait from "@/assets/chico.jpeg";
-import chicoSoft from "@/assets/chico-soft.jpg";
-import chicoSleeping from "@/assets/chico-sleeping.jpg";
-import brainArt from "@/assets/brain-watercolor.png";
+import sarahHeadshot from "@/assets/sarah-headshot.webp";
+import sarahGraduation from "@/assets/sarah-graduation.webp";
+import sarahHarbor from "@/assets/sarah-harbor.webp";
+import sarahOverlook from "@/assets/sarah-overlook.webp";
+import chicoPortrait from "@/assets/chico.webp";
+import chicoSoft from "@/assets/chico-soft.webp";
+import chicoSleeping from "@/assets/chico-sleeping.webp";
+import brainArt from "@/assets/brain-watercolor.webp";
+import { SERVICES } from "@/content/services";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -26,6 +27,8 @@ export const Route = createFileRoute("/")({
 const SUPPORT_AREAS = [
   "Anxiety / stress",
   "Depression / low mood",
+  "ADHD / focus",
+  "Young adults / life transitions",
   "Emotional overwhelm",
   "Nervous system regulation",
   "Mood concerns",
@@ -427,6 +430,26 @@ function Index() {
                 </li>
               ))}
             </ul>
+            <nav aria-labelledby="services-heading" className="mt-10">
+              <h3
+                id="services-heading"
+                className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground"
+              >
+                Services
+              </h3>
+              <ul className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-1">
+                {SERVICES.map((service) => (
+                  <li key={service.href}>
+                    <a
+                      href={service.href}
+                      className="inline-flex min-h-11 items-center text-foreground underline underline-offset-4 hover:text-primary-foreground"
+                    >
+                      {service.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
             <p className="mx-auto mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground">
               <span className="font-medium text-foreground">Everyone is welcome here</span>,
               whatever your culture, language, faith or lack of one, gender, sexual orientation,

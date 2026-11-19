@@ -5,6 +5,7 @@ import { ConsultationButton } from "@/components/consultation-dialog";
 import { BUTTON } from "@/components/ds/buttons";
 import { Logo } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
+import { SERVICES } from "@/content/services";
 
 export { PHONE_DISPLAY, PHONE_HREF };
 
@@ -152,28 +153,20 @@ export function SiteFooter() {
               {PHONE_DISPLAY}
             </a>
           </p>
-          <p className="mt-2">
-            <a
-              href="/arabic-counseling/"
-              className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-foreground hover:underline"
-            >
-              Counseling in Arabic
-            </a>
-            {" · "}
-            <a
-              href="/outdoor-counseling/"
-              className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-foreground hover:underline"
-            >
-              Outdoor sessions
-            </a>
-            {" · "}
-            <a
-              href="/telehealth-counseling/"
-              className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-foreground hover:underline"
-            >
-              Telehealth
-            </a>
-          </p>
+          <nav aria-label="Services" className="mt-2">
+            <ul className="flex flex-wrap gap-x-4">
+              {SERVICES.map((service) => (
+                <li key={service.href}>
+                  <a
+                    href={service.href}
+                    className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                  >
+                    {service.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
           <p className="mt-2">
             <a
               href={PSYCHOLOGY_TODAY_URL}
@@ -183,11 +176,20 @@ export function SiteFooter() {
             </a>
           </p>
           <p className="mt-2">
+            If you are in crisis, call or text{" "}
+            <a href="tel:988" className="underline underline-offset-4 hover:text-foreground">
+              988
+            </a>{" "}
+            (Suicide &amp; Crisis Lifeline) or call{" "}
+            <a href="tel:911" className="underline underline-offset-4 hover:text-foreground">
+              911
+            </a>
+            . This website is not for emergencies.{" "}
             <a
               href="/crisis/"
               className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-foreground hover:underline"
             >
-              In crisis? Find 24/7 help
+              Find 24/7 help
             </a>
           </p>
           <p className="mt-2 text-xs">
