@@ -1141,6 +1141,10 @@ body:has([aria-label="Visit statistics choice"]) .sticky-call {
   .nudge-link:hover .nudge-icon {
     transform: translate(2px, -2px);
   }
+  /* Internal "Keep reading" links point forward, not out of the site. */
+  .nudge-link:hover .nudge-icon.nudge-right {
+    transform: translateX(3px);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .nudge-icon {
