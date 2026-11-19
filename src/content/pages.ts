@@ -36,8 +36,17 @@ const LINK = {
     href: "/resources/therapy-cost-without-insurance/",
   },
   slidingScale: {
-    label: "Sliding scale therapy in Dallas: how it works",
-    href: "/resources/sliding-scale-therapy-dallas/",
+    label: "What is sliding scale therapy?",
+    href: "/resources/what-is-sliding-scale-therapy/",
+  },
+  adhdDiagnose: {
+    label: "Can a therapist diagnose ADHD?",
+    href: "/resources/can-a-therapist-diagnose-adhd/",
+  },
+  holistic: { label: "What is holistic therapy?", href: "/resources/what-is-holistic-therapy/" },
+  youngAdultGuide: {
+    label: "Is therapy right for my young adult?",
+    href: "/resources/therapy-for-young-adults/",
   },
   walkTalk: {
     label: "What is walk and talk therapy?",
@@ -292,7 +301,7 @@ export const TOPICS: ContentPage[] = [
   },
   {
     path: "young-adult-counseling",
-    related: [LINK.anxiety, LINK.adhd, LINK.outdoor, LINK.slidingScale],
+    related: [LINK.youngAdultGuide, LINK.anxiety, LINK.adhdDiagnose, LINK.outdoor],
     title: "Young Adult Counseling & Therapy in Dallas–Fort Worth",
     description:
       "Counseling for young adults facing anxiety, low mood, ADHD, and big life changes. Walk and talk in Dallas–Fort Worth or online in Texas.",
@@ -434,7 +443,7 @@ export const TOPICS: ContentPage[] = [
           "Feeling worthless, guilty, or like a burden",
         ],
         paragraphs: [
-          "If several of these have lasted two weeks or more, it’s worth talking to someone. A counselor or your doctor is a good place to start.",
+          "If several of the signs below have lasted two weeks or more, it’s worth talking to someone. A counselor or your doctor is a good place to start.",
         ],
       },
       {
@@ -721,7 +730,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/adhd-creative-strategies",
     published: "2026-11-18",
-    related: [LINK.screening, LINK.selfCare, LINK.outdoor],
+    related: [LINK.adhdDiagnose, LINK.screening, LINK.selfCare, LINK.outdoor],
     title: `Creative Strategies for Adults With ADHD in Dallas | ${NAME}`,
     description:
       "Practical, creative ways adults with ADHD can manage time, tasks, and stress, plus how the body, movement, and counseling fit in. Educational only, not a diagnosis.",
@@ -986,7 +995,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/therapy-cost-without-insurance",
     published: "2026-11-19",
-    related: [LINK.slidingScale, LINK.consultation, LINK.telehealth],
+    related: [LINK.slidingScale, LINK.telehealth, LINK.consultation],
     title: "How Much Does Therapy Cost Without Insurance in Texas?",
     description:
       "What therapy costs without insurance in Texas, what affects the price, your right to a Good Faith Estimate, and practical ways to lower the cost.",
@@ -996,7 +1005,7 @@ export const ARTICLES: ContentPage[] = [
       "Without insurance, you pay the counselor’s fee directly. Fees vary a lot depending on the counselor’s license, experience, location, and session length, so it’s worth asking up front. My standard fee is $100 per session, and a sliding scale and session packages are available.",
     blocks: [
       {
-        heading: "What affects the price",
+        heading: "What affects the price of therapy?",
         list: [
           "The type of license, such as LPC Associate, LPC, psychologist, or psychiatrist",
           "Years of experience and specialized training",
@@ -1006,19 +1015,19 @@ export const ARTICLES: ContentPage[] = [
         ],
       },
       {
-        heading: "Why some people choose to pay out of pocket",
+        heading: "Why pay for therapy out of pocket?",
         paragraphs: [
           "Paying yourself means nothing is sent to an insurance company, and you and your counselor decide together how often to meet. The trade-off is cost, so it helps to know your options.",
         ],
       },
       {
-        heading: "Your right to a Good Faith Estimate",
+        heading: "What is a Good Faith Estimate?",
         paragraphs: [
           "Under the federal No Surprises Act, if you don’t have insurance or choose not to use it, you have the right to a written Good Faith Estimate of expected charges before services start. If your bill comes in at least $400 more than the estimate, you can dispute it. You can learn more at cms.gov/nosurprises.",
         ],
       },
       {
-        heading: "Ways to lower the cost",
+        heading: "How can I lower the cost of therapy?",
         list: [
           "Ask about a sliding scale based on your income",
           "Ask whether session packages are available",
@@ -1029,13 +1038,33 @@ export const ARTICLES: ContentPage[] = [
         ],
       },
       {
-        heading: "What I charge",
+        heading: "How much is online therapy without insurance?",
+        paragraphs: [
+          "Online sessions with a licensed counselor usually cost about the same as in-person sessions with that same counselor. Subscription therapy apps price things differently, often by the week or month, so check what’s included, like how long live sessions are and how often you get them.",
+        ],
+      },
+      {
+        heading: "How can I get free therapy without insurance?",
+        list: [
+          "Your employer’s Employee Assistance Program (EAP), if you have one, often covers a few free sessions",
+          "Community mental health centers may offer free or low-cost care based on income",
+          "Free peer support groups, such as those run by NAMI, can be a helpful addition",
+          "Dial 211 in Texas to find free services near you",
+          "In a crisis, call or text 988. It’s free and available 24/7.",
+        ],
+      },
+      {
+        heading: "How much does a session cost with me?",
         paragraphs: [
           "My standard fee is $100 per session, for walk and talk sessions in Dallas–Fort Worth or online therapy anywhere in Texas. A sliding scale based on household income and session packages are available. I’m self-pay only and don’t bill insurance. You can ask about cost during a free 15-minute phone call before committing to anything.",
         ],
       },
     ],
     faqs: [
+      {
+        q: "How do I get therapy without insurance?",
+        a: "Decide what you can afford each month, then ask counselors directly about their fee, sliding scale, and packages. Check your HSA, FSA, or employer EAP, and ask for a Good Faith Estimate before you start.",
+      },
       {
         q: "Can I use my HSA or FSA for counseling?",
         a: "Often, yes, when counseling is for your mental health. Rules depend on your plan, so check with your plan administrator before your first session.",
@@ -1049,25 +1078,25 @@ export const ARTICLES: ContentPage[] = [
         a: "No. I’m self-pay only and don’t bill insurance.",
       },
       {
-        q: "What is a Good Faith Estimate?",
-        a: "A written estimate of what your care is expected to cost. If you’re paying for yourself, you have the right to receive one before services start.",
+        q: "Is online therapy cheaper than in-person?",
+        a: "Not always. Many counselors charge the same for both. My fee is the same for online therapy and walk and talk sessions.",
       },
     ],
   },
   {
-    path: "resources/sliding-scale-therapy-dallas",
+    path: "resources/what-is-sliding-scale-therapy",
     published: "2026-11-19",
     related: [LINK.cost, LINK.consultation, LINK.telehealth],
-    title: "Sliding Scale Therapy in Dallas: How It Works",
+    title: "What Is Sliding Scale Therapy? How It Works in Dallas",
     description:
-      "How sliding scale therapy works, how to ask for a reduced fee without awkwardness, and other lower-cost counseling options in Dallas–Fort Worth.",
+      "What sliding scale therapy means, how it works, how to apply for a reduced fee, and other lower-cost counseling options in Dallas–Fort Worth.",
     eyebrow: "Fees",
-    heading: "Sliding scale therapy in Dallas: how it works.",
+    heading: "What is sliding scale therapy?",
     intro:
       "Sliding scale therapy means the fee changes based on what you can afford, usually your household income and size. It makes counseling possible for people who can’t pay a full fee and don’t want to, or can’t, use insurance.",
     blocks: [
       {
-        heading: "How a sliding scale usually works",
+        heading: "How does sliding scale therapy work?",
         list: [
           "The counselor sets a range of fees instead of one fixed price",
           "Your fee is based on things like household income and how many people it supports",
@@ -1077,19 +1106,19 @@ export const ARTICLES: ContentPage[] = [
         ],
       },
       {
-        heading: "How to ask for it",
+        heading: "How do I apply for sliding scale therapy?",
         paragraphs: [
-          "It’s normal to ask, and you don’t need to explain your whole financial situation on the first call. “Do you offer a sliding scale?” is enough. A good counselor will make that conversation easy.",
+          "There’s usually no formal application. Ask the counselor directly, ideally on your first call: “Do you offer a sliding scale?” is enough. Some will ask about your household income and size, and a few may ask for proof. You don’t need to explain your whole financial situation, and a good counselor will make the conversation easy.",
         ],
       },
       {
-        heading: "My sliding scale",
+        heading: "Sliding scale therapy in Dallas with me",
         paragraphs: [
           "I’m self-pay only, and reduced rates are available based on household income, for walk and talk sessions in Dallas–Fort Worth and online therapy anywhere in Texas. Ask during your free 15-minute consultation, and we’ll agree on a fee before your first session.",
         ],
       },
       {
-        heading: "Other lower-cost options in Dallas–Fort Worth",
+        heading: "What are other lower-cost options in Dallas–Fort Worth?",
         list: [
           "Open Path Collective, a nonprofit network of therapists who offer reduced-rate sessions",
           "University counseling training clinics, where supervised graduate students see clients at lower fees",
@@ -1100,6 +1129,10 @@ export const ARTICLES: ContentPage[] = [
       },
     ],
     faqs: [
+      {
+        q: "What does sliding scale mean in therapy?",
+        a: "It means the counselor charges different fees depending on what clients can afford, instead of one price for everyone.",
+      },
       {
         q: "Is sliding scale therapy lower quality?",
         a: "No. The counseling is the same. Only the fee changes.",
@@ -1182,8 +1215,251 @@ export const ARTICLES: ContentPage[] = [
         a: "Comfortable shoes and clothes for the weather. Bring water, especially in the Texas heat.",
       },
       {
+        q: "Is walk and talk therapy covered by insurance?",
+        a: "Insurance pays for counseling based on the service, not the location, so it depends on your plan and whether the counselor bills insurance. Ask both before you start. I’m self-pay only and don’t bill insurance, and a sliding scale is available.",
+      },
+      {
         q: "Can I switch between walking and online sessions?",
         a: "With me, yes. You can mix walk and talk and online sessions depending on the weather and your week.",
+      },
+    ],
+  },
+  {
+    path: "resources/can-a-therapist-diagnose-adhd",
+    published: "2026-11-20",
+    related: [LINK.adhd, LINK.youngAdult, LINK.screening, LINK.telehealth],
+    title: "Can a Therapist Diagnose ADHD? Who Can, and What to Expect",
+    description:
+      "Who can diagnose ADHD, what an adult ADHD evaluation involves, whether therapists can prescribe ADHD medication, and how to find a therapist for ADHD.",
+    eyebrow: "ADHD",
+    heading: "Can a therapist diagnose ADHD?",
+    intro:
+      "Sometimes. It depends on the therapist’s license, training, and state law. Psychologists, psychiatrists, and other medical providers commonly diagnose ADHD, and in many states some licensed counselors and social workers do too. Many therapists refer clients to a psychologist or doctor for a full evaluation, then help with the day-to-day side of ADHD.",
+    blocks: [
+      {
+        heading: "Who can diagnose ADHD?",
+        list: [
+          "Psychologists, who often do the most in-depth testing",
+          "Psychiatrists and psychiatric nurse practitioners, who can also prescribe medication",
+          "Primary care doctors and pediatricians",
+          "In many states, licensed counselors and clinical social workers with the right training",
+        ],
+        paragraphs: [
+          "If you want a formal diagnosis, ask the provider directly whether they do ADHD evaluations and what theirs includes.",
+        ],
+      },
+      {
+        heading: "What does an adult ADHD evaluation involve?",
+        list: [
+          "A detailed conversation about your attention, focus, and daily life",
+          "Questions about your childhood, since ADHD symptoms begin early in life",
+          "Standardized questionnaires, like the ASRS for adults",
+          "Sometimes input from a partner, parent, or someone who knows you well",
+          "Checking for things that can look like ADHD, such as anxiety, depression, sleep problems, or medical conditions",
+        ],
+      },
+      {
+        heading: "Can a therapist prescribe ADHD medication?",
+        paragraphs: [
+          "No. Counselors, social workers, and most psychologists can’t prescribe medication. ADHD medication is prescribed by psychiatrists, psychiatric nurse practitioners, and other medical providers. A few states allow specially trained psychologists to prescribe, but Texas isn’t one of them.",
+        ],
+      },
+      {
+        heading: "How do I find a therapist for ADHD?",
+        list: [
+          "Ask whether they work with ADHD, and how",
+          "Ask how they help with daily skills like planning, time, and follow-through",
+          "Ask whether they’ll coordinate with your doctor or prescriber, if you have one",
+          "Notice whether you feel understood rather than judged. That matters as much as any technique.",
+        ],
+      },
+      {
+        heading: "How can therapy help with ADHD?",
+        paragraphs: [
+          "Therapy doesn’t replace an evaluation or medication, but it can help with what ADHD touches: organizing time and tasks, working through the frustration, shame, and anxiety that often build up over years, and building routines that fit how your brain works.",
+        ],
+      },
+      {
+        heading: "ADHD support with me",
+        paragraphs: [
+          "I don’t offer ADHD evaluations or prescribe medication. I offer talk therapy for young adults and adults with ADHD or suspected ADHD, through walk and talk sessions in Dallas–Fort Worth or online anywhere in Texas. If you’re looking for an evaluation, we can talk through where to go.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Do I need an ADHD diagnosis to start therapy?",
+        a: "No. You can start therapy while you wait for an evaluation, or without one.",
+      },
+      {
+        q: "Can ADHD be evaluated online?",
+        a: "Some providers do ADHD evaluations by telehealth. Ask what’s included, since a thorough evaluation usually involves more than one questionnaire.",
+      },
+      {
+        q: "Can a therapist prescribe ADHD medication?",
+        a: "No. In Texas, ADHD medication is prescribed by psychiatrists, psychiatric nurse practitioners, and other medical providers, not therapists.",
+      },
+      {
+        q: "Is there a free ADHD screening questionnaire?",
+        a: "Yes. The ASRS v1.1 is a free adult ADHD screening questionnaire, linked on our screening tools page. It isn’t a diagnosis, but it can help you decide whether to seek an evaluation.",
+      },
+    ],
+  },
+  {
+    path: "resources/what-is-holistic-therapy",
+    published: "2026-11-20",
+    related: [LINK.anxiety, LINK.depression, LINK.outdoor, LINK.selfCare],
+    title: "What Is Holistic Therapy? How It Works and Does It Work?",
+    description:
+      "What holistic therapy means, how it works in talk therapy, what research supports, and how to find a holistic therapist you can trust.",
+    eyebrow: "Holistic therapy",
+    heading: "What is holistic therapy?",
+    intro:
+      "Holistic therapy is an approach to counseling that looks at the whole person: your thoughts and feelings, and also your body, sleep, stress, relationships, culture, and sense of meaning. It isn’t one technique. It’s a way of seeing how all of those pieces affect each other.",
+    blocks: [
+      {
+        heading: "What does holistic therapy mean?",
+        paragraphs: [
+          "In a holistic approach, a racing mind isn’t treated as separate from poor sleep, a tense body, or a stressful job. Mental health is shaped by many things at once, so care looks at the whole picture rather than one symptom.",
+          "The word is used loosely. Some practitioners use it for talk therapy with a mind-body focus. Others use it for services like massage, acupuncture, or energy work, which are separate from counseling and have very different levels of evidence.",
+        ],
+      },
+      {
+        heading: "How does holistic therapy work?",
+        paragraphs: ["In talk therapy, a holistic approach can include:"],
+        list: [
+          "Talking through what’s going on, as in any counseling",
+          "Noticing where stress shows up in your body",
+          "Breathing and grounding skills to help calm your nervous system",
+          "Looking at sleep, movement, and daily routines",
+          "Mindfulness and attention to the present moment",
+          "Time outdoors, including walk and talk sessions",
+          "Values, meaning, culture, and faith, if they matter to you",
+        ],
+      },
+      {
+        heading: "Does holistic therapy work?",
+        paragraphs: [
+          "Because holistic is a broad label, research looks at its parts rather than the whole. Some have strong support: regular exercise can ease symptoms of depression and anxiety, mindfulness-based programs can help with stress and lower the chance of depression coming back, and better sleep is closely tied to better mood. Other practices sold as holistic have little or no evidence. A good holistic therapist can tell you what a technique is based on.",
+        ],
+      },
+      {
+        heading: "How do I find a holistic therapist I can trust?",
+        list: [
+          "Check that they’re licensed, and look up the license on your state board’s website",
+          "Be cautious of anyone who promises a cure or tells you to stop medication",
+          "Ask what a session actually looks like",
+          "Make sure they still work on the concerns that brought you in, not only general wellness",
+        ],
+      },
+      {
+        heading: "Holistic counseling with me",
+        paragraphs: [
+          "My approach is holistic and grounding, and it stays within talk therapy. I combine person-centered, solution-focused, and Jungian ideas with research on the body, sleep, movement, and nature. Sessions happen as walk and talk sessions in Dallas–Fort Worth or online anywhere in Texas. I don’t prescribe medication or offer medical treatments.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Are holistic therapies effective?",
+        a: "Some parts, like exercise, mindfulness-based approaches, and better sleep, have good research support. Others don’t. It’s fair to ask any therapist what their methods are based on.",
+      },
+      {
+        q: "Is holistic therapy the same as alternative medicine?",
+        a: "No. Holistic therapy can be regular, licensed counseling that pays attention to the whole person. Alternative medicine usually means treatments used instead of standard medical care, which is a different thing.",
+      },
+      {
+        q: "Can holistic therapy help with anxiety?",
+        a: "Parts of a holistic approach, like breathing skills, movement, and better sleep, are commonly used for anxiety alongside talk therapy. How much it helps varies from person to person.",
+      },
+      {
+        q: "Will a holistic therapist tell me to stop my medication?",
+        a: "A trustworthy one won’t. Decisions about medication belong with you and your prescriber.",
+      },
+    ],
+  },
+  {
+    path: "resources/therapy-for-young-adults",
+    published: "2026-11-20",
+    related: [LINK.youngAdult, LINK.anxiety, LINK.depression, LINK.consultation],
+    title: "Therapy for Young Adults: A Guide for Parents",
+    description:
+      "Is therapy right for your young adult? Signs it may help, how to bring it up, privacy after 18, and when therapy alone isn’t enough.",
+    eyebrow: "Young adults",
+    heading: "Is therapy right for my young adult?",
+    intro:
+      "If your adult child is somewhere between 18 and their late twenties and seems to be struggling, therapy may help. It often works best when they choose it themselves, with your support in the background. Here’s how to tell when it might help, how to bring it up, and what to do if therapy alone isn’t enough.",
+    blocks: [
+      {
+        heading: "What are signs therapy might help?",
+        list: [
+          "Ongoing worry, low mood, or irritability",
+          "Pulling away from friends, family, or things they used to enjoy",
+          "Struggling to keep up with school, work, or daily tasks",
+          "Big changes in sleep, eating, or energy",
+          "Feeling stuck during a transition, like college, graduating, or moving out",
+          "Drinking or using substances to cope",
+        ],
+      },
+      {
+        heading: "How do I bring up therapy with my young adult?",
+        list: [
+          "Pick a calm moment, not the middle of an argument",
+          "Describe what you’ve noticed and why you care, without labels",
+          "Offer help with the practical parts, like finding options or paying",
+          "Let them choose the counselor and the format, such as walk and talk or online",
+          "If they say no, keep the door open and try again later",
+        ],
+      },
+      {
+        heading: "What can parents know about their young adult’s therapy?",
+        paragraphs: [
+          "Once your child is 18, counseling is confidential between them and their counselor, within the limits of the law. That’s true even if you’re paying. A counselor can share information with you only if your young adult gives written permission. Many young adults open up more because of that privacy.",
+        ],
+      },
+      {
+        heading: "When is therapy alone not enough for a young adult?",
+        paragraphs: [
+          "Weekly counseling helps many young adults, but sometimes more support is needed. Signs include:",
+        ],
+        list: [
+          "Thoughts of suicide or self-harm",
+          "Not getting better, or getting worse, after a fair amount of time in therapy",
+          "Being unable to go to school or work, or to take care of basic needs",
+          "Heavy substance use",
+          "Signs of an eating disorder",
+          "Seeing or hearing things others don’t, or losing touch with reality",
+        ],
+      },
+      {
+        heading: "What does more support look like?",
+        paragraphs: [
+          "It might mean a psychiatric evaluation to discuss medication, an intensive outpatient program with several sessions a week, or a higher level of care. If there’s any risk to their safety, call or text 988, call 911, or go to the nearest emergency room.",
+        ],
+      },
+      {
+        heading: "Counseling for young adults with me",
+        paragraphs: [
+          "I offer counseling for young adults through walk and talk sessions in Dallas–Fort Worth or online anywhere in Texas. Your young adult is welcome to call for a free 15-minute consultation themselves. If you’re the one calling, I’m glad to explain how it works so you can pass it along.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can I make my adult child go to therapy?",
+        a: "Not really, and pressure usually backfires. What you can do is make it easier: share options, offer to help pay, and let them decide.",
+      },
+      {
+        q: "Can I talk to my young adult’s therapist?",
+        a: "The therapist can share information with you only if your young adult gives written permission. Without it, they can’t confirm or discuss your young adult’s care.",
+      },
+      {
+        q: "Is online therapy a good option for young adults?",
+        a: "For many, yes. It’s easy to fit around classes and work, as long as they have a private place to talk and are located in Texas for each session.",
+      },
+      {
+        q: "What if my young adult is in crisis?",
+        a: "Call or text 988, call 911, or go to the nearest emergency room. Don’t wait for a counseling appointment.",
       },
     ],
   },
@@ -1254,7 +1530,7 @@ export const SITE_PAGES: {
     path: "resources",
     title: `Counseling Resources and Guides | ${NAME}`,
     description:
-      "Plain-language guides on therapy costs and sliding scales in Texas, walk and talk therapy, choosing a counselor, ADHD, attachment styles, healing after abuse, and self-care.",
+      "Plain-language guides on therapy costs and sliding scales, walk and talk and holistic therapy, ADHD, young adults, choosing a counselor, and self-care.",
     graph: [
       {
         "@type": "CollectionPage",
