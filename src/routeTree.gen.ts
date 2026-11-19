@@ -9,17 +9,25 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YoungAdultCounselingRouteImport } from './routes/young-adult-counseling'
 import { Route as TelehealthCounselingRouteImport } from './routes/telehealth-counseling'
 import { Route as ScreeningToolsRouteImport } from './routes/screening-tools'
 import { Route as OutdoorCounselingRouteImport } from './routes/outdoor-counseling'
 import { Route as NewClientsRouteImport } from './routes/new-clients'
 import { Route as GlossaryRouteImport } from './routes/glossary'
+import { Route as DepressionCounselingDallasRouteImport } from './routes/depression-counseling-dallas'
 import { Route as CrisisRouteImport } from './routes/crisis'
 import { Route as ArabicCounselingRouteImport } from './routes/arabic-counseling'
+import { Route as AnxietyTherapyDallasRouteImport } from './routes/anxiety-therapy-dallas'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResourcesIndexRouteImport } from './routes/resources/index'
 import { Route as ResourcesSlugRouteImport } from './routes/resources/$slug'
 
+const YoungAdultCounselingRoute = YoungAdultCounselingRouteImport.update({
+  id: '/young-adult-counseling',
+  path: '/young-adult-counseling',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TelehealthCounselingRoute = TelehealthCounselingRouteImport.update({
   id: '/telehealth-counseling',
   path: '/telehealth-counseling',
@@ -45,6 +53,12 @@ const GlossaryRoute = GlossaryRouteImport.update({
   path: '/glossary',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DepressionCounselingDallasRoute =
+  DepressionCounselingDallasRouteImport.update({
+    id: '/depression-counseling-dallas',
+    path: '/depression-counseling-dallas',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CrisisRoute = CrisisRouteImport.update({
   id: '/crisis',
   path: '/crisis',
@@ -53,6 +67,11 @@ const CrisisRoute = CrisisRouteImport.update({
 const ArabicCounselingRoute = ArabicCounselingRouteImport.update({
   id: '/arabic-counseling',
   path: '/arabic-counseling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnxietyTherapyDallasRoute = AnxietyTherapyDallasRouteImport.update({
+  id: '/anxiety-therapy-dallas',
+  path: '/anxiety-therapy-dallas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -73,38 +92,47 @@ const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
   '/crisis': typeof CrisisRoute
+  '/depression-counseling-dallas': typeof DepressionCounselingDallasRoute
   '/glossary': typeof GlossaryRoute
   '/new-clients': typeof NewClientsRoute
   '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
+  '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources/': typeof ResourcesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
   '/crisis': typeof CrisisRoute
+  '/depression-counseling-dallas': typeof DepressionCounselingDallasRoute
   '/glossary': typeof GlossaryRoute
   '/new-clients': typeof NewClientsRoute
   '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
+  '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources': typeof ResourcesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
   '/crisis': typeof CrisisRoute
+  '/depression-counseling-dallas': typeof DepressionCounselingDallasRoute
   '/glossary': typeof GlossaryRoute
   '/new-clients': typeof NewClientsRoute
   '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
+  '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources/': typeof ResourcesIndexRoute
 }
@@ -112,56 +140,75 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/anxiety-therapy-dallas'
     | '/arabic-counseling'
     | '/crisis'
+    | '/depression-counseling-dallas'
     | '/glossary'
     | '/new-clients'
     | '/outdoor-counseling'
     | '/screening-tools'
     | '/telehealth-counseling'
+    | '/young-adult-counseling'
     | '/resources/$slug'
     | '/resources/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/anxiety-therapy-dallas'
     | '/arabic-counseling'
     | '/crisis'
+    | '/depression-counseling-dallas'
     | '/glossary'
     | '/new-clients'
     | '/outdoor-counseling'
     | '/screening-tools'
     | '/telehealth-counseling'
+    | '/young-adult-counseling'
     | '/resources/$slug'
     | '/resources'
   id:
     | '__root__'
     | '/'
+    | '/anxiety-therapy-dallas'
     | '/arabic-counseling'
     | '/crisis'
+    | '/depression-counseling-dallas'
     | '/glossary'
     | '/new-clients'
     | '/outdoor-counseling'
     | '/screening-tools'
     | '/telehealth-counseling'
+    | '/young-adult-counseling'
     | '/resources/$slug'
     | '/resources/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnxietyTherapyDallasRoute: typeof AnxietyTherapyDallasRoute
   ArabicCounselingRoute: typeof ArabicCounselingRoute
   CrisisRoute: typeof CrisisRoute
+  DepressionCounselingDallasRoute: typeof DepressionCounselingDallasRoute
   GlossaryRoute: typeof GlossaryRoute
   NewClientsRoute: typeof NewClientsRoute
   OutdoorCounselingRoute: typeof OutdoorCounselingRoute
   ScreeningToolsRoute: typeof ScreeningToolsRoute
   TelehealthCounselingRoute: typeof TelehealthCounselingRoute
+  YoungAdultCounselingRoute: typeof YoungAdultCounselingRoute
   ResourcesSlugRoute: typeof ResourcesSlugRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/young-adult-counseling': {
+      id: '/young-adult-counseling'
+      path: '/young-adult-counseling'
+      fullPath: '/young-adult-counseling'
+      preLoaderRoute: typeof YoungAdultCounselingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/telehealth-counseling': {
       id: '/telehealth-counseling'
       path: '/telehealth-counseling'
@@ -197,6 +244,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GlossaryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/depression-counseling-dallas': {
+      id: '/depression-counseling-dallas'
+      path: '/depression-counseling-dallas'
+      fullPath: '/depression-counseling-dallas'
+      preLoaderRoute: typeof DepressionCounselingDallasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/crisis': {
       id: '/crisis'
       path: '/crisis'
@@ -209,6 +263,13 @@ declare module '@tanstack/react-router' {
       path: '/arabic-counseling'
       fullPath: '/arabic-counseling'
       preLoaderRoute: typeof ArabicCounselingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/anxiety-therapy-dallas': {
+      id: '/anxiety-therapy-dallas'
+      path: '/anxiety-therapy-dallas'
+      fullPath: '/anxiety-therapy-dallas'
+      preLoaderRoute: typeof AnxietyTherapyDallasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -237,13 +298,16 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnxietyTherapyDallasRoute: AnxietyTherapyDallasRoute,
   ArabicCounselingRoute: ArabicCounselingRoute,
   CrisisRoute: CrisisRoute,
+  DepressionCounselingDallasRoute: DepressionCounselingDallasRoute,
   GlossaryRoute: GlossaryRoute,
   NewClientsRoute: NewClientsRoute,
   OutdoorCounselingRoute: OutdoorCounselingRoute,
   ScreeningToolsRoute: ScreeningToolsRoute,
   TelehealthCounselingRoute: TelehealthCounselingRoute,
+  YoungAdultCounselingRoute: YoungAdultCounselingRoute,
   ResourcesSlugRoute: ResourcesSlugRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,
 }
