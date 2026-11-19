@@ -5,7 +5,7 @@ import { ConsultationButton } from "@/components/consultation-dialog";
 import { BUTTON } from "@/components/ds/buttons";
 import { Logo } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
-import { SERVICES } from "@/content/services";
+import { FOOTER_RESOURCES, SERVICES } from "@/content/services";
 
 export { PHONE_DISPLAY, PHONE_HREF };
 
@@ -167,6 +167,20 @@ export function SiteFooter() {
               ))}
             </ul>
           </nav>
+          <nav aria-label="Resources" className="mt-2">
+            <ul className="flex flex-wrap gap-x-4">
+              {FOOTER_RESOURCES.map((service) => (
+                <li key={service.href}>
+                  <a
+                    href={service.href}
+                    className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                  >
+                    {service.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
           <p className="mt-2">
             <a
               href={PSYCHOLOGY_TODAY_URL}
@@ -185,15 +199,13 @@ export function SiteFooter() {
               911
             </a>
             . This website is not for emergencies.{" "}
-            <a
-              href="/crisis/"
-              className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-foreground hover:underline"
-            >
+            <a href="/crisis/" className="underline underline-offset-4 hover:text-foreground">
               Find 24/7 help
             </a>
           </p>
           <p className="mt-2 text-xs">
-            LPC Associate #104391 · Supervised by Don Zablosky, LPC-S ·{" "}
+            LPC Associate #104391 · Supervised by{" "}
+            <span className="whitespace-nowrap">Don Zablosky, LPC-S</span> ·{" "}
             <a
               href={LICENSE_VERIFY_URL}
               className="inline-flex min-h-11 items-center underline underline-offset-4 transition-colors hover:text-foreground"

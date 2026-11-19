@@ -11,22 +11,19 @@ const html = readFileSync("dist/index.html", "utf8");
 const PAGES = [
   {
     path: "crisis",
-    title:
-      "Crisis Resources in Dallas–Fort Worth | Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S",
+    title: "DFW Crisis Lines & Resources | Sarah Ateia, LPC Associate",
     description:
       "24/7 crisis lines for Dallas, Tarrant, Collin, Denton, and Johnson counties, plus 988, Crisis Text Line, and Dallas-area domestic violence and sexual assault hotlines.",
   },
   {
     path: "screening-tools",
-    title:
-      "Optional Screening Tools | Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S",
+    title: "Optional Screening Tools | Sarah Ateia, LPC Associate",
     description:
       "Free, optional screening questionnaires for depression, anxiety, ADHD and trauma, with guidance on how to use them. Telehealth and outdoor counseling in Texas.",
   },
   {
     path: "new-clients",
-    title:
-      "New Client Forms | Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S",
+    title: "New Client Forms | Sarah Ateia, LPC Associate",
     description:
       "What to expect before your first session: the client information, disclosure and consent form with fees and Good Faith Estimate, intake questionnaire, privacy notice, and release of information.",
   },
@@ -122,8 +119,7 @@ writeFileSync("dist/index.html", await prerender(html, "/"));
 const notFound = setAttribute(html, 'name="robots"', "noindex, follow")
   .replace(
     /<title>[\s\S]*?<\/title>/,
-    () =>
-      "<title>Page not found | Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S</title>",
+    () => "<title>Page not found | Sarah Ateia, LPC Associate</title>",
   )
   .replace(/\s*<link rel="canonical"[^>]*>/, "")
   .replace(/\s*<meta property="og:url"[^>]*>/, "")
