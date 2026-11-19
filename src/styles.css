@@ -1154,3 +1154,26 @@ body:has([aria-label="Visit statistics choice"]) .sticky-call {
     transform: none;
   }
 }
+
+/* Visit-counting card: rises in once, on the drawer curve. Never moves for reduced motion. */
+.consent-sheet {
+  transition:
+    transform 400ms cubic-bezier(0.32, 0.72, 0, 1),
+    opacity 300ms ease;
+}
+@starting-style {
+  .consent-sheet {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .consent-sheet {
+    transition: opacity 200ms ease;
+  }
+  @starting-style {
+    .consent-sheet {
+      transform: none;
+    }
+  }
+}
