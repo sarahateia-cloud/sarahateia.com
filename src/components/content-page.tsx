@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ArrowRight } from "lucide-react";
 import { BookingActions, StickyCallBar } from "@/components/ds/booking";
 import { LogoMark } from "@/components/logo";
 import { SiteFooter, SiteHeader } from "@/components/site-header";
@@ -53,12 +54,15 @@ export function ContentPageView({
               {block.heading}
             </h2>
             {block.paragraphs?.map((paragraph) => (
-              <p key={paragraph} className="mt-4 leading-relaxed text-muted-foreground">
+              <p
+                key={paragraph}
+                className="mt-4 text-[1.0625rem] leading-relaxed text-muted-foreground"
+              >
                 {paragraph}
               </p>
             ))}
             {block.list && (
-              <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-muted-foreground">
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-[1.0625rem] leading-relaxed text-muted-foreground marker:text-taupe">
                 {block.list.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -86,14 +90,18 @@ export function ContentPageView({
             <h2 id="keep-reading" className="font-serif text-2xl text-foreground sm:text-3xl">
               Keep reading
             </h2>
-            <ul className="mt-4 space-y-1">
+            <ul className="mt-4 divide-y divide-border border-y border-border">
               {page.related.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="inline-flex min-h-11 items-center text-foreground underline underline-offset-4 hover:text-primary-foreground"
+                    className="nudge-link flex min-h-14 items-center justify-between gap-4 py-3 text-foreground transition-colors hover:text-primary-foreground"
                   >
-                    {link.label}
+                    <span>{link.label}</span>
+                    <ArrowRight
+                      className="nudge-icon nudge-right h-4 w-4 flex-shrink-0 text-taupe"
+                      aria-hidden
+                    />
                   </a>
                 </li>
               ))}
