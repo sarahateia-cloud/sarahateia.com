@@ -88,6 +88,10 @@ const LINK = {
     label: "What does self-care for mental health actually look like?",
     href: "/resources/self-care-for-mental-health/",
   },
+  adhdAnxiety: {
+    label: "Is it ADHD, anxiety, or both?",
+    href: "/resources/adhd-and-anxiety/",
+  },
   screening: { label: "Optional screening tools", href: "/screening-tools/" },
   adhdTherapy: { label: "ADHD therapy in Dallas–Fort Worth", href: "/adhd-therapy/" },
   holisticCounseling: {
@@ -376,6 +380,7 @@ export const TOPICS: ContentPage[] = [
     related: [
       LINK.holisticCounseling,
       LINK.holistic,
+      LINK.adhdAnxiety,
       LINK.depression,
       LINK.youngAdult,
       LINK.screening,
@@ -880,7 +885,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/adhd-creative-strategies",
     published: "2026-11-18",
-    related: [LINK.adhdTherapy, LINK.adhdDiagnose, LINK.screening, LINK.selfCare],
+    related: [LINK.adhdTherapy, LINK.adhdDiagnose, LINK.adhdAnxiety, LINK.screening, LINK.selfCare],
     title: title("ADHD Strategies for Adults"),
     description:
       "Practical, creative ways adults with ADHD can manage time, tasks, and stress, plus how the body, movement, and counseling fit in. Educational only, not a diagnosis.",
@@ -1610,6 +1615,93 @@ export const ARTICLES: ContentPage[] = [
       {
         q: "What if my young adult is in crisis?",
         a: "Call or text 988, call 911, or go to the nearest emergency room. Don’t wait for a counseling appointment.",
+      },
+    ],
+  },
+  {
+    path: "resources/adhd-and-anxiety",
+    published: "2026-11-19",
+    related: [LINK.adhdTherapy, LINK.anxiety, LINK.adhdDiagnose],
+    title: title("ADHD and Anxiety in Adults"),
+    description:
+      "ADHD and anxiety share signs like restlessness and poor focus. How they differ, why they often show up together, and what helps adults with both.",
+    eyebrow: "ADHD",
+    heading: "Is it ADHD, anxiety, or both?",
+    intro:
+      "It can be either one, and for many adults it’s both. ADHD and anxiety share signs like restlessness, trouble focusing, and poor sleep, and adults with ADHD are more likely than other adults to also have an anxiety disorder. Only a qualified professional can sort out which is which, but knowing how they overlap can help you ask the right questions.",
+    blocks: [
+      {
+        heading: "Can you have ADHD and anxiety at the same time?",
+        paragraphs: [
+          "Yes. Studies of adults with ADHD keep finding that anxiety disorders are more common in this group than in adults without ADHD.",
+          "Living with ADHD can also bring a lot of everyday worry: about missed deadlines, forgotten bills, or letting people down again. Over time, that worry can grow into a problem of its own.",
+        ],
+      },
+      {
+        heading: "How are ADHD and anxiety different?",
+        paragraphs: ["From the outside they can look alike. A few general differences:"],
+        list: [
+          "Focus: with anxiety, attention is often pulled toward worries. With ADHD, attention drifts to whatever is most interesting, even when you feel calm.",
+          "Timing: ADHD begins in childhood and shows up across most of life. Anxiety can start at any age and often rises and falls with stress.",
+          "Restlessness: anxious restlessness usually comes with tension or dread. ADHD restlessness can feel more like boredom or a need to move.",
+          "Putting things off: with anxiety, people often avoid a task out of fear of getting it wrong. With ADHD, starting is hard even when the task isn’t scary.",
+        ],
+      },
+      {
+        heading: "Why does it matter which one it is?",
+        paragraphs: [
+          "Because the right support can be different. Something that helps anxiety may not touch ADHD, and the reverse is true too. When both are present, both need attention. That’s why an evaluation by a psychologist, psychiatrist, or other qualified medical provider matters more than any online quiz.",
+        ],
+      },
+      {
+        heading: "What helps with ADHD and anxiety?",
+        paragraphs: [
+          "Plans are individual, and decisions about medication belong with you and your prescriber. Alongside that, many adults find these helpful:",
+        ],
+        list: [
+          "Talk therapy to work through worry, self-criticism, and the shame that can build up after years of feeling behind",
+          "Simple systems for time and tasks, so fewer things slip and there’s less to worry about",
+          "Slow breathing and grounding skills to calm your body when worry spikes",
+          "Regular movement, which research links with lower anxiety",
+          "Steady sleep, since poor sleep makes both focus and worry harder",
+          "Time outdoors, which many people find calming",
+        ],
+      },
+      {
+        heading: "Can a free screener tell me if it’s ADHD or anxiety?",
+        paragraphs: [
+          "Not on its own. My screening tools page links to free questionnaires, including the ASRS v1.1 for adult ADHD and the GAD-7 for anxiety. They aren’t a diagnosis. They can help you decide whether to talk with a psychologist, psychiatrist, or doctor about an evaluation.",
+        ],
+      },
+      {
+        heading: "When should you get help right away?",
+        paragraphs: [
+          "If worry or low mood ever leads to thoughts of suicide or harming yourself, call or text 988, call 911, or go to the nearest emergency room. You’ll also find local Dallas–Fort Worth crisis lines on my crisis resources page.",
+        ],
+      },
+      {
+        heading: "ADHD and anxiety support with me",
+        paragraphs: [
+          "I don’t offer ADHD evaluations or prescribe medication. I offer talk therapy for adults dealing with ADHD, anxiety, or both. My approach is practical and holistic: grounding skills, sleep, movement, and routines that fit how you think, at a pace you set. Sessions happen as walk and talk sessions in Dallas–Fort Worth or online for anyone located in Texas. A free 15-minute consultation is an easy way to see if it’s a fit.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can ADHD cause anxiety?",
+        a: "It can contribute. The daily stress of ADHD, like missed deadlines and constant catching up, can feed ongoing worry. Some people also have both conditions separately. A professional can help you sort out what applies to you.",
+      },
+      {
+        q: "Can anxiety look like ADHD?",
+        a: "Yes. Anxiety can make it hard to focus, finish tasks, or sit still, which can look like ADHD. That’s one reason a careful evaluation also checks for anxiety.",
+      },
+      {
+        q: "Can ADHD medication affect anxiety?",
+        a: "Some people notice changes in anxiety on ADHD medication, and others don’t. That’s a question for your prescriber. Don’t start, stop, or change medication on your own.",
+      },
+      {
+        q: "Can therapy help with ADHD and anxiety?",
+        a: "Talk therapy can help with the worry, self-criticism, and daily planning that often come with both. It doesn’t replace an evaluation or medication when those are needed.",
       },
     ],
   },
