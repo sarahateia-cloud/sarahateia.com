@@ -372,6 +372,9 @@ function Index() {
               </figure>
             </div>
             <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg lg:col-span-8">
+              <p className="font-medium text-foreground">
+                Sarah Ateia, M.S., LPC Associate — Supervised by Don Zablosky, LPC-S, LMFT-S, NCC
+              </p>
               <p>
                 I am a Licensed Professional Counselor Associate (LPC Associate) in Texas and a
                 National Certified Counselor (NCC), with a background in healthcare. I grew up in a
@@ -397,7 +400,7 @@ function Index() {
                   [
                     "License",
                     "LPC Associate #104391",
-                    "Texas BHEC · Supervised by Don Zablosky, LPC-S",
+                    "Texas BHEC · Supervised by Don Zablosky, LPC-S, LMFT-S, NCC",
                   ],
                   ["Certification", "National Certified Counselor", "NBCC · NCC #1746909"],
                 ].map(([label, title, detail]) => (

@@ -13,19 +13,19 @@ const PAGES = [
     path: "crisis",
     title: "DFW Crisis Lines & Resources | Sarah Ateia, LPC Associate",
     description:
-      "24/7 crisis lines for Dallas, Tarrant, Collin, Denton, and Johnson counties, plus 988, Crisis Text Line, and Dallas-area domestic violence and sexual assault hotlines.",
+      "24/7 crisis lines for Dallas, Tarrant, Collin, Denton, and Johnson counties, plus 988, Crisis Text Line, and DFW domestic and sexual violence hotlines.",
   },
   {
     path: "screening-tools",
     title: "Optional Screening Tools | Sarah Ateia, LPC Associate",
     description:
-      "Free, optional screening questionnaires for depression, anxiety, ADHD and trauma, with guidance on how to use them. Telehealth and outdoor counseling in Texas.",
+      "Free, optional screening questionnaires for depression, anxiety, ADHD, and trauma, with guidance on how to use them before or during counseling.",
   },
   {
     path: "new-clients",
     title: "New Client Forms | Sarah Ateia, LPC Associate",
     description:
-      "What to expect before your first session: the client information, disclosure and consent form with fees and Good Faith Estimate, intake questionnaire, privacy notice, and release of information.",
+      "What to expect before your first session, plus every form to read ahead: consent and fees, Good Faith Estimate, intake, privacy, and releases.",
   },
 ];
 

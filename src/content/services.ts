@@ -18,4 +18,5 @@ export const FOOTER_RESOURCES = [
   { label: "Therapy cost without insurance", href: "/resources/therapy-cost-without-insurance/" },
   { label: "What is holistic therapy?", href: "/resources/what-is-holistic-therapy/" },
   { label: "Glossary", href: "/glossary/" },
+  { label: "Screening tools", href: "/screening-tools/" },
 ];

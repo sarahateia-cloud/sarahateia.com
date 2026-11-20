@@ -110,11 +110,11 @@ export const TOPICS: ContentPage[] = [
   {
     path: "arabic-counseling",
     related: [LINK.culture, LINK.glossary, LINK.muslimFaith, LINK.consultation, LINK.telehealth],
-    title: title("Arabic-Speaking Counselor, DFW"),
+    title: "Arabic-Speaking Counselor in Dallas, TX",
     description:
-      "Counseling in Arabic or English, outdoors in Dallas–Fort Worth parks or by telehealth anywhere in Texas. $100 per session, reduced rates available, free 15-minute consultation.",
+      "Arabic-speaking counselor in Dallas, TX. Counseling in Arabic or English, walk and talk in DFW parks or online anywhere in Texas. Free 15-minute call.",
     eyebrow: "Counseling in Arabic",
-    heading: "Counseling in Arabic in Dallas–Fort Worth and across Texas.",
+    heading: "Arabic-speaking counselor in Dallas, TX.",
     intro:
       "I’m an Arabic-speaking counselor based in Irving, Texas. I offer sessions in Arabic or English, outdoors in Dallas–Fort Worth parks or by telehealth anywhere in Texas.",
     blocks: [
@@ -169,11 +169,11 @@ export const TOPICS: ContentPage[] = [
   {
     path: "outdoor-counseling",
     related: [LINK.walkTalk, LINK.outdoorFit, LINK.anxiety, LINK.telehealth],
-    title: title("Walk and Talk Therapy, Dallas"),
+    title: "Walk and Talk Therapy in Dallas",
     description:
-      "Walk and talk therapy outdoors in Dallas–Fort Worth, usually at Sam Houston Trail Park in Irving. How sessions, privacy, and weather work.",
+      "Walk and talk therapy in Dallas, usually at Sam Houston Trail Park in Irving. How sessions, privacy, and weather work, plus a free 15-minute call.",
     eyebrow: "Walk and talk therapy",
-    heading: "Walk and talk therapy in Dallas–Fort Worth.",
+    heading: "Walk and talk therapy in Dallas.",
     intro:
       "Walk and talk therapy is counseling outdoors instead of in an office. We walk side by side at an easy pace, or sit if that feels better. All my in-person sessions happen this way, usually at Sam Houston Trail Park in Irving, or another quiet park we choose together.",
     blocks: [
@@ -247,11 +247,11 @@ export const TOPICS: ContentPage[] = [
   {
     path: "telehealth-counseling",
     related: [LINK.youngAdult, LINK.anxiety, LINK.depression, LINK.cost, LINK.consultation],
-    title: title("Online Therapist in Texas"),
+    title: "Online Therapy in Texas",
     description:
-      "Online therapy by video for anyone in Texas, for anxiety, depression, ADHD, and life transitions. Self-pay, sliding scale, free 15-minute call.",
+      "Online therapy in Texas by video for anxiety, depression, ADHD, and life transitions, anywhere in the state. Sliding scale, free 15-minute call.",
     eyebrow: "Online therapy",
-    heading: "Online therapy anywhere in Texas.",
+    heading: "Online therapy in Texas.",
     intro:
       "If getting to a park doesn’t work for you, or you’d rather talk from home, I offer online therapy by video for anyone who is physically located in Texas at the time of each session, whether that’s Dallas, Austin, Houston, or a small town in between. Sessions are available in English or Arabic.",
     blocks: [
@@ -319,11 +319,11 @@ export const TOPICS: ContentPage[] = [
       LINK.outdoor,
       LINK.slidingScale,
     ],
-    title: title("Young Adult Counseling, Dallas"),
+    title: "Therapy for Young Adults in Dallas",
     description:
-      "Counseling for young adults facing anxiety, low mood, ADHD, and big life changes. Walk and talk in Dallas–Fort Worth or online in Texas.",
+      "Therapy for young adults in Dallas facing anxiety, low mood, ADHD, and big life changes. Walk and talk in DFW or online anywhere in Texas.",
     eyebrow: "Young adults",
-    heading: "Counseling for young adults.",
+    heading: "Therapy for young adults in Dallas.",
     intro:
       "Your late teens and twenties can bring a lot at once: leaving home, school or a first job, relationships, money, and figuring out who you are apart from what others expect. I offer counseling for young adults in Dallas–Fort Worth and online anywhere in Texas, with room to slow down and make sense of it all.",
     blocks: [
@@ -385,11 +385,11 @@ export const TOPICS: ContentPage[] = [
       LINK.youngAdult,
       LINK.screening,
     ],
-    title: title("Anxiety Therapist in Dallas"),
+    title: "Anxiety Therapist in Dallas, TX",
     description:
-      "Talk therapy for anxiety and stress in Dallas–Fort Worth: walk and talk sessions outdoors or online across Texas. Sliding scale, free 15-minute call.",
+      "Anxiety therapist in Dallas, TX offering talk therapy for worry and stress. Walk and talk sessions in DFW or online across Texas. Sliding scale available.",
     eyebrow: "Anxiety therapy",
-    heading: "Anxiety therapy in Dallas–Fort Worth.",
+    heading: "Anxiety therapist in Dallas, TX.",
     intro:
       "Anxiety can look like constant worry, a racing mind at night, a tight chest before work, or avoiding things you used to handle fine. I work with people in Dallas, Fort Worth, and across Texas to understand what’s driving their anxiety and build steadier ways to cope.",
     blocks: [
@@ -454,11 +454,11 @@ export const TOPICS: ContentPage[] = [
       LINK.youngAdultGuide,
       LINK.screening,
     ],
-    title: title("Depression Counseling, Dallas"),
+    title: "Depression Counseling in Dallas, TX",
     description:
-      "Talk therapy for depression and low mood in Dallas–Fort Worth: walk and talk outdoors or online across Texas. Sliding scale, free 15-minute call.",
+      "Depression counseling in Dallas, TX for low mood and exhaustion. Walk and talk sessions in DFW or online across Texas. Sliding scale, free 15-minute call.",
     eyebrow: "Depression counseling",
-    heading: "Depression counseling in Dallas–Fort Worth.",
+    heading: "Depression counseling in Dallas, TX.",
     intro:
       "Depression isn’t only sadness. It can feel like numbness, exhaustion, losing interest in things you used to enjoy, or a heaviness that makes ordinary days hard. I offer depression counseling in Dallas–Fort Worth and online across Texas, at a pace that feels manageable.",
     blocks: [
@@ -520,11 +520,11 @@ export const TOPICS: ContentPage[] = [
   {
     path: "adhd-therapy",
     related: [LINK.adhdDiagnose, LINK.adhd, LINK.youngAdult, LINK.screening],
-    title: title("ADHD Therapist in Dallas"),
+    title: "ADHD Therapy in Dallas, TX",
     description:
-      "Talk therapy for adults and young adults with ADHD in Dallas–Fort Worth: focus, routines, and the stress ADHD brings. Walk and talk or online in Texas.",
+      "ADHD therapy in Dallas, TX for focus, routines, and the stress ADHD brings. Walk and talk sessions in DFW or online across Texas. Sliding scale available.",
     eyebrow: "ADHD therapy",
-    heading: "ADHD therapy in Dallas–Fort Worth.",
+    heading: "ADHD therapy in Dallas, TX.",
     intro:
       "ADHD therapy helps with the everyday side of ADHD: time, focus, follow-through, and the frustration and self-doubt that often build up over years of feeling behind. I offer talk therapy for young adults and adults with ADHD or suspected ADHD, through walk and talk sessions in Dallas–Fort Worth or online anywhere in Texas.",
     blocks: [
@@ -584,11 +584,11 @@ export const TOPICS: ContentPage[] = [
   {
     path: "holistic-counseling",
     related: [LINK.holistic, LINK.walkTalk, LINK.anxiety, LINK.depression, LINK.outdoor],
-    title: title("Holistic Therapist in Dallas"),
+    title: "Holistic Counseling in Dallas",
     description:
-      "Holistic counseling in Dallas–Fort Worth that looks at mind and body together: stress, sleep, movement, and meaning. Talk therapy, walk and talk or online.",
+      "Holistic counseling in Dallas that looks at mind and body together: stress, sleep, movement, and meaning. Walk and talk or online across Texas.",
     eyebrow: "Holistic counseling",
-    heading: "Holistic counseling in Dallas–Fort Worth.",
+    heading: "Holistic counseling in Dallas.",
     intro:
       "Holistic counseling is talk therapy that looks at the whole person. Alongside your thoughts and feelings, we pay attention to your body, sleep, stress, relationships, and what gives your life meaning. I offer holistic counseling through walk and talk sessions in Dallas–Fort Worth and online anywhere in Texas.",
     blocks: [
@@ -793,6 +793,8 @@ export const ARTICLES: ContentPage[] = [
     path: "resources/therapist-who-respects-muslim-faith",
     published: "2026-11-18",
     related: [
+      LINK.arabic,
+      LINK.holisticCounseling,
       LINK.selfCare,
       LINK.attachment,
       LINK.adhd,
@@ -802,7 +804,7 @@ export const ARTICLES: ContentPage[] = [
     ],
     title: title("Muslim Faith and Therapy"),
     description:
-      "How to find a counselor in Dallas–Fort Worth who respects your faith and culture, what holistic, mind-body counseling looks like, and what research says about grounding, sleep, movement, and nature.",
+      "How to find a therapist who respects your Muslim faith and culture, what holistic, mind-body counseling looks like, and what research says about it.",
     eyebrow: "Choosing a counselor",
     heading: "How do I find a therapist who respects my Muslim faith?",
     intro:
@@ -888,7 +890,7 @@ export const ARTICLES: ContentPage[] = [
     related: [LINK.adhdTherapy, LINK.adhdDiagnose, LINK.adhdAnxiety, LINK.screening, LINK.selfCare],
     title: title("ADHD Strategies for Adults"),
     description:
-      "Practical, creative ways adults with ADHD can manage time, tasks, and stress, plus how the body, movement, and counseling fit in. Educational only, not a diagnosis.",
+      "Practical, creative ADHD strategies for adults: time, tasks, focus, and stress, and where the body and counseling fit in. Educational, not a diagnosis.",
     eyebrow: "ADHD",
     heading: "What are some creative strategies for adults with ADHD?",
     intro:
@@ -949,10 +951,10 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/attachment-styles-in-relationships",
     published: "2026-11-18",
-    related: [LINK.abuseRecovery, LINK.selfCare, LINK.consultation],
+    related: [LINK.anxiety, LINK.youngAdult, LINK.abuseRecovery, LINK.selfCare],
     title: title("Attachment Styles Explained"),
     description:
-      "A plain-language guide to secure, anxious, avoidant, and disorganized attachment, how they show up in relationships, and how people move toward more secure ways of relating.",
+      "A plain-language guide to secure, anxious, avoidant, and disorganized attachment, how each shows up in relationships, and how people grow more secure.",
     eyebrow: "Relationships",
     heading: "How do attachment styles affect relationships?",
     intro:
@@ -1010,10 +1012,10 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/healing-after-an-abusive-relationship",
     published: "2026-11-18",
-    related: [LINK.crisis, LINK.attachment, LINK.telehealth],
+    related: [LINK.crisis, LINK.anxiety, LINK.depression, LINK.telehealth, LINK.attachment],
     title: title("Healing After Abuse"),
     description:
-      "What recovery after an abusive relationship can look like, common reactions, steps that support healing, and where to find 24/7 help in Dallas–Fort Worth and across the U.S.",
+      "How to heal after an abusive relationship: safety resources, common reactions, and steps that support recovery at your own pace.",
     eyebrow: "Healing",
     heading: "How do you heal after an abusive relationship?",
     intro:
@@ -1087,10 +1089,10 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/self-care-for-mental-health",
     published: "2026-11-18",
-    related: [LINK.adhd, LINK.attachment, LINK.outdoor],
+    related: [LINK.holisticCounseling, LINK.depression, LINK.outdoor, LINK.adhd],
     title: title("Self-Care for Mental Health"),
     description:
-      "Research-informed self-care for mental health: sleep, movement, connection, grounding, and limits. A holistic check-in and signs it may be time to talk with a counselor.",
+      "Research-informed self-care for mental health: sleep, movement, connection, grounding, and limits, plus signs it may be time to talk with a counselor.",
     eyebrow: "Self-care",
     heading: "What does self-care for mental health actually look like?",
     intro:
@@ -1150,7 +1152,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/therapy-cost-without-insurance",
     published: "2026-11-19",
-    related: [LINK.slidingScale, LINK.telehealth, LINK.consultation],
+    related: [LINK.slidingScale, LINK.telehealth, LINK.outdoor, LINK.consultation],
     title: title("Therapy Cost Without Insurance"),
     description:
       "What therapy costs without insurance in Texas, what affects the price, your right to a Good Faith Estimate, and practical ways to lower the cost.",
@@ -1241,7 +1243,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/what-is-sliding-scale-therapy",
     published: "2026-11-19",
-    related: [LINK.cost, LINK.consultation, LINK.telehealth],
+    related: [LINK.cost, LINK.telehealth, LINK.outdoor, LINK.consultation],
     title: title("What Is Sliding Scale Therapy?"),
     description:
       "What sliding scale therapy means, how it works, how to apply for a reduced fee, and other lower-cost counseling options in Dallas–Fort Worth.",
@@ -1381,7 +1383,7 @@ export const ARTICLES: ContentPage[] = [
   },
   {
     path: "resources/can-a-therapist-diagnose-adhd",
-    published: "2026-11-20",
+    published: "2026-11-19",
     related: [LINK.adhdTherapy, LINK.adhd, LINK.youngAdult, LINK.screening],
     title: title("Can a Therapist Diagnose ADHD?"),
     description:
@@ -1462,7 +1464,7 @@ export const ARTICLES: ContentPage[] = [
   },
   {
     path: "resources/what-is-holistic-therapy",
-    published: "2026-11-20",
+    published: "2026-11-19",
     related: [LINK.holisticCounseling, LINK.anxiety, LINK.depression, LINK.selfCare],
     title: title("What Is Holistic Therapy?"),
     description:
@@ -1535,7 +1537,7 @@ export const ARTICLES: ContentPage[] = [
   },
   {
     path: "resources/therapy-for-young-adults",
-    published: "2026-11-20",
+    published: "2026-11-19",
     related: [LINK.youngAdult, LINK.anxiety, LINK.depression, LINK.consultation],
     title: title("Therapy for Young Adults"),
     description:
