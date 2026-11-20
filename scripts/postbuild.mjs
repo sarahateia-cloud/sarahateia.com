@@ -8,27 +8,47 @@ const { render, SITE_PAGES } = await import(pathToFileURL("dist-ssr/entry-preren
 const SITE = "https://www.sarahateia.com";
 const html = readFileSync("dist/index.html", "utf8");
 
+// Breadcrumb labels for the pages built here (content pages get theirs from SITE_PAGES).
+const crumbs = (...items) => [
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [["Home", `${SITE}/`], ...items].map(([name, item], i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name,
+      item,
+    })),
+  },
+];
+
 const PAGES = [
   {
     path: "resources/self-reflection",
+    graph: crumbs(
+      ["Resources", `${SITE}/resources/`],
+      ["Self-reflection", `${SITE}/resources/self-reflection/`],
+    ),
     title: "Self-Reflection Tools | Sarah Ateia, LPC Associate",
     description:
       "Steadying quotes plus the Enneagram and cognitive functions, offered for curiosity and self-reflection only. Not scientific and not a diagnosis.",
   },
   {
     path: "crisis",
+    graph: crumbs(["Crisis resources", `${SITE}/crisis/`]),
     title: "DFW Crisis Lines & Resources | Sarah Ateia, LPC Associate",
     description:
       "24/7 crisis lines for Dallas, Tarrant, Collin, Denton, and Johnson counties, plus 988, Crisis Text Line, and DFW domestic and sexual violence hotlines.",
   },
   {
     path: "screening-tools",
+    graph: crumbs(["Optional screening tools", `${SITE}/screening-tools/`]),
     title: "Optional Screening Tools | Sarah Ateia, LPC Associate",
     description:
       "Free, optional screening questionnaires for depression, anxiety, ADHD, and trauma, with guidance on how to use them before or during counseling.",
   },
   {
     path: "new-clients",
+    graph: crumbs(["New client forms", `${SITE}/new-clients/`]),
     title: "New Client Forms | Sarah Ateia, LPC Associate",
     description:
       "What to expect before your first session, plus every form to read ahead: consent and fees, Good Faith Estimate, intake, privacy, and releases.",

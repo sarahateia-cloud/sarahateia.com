@@ -2807,7 +2807,7 @@ export const SITE_PAGES: {
         datePublished: page.published ?? PUBLISHED,
         dateModified: page.published ?? PUBLISHED,
         inLanguage: "en-US",
-        author: SARAH,
+        author: { ...SARAH, "@type": "Person", name: "Sarah Ateia", jobTitle: "LPC Associate" },
         publisher: PRACTICE,
       },
       breadcrumbs(
