@@ -191,8 +191,8 @@ export function SiteFooter() {
             Irving, Texas · Outdoor sessions in Dallas–Fort Worth · Telehealth across Texas
           </p>
           <p className="mt-2 max-w-md text-xs text-muted-foreground">
-            Serving Irving, Las Colinas, Coppell, Grand Prairie, Carrollton, Farmers Branch, Dallas,
-            Fort Worth, Arlington, Garland, Mesquite, and Wilmer.
+            In person in Irving, Las Colinas, Dallas, Coppell, Grand Prairie, and Farmers Branch.
+            Telehealth anywhere in Texas.
           </p>
         </div>
         <div className="text-sm text-muted-foreground sm:text-right">
@@ -262,8 +262,9 @@ export function SiteFooter() {
             </a>
           </p>
           <p className="mt-2 text-xs">
-            Sarah Ateia, M.S., LPC Associate —{" "}
-            <span className="whitespace-nowrap">Supervised by Don Zablosky,</span>{" "}
+            {/* Required wording: the supervisor's name directly follows Sarah's. */}
+            Sarah Ateia, LPC Associate,{" "}
+            <span className="whitespace-nowrap">supervised by Don Zablosky,</span>{" "}
             <span className="whitespace-nowrap">LPC-S, LMFT-S, NCC</span>
           </p>
           <p className="text-xs">

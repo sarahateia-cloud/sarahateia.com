@@ -284,9 +284,13 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
       </button>
       {!ready && (
         <p className="text-center text-sm text-muted-foreground">
-          The form is still loading. If it doesn’t start working, please call{" "}
+          Prefer not to wait for the form? Call{" "}
           <a href={PHONE_HREF} className="underline underline-offset-4">
             {PHONE_DISPLAY}
+          </a>{" "}
+          or email{" "}
+          <a href="mailto:attya.llc@gmail.com" className="underline underline-offset-4">
+            attya.llc@gmail.com
           </a>
           .
         </p>

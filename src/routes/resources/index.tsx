@@ -48,6 +48,18 @@ function Resources() {
           </a>
         </div>
 
+        <h2 className="mt-12 font-serif text-2xl text-foreground sm:text-3xl">For reflection</h2>
+        <div className="mt-6">
+          <a href="/resources/self-reflection/" className={LINK_CARD}>
+            <span className="block font-serif text-xl text-foreground">
+              Quotes, personality types, and cognitive functions
+            </span>
+            <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
+              Just for fun and curiosity. Not scientific and not a diagnosis.
+            </span>
+          </a>
+        </div>
+
         <h2 className="mt-12 font-serif text-2xl text-foreground sm:text-3xl">Ways to meet</h2>
         <div className="mt-6 space-y-4">
           {TOPICS.map((topic) => (

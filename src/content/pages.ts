@@ -17,6 +17,8 @@ export type ContentPage = {
   faqs?: Faq[];
   /** Other pages on the site to suggest at the end, so every page is linked from more than one place. */
   related?: { label: string; href: string }[];
+  /** Optional intro in Arabic, shown under the English intro with lang="ar" and right-to-left text. */
+  arabicIntro?: string;
   /** Articles only: the date this article first went live (YYYY-MM-DD). Defaults to PUBLISHED. */
   published?: string;
 };
@@ -109,6 +111,8 @@ const PUBLISHED = "2026-11-05";
 export const TOPICS: ContentPage[] = [
   {
     path: "arabic-counseling",
+    // Sarah will provide the Arabic intro text. It stays hidden until this is filled in.
+    arabicIntro: "",
     related: [LINK.culture, LINK.glossary, LINK.muslimFaith, LINK.consultation, LINK.telehealth],
     title: "Arabic-Speaking Counselor in Dallas, TX",
     description:

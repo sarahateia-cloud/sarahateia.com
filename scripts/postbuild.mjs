@@ -10,6 +10,12 @@ const html = readFileSync("dist/index.html", "utf8");
 
 const PAGES = [
   {
+    path: "resources/self-reflection",
+    title: "Self-Reflection Tools | Sarah Ateia, LPC Associate",
+    description:
+      "Steadying quotes plus the Enneagram and cognitive functions, offered for curiosity and self-reflection only. Not scientific and not a diagnosis.",
+  },
+  {
     path: "crisis",
     title: "DFW Crisis Lines & Resources | Sarah Ateia, LPC Associate",
     description:

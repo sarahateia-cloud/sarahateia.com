@@ -45,6 +45,11 @@ export function ContentPageView({
             {page.heading}
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{page.intro}</p>
+          {page.arabicIntro && (
+            <p lang="ar" dir="rtl" className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              {page.arabicIntro}
+            </p>
+          )}
           <BookingActions className="mt-8" />
         </div>
 

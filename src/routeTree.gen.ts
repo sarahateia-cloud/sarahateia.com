@@ -23,6 +23,7 @@ import { Route as AnxietyTherapyDallasRouteImport } from './routes/anxiety-thera
 import { Route as AdhdTherapyRouteImport } from './routes/adhd-therapy'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResourcesIndexRouteImport } from './routes/resources/index'
+import { Route as ResourcesSelfReflectionRouteImport } from './routes/resources/self-reflection'
 import { Route as ResourcesSlugRouteImport } from './routes/resources/$slug'
 
 const YoungAdultCounselingRoute = YoungAdultCounselingRouteImport.update({
@@ -96,6 +97,11 @@ const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
   path: '/resources/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResourcesSelfReflectionRoute = ResourcesSelfReflectionRouteImport.update({
+  id: '/resources/self-reflection',
+  path: '/resources/self-reflection',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
   id: '/resources/$slug',
   path: '/resources/$slug',
@@ -117,6 +123,7 @@ export interface FileRoutesByFullPath {
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/resources/$slug': typeof ResourcesSlugRoute
+  '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
   '/resources/': typeof ResourcesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -134,6 +141,7 @@ export interface FileRoutesByTo {
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/resources/$slug': typeof ResourcesSlugRoute
+  '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
   '/resources': typeof ResourcesIndexRoute
 }
 export interface FileRoutesById {
@@ -152,6 +160,7 @@ export interface FileRoutesById {
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/resources/$slug': typeof ResourcesSlugRoute
+  '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
   '/resources/': typeof ResourcesIndexRoute
 }
 export interface FileRouteTypes {
@@ -171,6 +180,7 @@ export interface FileRouteTypes {
     | '/telehealth-counseling'
     | '/young-adult-counseling'
     | '/resources/$slug'
+    | '/resources/self-reflection'
     | '/resources/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -188,6 +198,7 @@ export interface FileRouteTypes {
     | '/telehealth-counseling'
     | '/young-adult-counseling'
     | '/resources/$slug'
+    | '/resources/self-reflection'
     | '/resources'
   id:
     | '__root__'
@@ -205,6 +216,7 @@ export interface FileRouteTypes {
     | '/telehealth-counseling'
     | '/young-adult-counseling'
     | '/resources/$slug'
+    | '/resources/self-reflection'
     | '/resources/'
   fileRoutesById: FileRoutesById
 }
@@ -223,6 +235,7 @@ export interface RootRouteChildren {
   TelehealthCounselingRoute: typeof TelehealthCounselingRoute
   YoungAdultCounselingRoute: typeof YoungAdultCounselingRoute
   ResourcesSlugRoute: typeof ResourcesSlugRoute
+  ResourcesSelfReflectionRoute: typeof ResourcesSelfReflectionRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
@@ -326,6 +339,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/resources/self-reflection': {
+      id: '/resources/self-reflection'
+      path: '/resources/self-reflection'
+      fullPath: '/resources/self-reflection'
+      preLoaderRoute: typeof ResourcesSelfReflectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/resources/$slug': {
       id: '/resources/$slug'
       path: '/resources/$slug'
@@ -351,6 +371,7 @@ const rootRouteChildren: RootRouteChildren = {
   TelehealthCounselingRoute: TelehealthCounselingRoute,
   YoungAdultCounselingRoute: YoungAdultCounselingRoute,
   ResourcesSlugRoute: ResourcesSlugRoute,
+  ResourcesSelfReflectionRoute: ResourcesSelfReflectionRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,
 }
 export const routeTree = rootRouteImport
