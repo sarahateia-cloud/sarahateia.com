@@ -100,6 +100,9 @@ const LINK = {
     href: "/resources/adhd-and-anxiety/",
   },
   screening: { label: "Optional screening tools", href: "/screening-tools/" },
+  affordable: { label: "Affordable therapy in Dallas", href: "/affordable-therapy-dallas/" },
+  irving: { label: "Counseling in Irving, TX", href: "/counseling-irving-tx/" },
+  dallas: { label: "Counseling in Dallas, TX", href: "/counseling-dallas-tx/" },
   adhdTherapy: { label: "ADHD therapy in Dallas–Fort Worth", href: "/adhd-therapy/" },
   holisticCounseling: {
     label: "Holistic counseling in Dallas–Fort Worth",
@@ -118,20 +121,32 @@ export const TOPICS: ContentPage[] = [
     path: "arabic-counseling",
     // Sarah will provide the Arabic intro text. It stays hidden until this is filled in.
     arabicIntro: "",
-    related: [LINK.culture, LINK.glossary, LINK.muslimFaith, LINK.consultation, LINK.telehealth],
+    related: [LINK.culture, LINK.glossary, LINK.telehealth, LINK.irving, LINK.consultation],
     title: "Arabic-Speaking Counselor in Dallas, TX",
     description:
-      "Arabic-speaking counselor in Dallas, TX. Counseling in Arabic or English, walk and talk in DFW parks or online anywhere in Texas. Free 15-minute call.",
+      "Arabic-speaking therapist in Dallas, TX, and Arabic counselor online across Texas. Sessions in Arabic, English, or both, with room for culture and family.",
     eyebrow: "Counseling in Arabic",
     heading: "Arabic-speaking counselor in Dallas, TX.",
     intro:
-      "I’m an Arabic-speaking counselor based in Irving, Texas. I offer sessions in Arabic or English, outdoors in Dallas–Fort Worth parks or by telehealth anywhere in Texas.",
+      "I’m an Arabic-speaking counselor based in Irving, Texas. I offer sessions in Arabic, English, or a mix of both: walk and talk sessions outdoors in Dallas–Fort Worth, or online anywhere in Texas.",
     blocks: [
       {
         heading: "Why language can matter in counseling",
         paragraphs: [
           "For some people, certain feelings are easier to name in the language they grew up with. For others, a second language can feel easier. You can tell me which language you prefer.",
-          "I grew up in a multicultural environment, and it shaped how I connect with people. I won’t assume I already know your story. I stay curious about your culture, faith, family, and language, and I welcome being corrected when I get something wrong.",
+          "I grew up in a multicultural environment, and it shaped how I connect with people. I won’t assume I already know your story. I stay curious about your culture, family, and language, and I welcome being corrected when I get something wrong.",
+        ],
+      },
+      {
+        heading: "Moving between Arabic and English",
+        paragraphs: [
+          "Many bilingual people switch languages mid-sentence, especially when something feels close to the heart. That’s welcome here. You don’t need to translate yourself or choose one language for the whole session.",
+        ],
+      },
+      {
+        heading: "Culture, family, and expectations",
+        paragraphs: [
+          "Family roles, a parent’s hopes, living between two cultures, or carrying expectations from back home can shape how stress and sadness show up. We can talk about those things in your own words, without having to explain the basics first. You decide how much of your culture and family belongs in the conversation.",
         ],
       },
       {
@@ -149,7 +164,8 @@ export const TOPICS: ContentPage[] = [
       {
         heading: "How sessions work",
         list: [
-          "Outdoors in a quiet Dallas–Fort Worth park we choose together, or by telehealth",
+          "[Walk and talk sessions](/outdoor-counseling/), usually at Sam Houston Trail Park in Irving",
+          "[Online sessions anywhere in Texas](/telehealth-counseling-texas/), in Arabic or English",
           "$100 per session, with reduced rates based on household income",
           "Self-pay only, with no insurance billing",
           "A free 15-minute phone consultation to see if we’re a good fit",
@@ -160,6 +176,10 @@ export const TOPICS: ContentPage[] = [
       {
         q: "Do you offer counseling sessions in Arabic?",
         a: "Yes. Sessions are available in Arabic or English, outdoors around Dallas–Fort Worth or by telehealth for clients located in Texas at the time of each session.",
+      },
+      {
+        q: "Is it okay to mix Arabic and English?",
+        a: "Yes. Many people move between both languages in the same session, and that’s completely fine.",
       },
       {
         q: "Do I need to be from a certain background or faith?",
@@ -180,7 +200,7 @@ export const TOPICS: ContentPage[] = [
     related: [LINK.walkTalk, LINK.outdoorFit, LINK.anxiety, LINK.telehealth],
     title: "Walk and Talk Therapy in Dallas",
     description:
-      "Walk and talk therapy in Dallas, usually at Sam Houston Trail Park in Irving. How sessions, privacy, and weather work, plus a free 15-minute call.",
+      "Walk and talk therapy for Dallas and outdoor therapy in Irving, TX, usually at Sam Houston Trail Park. How sessions, privacy, and weather work.",
     eyebrow: "Walk and talk therapy",
     heading: "Walk and talk therapy in Dallas.",
     intro:
@@ -193,6 +213,12 @@ export const TOPICS: ContentPage[] = [
           "We walk at an easy pace or settle on a bench or blanket",
           "You set the pace, and we can stop anytime",
           "Sessions are available in English or Arabic",
+        ],
+      },
+      {
+        heading: "Outdoor therapy in Irving, TX",
+        paragraphs: [
+          "Irving is my home base, so most outdoor sessions happen at Sam Houston Trail Park there. It’s a practical meeting point for people in [Irving](/counseling-irving-tx/), [Las Colinas](/counseling-las-colinas-tx/), [Coppell](/counseling-coppell-tx/), [Grand Prairie](/counseling-grand-prairie-tx/), [Farmers Branch](/counseling-farmers-branch-tx/), and [Dallas](/counseling-dallas-tx/). If another quiet park suits you better, we can choose one together.",
         ],
       },
       {
@@ -564,16 +590,16 @@ export const TOPICS: ContentPage[] = [
   {
     path: "adhd-therapy",
     related: [LINK.adhdDiagnose, LINK.adhd, LINK.youngAdult, LINK.screening],
-    title: "ADHD Therapy in Dallas, TX",
+    title: "Adult ADHD Counseling in Dallas, TX",
     description:
-      "ADHD therapy in Dallas, TX for focus, routines, and the stress ADHD brings. Walk and talk sessions in DFW or online across Texas. Sliding scale available.",
-    eyebrow: "ADHD therapy",
-    heading: "ADHD therapy in Dallas, TX.",
+      "Adult ADHD counseling in Dallas, TX for focus, routines, work, and the stress ADHD brings. Talk therapy, walk and talk in DFW or online across Texas.",
+    eyebrow: "Adult ADHD counseling",
+    heading: "Adult ADHD counseling in Dallas, TX.",
     intro:
-      "ADHD therapy helps with the everyday side of ADHD: time, focus, follow-through, and the frustration and self-doubt that often build up over years of feeling behind. I offer talk therapy for young adults and adults with ADHD or suspected ADHD, through walk and talk sessions in Dallas–Fort Worth or online anywhere in Texas.",
+      "Adult ADHD counseling helps with the everyday side of ADHD: time, focus, follow-through, and the frustration and self-doubt that often build up over years of feeling behind. Many adults only start to wonder about ADHD in college, at work, or after a child is diagnosed. I offer talk therapy for adults and young adults with ADHD or suspected ADHD, through walk and talk sessions in Dallas–Fort Worth or online anywhere in Texas.",
     blocks: [
       {
-        heading: "What can ADHD therapy help with?",
+        heading: "What can adult ADHD counseling help with?",
         list: [
           "Planning, managing time, and keeping track of tasks",
           "Starting things, and finishing them",
@@ -585,7 +611,7 @@ export const TOPICS: ContentPage[] = [
         ],
       },
       {
-        heading: "What does ADHD therapy look like with me?",
+        heading: "What does adult ADHD counseling look like with me?",
         paragraphs: [
           "We start with how ADHD shows up in your life, not a checklist. From there we build practical systems that fit how your brain works, like breaking tasks into first steps, using reminders and visual cues, and planning around your energy. Solution-focused work helps us notice what already works so you can do more of it.",
           "I also take a holistic view. Sleep, movement, and stress all affect focus, and some people find it easier to think while walking, which is one reason I offer walk and talk sessions.",
@@ -683,6 +709,75 @@ export const TOPICS: ContentPage[] = [
       {
         q: "Do you offer a sliding scale?",
         a: "Yes. I’m self-pay only, and a sliding scale is available based on household income.",
+      },
+    ],
+  },
+  {
+    path: "affordable-therapy-dallas",
+    related: [LINK.cost, LINK.slidingScale, LINK.telehealth, LINK.dallas],
+    title: title("Affordable Therapy in Dallas"),
+    description:
+      "Affordable therapy in Dallas without insurance: $100 self-pay sessions, a sliding scale, and 6 or 8-session packages. No diagnosis sent to an insurer.",
+    eyebrow: "Self-pay therapy",
+    heading: "Affordable therapy in Dallas without insurance.",
+    intro:
+      "I’m a self-pay therapist serving Dallas, Irving, and the rest of Texas online. Sessions are $100, a sliding scale is available for people who need it, and packages lower the price of each session. Here’s how paying for therapy without insurance works with me.",
+    blocks: [
+      {
+        heading: "What does therapy cost without insurance?",
+        list: [
+          "$100 per session, online or as a walk and talk session",
+          "A sliding scale based on household income. Ask about it during your free call; there’s no need to explain your circumstances.",
+          "6 sessions for $540 ($90 each), paid upfront",
+          "8 sessions for $640 ($80 each), paid upfront",
+          "A free 15-minute phone consultation before you commit to anything",
+        ],
+      },
+      {
+        heading: "How do the packages work?",
+        paragraphs: [
+          "Packages are optional. If you decide not to continue, any sessions you haven’t used are refunded at the package rate. For example, if you’ve used 3 sessions of an 8-session package, you’re refunded $400 (5 × $80).",
+        ],
+      },
+      {
+        heading: "Why some people choose self-pay therapy",
+        paragraphs: [
+          "When therapy is billed to insurance, the insurer usually needs a diagnosis code before it will pay. When you pay for yourself, nothing is sent to an insurance company, so no diagnosis goes on an insurance claim. You and I also decide together how often to meet, without needing an insurer’s approval.",
+          "The trade-off is cost, which is why the sliding scale and packages exist. You also have the right to a written Good Faith Estimate of expected charges before we begin.",
+        ],
+      },
+      {
+        heading: "Ways to make therapy more affordable",
+        list: [
+          "Check whether your HSA or FSA can be used for counseling. Your plan administrator can confirm.",
+          "Ask whether your employer offers an Employee Assistance Program with a few free sessions",
+          "Choose online sessions to save on travel time and gas",
+          "Read [how much therapy costs without insurance in Texas](/resources/therapy-cost-without-insurance/) and [how sliding scale therapy works](/resources/what-is-sliding-scale-therapy/)",
+        ],
+      },
+      {
+        heading: "Where sessions happen",
+        paragraphs: [
+          "Walk and talk sessions usually happen at Sam Houston Trail Park in Irving, for people in [Dallas](/counseling-dallas-tx/), [Irving](/counseling-irving-tx/), and nearby cities. [Online sessions](/telehealth-counseling-texas/) are available anywhere in Texas. The fee is the same either way.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you take insurance?",
+        a: "No. I’m self-pay only, so nothing is billed to insurance.",
+      },
+      {
+        q: "How low does the sliding scale go?",
+        a: "It depends on household income. Ask during your free 15-minute call, and we’ll agree on a fee before your first session.",
+      },
+      {
+        q: "Can I use my HSA or FSA?",
+        a: "Often, yes, when counseling is for your mental health. Rules vary by plan, so check with your plan administrator first.",
+      },
+      {
+        q: "Is self-pay therapy private?",
+        a: "Counseling is confidential within the limits of the law, whichever way you pay. Paying privately also means no insurance company receives a claim or diagnosis.",
       },
     ],
   },
@@ -849,7 +944,7 @@ export const CITY_PAGES: ContentPage[] = [
       {
         heading: "What does counseling cost in Dallas?",
         paragraphs: [
-          "Sessions are $100, with packages and a sliding scale available. Because I’m self-pay, nothing is billed to insurance, so no insurance company needs a diagnosis for you to start.",
+          "Sessions are $100, with packages and a sliding scale available. Because I’m self-pay, nothing is billed to insurance, so no insurance company needs a diagnosis for you to start. More on [affordable therapy in Dallas](/affordable-therapy-dallas/).",
         ],
       },
     ],
@@ -1551,7 +1646,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/therapy-cost-without-insurance",
     published: "2026-11-19",
-    related: [LINK.slidingScale, LINK.telehealth, LINK.outdoor, LINK.consultation],
+    related: [LINK.affordable, LINK.slidingScale, LINK.telehealth, LINK.consultation],
     title: title("Therapy Cost Without Insurance"),
     description:
       "What therapy costs without insurance in Texas, what affects the price, your right to a Good Faith Estimate, and practical ways to lower the cost.",

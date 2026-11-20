@@ -3,12 +3,13 @@
 export const SERVICES = [
   { label: "Anxiety therapy", href: "/anxiety-therapy-dallas/" },
   { label: "Depression counseling", href: "/depression-counseling-dallas/" },
-  { label: "ADHD therapy", href: "/adhd-therapy/" },
+  { label: "Adult ADHD counseling", href: "/adhd-therapy/" },
   { label: "Young adults", href: "/young-adult-counseling/" },
   { label: "Holistic counseling", href: "/holistic-counseling/" },
   { label: "Walk and talk therapy", href: "/outdoor-counseling/" },
   { label: "Online therapy in Texas", href: "/telehealth-counseling-texas/" },
   { label: "Counseling in Arabic", href: "/arabic-counseling/" },
+  { label: "Affordable therapy", href: "/affordable-therapy-dallas/" },
 ];
 
 /** Helpful reading, linked from every footer so no guide depends on a single link. */

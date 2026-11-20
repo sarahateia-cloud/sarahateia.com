@@ -27,6 +27,7 @@ import { Route as CounselingDallasTxRouteImport } from './routes/counseling-dall
 import { Route as CounselingCoppellTxRouteImport } from './routes/counseling-coppell-tx'
 import { Route as ArabicCounselingRouteImport } from './routes/arabic-counseling'
 import { Route as AnxietyTherapyDallasRouteImport } from './routes/anxiety-therapy-dallas'
+import { Route as AffordableTherapyDallasRouteImport } from './routes/affordable-therapy-dallas'
 import { Route as AdhdTherapyRouteImport } from './routes/adhd-therapy'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResourcesIndexRouteImport } from './routes/resources/index'
@@ -127,6 +128,11 @@ const AnxietyTherapyDallasRoute = AnxietyTherapyDallasRouteImport.update({
   path: '/anxiety-therapy-dallas',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AffordableTherapyDallasRoute = AffordableTherapyDallasRouteImport.update({
+  id: '/affordable-therapy-dallas',
+  path: '/affordable-therapy-dallas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdhdTherapyRoute = AdhdTherapyRouteImport.update({
   id: '/adhd-therapy',
   path: '/adhd-therapy',
@@ -156,6 +162,7 @@ const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/adhd-therapy': typeof AdhdTherapyRoute
+  '/affordable-therapy-dallas': typeof AffordableTherapyDallasRoute
   '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
   '/counseling-coppell-tx': typeof CounselingCoppellTxRoute
@@ -181,6 +188,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/adhd-therapy': typeof AdhdTherapyRoute
+  '/affordable-therapy-dallas': typeof AffordableTherapyDallasRoute
   '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
   '/counseling-coppell-tx': typeof CounselingCoppellTxRoute
@@ -207,6 +215,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/adhd-therapy': typeof AdhdTherapyRoute
+  '/affordable-therapy-dallas': typeof AffordableTherapyDallasRoute
   '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
   '/counseling-coppell-tx': typeof CounselingCoppellTxRoute
@@ -234,6 +243,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/adhd-therapy'
+    | '/affordable-therapy-dallas'
     | '/anxiety-therapy-dallas'
     | '/arabic-counseling'
     | '/counseling-coppell-tx'
@@ -259,6 +269,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/adhd-therapy'
+    | '/affordable-therapy-dallas'
     | '/anxiety-therapy-dallas'
     | '/arabic-counseling'
     | '/counseling-coppell-tx'
@@ -284,6 +295,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/adhd-therapy'
+    | '/affordable-therapy-dallas'
     | '/anxiety-therapy-dallas'
     | '/arabic-counseling'
     | '/counseling-coppell-tx'
@@ -310,6 +322,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdhdTherapyRoute: typeof AdhdTherapyRoute
+  AffordableTherapyDallasRoute: typeof AffordableTherapyDallasRoute
   AnxietyTherapyDallasRoute: typeof AnxietyTherapyDallasRoute
   ArabicCounselingRoute: typeof ArabicCounselingRoute
   CounselingCoppellTxRoute: typeof CounselingCoppellTxRoute
@@ -461,6 +474,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AnxietyTherapyDallasRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/affordable-therapy-dallas': {
+      id: '/affordable-therapy-dallas'
+      path: '/affordable-therapy-dallas'
+      fullPath: '/affordable-therapy-dallas'
+      preLoaderRoute: typeof AffordableTherapyDallasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/adhd-therapy': {
       id: '/adhd-therapy'
       path: '/adhd-therapy'
@@ -502,6 +522,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdhdTherapyRoute: AdhdTherapyRoute,
+  AffordableTherapyDallasRoute: AffordableTherapyDallasRoute,
   AnxietyTherapyDallasRoute: AnxietyTherapyDallasRoute,
   ArabicCounselingRoute: ArabicCounselingRoute,
   CounselingCoppellTxRoute: CounselingCoppellTxRoute,
