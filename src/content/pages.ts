@@ -102,6 +102,33 @@ const LINK = {
   screening: { label: "Optional screening tools", href: "/screening-tools/" },
   affordable: { label: "Affordable therapy in Dallas", href: "/affordable-therapy-dallas/" },
   irving: { label: "Counseling in Irving, TX", href: "/counseling-irving-tx/" },
+  lasColinas: { label: "Counseling in Las Colinas, TX", href: "/counseling-las-colinas-tx/" },
+  newClients: { label: "New client forms", href: "/new-clients/" },
+  choose: {
+    label: "How to choose a therapist in Dallas",
+    href: "/resources/how-to-choose-a-therapist-dallas/",
+  },
+  lpcVs: {
+    label: "LPC vs. LPC Associate vs. psychologist",
+    href: "/resources/lpc-vs-lpc-associate-vs-psychologist/",
+  },
+  adhdWomen: {
+    label: "What are the signs of ADHD in women?",
+    href: "/resources/adhd-signs-in-women/",
+  },
+  burnout: { label: "Burnout vs. depression", href: "/resources/burnout-vs-depression/" },
+  firstSession: {
+    label: "What happens in a first counseling session?",
+    href: "/resources/first-counseling-session/",
+  },
+  regulation: {
+    label: "Nervous system regulation techniques",
+    href: "/resources/nervous-system-regulation-techniques/",
+  },
+  walkBenefits: {
+    label: "Benefits of walk and talk therapy",
+    href: "/resources/walk-and-talk-therapy-benefits/",
+  },
   dallas: { label: "Counseling in Dallas, TX", href: "/counseling-dallas-tx/" },
   adhdTherapy: { label: "ADHD therapy in Dallas–Fort Worth", href: "/adhd-therapy/" },
   holisticCounseling: {
@@ -224,7 +251,7 @@ export const TOPICS: ContentPage[] = [
       {
         heading: "Why do some people prefer walk and talk therapy?",
         paragraphs: [
-          "Talking side by side can feel less intense than sitting face to face, and some people find the words come more easily while they’re moving. Research links regular physical activity and time in nature with lower stress and better mood. Studies on walk and talk therapy itself are still small, so think of it as a different setting for counseling rather than a different treatment.",
+          "Talking side by side can feel less intense than sitting face to face, and some people find the words come more easily while they’re moving. Research links regular physical activity ([Singh et al., 2023](https://doi.org/10.1136/bjsports-2022-106195)) and time in nature ([Hunter et al., 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6458297/)) with lower stress and better mood. Studies on walk and talk therapy itself are still small, so think of it as a different setting for counseling rather than a different treatment.",
         ],
       },
       {
@@ -1737,7 +1764,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/what-is-sliding-scale-therapy",
     published: "2026-11-19",
-    related: [LINK.cost, LINK.telehealth, LINK.outdoor, LINK.consultation],
+    related: [LINK.affordable, LINK.cost, LINK.telehealth, LINK.consultation],
     title: title("What Is Sliding Scale Therapy?"),
     description:
       "What sliding scale therapy means, how it works, how to apply for a reduced fee, and other lower-cost counseling options in Dallas–Fort Worth.",
@@ -1766,6 +1793,21 @@ export const ARTICLES: ContentPage[] = [
         heading: "Sliding scale therapy in Dallas with me",
         paragraphs: [
           "I’m self-pay only, and reduced rates are available based on household income, for walk and talk sessions in Dallas–Fort Worth and online therapy anywhere in Texas. Ask during your free 15-minute consultation, and we’ll agree on a fee before your first session.",
+        ],
+      },
+      {
+        heading: "Who is a sliding scale for?",
+        paragraphs: [
+          "Sliding scales are meant for people whose income makes a full fee hard to manage: students, people between jobs, single-income households, or anyone paying for therapy without insurance. You don’t need to prove hardship to ask. If the counselor can’t offer a rate that works, they can usually point you toward other options.",
+        ],
+      },
+      {
+        heading: "Sliding scale vs. other low-cost options",
+        list: [
+          "A sliding scale keeps you with the counselor you chose, at a fee you agree on together",
+          "An Employee Assistance Program is free but usually limited to a few sessions",
+          "Community clinics and training clinics often cost less, though wait times and who you see can vary",
+          "Self-pay with a sliding scale means nothing is billed to insurance. See [affordable therapy in Dallas](/affordable-therapy-dallas/).",
         ],
       },
       {
@@ -1827,7 +1869,7 @@ export const ARTICLES: ContentPage[] = [
       {
         heading: "What research says",
         paragraphs: [
-          "There isn’t much research on walk and talk therapy itself yet, and most of what exists is small. It builds on two well-studied ideas, though. Regular physical activity is linked with lower anxiety and depression, and time in green spaces is linked with lower stress. Many people also say that walking side by side, without constant eye contact, makes hard conversations feel a little easier.",
+          "There isn’t much research on walk and talk therapy itself yet, and most of what exists is small. It builds on two well-studied ideas, though. Regular physical activity is linked with lower anxiety and depression ([Singh et al., 2023](https://doi.org/10.1136/bjsports-2022-106195)), and time in green spaces is linked with lower stress ([Hunter et al., 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6458297/)). Many people also say that walking side by side, without constant eye contact, makes hard conversations feel a little easier.",
         ],
       },
       {
@@ -1991,7 +2033,7 @@ export const ARTICLES: ContentPage[] = [
       {
         heading: "Does holistic therapy work?",
         paragraphs: [
-          "Because holistic is a broad label, research looks at its parts rather than the whole. Some have strong support: regular exercise can ease symptoms of depression and anxiety, mindfulness-based programs can help with stress and lower the chance of depression coming back, and better sleep is closely tied to better mood. Other practices sold as holistic have little or no evidence. A good holistic therapist can tell you what a technique is based on.",
+          "Because holistic is a broad label, research looks at its parts rather than the whole. Some have strong support: regular exercise can ease symptoms of depression and anxiety ([Singh et al., 2023](https://doi.org/10.1136/bjsports-2022-106195)), mindfulness-based programs can help with stress and lower the chance of depression coming back, and better sleep is closely tied to better mood ([Scott et al., 2021](https://pmc.ncbi.nlm.nih.gov/articles/PMC8651630/)). Other practices sold as holistic have little or no evidence. A good holistic therapist can tell you what a technique is based on.",
         ],
       },
       {
@@ -2198,6 +2240,475 @@ export const ARTICLES: ContentPage[] = [
       {
         q: "Can therapy help with ADHD and anxiety?",
         a: "Talk therapy can help with the worry, self-criticism, and daily planning that often come with both. It doesn’t replace an evaluation or medication when those are needed.",
+      },
+    ],
+  },
+  {
+    path: "resources/adhd-signs-in-women",
+    published: "2026-11-20",
+    related: [LINK.adhdTherapy, LINK.adhdDiagnose, LINK.adhdAnxiety, LINK.screening],
+    title: title("ADHD Signs in Women"),
+    description:
+      "Common signs of ADHD in adult women, why it’s often missed or found later, and what to do next, from free screening to evaluation and support.",
+    eyebrow: "ADHD",
+    heading: "What are the signs of ADHD in women?",
+    intro:
+      "ADHD in women often looks quieter than the stereotype. Instead of obvious hyperactivity, it can show up as a busy mind, forgetfulness, overwhelm, and years of working twice as hard to keep up. Many women only start to wonder about ADHD as adults.",
+    blocks: [
+      {
+        heading: "Why is ADHD in women often missed?",
+        paragraphs: [
+          "An expert consensus statement on girls and women with ADHD describes how gender bias, co-occurring conditions such as anxiety, and the coping strategies many women build can hide ADHD. It also notes that ADHD in females tends to look more internal and less disruptive than the classic picture ([Young et al., 2020](https://pmc.ncbi.nlm.nih.gov/articles/PMC7422602/)).",
+          "ADHD symptoms often continue into adulthood, though they can change with age. Inattention tends to last, while hyperactivity is more likely to fade ([NIMH](https://www.nimh.nih.gov/health/publications/adhd-what-you-need-to-know)).",
+        ],
+      },
+      {
+        heading: "What can ADHD look like in adult women?",
+        paragraphs: ["Some common experiences include:"],
+        list: [
+          "Losing track of time, appointments, or tasks despite trying hard",
+          "A mind that jumps between thoughts, or drifting off in conversations",
+          "Feeling overwhelmed by the logistics of home, work, or school",
+          "Starting many projects and struggling to finish them",
+          "Strong feelings that come on fast, followed by harsh self-criticism",
+          "Feeling drained from working so hard to look organized",
+        ],
+      },
+      {
+        heading: "What else can look like ADHD?",
+        paragraphs: [
+          "Stress, other mental health conditions, and some physical health conditions can cause similar symptoms, which is why a careful evaluation matters. An adult evaluation also looks back for symptoms that began before age 12 ([NIMH](https://www.nimh.nih.gov/health/publications/adhd-what-you-need-to-know)).",
+        ],
+      },
+      {
+        heading: "What should I do next?",
+        list: [
+          "Try a free screener, such as the ASRS v1.1 linked on the [screening tools page](/screening-tools/). It isn’t a diagnosis.",
+          "Ask your doctor, a psychiatrist, or a psychologist about a full ADHD evaluation",
+          "Consider counseling for day-to-day support while you decide",
+        ],
+      },
+      {
+        heading: "Support with me",
+        paragraphs: [
+          "I don’t diagnose ADHD or prescribe medication. I offer [adult ADHD counseling](/adhd-therapy/) for women who have ADHD or suspect it, through walk and talk sessions in Dallas–Fort Worth or online anywhere in Texas. Not sure who can evaluate you? Read [can a therapist diagnose ADHD?](/resources/can-a-therapist-diagnose-adhd/)",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can ADHD be diagnosed for the first time as an adult?",
+        a: "Yes. Adults can be evaluated for ADHD. The process usually looks at symptoms now and in childhood.",
+      },
+      {
+        q: "Is it ADHD or anxiety?",
+        a: "They can look alike and often happen together. An evaluation can help sort out what’s going on.",
+      },
+      {
+        q: "Do I need a diagnosis to start counseling?",
+        a: "No. You can start counseling with or without a diagnosis.",
+      },
+    ],
+  },
+  {
+    path: "resources/burnout-vs-depression",
+    published: "2026-11-20",
+    related: [LINK.depression, LINK.holisticCounseling, LINK.lasColinas, LINK.selfCare],
+    title: title("Burnout vs. Depression"),
+    description:
+      "How burnout and depression differ and overlap, the signs of each, and when to talk with a counselor or doctor. Plain language, with research sources.",
+    eyebrow: "Burnout",
+    heading: "Burnout vs. depression: what’s the difference?",
+    intro:
+      "Burnout and depression can feel alike: tired, flat, and running on empty. The main difference is scope. Burnout is tied to work, while depression tends to color every part of life. The two can also overlap.",
+    blocks: [
+      {
+        heading: "What is burnout?",
+        paragraphs: [
+          "The World Health Organization describes burnout as a syndrome resulting from chronic workplace stress that hasn’t been successfully managed. It’s included in ICD-11 as an occupational phenomenon, not a medical condition, and the term refers specifically to work ([WHO](https://www.who.int/standards/classifications/frequently-asked-questions/burn-out-an-occupational-phenomenon)). It has three parts:",
+        ],
+        list: [
+          "Feeling exhausted or depleted",
+          "Feeling distant, negative, or cynical about your job",
+          "Feeling less effective at work",
+        ],
+      },
+      {
+        heading: "What is depression?",
+        paragraphs: [
+          "Depression involves a low mood or loss of interest or pleasure, most of the day, nearly every day, for at least two weeks, along with other changes such as sleep, appetite, energy, and concentration ([NIMH](https://www.nimh.nih.gov/health/publications/depression)). Unlike burnout, it isn’t limited to one area of life.",
+        ],
+      },
+      {
+        heading: "Where do they overlap?",
+        paragraphs: [
+          "Researchers still debate how separate the two really are. A review of 92 studies found substantial overlap and concluded that the line between burnout and depression is conceptually fragile ([Bianchi, Schonfeld & Laurent, 2015](https://www.ccny.cuny.edu/sites/default/files/2022-03/Bianchi%2C%20Schonfeld%2C%20Laurent%2C%202015%2C%20Clinical%20Psy%20Review.pdf)).",
+        ],
+      },
+      {
+        heading: "Questions that can help you notice the difference",
+        list: [
+          "Do I feel noticeably better on weekends or time off? If so, work may be the bigger factor.",
+          "Does the low mood follow me everywhere, even into things I used to enjoy? That points more toward depression.",
+          "Am I having thoughts of hopelessness or self-harm? Those always deserve prompt attention.",
+        ],
+      },
+      {
+        heading: "What helps?",
+        paragraphs: [
+          "For burnout, changes at work matter: workload, boundaries, and real rest. For depression, support from a counselor, your doctor, or both can help. Many people need a bit of each. Counseling can help you sort out what’s going on and find steps that fit your life. If your work life is the center of it, see [counseling in Las Colinas](/counseling-las-colinas-tx/), or read about [depression counseling](/depression-counseling-dallas/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is burnout a medical diagnosis?",
+        a: "No. The World Health Organization classifies burnout as an occupational phenomenon, not a medical condition.",
+      },
+      {
+        q: "Can burnout and depression happen together?",
+        a: "Yes. They often overlap, and it isn’t always clear where one ends and the other begins. If symptoms spread beyond work or last for weeks, talk to a counselor or your doctor.",
+      },
+      {
+        q: "When should I get help right away?",
+        a: "If you’re thinking about suicide or harming yourself, call or text 988 or call 911.",
+      },
+    ],
+  },
+  {
+    path: "resources/how-to-choose-a-therapist-dallas",
+    published: "2026-11-20",
+    related: [LINK.dallas, LINK.lpcVs, LINK.consultation, LINK.affordable],
+    title: title("Choosing a Therapist in Dallas"),
+    description:
+      "How to choose a therapist in Dallas: what to look for, how to check a Texas license, questions to ask on a free call, and red flags to notice.",
+    eyebrow: "Getting started",
+    heading: "How to choose a therapist in Dallas.",
+    intro:
+      "Finding a therapist in a city the size of Dallas can feel like a lot. A few practical questions, and paying attention to how you feel on a first call, can narrow it down quickly.",
+    blocks: [
+      {
+        heading: "Start with what you need",
+        list: [
+          "In person, outdoors, or online",
+          "The language you’re most comfortable in",
+          "Insurance or self-pay, and what you can afford each month",
+          "What you’d like help with, such as anxiety, low mood, ADHD, or a life change",
+          "Times that fit your schedule",
+        ],
+      },
+      {
+        heading: "How do I check a therapist’s license in Texas?",
+        paragraphs: [
+          "Counselors, psychologists, social workers, and marriage and family therapists in Texas are licensed through the [Texas Behavioral Health Executive Council](https://bhec.texas.gov/), where you can look up a license. Titles differ in training and supervision; [LPC vs. LPC Associate vs. psychologist](/resources/lpc-vs-lpc-associate-vs-psychologist/) explains how.",
+        ],
+      },
+      {
+        heading: "Why does fit matter so much?",
+        paragraphs: [
+          "The working relationship between you and your therapist, often called the alliance, is consistently linked with how much people get out of therapy. A meta-analysis of 295 studies found a reliable link between the alliance and outcomes ([Flückiger et al., 2018](https://doi.org/10.1037/pst0000172)). So it’s reasonable to choose partly on how comfortable you feel.",
+        ],
+      },
+      {
+        heading: "Questions to ask on a free consultation call",
+        list: [
+          "How do you usually work with what I’m dealing with?",
+          "What does a typical session look like?",
+          "What do you charge, and is there a sliding scale?",
+          "Do you offer online or outdoor sessions?",
+          "How do you handle confidentiality?",
+        ],
+      },
+      {
+        heading: "Red flags",
+        list: [
+          "Promises of a cure or a quick fix",
+          "Pressure to commit before you’re ready",
+          "Dismissing your culture, values, or concerns",
+          "Not explaining fees or the limits of confidentiality",
+        ],
+      },
+      {
+        heading: "If you’re in Dallas or Irving",
+        paragraphs: [
+          "I offer a free 15-minute call to see if we’re a good fit, with walk and talk sessions near Irving and online sessions anywhere in Texas. See [counseling in Dallas](/counseling-dallas-tx/) for how that works.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How many therapists should I contact?",
+        a: "There’s no set number. Some people talk with two or three before deciding.",
+      },
+      {
+        q: "Is it okay to switch therapists?",
+        a: "Yes. If it doesn’t feel like a fit after a few sessions, it’s okay to say so or to try someone else.",
+      },
+      {
+        q: "Do I need a referral to see a therapist?",
+        a: "Usually not for self-pay counseling. You can contact a therapist directly.",
+      },
+    ],
+  },
+  {
+    path: "resources/first-counseling-session",
+    published: "2026-11-20",
+    related: [LINK.consultation, LINK.newClients, LINK.telehealth, LINK.outdoor],
+    title: title("Your First Counseling Session"),
+    description:
+      "What happens in a first counseling session: what to expect before, during, and after, what you can ask, and how to prepare. No pressure to share.",
+    eyebrow: "Getting started",
+    heading: "What happens in a first counseling session?",
+    intro:
+      "A first session is mostly about getting to know each other. You don’t need to prepare anything or tell your whole story at once. Here’s what usually happens with me.",
+    blocks: [
+      {
+        heading: "Before the session",
+        list: [
+          "A free 15-minute phone call to see if we’re a good fit",
+          "Forms to read and sign securely, including consent, an intake questionnaire, and a privacy notice. You can preview them on the [new client page](/new-clients/).",
+          "A written Good Faith Estimate of expected charges, which self-pay clients have a right to receive ([CMS](https://www.cms.gov/initiatives/your-patient-rights/medical-bill-rights/know-your-rights/without-insurance))",
+          "Choosing whether to meet outdoors or online",
+        ],
+      },
+      {
+        heading: "During the session",
+        paragraphs: [
+          "We start by going over confidentiality and its limits, so you know what stays private. Then I ask what’s bringing you in, what you’d like to be different, and a little about your life: sleep, stress, relationships, health, and culture if it matters to you. You decide how much to share.",
+          "I’ll also explain how I work, and you can ask anything. By the end, we usually have a rough sense of what we’ll focus on.",
+        ],
+      },
+      {
+        heading: "Questions you can ask",
+        list: [
+          "How often should we meet?",
+          "What will we actually do in sessions?",
+          "How will we know if it’s helping?",
+          "What happens if I need to cancel?",
+        ],
+      },
+      {
+        heading: "After the first session",
+        paragraphs: [
+          "Some people feel relief afterwards, and others feel tired or a little raw. Both are normal. There’s no obligation to continue. If you’d like to, we set the next session and talk about how often to meet.",
+          "Sessions can happen [outdoors as walk and talk therapy](/outdoor-counseling/) or [online anywhere in Texas](/telehealth-counseling-texas/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Do I have to talk about my childhood?",
+        a: "Only if you want to. We start with what matters most to you now.",
+      },
+      {
+        q: "What should I bring?",
+        a: "Nothing special. For a walk and talk session, wear comfortable shoes and bring water.",
+      },
+      {
+        q: "What if I don’t know what to say?",
+        a: "That’s common and completely fine. I’ll ask questions to help us get started.",
+      },
+    ],
+  },
+  {
+    path: "resources/nervous-system-regulation-techniques",
+    published: "2026-11-20",
+    related: [LINK.holisticCounseling, LINK.anxiety, LINK.selfCare, LINK.outdoor],
+    title: title("Calming Your Nervous System"),
+    description:
+      "Research-based nervous system regulation techniques: slow breathing, movement, time in nature, and sleep, plus simple grounding and when to get support.",
+    eyebrow: "Mind and body",
+    heading: "Nervous system regulation: techniques for calmer days.",
+    intro:
+      "When you’re stressed, your body shifts into a more alert state: faster heartbeat, tighter muscles, shallow breath. Nervous system regulation simply means helping your body come back down. These are some techniques with research behind them.",
+    blocks: [
+      {
+        heading: "Slow breathing",
+        paragraphs: [
+          "A systematic review found that slow breathing, under 10 breaths a minute, was associated with higher heart rate variability and with feeling more relaxed and less anxious ([Zaccaro et al., 2018](https://pmc.ncbi.nlm.nih.gov/articles/PMC6137615/)). Try breathing in for a count of four and out for a count of six, for a few minutes.",
+        ],
+      },
+      {
+        heading: "Movement",
+        paragraphs: [
+          "A large overview of 97 systematic reviews found that physical activity improved symptoms of depression, anxiety, and psychological distress compared with usual care ([Singh et al., 2023](https://doi.org/10.1136/bjsports-2022-106195)). A short walk is a good place to start.",
+        ],
+      },
+      {
+        heading: "Time in nature",
+        paragraphs: [
+          "In one study of city residents, spending time in a place that felt like nature lowered stress hormones measured in saliva, with 20 to 30 minutes giving the biggest drop ([Hunter, Gillespie & Chen, 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6458297/)).",
+        ],
+      },
+      {
+        heading: "Sleep",
+        paragraphs: [
+          "A meta-analysis of 65 randomized trials found that improving sleep led to better mental health, including less depression and anxiety ([Scott et al., 2021](https://pmc.ncbi.nlm.nih.gov/articles/PMC8651630/)). A steady bedtime and a wind-down routine are practical first steps.",
+        ],
+      },
+      {
+        heading: "Simple grounding for hard moments",
+        paragraphs: [
+          "These are everyday practices rather than research findings, but many people find them steadying:",
+        ],
+        list: [
+          "Name five things you can see, four you can hear, and three you can touch",
+          "Press your feet into the floor and notice the support under you",
+          "Hold something cool or textured and describe it to yourself",
+        ],
+      },
+      {
+        heading: "When techniques aren’t enough",
+        paragraphs: [
+          "These tools help, but they don’t replace support when stress or anxiety keeps coming back. [Holistic counseling](/holistic-counseling/) and [anxiety therapy](/anxiety-therapy-dallas/) can help you build a routine that fits your life and understand what keeps setting your system off.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What is nervous system regulation?",
+        a: "It means helping your body shift from a stressed, alert state back toward a calmer one, using things like breathing, movement, rest, and connection.",
+      },
+      {
+        q: "Can breathing exercises replace therapy?",
+        a: "They’re a helpful tool, but not a replacement for support when stress, anxiety, or low mood keeps getting in the way.",
+      },
+      {
+        q: "Which technique should I start with?",
+        a: "Start with whichever feels easiest to repeat. A few slow breaths or a short walk each day is a good beginning.",
+      },
+    ],
+  },
+  {
+    path: "resources/walk-and-talk-therapy-benefits",
+    published: "2026-11-20",
+    related: [LINK.outdoor, LINK.walkTalk, LINK.irving, LINK.outdoorFit],
+    title: title("Walk and Talk Therapy Benefits"),
+    description:
+      "The benefits of walk and talk therapy, what research says about movement, nature, and walking while thinking, plus the trade-offs to consider.",
+    eyebrow: "Walk and talk therapy",
+    heading: "What are the benefits of walk and talk therapy?",
+    intro:
+      "Walk and talk therapy combines counseling with a gentle walk outdoors. Research on the format itself is still early, but it draws on well-studied benefits of movement and time in nature.",
+    blocks: [
+      {
+        heading: "What research says about walk and talk itself",
+        paragraphs: [
+          "Most studies of walk and talk therapy are small. One study surveyed 18 therapists who use it and explored what they found helpful and challenging about it ([Revell & McLeod, 2016](https://insight.cumbria.ac.uk/id/eprint/2072)). So far, the stronger evidence comes from research on its parts.",
+        ],
+      },
+      {
+        heading: "Movement",
+        paragraphs: [
+          "A 2024 network meta-analysis of randomized trials found that walking or jogging was linked with moderate reductions in depression compared with active control conditions ([Noetel et al., 2024](https://doi.org/10.1136/bmj-2023-075847)).",
+        ],
+      },
+      {
+        heading: "Time in nature",
+        paragraphs: [
+          "City residents who spent 20 to 30 minutes in a place that felt like nature showed lower stress hormones afterwards ([Hunter, Gillespie & Chen, 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6458297/)).",
+        ],
+      },
+      {
+        heading: "Thinking while walking",
+        paragraphs: [
+          "In lab experiments, people came up with more creative ideas while walking than while sitting ([Oppezzo & Schwartz, 2014](https://www.apa.org/news/press/releases/2014/04/creativity-walk)). That doesn’t prove therapy works better on foot, but some people do find that moving helps their thoughts flow.",
+        ],
+      },
+      {
+        heading: "Side by side instead of face to face",
+        paragraphs: [
+          "This one comes from experience rather than research: some people find it easier to talk about hard things while walking side by side, without constant eye contact.",
+        ],
+      },
+      {
+        heading: "The trade-offs",
+        list: [
+          "Parks are public, so complete privacy can’t be guaranteed",
+          "Texas heat and storms mean some sessions move online",
+          "It may not suit you if walking is physically hard right now. Sitting outdoors is an option.",
+        ],
+      },
+      {
+        heading: "Walk and talk in Irving and Dallas",
+        paragraphs: [
+          "I offer [walk and talk therapy](/outdoor-counseling/) usually at Sam Houston Trail Park in Irving, for people across [Irving](/counseling-irving-tx/), Dallas, and nearby cities.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is walk and talk therapy evidence-based?",
+        a: "It builds on strong evidence for movement and time in nature, but research on the format itself is still early and mostly small.",
+      },
+      {
+        q: "Do I need to be fit for walk and talk therapy?",
+        a: "No. The pace is gentle, and you can sit for the whole session.",
+      },
+      {
+        q: "Is walk and talk therapy private?",
+        a: "It’s confidential within the same legal limits as any counseling, but parks are public, so we choose quieter spots and pause when people pass.",
+      },
+    ],
+  },
+  {
+    path: "resources/lpc-vs-lpc-associate-vs-psychologist",
+    published: "2026-11-20",
+    related: [LINK.associate, LINK.choose, LINK.telehealth, LINK.adhdDiagnose],
+    title: title("LPC vs. Psychologist in Texas"),
+    description:
+      "The differences between an LPC, an LPC Associate, and a psychologist in Texas: training, supervision, and how to decide who to see.",
+    eyebrow: "Getting started",
+    heading: "LPC vs. LPC Associate vs. psychologist: what’s the difference in Texas?",
+    intro:
+      "Counselors and psychologists can both provide talk therapy. The main differences are in training and supervision. Here’s how the three titles compare in Texas.",
+    blocks: [
+      {
+        heading: "What is an LPC Associate?",
+        paragraphs: [
+          "An LPC Associate holds a graduate degree in counseling and a Texas license, and practices under the supervision of a Council-approved LPC Supervisor. To move to a full LPC license, an associate completes at least 3,000 hours of supervised experience over at least 18 months, including at least 1,500 hours of direct counseling ([BHEC supervision FAQs](https://bhec.texas.gov/tbhec/supervision-faqs/); [22 TAC §681.92](https://www.law.cornell.edu/regulations/texas/22-Tex-Admin-Code-SS-681-92)).",
+          "I’m an LPC Associate (#104391), supervised by Don Zablosky, LPC-S. More in [what is an LPC Associate?](/resources/what-is-an-lpc-associate/)",
+        ],
+      },
+      {
+        heading: "What is an LPC?",
+        paragraphs: [
+          "A Licensed Professional Counselor has finished the supervised experience and upgraded from the associate license ([BHEC](https://bhec.texas.gov/texas-state-board-of-examiners-of-professional-counselors/applying-for-an-lpc-license/upgrade-to-full-lpc/)).",
+        ],
+      },
+      {
+        heading: "What is a psychologist?",
+        paragraphs: [
+          "A licensed psychologist in Texas holds a doctoral degree in psychology, completes supervised experience, and passes national and state exams ([BHEC](https://bhec.texas.gov/texas-state-board-of-examiners-of-psychologists/applying-for-a-psychology-license/how-to-become-a-licensed-psychologist); [22 TAC §463.10](https://www.law.cornell.edu/regulations/texas/22-Tex-Admin-Code-SS-463-10)).",
+        ],
+      },
+      {
+        heading: "Which one should I see?",
+        list: [
+          "For talk therapy for anxiety, low mood, stress, or life changes, any of the three can be a good fit. Fit matters more than the title.",
+          "If you’re looking for an ADHD or other formal evaluation, ask each provider directly whether they offer one.",
+          "If you’re interested in medication, talk with a psychiatrist or another medical provider.",
+        ],
+      },
+      {
+        heading: "How do I check a license?",
+        paragraphs: [
+          "All three are licensed through the [Texas Behavioral Health Executive Council](https://bhec.texas.gov/), which lets you look up a license. For more on choosing, read [how to choose a therapist in Dallas](/resources/how-to-choose-a-therapist-dallas/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is an LPC Associate a real license?",
+        a: "Yes. It’s a Texas license held while completing supervised experience under an approved supervisor.",
+      },
+      {
+        q: "Can an LPC Associate offer telehealth?",
+        a: "Yes, within the rules of the license and supervision. I offer telehealth to clients located anywhere in Texas.",
+      },
+      {
+        q: "What if I want to explore medication?",
+        a: "Talk with a psychiatrist or another medical provider, such as your primary care doctor.",
       },
     ],
   },
