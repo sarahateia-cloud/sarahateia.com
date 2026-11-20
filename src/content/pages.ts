@@ -399,34 +399,43 @@ export const TOPICS: ContentPage[] = [
     blocks: [
       {
         heading: "What does anxiety feel like?",
+        paragraphs: [
+          "Anxiety is your body’s alarm system staying switched on after the danger has passed. It often shows up as:",
+        ],
         list: [
-          "Worry that’s hard to switch off",
-          "Restlessness, muscle tension, or a racing heart",
-          "Trouble falling or staying asleep",
+          "Worry that’s hard to switch off, especially at night",
+          "A racing heart, tight chest, or shallow breathing",
+          "Muscle tension, restlessness, or a jumpy stomach",
           "Irritability or feeling on edge",
-          "Avoiding people, places, or tasks",
+          "Avoiding people, places, or tasks that set it off",
           "Overthinking decisions or replaying conversations",
         ],
       },
       {
         heading: "What does anxiety therapy in Dallas look like?",
         paragraphs: [
-          "We start by getting curious about your anxiety: when it shows up, what it might be trying to protect you from, and what tends to make it better or worse. From there we work on practical skills, like slowing your breathing, noticing anxious thoughts without getting pulled under by them, and taking small steps toward the things you’ve been avoiding.",
-          "Anxiety lives in the body as much as the mind, so we also look at sleep, movement, and stress. Research links regular physical activity and time in nature with lower stress and anxiety, which is one reason I offer walk and talk sessions.",
+          "We start by getting curious about your anxiety: when it shows up, what it might be trying to protect you from, and what tends to make it better or worse. Then we practice ways to turn the alarm down, like slowing your breathing, noticing anxious thoughts without getting pulled under, and grounding yourself in what’s around you.",
+          "Avoidance keeps anxiety going, so we also take small, planned steps toward the things you’ve been avoiding, at a pace you choose. Over time, many people find their body learns those situations aren’t as dangerous as they felt.",
+        ],
+      },
+      {
+        heading: "Why the body matters for anxiety",
+        paragraphs: [
+          "Anxiety lives in the body as much as the mind. Sleep, caffeine, movement, and stress all change how loud the alarm gets, so we look at those too. Some people find that moving while they talk calms the body enough to think clearly, which is one reason I offer walk and talk sessions.",
+        ],
+      },
+      {
+        heading: "Anxiety, depression, or both?",
+        paragraphs: [
+          "Anxiety and low mood often travel together. If heaviness, exhaustion, or losing interest in things is the bigger struggle for you, read about [depression counseling](/depression-counseling-dallas/). We can work on both at once.",
         ],
       },
       {
         heading: "Where do sessions happen?",
         list: [
           "Walk and talk sessions outdoors, usually at Sam Houston Trail Park in Irving, or another quiet park we choose together",
-          "Online therapy from anywhere in Texas",
-          "Within driving distance of Dallas, Fort Worth, Arlington, Plano, Carrollton, Grand Prairie, and Coppell",
-        ],
-      },
-      {
-        heading: "What if I need help right away?",
-        paragraphs: [
-          "Counseling isn’t a crisis service. If you’re thinking about harming yourself, call or text 988, call 911, or go to the nearest emergency room.",
+          "Online therapy from anywhere in Texas, if a calm room at home feels safer",
+          "In person for people in Irving, Las Colinas, Dallas, Coppell, Grand Prairie, and Farmers Branch",
         ],
       },
     ],
@@ -468,6 +477,9 @@ export const TOPICS: ContentPage[] = [
     blocks: [
       {
         heading: "What are common signs of depression?",
+        paragraphs: [
+          "Where anxiety feels like too much, depression often feels like too little: too little energy, interest, or hope. If several of the signs below have lasted two weeks or more, it’s worth talking to someone. A counselor or your doctor is a good place to start.",
+        ],
         list: [
           "Low mood most days, or feeling empty or flat",
           "Losing interest in friends, hobbies, or work",
@@ -476,29 +488,38 @@ export const TOPICS: ContentPage[] = [
           "Trouble concentrating or making decisions",
           "Feeling worthless, guilty, or like a burden",
         ],
-        paragraphs: [
-          "If several of the signs below have lasted two weeks or more, it’s worth talking to someone. A counselor or your doctor is a good place to start.",
-        ],
       },
       {
         heading: "What does depression counseling look like?",
         paragraphs: [
-          "Counseling gives you a steady place to talk about what’s weighing on you without having to hold it all together. I listen first. Then we look at patterns in your thoughts, relationships, and daily rhythms, and find small, realistic steps that help you feel more like yourself.",
-          "I take a mind-body view. Research shows that regular movement can ease symptoms of depression, and sleep, daylight, and connection with others matter too. Walk and talk sessions build some of that in, and we can work on routines that support your mood between sessions.",
+          "Counseling gives you a steady place to talk about what’s weighing on you without having to hold it all together. I listen first, without rushing you toward feeling better.",
+          "Depression tends to shrink life down: you do less, which drains your mood further. So alongside talking, we bring back small, doable activities that matter to you, one at a time, and notice how your mood responds. We also make room for self-compassion, because the inner critic is usually loud during depression.",
+        ],
+      },
+      {
+        heading: "How rhythm and movement help",
+        paragraphs: [
+          "Regular sleep, daylight, gentle movement, and time with people you trust can all support mood. We look at your daily rhythm together and adjust what’s realistic. Walk and talk sessions build a little movement and daylight into the hour itself.",
+        ],
+      },
+      {
+        heading: "Depression, anxiety, or both?",
+        paragraphs: [
+          "Low mood often comes with worry. If racing thoughts, tension, or avoidance is the bigger struggle, read about [anxiety therapy](/anxiety-therapy-dallas/). We can work on both together.",
         ],
       },
       {
         heading: "Where do sessions happen?",
         list: [
-          "Walk and talk sessions outdoors, usually at Sam Houston Trail Park in Irving, or another quiet park we choose together",
           "Online therapy from anywhere in Texas, for days when leaving home feels like too much",
-          "Within driving distance of Dallas, Fort Worth, Arlington, Plano, Carrollton, Grand Prairie, and Coppell",
+          "Gentle walk and talk sessions with some daylight built in, usually at Sam Houston Trail Park in Irving or another park we pick together",
+          "Outdoor sessions for people living in or near Irving, Las Colinas, Dallas, Coppell, Grand Prairie, or Farmers Branch",
         ],
       },
       {
         heading: "What if I need help right away?",
         paragraphs: [
-          "If you’re thinking about suicide or harming yourself, call or text 988, call 911, or go to the nearest emergency room. Counseling isn’t a crisis service.",
+          "If you’re thinking about suicide or harming yourself, call or text 988, call 911, or go to the nearest emergency room. Counseling isn’t a crisis service. You can also [find 24/7 crisis lines in Dallas–Fort Worth](/crisis/).",
         ],
       },
     ],
@@ -517,7 +538,7 @@ export const TOPICS: ContentPage[] = [
       },
       {
         q: "Do you offer a sliding scale?",
-        a: "Yes. I’m self-pay only, and a sliding scale is available based on household income.",
+        a: "Yes. Fees can be reduced based on household income, and I’m self-pay only, so nothing is billed to insurance.",
       },
     ],
   },
