@@ -27,8 +27,9 @@ anxious and reading on a phone, so pages should feel calm, plain and trustworthy
   only applies to Vercel previews.
 - Service pages and articles live in `src/content/pages.ts`; services list for nav/footer in
   `src/content/services.ts`.
-- After deploy, `scripts/indexnow.mjs` submits pages whose sitemap `<lastmod>` changed, so update
-  `public/sitemap.xml` lastmod whenever a page's content changes. Never use a future date.
+- After deploy, `scripts/indexnow-submit.mjs` submits every sitemap URL to IndexNow (key file
+  `public/c988a80ba70cec0303b4474c0fda959d.txt`). Keep `public/sitemap.xml` lastmod accurate when a
+  page's content changes. Never use a future date.
 
 ## Compliance (every page, existing and new)
 
