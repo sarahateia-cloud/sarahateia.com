@@ -17,6 +17,8 @@ export type ContentPage = {
   faqs?: Faq[];
   /** Other pages on the site to suggest at the end, so every page is linked from more than one place. */
   related?: { label: string; href: string }[];
+  /** City pages only: the city this page serves in person. */
+  city?: string;
   /** Optional intro in Arabic, shown under the English intro with lang="ar" and right-to-left text. */
   arabicIntro?: string;
   /** Articles only: the date this article first went live (YYYY-MM-DD). Defaults to PUBLISHED. */
@@ -26,7 +28,10 @@ export type ContentPage = {
 const LINK = {
   arabic: { label: "Counseling in Arabic", href: "/arabic-counseling/" },
   outdoor: { label: "Walk and talk therapy in Dallas–Fort Worth", href: "/outdoor-counseling/" },
-  telehealth: { label: "Online therapy anywhere in Texas", href: "/telehealth-counseling/" },
+  telehealth: {
+    label: "Telehealth counseling anywhere in Texas",
+    href: "/telehealth-counseling-texas/",
+  },
   youngAdult: { label: "Counseling for young adults", href: "/young-adult-counseling/" },
   anxiety: { label: "Anxiety therapy in Dallas–Fort Worth", href: "/anxiety-therapy-dallas/" },
   depression: {
@@ -249,15 +254,15 @@ export const TOPICS: ContentPage[] = [
     ],
   },
   {
-    path: "telehealth-counseling",
+    path: "telehealth-counseling-texas",
     related: [LINK.youngAdult, LINK.anxiety, LINK.depression, LINK.cost, LINK.consultation],
-    title: "Online Therapy in Texas",
+    title: title("Telehealth Counseling in Texas"),
     description:
-      "Online therapy in Texas by video for anxiety, depression, ADHD, and life transitions, anywhere in the state. Sliding scale, free 15-minute call.",
+      "Online therapy by video for anyone in Texas, from Houston to El Paso: how it works, privacy, and fees. Self-pay, sliding scale, free 15-minute call.",
     eyebrow: "Online therapy",
-    heading: "Online therapy in Texas.",
+    heading: "Telehealth counseling anywhere in Texas.",
     intro:
-      "If getting to a park doesn’t work for you, or you’d rather talk from home, I offer online therapy by video for anyone who is physically located in Texas at the time of each session, whether that’s Dallas, Austin, Houston, or a small town in between. Sessions are available in English or Arabic.",
+      "I offer telehealth counseling by video to anyone who is physically located in Texas during each session, whether you’re in Dallas–Fort Worth, Houston, Austin, San Antonio, the Rio Grande Valley, or El Paso. Sessions are available in English or Arabic.",
     blocks: [
       {
         heading: "Who can use online therapy?",
@@ -268,12 +273,24 @@ export const TOPICS: ContentPage[] = [
       {
         heading: "What can we work on online?",
         list: [
-          "Anxiety, stress, and overthinking",
-          "Depression and low mood",
-          "ADHD, focus, and keeping up with daily life",
-          "Young adult transitions, like school, work, and moving out",
-          "Burnout and emotional exhaustion",
-          "Relationship patterns and self-esteem",
+          "[Anxiety, stress, and overthinking](/anxiety-therapy-dallas/)",
+          "[Depression and low mood](/depression-counseling-dallas/)",
+          "[Adult ADHD, focus, and keeping up with daily life](/adhd-therapy/)",
+          "[Young adult transitions, like school, work, and moving out](/young-adult-counseling/)",
+          "Burnout, relationship patterns, and self-esteem",
+        ],
+      },
+      {
+        heading: "How do online sessions work?",
+        paragraphs: [
+          "Sessions happen by video at a time we set together. Many people find video sessions easier to keep up week to week, because there’s no commute. If video ever feels like it isn’t working for you, we talk about it and adjust.",
+          "Before we begin, we agree on where you’ll usually be and an emergency contact, in case the connection drops or you need urgent help.",
+        ],
+      },
+      {
+        heading: "Time zones across Texas",
+        paragraphs: [
+          "Most of Texas is on Central Time, but El Paso and Hudspeth counties are on Mountain Time. If you’re in far West Texas, I confirm every session time in your local time.",
         ],
       },
       {
@@ -290,15 +307,17 @@ export const TOPICS: ContentPage[] = [
           "The standard fee is $100 per session, and reduced rates are available based on household income. My practice is self-pay only, and I don’t bill insurance. You have the right to receive a Good Faith Estimate of expected charges before services begin.",
         ],
       },
+      {
+        heading: "Prefer to meet in person?",
+        paragraphs: [
+          "If you live near Irving, you can also [meet outdoors for walk and talk therapy](/outdoor-counseling/), usually at Sam Houston Trail Park. See [counseling in Irving](/counseling-irving-tx/) or [counseling in Dallas](/counseling-dallas-tx/).",
+        ],
+      },
     ],
     faqs: [
       {
         q: "Do you offer online therapy?",
         a: "Yes. Online therapy by video is available to clients who are located in Texas at the time of each session.",
-      },
-      {
-        q: "Is online therapy as helpful as in-person?",
-        a: "For many people, yes. Research has found that video counseling works about as well as in-person counseling for common concerns like anxiety and depression. What matters most is that you feel comfortable.",
       },
       {
         q: "Can I have a session while I’m out of state?",
@@ -664,6 +683,361 @@ export const TOPICS: ContentPage[] = [
       {
         q: "Do you offer a sliding scale?",
         a: "Yes. I’m self-pay only, and a sliding scale is available based on household income.",
+      },
+    ],
+  },
+];
+
+export const CITY_PAGES: ContentPage[] = [
+  {
+    path: "counseling-irving-tx",
+    city: "Irving",
+    related: [LINK.outdoor, LINK.anxiety, LINK.arabic, LINK.telehealth],
+    title: title("Counseling in Irving, TX"),
+    description:
+      "Counseling in Irving, TX with walk and talk sessions at Sam Houston Trail Park or online. English or Arabic. Self-pay, sliding scale, free 15-minute call.",
+    eyebrow: "Irving, TX",
+    heading: "Counseling in Irving, TX.",
+    intro:
+      "Irving is my home base. I offer counseling for people in Irving through walk and talk sessions outdoors, usually at Sam Houston Trail Park, or online from wherever you feel most comfortable in Texas. There’s no office and no waiting room, just a conversation at a pace that suits you.",
+    blocks: [
+      {
+        heading: "How do sessions work in Irving?",
+        paragraphs: [
+          "Because I’m based in Irving, in-person sessions here are the simplest to arrange. Most happen at Sam Houston Trail Park, where we can walk at an easy pace or find a quiet spot to sit. If a different park in Irving is easier for you, we can talk about it during your free call.",
+          "Whether you live in North Irving, South Irving, Valley Ranch, or near the Las Colinas offices, you can switch between outdoor and online sessions from week to week.",
+        ],
+      },
+      {
+        heading: "Why walk and talk close to home?",
+        paragraphs: [
+          "Meeting outdoors near home means less time in traffic and more time for the session itself. Walking side by side can also make hard topics a little easier to say out loud. If a park feels too public on a given day, we meet online instead.",
+        ],
+      },
+      {
+        heading: "What can we work on?",
+        list: [
+          "[Anxiety and stress](/anxiety-therapy-dallas/)",
+          "[Depression and low mood](/depression-counseling-dallas/)",
+          "[Adult ADHD](/adhd-therapy/)",
+          "[Young adult transitions](/young-adult-counseling/)",
+          "Burnout, relationship patterns, and self-esteem",
+        ],
+      },
+      {
+        heading: "Fees and getting started",
+        paragraphs: [
+          "Sessions are $100, with packages and a sliding scale for people who need it. I’m self-pay only, so nothing goes through insurance. Start with a free 15-minute phone call, and we’ll see whether we’re a good fit.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Where do in-person sessions in Irving take place?",
+        a: "Usually at Sam Houston Trail Park in Irving. If another quiet park is easier for you, we can choose one together. I don’t see clients in an office.",
+      },
+      {
+        q: "Are sessions available in Arabic in Irving?",
+        a: "Yes. Sessions are available in English or Arabic, outdoors or online.",
+      },
+      {
+        q: "What happens if it rains?",
+        a: "We move that session online, so the appointment still happens.",
+      },
+      {
+        q: "Do I need to live in Irving?",
+        a: "No. Anyone located in Texas can meet online, and people from nearby cities can meet outdoors in Irving too.",
+      },
+    ],
+  },
+  {
+    path: "counseling-las-colinas-tx",
+    city: "Las Colinas",
+    related: [LINK.depression, LINK.holisticCounseling, LINK.telehealth, LINK.outdoor],
+    title: title("Counseling in Las Colinas, TX"),
+    description:
+      "Counseling in Las Colinas, TX that fits a busy work week: online sessions or walk and talk in Irving. Help with burnout, anxiety, and stress. Self-pay.",
+    eyebrow: "Las Colinas, TX",
+    heading: "Counseling in Las Colinas, TX.",
+    intro:
+      "If you live or work in Las Colinas, counseling can fit around a full week. I offer online sessions you can join from home or another private space anywhere in Texas, and walk and talk sessions close by in Irving.",
+    blocks: [
+      {
+        heading: "Counseling that fits a Las Colinas schedule",
+        paragraphs: [
+          "Las Colinas is home to many corporate offices, and long workdays can leave little room for anything else. Online sessions cut out travel completely, as long as you have a private room where you won’t be overheard. Please don’t join from an open office or a shared conference room.",
+          "When you’d rather step away from screens, walk and talk sessions happen nearby, usually at Sam Houston Trail Park in Irving.",
+        ],
+      },
+      {
+        heading: "Burnout and work stress",
+        paragraphs: [
+          "Work pressure is a common reason people look for support. Counseling can help you notice how stress shows up in your body, set limits that protect your evenings, and sort out whether what you’re feeling is burnout, anxiety, low mood, or a mix. You don’t need everything to fall apart before reaching out.",
+        ],
+      },
+      {
+        heading: "Other things we can work on",
+        list: [
+          "[Anxiety and overthinking](/anxiety-therapy-dallas/)",
+          "[Low mood and exhaustion](/depression-counseling-dallas/)",
+          "[ADHD and keeping up with demands at work](/adhd-therapy/)",
+          "[A whole-person, mind-body approach](/holistic-counseling/)",
+        ],
+      },
+      {
+        heading: "What does it cost?",
+        paragraphs: [
+          "I’m self-pay, so neither your employer nor your insurer is involved. Sessions are $100, with packages and a sliding scale available. If your employer offers an Employee Assistance Program, it may also cover a few free sessions with one of its own providers.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can I join an online session from my office?",
+        a: "Only from a private room where no one can overhear you. Home is usually more private. A parked car can work too, but never while driving.",
+      },
+      {
+        q: "Will my employer know I’m in counseling?",
+        a: "Not from me. I’m self-pay and don’t bill insurance, and counseling is confidential within the limits of the law. If you use your employer’s EAP instead, ask the program how it handles privacy.",
+      },
+      {
+        q: "Where would we meet in person?",
+        a: "Usually at Sam Houston Trail Park in Irving, or another quiet park we choose together.",
+      },
+    ],
+  },
+  {
+    path: "counseling-dallas-tx",
+    city: "Dallas",
+    related: [LINK.anxiety, LINK.depression, LINK.telehealth, LINK.cost],
+    title: title("Counseling in Dallas, TX"),
+    description:
+      "Counseling in Dallas, TX without the cross-town drive: online sessions or walk and talk just west in Irving. Self-pay, sliding scale, free 15-minute call.",
+    eyebrow: "Dallas, TX",
+    heading: "Counseling in Dallas, TX.",
+    intro:
+      "If you live in Dallas, you can start counseling without adding another drive across town. I offer online sessions anywhere in Texas and walk and talk sessions outdoors, usually at Sam Houston Trail Park in Irving, just west of Dallas.",
+    blocks: [
+      {
+        heading: "Online counseling across Dallas",
+        paragraphs: [
+          "From Oak Cliff to Lake Highlands, online sessions let you talk from home in the time a session takes, with no traffic on either end. You’ll need a private space where you can speak freely and a steady connection.",
+        ],
+      },
+      {
+        heading: "Meeting outdoors instead",
+        paragraphs: [
+          "If you’d rather meet in person, walk and talk sessions happen outdoors, usually at Sam Houston Trail Park in Irving. Some people like ending the day with a walk and a conversation instead of another hour on a screen.",
+        ],
+      },
+      {
+        heading: "Finding the right fit in a big city",
+        paragraphs: [
+          "Dallas has many counselors, and fit matters. A free 15-minute phone call is a low-pressure way to ask about my approach, which is person-centered, solution-focused, and holistic, and to see whether it feels right. If it doesn’t, I’m glad to point you toward other options.",
+        ],
+      },
+      {
+        heading: "What I help with",
+        list: [
+          "[Anxiety, worry, and stress](/anxiety-therapy-dallas/)",
+          "[Depression and low mood](/depression-counseling-dallas/)",
+          "[Adult ADHD](/adhd-therapy/)",
+          "[Young adults and life transitions](/young-adult-counseling/)",
+          "[Holistic, mind-body counseling](/holistic-counseling/)",
+        ],
+      },
+      {
+        heading: "What does counseling cost in Dallas?",
+        paragraphs: [
+          "Sessions are $100, with packages and a sliding scale available. Because I’m self-pay, nothing is billed to insurance, so no insurance company needs a diagnosis for you to start.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you have an office in Dallas?",
+        a: "No. I don’t see clients in an office. Sessions happen online or outdoors, usually at Sam Houston Trail Park in Irving.",
+      },
+      {
+        q: "Can I see you if I live in another part of Texas?",
+        a: "Yes, online, as long as you’re located in Texas during each session.",
+      },
+      {
+        q: "Do you offer counseling in Arabic in Dallas?",
+        a: "Yes. Sessions are available in Arabic or English, online or outdoors.",
+      },
+    ],
+  },
+  {
+    path: "counseling-coppell-tx",
+    city: "Coppell",
+    related: [LINK.youngAdult, LINK.youngAdultGuide, LINK.telehealth, LINK.outdoor],
+    title: title("Counseling in Coppell, TX"),
+    description:
+      "Counseling in Coppell, TX: online sessions from home or walk and talk in neighboring Irving. Support for adults and young adults. Self-pay, sliding scale.",
+    eyebrow: "Coppell, TX",
+    heading: "Counseling in Coppell, TX.",
+    intro:
+      "For people in Coppell, I offer counseling online from anywhere in Texas and walk and talk sessions just south of Coppell in Irving. Sessions are available in English or Arabic.",
+    blocks: [
+      {
+        heading: "How sessions work for Coppell residents",
+        paragraphs: [
+          "Online sessions let you talk from home without adding a drive to your day. You’ll need a private space and a reliable connection.",
+          "If you’d like to meet in person, walk and talk sessions happen in neighboring Irving, usually at Sam Houston Trail Park. You can meet outdoors some weeks and online others, whatever works.",
+        ],
+      },
+      {
+        heading: "Making time for yourself",
+        paragraphs: [
+          "Between school schedules, commutes, and caring for others, it’s easy to put your own needs last. Counseling is a set hour that belongs to you. We can work on stress, low mood, anxiety, or the pressure to hold everything together.",
+        ],
+      },
+      {
+        heading: "Students and young adults in Coppell",
+        paragraphs: [
+          "If you’re finishing school, starting college, or living at home while figuring out what’s next, [counseling for young adults](/young-adult-counseling/) can help with the anxiety and identity questions that often come with that stage. If you’re 18 or older, you can start on your own.",
+        ],
+      },
+      {
+        heading: "What we can work on",
+        list: [
+          "[Anxiety and worry](/anxiety-therapy-dallas/)",
+          "[Depression and feeling stuck](/depression-counseling-dallas/)",
+          "[ADHD in adults](/adhd-therapy/)",
+          "[Holistic, whole-person support](/holistic-counseling/)",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you meet in person in Coppell?",
+        a: "In-person sessions usually happen at Sam Houston Trail Park in neighboring Irving. Online sessions work from anywhere in Coppell, or anywhere in Texas.",
+      },
+      {
+        q: "Can a parent call on behalf of a young adult?",
+        a: "Yes, a parent can call to ask how counseling works. If your young adult is 18 or older, they choose whether to start and give consent themselves.",
+      },
+      {
+        q: "How much does counseling cost?",
+        a: "$100 per session, with packages and a sliding scale available. I’m self-pay only and don’t bill insurance.",
+      },
+    ],
+  },
+  {
+    path: "counseling-grand-prairie-tx",
+    city: "Grand Prairie",
+    related: [LINK.telehealth, LINK.arabic, LINK.anxiety, LINK.outdoor],
+    title: title("Grand Prairie, TX Counseling"),
+    description:
+      "Counseling for Grand Prairie, TX across Dallas, Tarrant, and Ellis counties: online sessions or walk and talk in nearby Irving. Self-pay, sliding scale.",
+    eyebrow: "Grand Prairie, TX",
+    heading: "Counseling in Grand Prairie, TX.",
+    intro:
+      "Grand Prairie sits between Dallas and Fort Worth and stretches across Dallas, Tarrant, and Ellis counties. Wherever you are in it, you can meet with me online from anywhere in Texas, or come up to Irving for a walk and talk session outdoors.",
+    blocks: [
+      {
+        heading: "Online counseling across Grand Prairie",
+        paragraphs: [
+          "Because Grand Prairie covers a lot of ground, online sessions are often the simplest choice. All you need is a private space, a phone or computer, and to be in Texas during the session. We agree on a backup plan in case the connection drops.",
+        ],
+      },
+      {
+        heading: "Walk and talk in Irving",
+        paragraphs: [
+          "If you’d like to meet face to face, sessions happen in Irving, just north of Grand Prairie, usually at Sam Houston Trail Park. We walk at an easy pace or sit, and you set the pace.",
+        ],
+      },
+      {
+        heading: "What we can work on",
+        paragraphs: ["People come to counseling for many reasons. Some I work with often:"],
+        list: [
+          "[Anxiety and constant worry](/anxiety-therapy-dallas/)",
+          "[Low mood and depression](/depression-counseling-dallas/)",
+          "[ADHD and focus](/adhd-therapy/)",
+          "[Counseling in Arabic or English](/arabic-counseling/), with room for culture and family",
+        ],
+      },
+      {
+        heading: "Fees",
+        paragraphs: [
+          "Sessions are $100. If cost is a barrier, ask about the sliding scale during your free call. Packages of 6 or 8 sessions lower the price of each session.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Does it matter which county I live in?",
+        a: "No. What matters is being located in Texas during each session, whether you’re in the Dallas, Tarrant, or Ellis County part of Grand Prairie.",
+      },
+      {
+        q: "Do you offer in-person sessions in Grand Prairie?",
+        a: "In-person sessions happen outdoors in nearby Irving, usually at Sam Houston Trail Park. Online sessions are available anywhere in Grand Prairie.",
+      },
+      {
+        q: "Is online counseling private?",
+        a: "It can be. Choose a room where you won’t be overheard, use headphones, and close other apps. We go over privacy before your first session.",
+      },
+    ],
+  },
+  {
+    path: "counseling-farmers-branch-tx",
+    city: "Farmers Branch",
+    related: [LINK.holisticCounseling, LINK.depression, LINK.arabic, LINK.telehealth],
+    title: title("Farmers Branch, TX Counseling"),
+    description:
+      "Counseling for Farmers Branch, TX: online sessions from home or walk and talk outdoors in nearby Irving. English or Arabic. Self-pay, free 15-minute call.",
+    eyebrow: "Farmers Branch, TX",
+    heading: "Counseling in Farmers Branch, TX.",
+    intro:
+      "If you live in Farmers Branch, you can choose between online sessions from home and walk and talk sessions outdoors in nearby Irving, usually at Sam Houston Trail Park. You can use both, depending on the week.",
+    blocks: [
+      {
+        heading: "Two ways to meet",
+        paragraphs: [
+          "Online sessions are the easiest to fit around work and family: no drive and no parking, just a private space and a connection. Walk and talk sessions add movement and fresh air to the hour. You can switch between them as your weeks change.",
+        ],
+      },
+      {
+        heading: "When the pace of life catches up with you",
+        paragraphs: [
+          "Living close to some of the busiest parts of North Dallas can make it hard to slow down. Counseling gives you a regular pause to notice what you’re carrying, from worry and low mood to burnout and big life changes.",
+        ],
+      },
+      {
+        heading: "Language and culture",
+        paragraphs: [
+          "Sessions are available in English or Arabic, and your culture, family, and values are welcome in the conversation. Read more about [counseling in Arabic](/arabic-counseling/).",
+        ],
+      },
+      {
+        heading: "What I help with",
+        list: [
+          "[Worry and anxiety](/anxiety-therapy-dallas/)",
+          "[Depression and low energy](/depression-counseling-dallas/)",
+          "[Burnout and stress, with a mind-body approach](/holistic-counseling/)",
+          "[Young adults finding their footing](/young-adult-counseling/)",
+        ],
+      },
+      {
+        heading: "Fees and first steps",
+        paragraphs: [
+          "Sessions are $100 each. If that’s a stretch, ask about reduced rates on your free 15-minute call; they’re based on household income, and you don’t have to explain your circumstances. Paying privately means no insurance paperwork and no diagnosis sent to an insurer. The first step is just a short phone call, with no commitment.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Where would we meet in person?",
+        a: "Usually at Sam Houston Trail Park in Irving, or another quiet park we choose together. Online sessions are available too.",
+      },
+      {
+        q: "Can I switch between outdoor and online sessions?",
+        a: "Yes. You can mix them based on the weather and your schedule.",
+      },
+      {
+        q: "Do you take insurance?",
+        a: "No. I’m self-pay, with a sliding scale and session packages available.",
       },
     ],
   },
@@ -1773,7 +2147,7 @@ export const SITE_PAGES: {
   description: string;
   graph: object[];
 }[] = [
-  ...TOPICS.map((page) => ({
+  ...[...TOPICS, ...CITY_PAGES].map((page) => ({
     path: page.path,
     title: page.title,
     description: page.description,
@@ -1786,8 +2160,9 @@ export const SITE_PAGES: {
         url: url(page.path),
         provider: PRACTICE,
         // Outdoor sessions only happen in Dallas–Fort Worth parks. Telehealth reaches all of Texas.
-        areaServed:
-          page.path === "outdoor-counseling"
+        areaServed: page.city
+          ? { "@type": "City", name: `${page.city}, TX` }
+          : page.path === "outdoor-counseling"
             ? { "@type": "Place", name: "Dallas–Fort Worth metroplex" }
             : { "@type": "State", name: "Texas" },
       },

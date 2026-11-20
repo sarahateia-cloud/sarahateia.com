@@ -145,4 +145,15 @@ for (const url of builtUrls) {
 if (!notFound.includes('content="noindex') || notFound.includes('rel="canonical"')) {
   throw new Error("404.html must be noindex and have no canonical link");
 }
+// Old addresses. GitHub Pages can't send a real 301, so each old address gets a tiny page that
+// sends people on at once and tells search engines which page is the real one.
+const REDIRECTS = { "telehealth-counseling": "telehealth-counseling-texas" };
+for (const [from, to] of Object.entries(REDIRECTS)) {
+  const target = `${SITE}/${to}/`;
+  mkdirSync(`dist/${from}`, { recursive: true });
+  writeFileSync(
+    `dist/${from}/index.html`,
+    `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Moved</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="${target}"><meta http-equiv="refresh" content="0; url=${target}"></head><body><p>This page moved to <a href="${target}">${target}</a>.</p></body></html>`,
+  );
+}
 rmSync("dist-ssr", { recursive: true, force: true });

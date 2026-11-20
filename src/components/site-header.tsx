@@ -5,7 +5,7 @@ import { ConsultationButton } from "@/components/consultation-dialog";
 import { BUTTON } from "@/components/ds/buttons";
 import { Logo } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
-import { FOOTER_RESOURCES, SERVICES } from "@/content/services";
+import { FOOTER_AREAS, FOOTER_RESOURCES, SERVICES } from "@/content/services";
 
 export { PHONE_DISPLAY, PHONE_HREF };
 
@@ -228,6 +228,20 @@ export function SiteFooter() {
           <nav aria-label="Resources" className="mt-2">
             <ul className="flex flex-wrap gap-x-4">
               {FOOTER_RESOURCES.map((service) => (
+                <li key={service.href}>
+                  <a
+                    href={service.href}
+                    className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                  >
+                    {service.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <nav aria-label="Areas served" className="mt-2">
+            <ul className="flex flex-wrap gap-x-4">
+              {FOOTER_AREAS.map((service) => (
                 <li key={service.href}>
                   <a
                     href={service.href}
