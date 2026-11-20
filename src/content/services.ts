@@ -3,12 +3,13 @@
 export const SERVICES = [
   { label: "Anxiety therapy", href: "/anxiety-therapy-dallas/" },
   { label: "Depression counseling", href: "/depression-counseling-dallas/" },
-  { label: "ADHD therapy", href: "/adhd-therapy/" },
+  { label: "Adult ADHD counseling", href: "/adhd-therapy/" },
   { label: "Young adults", href: "/young-adult-counseling/" },
   { label: "Holistic counseling", href: "/holistic-counseling/" },
   { label: "Walk and talk therapy", href: "/outdoor-counseling/" },
-  { label: "Online therapy in Texas", href: "/telehealth-counseling/" },
+  { label: "Online therapy in Texas", href: "/telehealth-counseling-texas/" },
   { label: "Counseling in Arabic", href: "/arabic-counseling/" },
+  { label: "Affordable therapy", href: "/affordable-therapy-dallas/" },
 ];
 
 /** Helpful reading, linked from every footer so no guide depends on a single link. */
@@ -18,4 +19,17 @@ export const FOOTER_RESOURCES = [
   { label: "Therapy cost without insurance", href: "/resources/therapy-cost-without-insurance/" },
   { label: "What is holistic therapy?", href: "/resources/what-is-holistic-therapy/" },
   { label: "Glossary", href: "/glossary/" },
+  { label: "Self-reflection", href: "/resources/self-reflection/" },
+  { label: "Screening tools", href: "/screening-tools/" },
+];
+
+/** The cities served in person, plus statewide telehealth. Linked from every footer. */
+export const FOOTER_AREAS = [
+  { label: "Irving", href: "/counseling-irving-tx/" },
+  { label: "Dallas", href: "/counseling-dallas-tx/" },
+  { label: "Las Colinas", href: "/counseling-las-colinas-tx/" },
+  { label: "Coppell", href: "/counseling-coppell-tx/" },
+  { label: "Grand Prairie", href: "/counseling-grand-prairie-tx/" },
+  { label: "Farmers Branch", href: "/counseling-farmers-branch-tx/" },
+  { label: "Telehealth in Texas", href: "/telehealth-counseling-texas/" },
 ];
