@@ -224,7 +224,7 @@ export const TOPICS: ContentPage[] = [
   },
   {
     path: "outdoor-counseling",
-    related: [LINK.walkTalk, LINK.outdoorFit, LINK.anxiety, LINK.telehealth],
+    related: [LINK.walkTalk, LINK.outdoorFit, LINK.anxiety, LINK.telehealth, LINK.walkBenefits],
     title: "Walk and Talk Therapy in Dallas",
     description:
       "Walk and talk therapy for Dallas and outdoor therapy in Irving, TX, usually at Sam Houston Trail Park. How sessions, privacy, and weather work.",
@@ -308,7 +308,14 @@ export const TOPICS: ContentPage[] = [
   },
   {
     path: "telehealth-counseling-texas",
-    related: [LINK.youngAdult, LINK.anxiety, LINK.depression, LINK.cost, LINK.consultation],
+    related: [
+      LINK.youngAdult,
+      LINK.anxiety,
+      LINK.depression,
+      LINK.cost,
+      LINK.consultation,
+      LINK.firstSession,
+    ],
     title: title("Telehealth Counseling in Texas"),
     description:
       "Online therapy by video for anyone in Texas, from Houston to El Paso: how it works, privacy, and fees. Self-pay, sliding scale, free 15-minute call.",
@@ -394,6 +401,7 @@ export const TOPICS: ContentPage[] = [
       LINK.anxiety,
       LINK.outdoor,
       LINK.slidingScale,
+      LINK.firstSession,
     ],
     title: "Therapy for Young Adults in Dallas",
     description:
@@ -460,6 +468,7 @@ export const TOPICS: ContentPage[] = [
       LINK.depression,
       LINK.youngAdult,
       LINK.screening,
+      LINK.regulation,
     ],
     title: "Anxiety Therapist in Dallas, TX",
     description:
@@ -538,6 +547,7 @@ export const TOPICS: ContentPage[] = [
       LINK.anxiety,
       LINK.youngAdultGuide,
       LINK.screening,
+      LINK.burnout,
     ],
     title: "Depression Counseling in Dallas, TX",
     description:
@@ -616,7 +626,7 @@ export const TOPICS: ContentPage[] = [
   },
   {
     path: "adhd-therapy",
-    related: [LINK.adhdDiagnose, LINK.adhd, LINK.youngAdult, LINK.screening],
+    related: [LINK.adhdDiagnose, LINK.adhd, LINK.youngAdult, LINK.screening, LINK.adhdWomen],
     title: "Adult ADHD Counseling in Dallas, TX",
     description:
       "Adult ADHD counseling in Dallas, TX for focus, routines, work, and the stress ADHD brings. Talk therapy, walk and talk in DFW or online across Texas.",
@@ -680,7 +690,15 @@ export const TOPICS: ContentPage[] = [
   },
   {
     path: "holistic-counseling",
-    related: [LINK.holistic, LINK.walkTalk, LINK.anxiety, LINK.depression, LINK.outdoor],
+    related: [
+      LINK.holistic,
+      LINK.walkTalk,
+      LINK.anxiety,
+      LINK.depression,
+      LINK.outdoor,
+      LINK.regulation,
+      LINK.burnout,
+    ],
     title: "Holistic Counseling in Dallas",
     description:
       "Holistic counseling in Dallas that looks at mind and body together: stress, sleep, movement, and meaning. Walk and talk or online across Texas.",
@@ -741,7 +759,7 @@ export const TOPICS: ContentPage[] = [
   },
   {
     path: "affordable-therapy-dallas",
-    related: [LINK.cost, LINK.slidingScale, LINK.telehealth, LINK.dallas],
+    related: [LINK.cost, LINK.slidingScale, LINK.telehealth, LINK.dallas, LINK.choose],
     title: title("Affordable Therapy in Dallas"),
     description:
       "Affordable therapy in Dallas without insurance: $100 self-pay sessions, a sliding scale, and 6 or 8-session packages. No diagnosis sent to an insurer.",
@@ -814,7 +832,7 @@ export const CITY_PAGES: ContentPage[] = [
   {
     path: "counseling-irving-tx",
     city: "Irving",
-    related: [LINK.outdoor, LINK.anxiety, LINK.arabic, LINK.telehealth],
+    related: [LINK.outdoor, LINK.anxiety, LINK.arabic, LINK.telehealth, LINK.walkBenefits],
     title: title("Counseling in Irving, TX"),
     description:
       "Counseling in Irving, TX with walk and talk sessions at Sam Houston Trail Park or online. English or Arabic. Self-pay, sliding scale, free 15-minute call.",
@@ -875,7 +893,13 @@ export const CITY_PAGES: ContentPage[] = [
   {
     path: "counseling-las-colinas-tx",
     city: "Las Colinas",
-    related: [LINK.depression, LINK.holisticCounseling, LINK.telehealth, LINK.outdoor],
+    related: [
+      LINK.depression,
+      LINK.holisticCounseling,
+      LINK.telehealth,
+      LINK.outdoor,
+      LINK.burnout,
+    ],
     title: title("Counseling in Las Colinas, TX"),
     description:
       "Counseling in Las Colinas, TX that fits a busy work week: online sessions or walk and talk in Irving. Help with burnout, anxiety, and stress. Self-pay.",
@@ -931,7 +955,7 @@ export const CITY_PAGES: ContentPage[] = [
   {
     path: "counseling-dallas-tx",
     city: "Dallas",
-    related: [LINK.anxiety, LINK.depression, LINK.telehealth, LINK.cost],
+    related: [LINK.anxiety, LINK.depression, LINK.telehealth, LINK.cost, LINK.lpcVs, LINK.choose],
     title: title("Counseling in Dallas, TX"),
     description:
       "Counseling in Dallas, TX without the cross-town drive: online sessions or walk and talk just west in Irving. Self-pay, sliding scale, free 15-minute call.",
@@ -1168,7 +1192,7 @@ export const CITY_PAGES: ContentPage[] = [
 export const ARTICLES: ContentPage[] = [
   {
     path: "resources/free-counseling-consultation",
-    related: [LINK.associate, LINK.outdoor, LINK.telehealth],
+    related: [LINK.associate, LINK.outdoor, LINK.telehealth, LINK.firstSession, LINK.choose],
     title: title("Free Counseling Consultation"),
     description:
       "What to expect from a free 15-minute counseling consultation, what you can ask, and what you don’t need to share yet.",
@@ -1212,7 +1236,7 @@ export const ARTICLES: ContentPage[] = [
   },
   {
     path: "resources/what-is-an-lpc-associate",
-    related: [LINK.consultation, LINK.arabic, LINK.outdoor],
+    related: [LINK.consultation, LINK.arabic, LINK.outdoor, LINK.lpcVs],
     title: title("What Is an LPC Associate?"),
     description:
       "A plain-language explanation of what an LPC Associate is in Texas, what supervision means, and how to verify a counselor’s license.",
@@ -1408,7 +1432,14 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/adhd-creative-strategies",
     published: "2026-11-18",
-    related: [LINK.adhdTherapy, LINK.adhdDiagnose, LINK.adhdAnxiety, LINK.screening, LINK.selfCare],
+    related: [
+      LINK.adhdTherapy,
+      LINK.adhdDiagnose,
+      LINK.adhdAnxiety,
+      LINK.screening,
+      LINK.selfCare,
+      LINK.adhdWomen,
+    ],
     title: title("ADHD Strategies for Adults"),
     description:
       "Practical, creative ADHD strategies for adults: time, tasks, focus, and stress, and where the body and counseling fit in. Educational, not a diagnosis.",
@@ -1610,7 +1641,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/self-care-for-mental-health",
     published: "2026-11-18",
-    related: [LINK.holisticCounseling, LINK.depression, LINK.outdoor, LINK.adhd],
+    related: [LINK.holisticCounseling, LINK.depression, LINK.outdoor, LINK.adhd, LINK.regulation],
     title: title("Self-Care for Mental Health"),
     description:
       "Research-informed self-care for mental health: sleep, movement, connection, grounding, and limits, plus signs it may be time to talk with a counselor.",
@@ -1847,7 +1878,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/what-is-walk-and-talk-therapy",
     published: "2026-11-19",
-    related: [LINK.outdoor, LINK.outdoorFit, LINK.anxiety],
+    related: [LINK.outdoor, LINK.outdoorFit, LINK.anxiety, LINK.walkBenefits],
     title: title("What Is Walk and Talk Therapy?"),
     description:
       "Walk and talk therapy explained: how a session works, what research says about movement and nature, privacy, and how to tell if it’s a good fit for you.",
@@ -2001,7 +2032,13 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/what-is-holistic-therapy",
     published: "2026-11-19",
-    related: [LINK.holisticCounseling, LINK.anxiety, LINK.depression, LINK.selfCare],
+    related: [
+      LINK.holisticCounseling,
+      LINK.anxiety,
+      LINK.depression,
+      LINK.selfCare,
+      LINK.muslimFaith,
+    ],
     title: title("What Is Holistic Therapy?"),
     description:
       "What holistic therapy means, how it works in talk therapy, what research supports, and how to find a holistic therapist you can trust.",
@@ -2159,7 +2196,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/adhd-and-anxiety",
     published: "2026-11-19",
-    related: [LINK.adhdTherapy, LINK.anxiety, LINK.adhdDiagnose],
+    related: [LINK.adhdTherapy, LINK.anxiety, LINK.adhdDiagnose, LINK.adhdWomen],
     title: title("ADHD and Anxiety in Adults"),
     description:
       "ADHD and anxiety share signs like restlessness and poor focus. How they differ, why they often show up together, and what helps adults with both.",
