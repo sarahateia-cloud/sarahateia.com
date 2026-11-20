@@ -10,7 +10,9 @@ anxious and reading on a phone, so pages should feel calm, plain and trustworthy
 - After each finished feature, **commit and push to a preview branch without asking**. Never
   push to `main` directly.
 - Open a draft pull request for the preview branch if none is open, so Vercel builds a preview.
-- **Only merge to `main` (which publishes the live site) when Sarah says "publish."**
+- **Only merge to `main` (which publishes the live site) when Sarah says "publish."** If she
+  says "commit and publish", do the full flow: branch, commit, push, PR, then merge.
+- Give Sarah the PR link and the Vercel preview link after every push.
 - Before any publish, check that every page that mentions counseling services shows
   "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S" and has no testimonials,
   review widgets or star ratings.
@@ -45,6 +47,14 @@ anxious and reading on a phone, so pages should feel calm, plain and trustworthy
 - Every research claim links to its source. If a claim can't be sourced, flag it instead of
   inventing a citation.
 - No contact form fields that ask for health information.
+- If a change might affect any rule above, flag it so her supervisor can review it before she
+  says "publish".
+
+## Content direction
+
+- Articles stay objective and healing-focused. They feature holistic grounding and
+  research-based mind-body approaches, and target keywords people commonly search in Dallas.
+- Don't lean heavily on faith. The Arabic counseling page is about language and culture.
 
 ## SEO conventions
 
