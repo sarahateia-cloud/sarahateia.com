@@ -367,11 +367,12 @@ function Index() {
               <p>
                 I am a Licensed Professional Counselor Associate (LPC Associate) in Texas and a
                 National Certified Counselor (NCC), with a background in healthcare. Before becoming
-                a counselor, I worked as a TMS technician in an integrative psychiatry practice,
-                which gave me a close look at how mood, the brain, and treatment fit together. (I
-                don’t provide TMS.) I grew up in a multicultural environment, which shaped how I
-                connect with people and how I hold space for different backgrounds and lived
-                experiences. I offer sessions in English and Arabic.
+                a counselor, I worked as a transcranial magnetic stimulation (TMS) technician in an
+                integrative psychiatry practice, which gave me a close look at how mood, the brain,
+                and treatment fit together. (I don’t provide transcranial magnetic stimulation.) I
+                grew up in a multicultural environment, which shaped how I connect with people and
+                how I hold space for different backgrounds and lived experiences. I offer sessions
+                in English and Arabic.
               </p>
               <p>
                 I believe everyone has a blueprint, but most people have not been given the tools to
