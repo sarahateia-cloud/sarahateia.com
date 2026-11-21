@@ -117,6 +117,13 @@ const LINK = {
     label: "Counseling in Farmers Branch, TX",
     href: "/counseling-farmers-branch-tx/",
   },
+  grounding: {
+    label: "Grounding techniques for anxiety",
+    href: "/resources/grounding-techniques-for-anxiety/",
+  },
+  boxBreathing: { label: "Box breathing: how to do it", href: "/resources/box-breathing/" },
+  lpcVsLcsw: { label: "LPC vs. LCSW: what’s the difference?", href: "/resources/lpc-vs-lcsw/" },
+  aboutSarah: { label: "About Sarah Ateia, LPC Associate", href: "/about/" },
   selfReflection: {
     label: "Quotes and self-reflection tools",
     href: "/resources/self-reflection/",
@@ -494,7 +501,7 @@ export const TOPICS: ContentPage[] = [
       LINK.slidingScale,
       LINK.firstSession,
     ],
-    title: "Young Adult Counseling in Dallas, TX",
+    title: "Therapist for Young Adults in Dallas, TX",
     description:
       "Therapy for young adults in Dallas facing anxiety, low mood, ADHD, and big life changes. Walk and talk in DFW or online anywhere in Texas.",
     eyebrow: "Young adults",
@@ -604,6 +611,8 @@ export const TOPICS: ContentPage[] = [
       LINK.regulation,
       LINK.tools,
       LINK.groundingGuide,
+      LINK.grounding,
+      LINK.boxBreathing,
     ],
     title: "Anxiety Therapy in Dallas, TX",
     description:
@@ -1771,6 +1780,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.firstSession,
       LINK.choose,
       LINK.newClients,
+      LINK.aboutSarah,
     ],
     title: title("Free Counseling Consultation"),
     description:
@@ -1861,7 +1871,15 @@ export const ARTICLES: ContentPage[] = [
   },
   {
     path: "resources/what-is-an-lpc-associate",
-    related: [LINK.consultation, LINK.arabic, LINK.outdoor, LINK.lpcVs, LINK.glossary],
+    related: [
+      LINK.consultation,
+      LINK.arabic,
+      LINK.outdoor,
+      LINK.lpcVs,
+      LINK.glossary,
+      LINK.lpcVsLcsw,
+      LINK.aboutSarah,
+    ],
     title: title("What Is an LPC Associate?"),
     description:
       "A plain-language explanation of what an LPC Associate is in Texas, what supervision means, and how to verify a counselor’s license.",
@@ -2585,6 +2603,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.regulation,
       LINK.selfReflection,
       LINK.groundingGuide,
+      LINK.grounding,
     ],
     title: title("Self-Care for Mental Health"),
     description:
@@ -2686,7 +2705,7 @@ export const ARTICLES: ContentPage[] = [
     path: "resources/therapy-cost-without-insurance",
     published: "2026-11-19",
     related: [LINK.affordable, LINK.slidingScale, LINK.telehealth, LINK.consultation],
-    title: title("Therapy Cost Without Insurance"),
+    title: "Therapy Without Insurance: What It Costs in Texas",
     description:
       "What therapy costs without insurance in Texas, what affects the price, your right to a Good Faith Estimate, and practical ways to lower the cost.",
     eyebrow: "Fees",
@@ -3970,7 +3989,14 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/how-to-choose-a-therapist-dallas",
     published: "2026-11-20",
-    related: [LINK.dallas, LINK.lpcVs, LINK.consultation, LINK.affordable],
+    related: [
+      LINK.dallas,
+      LINK.lpcVs,
+      LINK.consultation,
+      LINK.affordable,
+      LINK.lpcVsLcsw,
+      LINK.aboutSarah,
+    ],
     title: title("Choosing a Therapist in Dallas"),
     description:
       "How to choose a therapist in Dallas: what to look for, how to check a Texas license, questions to ask on a free call, and red flags to notice.",
@@ -4198,8 +4224,10 @@ export const ARTICLES: ContentPage[] = [
       LINK.selfReflection,
       LINK.groundingGuide,
       LINK.tools,
+      LINK.grounding,
+      LINK.boxBreathing,
     ],
-    title: title("Nervous System Regulation Tips"),
+    title: "How to Calm Your Nervous System: Regulation Tips",
     description:
       "Research-based nervous system regulation techniques: slow breathing, movement, time in nature, and sleep, plus simple grounding and when to get support.",
     eyebrow: "Mind and body",
@@ -4413,7 +4441,15 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/lpc-vs-lpc-associate-vs-psychologist",
     published: "2026-11-20",
-    related: [LINK.associate, LINK.choose, LINK.telehealth, LINK.adhdDiagnose, LINK.glossary],
+    related: [
+      LINK.associate,
+      LINK.choose,
+      LINK.telehealth,
+      LINK.adhdDiagnose,
+      LINK.glossary,
+      LINK.lpcVsLcsw,
+      LINK.aboutSarah,
+    ],
     title: title("LPC vs. Psychologist in Texas"),
     description:
       "The differences between an LPC, an LPC Associate, and a psychologist in Texas: training, supervision, and how to decide who to see.",
@@ -4499,6 +4535,300 @@ export const ARTICLES: ContentPage[] = [
       {
         q: "Is an LPC Associate still a student?",
         a: "No. An LPC Associate has finished a graduate degree in counseling and holds a Texas license.",
+      },
+    ],
+  },
+  {
+    path: "resources/grounding-techniques-for-anxiety",
+    published: "2026-11-21",
+    related: [LINK.boxBreathing, LINK.regulation, LINK.anxiety, LINK.outdoor, LINK.groundingGuide],
+    title: "Grounding Techniques for Anxiety: How to Use Them",
+    description:
+      "Grounding techniques for anxiety, including the 5-4-3-2-1 method: step-by-step how to use them, what research says, and when to get more support.",
+    eyebrow: "Grounding techniques",
+    heading: "Grounding techniques for anxiety: what they are and how to use them",
+    intro:
+      "Grounding techniques are simple exercises that pull your attention out of anxious thoughts and back to the present moment, using your senses, your body, or your breath. They’re free, take a few minutes, and you can use them anywhere.",
+    takeaways: [
+      "Grounding techniques bring your attention back to the present when anxiety pulls it into worry or panic.",
+      "The 5-4-3-2-1 method uses your five senses and is one of the easiest to remember.",
+      "There’s little research on 5-4-3-2-1 itself, but related practices like slow breathing have research behind them.",
+      "Grounding is a coping skill, not a treatment on its own. If anxiety keeps getting in the way, counseling can help.",
+    ],
+    blocks: [
+      {
+        heading: "What are grounding techniques?",
+        paragraphs: [
+          "Grounding techniques are short exercises that help you notice where you are right now, through what you can see, hear, feel, or breathe.",
+          "When anxiety spikes, your mind races ahead to what might go wrong. Grounding gives your attention something concrete to hold onto, which can make the wave of anxiety easier to ride out.",
+        ],
+      },
+      {
+        heading: "How does the 5-4-3-2-1 grounding technique work?",
+        paragraphs: [
+          "The 5-4-3-2-1 technique walks you through your five senses, counting down from five. Go slowly and name each thing silently or out loud.",
+        ],
+        list: [
+          "Name 5 things you can see",
+          "Name 4 things you can feel, like your feet in your shoes or the chair under you",
+          "Name 3 things you can hear",
+          "Name 2 things you can smell, or two smells you like",
+          "Name 1 thing you can taste, or one thing you’re grateful for",
+        ],
+      },
+      {
+        heading: "What other grounding techniques help with anxiety?",
+        paragraphs: [
+          "Other grounding techniques use your body, temperature, or breath instead of counting senses. Try a few and keep the ones that work for you.",
+        ],
+        list: [
+          "Press your feet into the floor and notice the pressure for a few slow breaths",
+          "Hold something cold, like an ice cube or a cold drink, or run cool water over your hands",
+          "Describe an object near you in detail: its color, shape, weight, and texture",
+          "Pick a category, like dog breeds or cities, and name one for each letter of the alphabet",
+          "Slow your breathing, for example with [box breathing](/resources/box-breathing/)",
+          "Go for a short walk and notice each step",
+        ],
+      },
+      {
+        heading: "Do grounding techniques actually work?",
+        paragraphs: [
+          "Grounding techniques are widely used in counseling, but the 5-4-3-2-1 method itself hasn’t been tested in large studies.",
+          "Related practices do have research behind them. A review of 15 studies found slow breathing was linked with calmer heart and brain activity and less anxiety ([Zaccaro et al., 2018](https://doi.org/10.3389/fnhum.2018.00353)). In a small month-long randomized trial, five minutes a day of structured breathing or mindfulness improved mood and lowered anxiety ([Balban et al., 2023](https://pmc.ncbi.nlm.nih.gov/articles/PMC9873947/)).",
+          "It’s fair to think of grounding as a low-risk tool that helps many people in the moment, not a treatment on its own.",
+        ],
+      },
+      {
+        heading: "When should I use grounding?",
+        paragraphs: [
+          "Grounding is most useful in the moment, when anxiety starts to rise and you want to steady yourself.",
+        ],
+        list: [
+          "During a wave of panic or racing thoughts",
+          "Before a hard conversation, meeting, or appointment",
+          "At night, when worries keep you awake",
+          "After a stressful moment, to come back to yourself",
+        ],
+      },
+      {
+        heading: "What if grounding makes me feel worse?",
+        paragraphs: [
+          "If a grounding exercise brings up upsetting memories or makes you feel more on edge, stop and try a different one.",
+          "Some people do better with movement or cold water than with focusing on their body or breath. That’s normal, and it doesn’t mean you’re doing it wrong.",
+        ],
+      },
+      {
+        heading: "When is grounding not enough?",
+        paragraphs: [
+          "Grounding helps in the moment, but it doesn’t address why anxiety keeps showing up.",
+          "If anxiety is affecting your sleep, work, or relationships, or you’re avoiding things you used to handle, it may be time to talk with a counselor. [Anxiety therapy in Dallas](/anxiety-therapy-dallas/) and [nervous system regulation techniques](/resources/nervous-system-regulation-techniques/) are good next reads.",
+          "If you’re in crisis, call or text 988, or see [local 24/7 crisis lines](/crisis/).",
+        ],
+      },
+      {
+        heading: "Can I practice grounding with a counselor in Dallas–Fort Worth?",
+        paragraphs: [
+          "Yes. Grounding is part of how I work in walk and talk sessions outdoors in Dallas–Fort Worth and in telehealth sessions across Texas.",
+          "I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S. You can also download my free [grounding guide](/guides/grounding-guide.pdf) or try [walk and talk therapy](/outdoor-counseling/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How long does grounding take to work?",
+        a: "It varies. Many people notice a small shift within a few minutes, and practicing when you’re calm makes it easier to use when you’re anxious.",
+      },
+      {
+        q: "Is grounding the same as mindfulness?",
+        a: "They overlap. Grounding is a short, practical way to bring your attention to the present, while mindfulness is a broader practice of noticing your thoughts and feelings without judging them.",
+      },
+      {
+        q: "Can grounding replace therapy?",
+        a: "No. Grounding is a helpful coping skill, but counseling can help you understand and change the patterns behind ongoing anxiety.",
+      },
+    ],
+  },
+  {
+    path: "resources/box-breathing",
+    published: "2026-11-21",
+    related: [LINK.grounding, LINK.regulation, LINK.anxiety, LINK.holisticCounseling],
+    title: "Box Breathing: How to Do It and Why It Helps",
+    description:
+      "How to do box breathing step by step, what a 2023 randomized trial found about breathing exercises and anxiety, and when to use it.",
+    eyebrow: "Breathing exercise",
+    heading: "Box breathing: how to do it, step by step",
+    intro:
+      "Box breathing is a slow breathing exercise where you breathe in, hold, breathe out, and hold again, each for the same count, usually four seconds. It takes about a minute to learn and can help your body settle when you feel stressed or anxious.",
+    takeaways: [
+      "Box breathing has four equal steps: breathe in, hold, breathe out, hold.",
+      "A common pattern is 4 seconds for each step, repeated for a few minutes.",
+      "In a small 2023 randomized trial, five minutes a day of box breathing, cyclic sighing, or mindfulness improved mood and lowered anxiety.",
+      "Stop if you feel lightheaded, and use a shorter count if holding your breath feels uncomfortable.",
+    ],
+    blocks: [
+      {
+        heading: "What is box breathing?",
+        paragraphs: [
+          "Box breathing is a breathing pattern with four equal parts, like the four sides of a box: inhale, hold, exhale, hold.",
+          "Because every step is the same length, it’s easy to remember and easy to do anywhere, with your eyes open or closed.",
+        ],
+      },
+      {
+        heading: "How do you do box breathing?",
+        paragraphs: [
+          "Sit or stand comfortably, relax your shoulders, and follow these steps for two to five minutes.",
+        ],
+        list: [
+          "Breathe in slowly through your nose for a count of 4",
+          "Hold your breath gently for a count of 4",
+          "Breathe out slowly through your mouth for a count of 4",
+          "Hold again for a count of 4",
+          "Repeat, and let your breathing stay soft rather than forced",
+        ],
+      },
+      {
+        heading: "Does box breathing help with anxiety?",
+        paragraphs: [
+          "Box breathing can help some people feel calmer, and there’s early research behind structured breathing exercises.",
+          "In a month-long randomized trial, people did five minutes a day of box breathing, cyclic sighing, cyclic hyperventilation, or mindfulness meditation. All four groups reported better mood and less anxiety each day, and the exhale-focused cyclic sighing group improved mood and lowered breathing rate more than mindfulness ([Balban et al., 2023](https://pmc.ncbi.nlm.nih.gov/articles/PMC9873947/)). It was a small study, so the results are promising rather than proven.",
+          "A review of 15 studies also linked slow breathing with calmer heart and brain activity and less anxiety ([Zaccaro et al., 2018](https://doi.org/10.3389/fnhum.2018.00353)).",
+        ],
+      },
+      {
+        heading: "What is cyclic sighing, and is it better than box breathing?",
+        paragraphs: [
+          "Cyclic sighing is a breathing pattern with two inhales through the nose followed by one long, slow exhale through the mouth.",
+          "In the 2023 trial, cyclic sighing did slightly better than mindfulness on mood. It’s a good option if holding your breath feels uncomfortable.",
+        ],
+      },
+      {
+        heading: "When should you use box breathing?",
+        paragraphs: [
+          "Box breathing works well whenever you want to slow down your body’s stress response.",
+        ],
+        list: [
+          "Before a test, interview, or hard conversation",
+          "When you notice your heart racing or your breath getting shallow",
+          "At bedtime, to help your body wind down",
+          "After a stressful moment at work or at home",
+        ],
+      },
+      {
+        heading: "Who should be careful with box breathing?",
+        paragraphs: [
+          "Most people can try box breathing safely, but stop if you feel dizzy, lightheaded, or more anxious.",
+          "If holding your breath makes you feel panicky, shorten the count to 2 or 3, or skip the holds and simply lengthen your exhale. If you have a heart or lung condition, check with your doctor before starting new breathing exercises.",
+        ],
+      },
+      {
+        heading: "Where can I practice breathing exercises?",
+        paragraphs: [
+          "You can practice right now with the guided [breathing exercise on my home page](/#breathe).",
+          "Breathing pairs well with [grounding techniques for anxiety](/resources/grounding-techniques-for-anxiety/) and other [nervous system regulation techniques](/resources/nervous-system-regulation-techniques/). If anxiety keeps coming back, [anxiety therapy in Dallas](/anxiety-therapy-dallas/) can help you build skills that last.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How long should I do box breathing?",
+        a: "Two to five minutes is a good start. In the 2023 trial, people practiced for five minutes a day.",
+      },
+      {
+        q: "Can I do box breathing with a different count?",
+        a: "Yes. Use whatever count feels comfortable, like 3 or 5 seconds. Keeping all four steps the same length is what makes it box breathing.",
+      },
+      {
+        q: "Is box breathing safe for everyone?",
+        a: "It’s safe for most people. Stop if you feel lightheaded, and talk with your doctor first if you have a heart or lung condition.",
+      },
+    ],
+  },
+  {
+    path: "resources/lpc-vs-lcsw",
+    published: "2026-11-21",
+    related: [LINK.lpcVs, LINK.associate, LINK.choose, LINK.glossary],
+    title: "LPC vs. LCSW: What’s the Difference in Texas?",
+    description:
+      "LPC vs. LCSW in Texas: what each license means, training and supervision requirements, and how to choose a therapist who fits you.",
+    eyebrow: "Therapist licenses",
+    heading: "LPC vs. LCSW: what’s the difference?",
+    intro:
+      "An LPC (Licensed Professional Counselor) and an LCSW (Licensed Clinical Social Worker) can both provide talk therapy in Texas. The main differences are their graduate training and the supervised experience each license requires.",
+    takeaways: [
+      "LPC stands for Licensed Professional Counselor. LCSW stands for Licensed Clinical Social Worker.",
+      "Both can provide talk therapy in Texas, and both are licensed through the Texas Behavioral Health Executive Council.",
+      "LPCs train in counseling; LCSWs train in social work, which also covers community resources and systems.",
+      "Neither LPCs nor LCSWs prescribe medication. Fit with your therapist usually matters more than the letters.",
+    ],
+    blocks: [
+      {
+        heading: "What does LPC stand for?",
+        paragraphs: [
+          "LPC stands for Licensed Professional Counselor, a mental health license for counselors with a graduate degree in counseling.",
+          "In Texas, a new counselor first practices as an LPC Associate under an approved supervisor, then upgrades to a full LPC after at least 3,000 hours of supervised experience over at least 18 months, including 1,500 hours of direct client contact ([BHEC supervision FAQs](https://bhec.texas.gov/tbhec/supervision-faqs/); [22 TAC §681.92](https://www.law.cornell.edu/regulations/texas/22-Tex-Admin-Code-SS-681-92)).",
+        ],
+      },
+      {
+        heading: "What does LCSW stand for?",
+        paragraphs: [
+          "LCSW stands for Licensed Clinical Social Worker, a license for social workers with a master’s degree in social work who provide clinical services like therapy.",
+          "In Texas, a social worker first holds an LMSW (Licensed Master Social Worker) license, then completes 3,000 hours of supervised clinical experience over at least 24 months, with at least 100 hours of supervision, before becoming an LCSW ([BHEC LCSW requirements](https://bhec.texas.gov/texas-state-board-of-social-worker-examiners/applying-for-a-social-work-license/how-to-become-an-lcsw/requirements-for-holders-of-an-lmsw-seeking-an-lcsw/); [22 TAC §781.401](https://regulations.justia.com/states/texas/title-22/part-34/chapter-781/subchapter-c/section-781-401)).",
+        ],
+      },
+      {
+        heading: "What is the difference between an LPC and an LCSW?",
+        paragraphs: [
+          "The biggest difference is training: LPCs study counseling, while LCSWs study social work.",
+        ],
+        list: [
+          "LPC training centers on counseling theories, skills, assessment, and human development",
+          "LCSW training adds a focus on social systems, community resources, and advocacy",
+          "Both complete years of supervised experience before full licensure",
+          "Both can provide talk therapy for concerns like anxiety, depression, stress, and relationships",
+          "Neither can prescribe medication in Texas",
+        ],
+      },
+      {
+        heading: "Is an LPC or LCSW better for therapy?",
+        paragraphs: [
+          "Neither license is better overall; the right therapist is the one whose approach and experience fit what you need.",
+          "Research across many studies finds that the working relationship between you and your therapist is one of the most consistent predictors of progress ([Flückiger et al., 2018](https://doi.org/10.1037/pst0000172)). Ask about approach, experience, fees, and availability, and notice whether you feel understood.",
+        ],
+      },
+      {
+        heading: "How do LPCs and LCSWs compare with psychologists and LMFTs?",
+        paragraphs: [
+          "Psychologists usually hold a doctorate and can do formal psychological testing, and LMFTs (Licensed Marriage and Family Therapists) focus on relationships and family systems.",
+          "You can read more in [LPC vs. LPC Associate vs. psychologist](/resources/lpc-vs-lpc-associate-vs-psychologist/) and [how to choose a therapist in Dallas](/resources/how-to-choose-a-therapist-dallas/).",
+        ],
+      },
+      {
+        heading: "How can I check a therapist’s license in Texas?",
+        paragraphs: [
+          "You can look up any LPC, LPC Associate, or LCSW license on the Texas Behavioral Health Executive Council’s [license verification site](https://vo.licensing.hpc.texas.gov/datamart/selSearchType.do).",
+          "A license lookup shows whether the license is active and whether there are any public disciplinary actions.",
+        ],
+      },
+      {
+        heading: "What kind of license does Sarah Ateia have?",
+        paragraphs: [
+          "I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S.",
+          "That means I’m a counselor in the supervised stage of the LPC path, and I offer talk therapy through walk and talk sessions in Dallas–Fort Worth and telehealth across Texas. Read more in [what is an LPC Associate in Texas?](/resources/what-is-an-lpc-associate/)",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can LPCs and LCSWs prescribe medication?",
+        a: "No. In Texas, medication is prescribed by psychiatrists, other physicians, and some nurse practitioners and physician assistants, not by counselors or social workers.",
+      },
+      {
+        q: "What is an LPC Associate?",
+        a: "An LPC Associate is a counselor with a graduate degree and a Texas license who practices under an approved supervisor while completing the supervised hours needed for a full LPC license.",
+      },
+      {
+        q: "Do LPCs and LCSWs cost different amounts?",
+        a: "Fees vary by therapist rather than by license. Ask about fees, sliding scales, and free consultations before you start.",
       },
     ],
   },

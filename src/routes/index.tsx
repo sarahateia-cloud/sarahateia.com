@@ -397,6 +397,11 @@ function Index() {
                 your biology instead of against it, as you work toward the changes that matter to
                 you.
               </p>
+              <p>
+                <a href="/about/" className="underline underline-offset-4 hover:text-foreground">
+                  More about Sarah, her credentials and what she does and doesn’t do
+                </a>
+              </p>
               <dl data-stagger className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {[
                   [
