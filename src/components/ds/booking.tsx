@@ -42,8 +42,8 @@ export function BookingActions({
         </a>
       </div>
       {requestHref ? (
-        <a href={requestHref} className={QUIET_LINK}>
-          Or ask me to call you
+        <a href={requestHref} className={BUTTON.cta} data-booking="">
+          Request a Call
         </a>
       ) : (
         <ConsultationButton className={QUIET_LINK}>Or ask me to call you</ConsultationButton>

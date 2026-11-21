@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { startVercelAnalytics } from "@/lib/contact-events";
 
 // Google Analytics measurement ID, like "G-XXXXXXXXXX". Nothing loads or shows while this is empty.
 const ANALYTICS_ID: string = "G-JTW95BFYPB";
@@ -170,6 +171,8 @@ function filterOutgoingCounts() {
 function startAnalytics() {
   setDisabled(false);
   countsAllowed = true;
+  // Vercel previews only. It follows the same Accept, Withdraw and private pages as Google.
+  startVercelAnalytics({ allowed: () => countsAllowed, isPrivatePath });
   if (window.dataLayer) return;
   cleanAddress();
   guardPageChanges();
