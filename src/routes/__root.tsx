@@ -1,6 +1,5 @@
 import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
 import { Analytics } from "@/components/analytics";
-import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 
 function NotFoundComponent() {
   return (
@@ -39,9 +38,11 @@ function RootComponent() {
         Skip to main content
       </a>
       {/* The visit counting question sits above the page, never on top of it. The page is
-          wrapped so its floating header starts below the question instead of covering it. */}
+          wrapped so its floating header starts below the question instead of covering it.
+          Vercel Web Analytics is started from there too, only after Accept and never on private
+          pages (see startVercelAnalytics). Don't add Vercel's <Analytics /> component here: it
+          loads before consent and on every page. */}
       <Analytics />
-      <VercelAnalytics />
       <div className="relative">
         <Outlet />
       </div>

@@ -49,8 +49,8 @@ function loadTurnstile() {
   return turnstileLoading;
 }
 
-const INPUT_CLASS =
-  "w-full rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground transition placeholder:text-muted-foreground/60 focus:border-cta focus:outline-none focus:ring-2 focus:ring-cta/25 aria-[invalid=true]:border-destructive aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-destructive/20 aria-[invalid=true]:focus:border-destructive aria-[invalid=true]:focus:ring-destructive/30 sm:text-sm";
+// The design system's field style (see .ds-input in styles.css): 48px tall, 3:1 edge, clear focus.
+const INPUT_CLASS = "ds-input";
 
 const EMAIL_ERROR = "Please check your email address.";
 const PHONE_ERROR = "Please enter a 10-digit phone number.";
@@ -63,7 +63,7 @@ const CONTACT_METHODS = ["Call", "Text", "Email"] as const;
 const SESSION_TYPES = ["In person", "Telehealth", "Walk and talk"] as const;
 
 const CHOICE_CLASS =
-  "flex min-h-11 cursor-pointer items-center justify-center rounded-xl border border-border bg-background px-3 text-center text-sm text-foreground transition-colors hover:border-foreground/40 has-[:checked]:border-cta has-[:checked]:bg-cta/10 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-cta/25";
+  "flex min-h-12 cursor-pointer items-center justify-center rounded-xl border border-input bg-card px-2 text-center text-[1rem] leading-tight text-foreground transition-colors hover:border-foreground has-[:checked]:border-cta has-[:checked]:bg-primary has-[:checked]:font-semibold has-[:checked]:text-primary-foreground has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-cta/40";
 
 /** Blank is fine. Anything typed must look like name@example.com, matching what the browser checks. */
 function isValidEmail(value: string) {

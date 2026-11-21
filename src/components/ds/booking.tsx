@@ -68,21 +68,15 @@ export function SectionHeading({
 }) {
   return (
     <div className={center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
-      {eyebrow && (
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          {eyebrow}
-        </p>
-      )}
+      {eyebrow && <p className="text-sm font-semibold text-clay">{eyebrow}</p>}
       <h2
         id={id}
-        className="mt-3 font-serif text-[2rem] leading-[1.15] text-foreground sm:text-[2.6rem]"
+        className="mt-3 font-serif text-[2rem] leading-[1.12] text-foreground sm:text-[2.6rem]"
       >
         {title}
       </h2>
       {children && (
-        <div className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-          {children}
-        </div>
+        <div className="mt-4 text-base leading-relaxed text-muted-foreground">{children}</div>
       )}
     </div>
   );
@@ -92,7 +86,7 @@ export function SectionHeading({
  * Phone-only bar with the two booking actions. It appears after the hero scrolls away and
  * hides again while a booking form or the booking section is on screen.
  */
-export function StickyCallBar() {
+export function StickyCallBar({ bookLabel = "Book a Free Call" }: { bookLabel?: string }) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -124,7 +118,7 @@ export function StickyCallBar() {
       inert={!show}
     >
       <div className="mx-auto flex max-w-md gap-3">
-        <BookCallLink className={`${BUTTON.cta} flex-1 px-4`}>Book a Free Call</BookCallLink>
+        <BookCallLink className={`${BUTTON.cta} flex-1 px-4`}>{bookLabel}</BookCallLink>
         <a
           href={PHONE_HREF}
           className={`${BUTTON.secondary} px-5`}

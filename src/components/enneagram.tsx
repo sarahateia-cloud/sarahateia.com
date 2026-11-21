@@ -278,11 +278,11 @@ export function Enneagram() {
           <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{type.wants}</p>
           <dl className="mt-4 grid grid-cols-1 gap-3 text-sm sm:grid-cols-2">
             <div>
-              <dt className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Virtue</dt>
+              <dt className="text-sm font-semibold text-muted-foreground">Virtue</dt>
               <dd className="mt-1 text-foreground">{type.virtue}</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Vice</dt>
+              <dt className="text-sm font-semibold text-muted-foreground">Vice</dt>
               <dd className="mt-1 text-foreground">{type.vice}</dd>
             </div>
           </dl>

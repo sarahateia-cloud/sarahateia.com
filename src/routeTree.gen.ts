@@ -10,10 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YoungAdultCounselingRouteImport } from './routes/young-adult-counseling'
+import { Route as WalkAndTalkTherapyDallasRouteImport } from './routes/walk-and-talk-therapy-dallas'
+import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as TelehealthCounselingTexasRouteImport } from './routes/telehealth-counseling-texas'
 import { Route as TelehealthCounselingRouteImport } from './routes/telehealth-counseling'
 import { Route as ScreeningToolsRouteImport } from './routes/screening-tools'
-import { Route as OutdoorCounselingRouteImport } from './routes/outdoor-counseling'
 import { Route as NewClientsRouteImport } from './routes/new-clients'
 import { Route as HolisticCounselingRouteImport } from './routes/holistic-counseling'
 import { Route as GlossaryRouteImport } from './routes/glossary'
@@ -33,13 +34,26 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResourcesIndexRouteImport } from './routes/resources/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as ArIndexRouteImport } from './routes/ar/index'
 import { Route as ResourcesSelfReflectionRouteImport } from './routes/resources/self-reflection'
 import { Route as ResourcesSlugRouteImport } from './routes/resources/$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
+import { Route as ArArabicCounselingRouteImport } from './routes/ar/arabic-counseling'
 
 const YoungAdultCounselingRoute = YoungAdultCounselingRouteImport.update({
   id: '/young-adult-counseling',
   path: '/young-adult-counseling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WalkAndTalkTherapyDallasRoute =
+  WalkAndTalkTherapyDallasRouteImport.update({
+    id: '/walk-and-talk-therapy-dallas',
+    path: '/walk-and-talk-therapy-dallas',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ToolsRoute = ToolsRouteImport.update({
+  id: '/tools',
+  path: '/tools',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TelehealthCounselingTexasRoute =
@@ -56,11 +70,6 @@ const TelehealthCounselingRoute = TelehealthCounselingRouteImport.update({
 const ScreeningToolsRoute = ScreeningToolsRouteImport.update({
   id: '/screening-tools',
   path: '/screening-tools',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OutdoorCounselingRoute = OutdoorCounselingRouteImport.update({
-  id: '/outdoor-counseling',
-  path: '/outdoor-counseling',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewClientsRoute = NewClientsRouteImport.update({
@@ -161,6 +170,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArIndexRoute = ArIndexRouteImport.update({
+  id: '/ar/',
+  path: '/ar/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResourcesSelfReflectionRoute = ResourcesSelfReflectionRouteImport.update({
   id: '/resources/self-reflection',
   path: '/resources/self-reflection',
@@ -174,6 +188,11 @@ const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/blog/$slug',
   path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArArabicCounselingRoute = ArArabicCounselingRouteImport.update({
+  id: '/ar/arabic-counseling',
+  path: '/ar/arabic-counseling',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -195,14 +214,17 @@ export interface FileRoutesByFullPath {
   '/glossary': typeof GlossaryRoute
   '/holistic-counseling': typeof HolisticCounselingRoute
   '/new-clients': typeof NewClientsRoute
-  '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
+  '/tools': typeof ToolsRoute
+  '/walk-and-talk-therapy-dallas': typeof WalkAndTalkTherapyDallasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
+  '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
+  '/ar/': typeof ArIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/resources/': typeof ResourcesIndexRoute
 }
@@ -224,14 +246,17 @@ export interface FileRoutesByTo {
   '/glossary': typeof GlossaryRoute
   '/holistic-counseling': typeof HolisticCounselingRoute
   '/new-clients': typeof NewClientsRoute
-  '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
+  '/tools': typeof ToolsRoute
+  '/walk-and-talk-therapy-dallas': typeof WalkAndTalkTherapyDallasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
+  '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
+  '/ar': typeof ArIndexRoute
   '/blog': typeof BlogIndexRoute
   '/resources': typeof ResourcesIndexRoute
 }
@@ -254,14 +279,17 @@ export interface FileRoutesById {
   '/glossary': typeof GlossaryRoute
   '/holistic-counseling': typeof HolisticCounselingRoute
   '/new-clients': typeof NewClientsRoute
-  '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
+  '/tools': typeof ToolsRoute
+  '/walk-and-talk-therapy-dallas': typeof WalkAndTalkTherapyDallasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
+  '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
+  '/ar/': typeof ArIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/resources/': typeof ResourcesIndexRoute
 }
@@ -285,14 +313,17 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/holistic-counseling'
     | '/new-clients'
-    | '/outdoor-counseling'
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
+    | '/tools'
+    | '/walk-and-talk-therapy-dallas'
     | '/young-adult-counseling'
+    | '/ar/arabic-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
     | '/resources/self-reflection'
+    | '/ar/'
     | '/blog/'
     | '/resources/'
   fileRoutesByTo: FileRoutesByTo
@@ -314,14 +345,17 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/holistic-counseling'
     | '/new-clients'
-    | '/outdoor-counseling'
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
+    | '/tools'
+    | '/walk-and-talk-therapy-dallas'
     | '/young-adult-counseling'
+    | '/ar/arabic-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
     | '/resources/self-reflection'
+    | '/ar'
     | '/blog'
     | '/resources'
   id:
@@ -343,14 +377,17 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/holistic-counseling'
     | '/new-clients'
-    | '/outdoor-counseling'
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
+    | '/tools'
+    | '/walk-and-talk-therapy-dallas'
     | '/young-adult-counseling'
+    | '/ar/arabic-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
     | '/resources/self-reflection'
+    | '/ar/'
     | '/blog/'
     | '/resources/'
   fileRoutesById: FileRoutesById
@@ -373,14 +410,17 @@ export interface RootRouteChildren {
   GlossaryRoute: typeof GlossaryRoute
   HolisticCounselingRoute: typeof HolisticCounselingRoute
   NewClientsRoute: typeof NewClientsRoute
-  OutdoorCounselingRoute: typeof OutdoorCounselingRoute
   ScreeningToolsRoute: typeof ScreeningToolsRoute
   TelehealthCounselingRoute: typeof TelehealthCounselingRoute
   TelehealthCounselingTexasRoute: typeof TelehealthCounselingTexasRoute
+  ToolsRoute: typeof ToolsRoute
+  WalkAndTalkTherapyDallasRoute: typeof WalkAndTalkTherapyDallasRoute
   YoungAdultCounselingRoute: typeof YoungAdultCounselingRoute
+  ArArabicCounselingRoute: typeof ArArabicCounselingRoute
   BlogSlugRoute: typeof BlogSlugRoute
   ResourcesSlugRoute: typeof ResourcesSlugRoute
   ResourcesSelfReflectionRoute: typeof ResourcesSelfReflectionRoute
+  ArIndexRoute: typeof ArIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
@@ -392,6 +432,20 @@ declare module '@tanstack/react-router' {
       path: '/young-adult-counseling'
       fullPath: '/young-adult-counseling'
       preLoaderRoute: typeof YoungAdultCounselingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/walk-and-talk-therapy-dallas': {
+      id: '/walk-and-talk-therapy-dallas'
+      path: '/walk-and-talk-therapy-dallas'
+      fullPath: '/walk-and-talk-therapy-dallas'
+      preLoaderRoute: typeof WalkAndTalkTherapyDallasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools': {
+      id: '/tools'
+      path: '/tools'
+      fullPath: '/tools'
+      preLoaderRoute: typeof ToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/telehealth-counseling-texas': {
@@ -413,13 +467,6 @@ declare module '@tanstack/react-router' {
       path: '/screening-tools'
       fullPath: '/screening-tools'
       preLoaderRoute: typeof ScreeningToolsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/outdoor-counseling': {
-      id: '/outdoor-counseling'
-      path: '/outdoor-counseling'
-      fullPath: '/outdoor-counseling'
-      preLoaderRoute: typeof OutdoorCounselingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/new-clients': {
@@ -555,6 +602,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ar/': {
+      id: '/ar/'
+      path: '/ar'
+      fullPath: '/ar/'
+      preLoaderRoute: typeof ArIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/resources/self-reflection': {
       id: '/resources/self-reflection'
       path: '/resources/self-reflection'
@@ -574,6 +628,13 @@ declare module '@tanstack/react-router' {
       path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ar/arabic-counseling': {
+      id: '/ar/arabic-counseling'
+      path: '/ar/arabic-counseling'
+      fullPath: '/ar/arabic-counseling'
+      preLoaderRoute: typeof ArArabicCounselingRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -597,14 +658,17 @@ const rootRouteChildren: RootRouteChildren = {
   GlossaryRoute: GlossaryRoute,
   HolisticCounselingRoute: HolisticCounselingRoute,
   NewClientsRoute: NewClientsRoute,
-  OutdoorCounselingRoute: OutdoorCounselingRoute,
   ScreeningToolsRoute: ScreeningToolsRoute,
   TelehealthCounselingRoute: TelehealthCounselingRoute,
   TelehealthCounselingTexasRoute: TelehealthCounselingTexasRoute,
+  ToolsRoute: ToolsRoute,
+  WalkAndTalkTherapyDallasRoute: WalkAndTalkTherapyDallasRoute,
   YoungAdultCounselingRoute: YoungAdultCounselingRoute,
+  ArArabicCounselingRoute: ArArabicCounselingRoute,
   BlogSlugRoute: BlogSlugRoute,
   ResourcesSlugRoute: ResourcesSlugRoute,
   ResourcesSelfReflectionRoute: ResourcesSelfReflectionRoute,
+  ArIndexRoute: ArIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,
 }

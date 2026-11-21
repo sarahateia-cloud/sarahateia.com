@@ -3,6 +3,7 @@ import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { VisitStatisticsNote } from "@/components/analytics";
 import { BookCallLink } from "@/components/ds/booking";
 import { BUTTON } from "@/components/ds/buttons";
+import { LanguageToggle } from "@/components/language-toggle";
 import { Logo } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 import { FOOTER_AREAS, FOOTER_RESOURCES, SERVICES } from "@/content/services";
@@ -17,13 +18,17 @@ const NAV_LINKS: { label: string; href: string; menuOnly?: boolean }[] = [
   { label: "Fees", href: "/#fees" },
   { label: "Resources", href: "/resources/" },
   { label: "Screening Tools", href: "/screening-tools/", menuOnly: true },
+  { label: "Calming Tools", href: "/tools/", menuOnly: true },
   { label: "FAQ", href: "/#faq" },
   { label: "New Clients", href: "/new-clients/" },
   { label: "Crisis Resources", href: "/crisis/" },
 ];
 
-/** `dark` styles the header for the dark hero it sits over. */
-export function SiteHeader({ dark = false }: { dark?: boolean }) {
+/**
+ * `dark` styles the header for the dark hero it sits over. `arabicHref` adds the English/Arabic
+ * switch on pages that have an Arabic version.
+ */
+export function SiteHeader({ dark = false, arabicHref }: { dark?: boolean; arabicHref?: string }) {
   const [open, setOpen] = useState(false);
   const services = useRef<HTMLDetailsElement>(null);
 
@@ -58,10 +63,10 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
       className={`absolute top-0 left-0 right-0 ${open ? "z-[60]" : "z-30"} ${dark ? "holo-scope" : ""}`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 sm:py-8">
-        <a href="/" aria-label="Sarah Ateia Khattab, home" className="lg:min-w-64">
+        <a href="/" aria-label="Sarah Ateia Khattab, home" className="xl:min-w-60 xl:pe-6">
           <Logo />
         </a>
-        <div className="hidden flex-shrink-0 items-center gap-5 whitespace-nowrap text-sm text-muted-foreground lg:flex xl:gap-7">
+        <div className="hidden flex-shrink-0 items-center gap-4 whitespace-nowrap text-sm text-muted-foreground xl:flex">
           <details ref={services} className="relative">
             <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1 transition-colors hover:text-foreground [&::-webkit-details-marker]:hidden">
               Services
@@ -89,9 +94,11 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
               {link.label}
             </a>
           ))}
+          {arabicHref && <LanguageToggle href={arabicHref} to="ar" />}
           <BookCallLink className={BUTTON.ctaSmall}>Book a Free Call</BookCallLink>
         </div>
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 xl:hidden">
+          {arabicHref && <LanguageToggle href={arabicHref} to="ar" compact />}
           <a
             href={PHONE_HREF}
             className={`${BUTTON.ctaSmall} px-4`}
@@ -143,9 +150,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
                 </li>
               ))}
             </ul>
-            <p className="mt-10 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              Services
-            </p>
+            <p className="mt-10 text-sm font-semibold text-clay">Services</p>
             <ul className="mt-2 grid grid-cols-1 gap-x-6 sm:grid-cols-2">
               {SERVICES.map((service) => (
                 <li key={service.href}>
@@ -324,7 +329,7 @@ export function NoticeToClients({ className = "" }: { className?: string }) {
     <div
       className={`rounded-2xl border border-border bg-card/60 p-5 leading-relaxed text-muted-foreground ${className}`}
     >
-      <p className="font-medium uppercase tracking-[0.16em] text-foreground">Notice to clients</p>
+      <p className="font-semibold text-foreground">Notice to clients</p>
       <p className="mt-2">
         The Texas Behavioral Health Executive Council investigates and prosecutes professional
         misconduct committed by marriage and family therapists, professional counselors,

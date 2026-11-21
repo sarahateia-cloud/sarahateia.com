@@ -10,7 +10,7 @@ function Glossary() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
-      <main className="mx-auto max-w-3xl px-6 pt-32 pb-20 sm:pt-40">
+      <main id="main" className="mx-auto max-w-3xl px-6 pt-36 pb-20 sm:pt-40">
         <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
           <a href="/" className="underline-offset-4 hover:text-foreground hover:underline">
             Home
@@ -23,7 +23,7 @@ function Glossary() {
             Resources
           </a>
         </nav>
-        <p className="mt-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">Glossary</p>
+        <p className="mt-6 text-sm font-semibold text-clay">Glossary</p>
         <h1 className="mt-3 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
           Counseling words in English and Arabic.
         </h1>

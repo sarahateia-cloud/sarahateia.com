@@ -3,7 +3,9 @@
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 
-const { render, SITE_PAGES } = await import(pathToFileURL("dist-ssr/entry-prerender.js").href);
+const { render, SITE_PAGES, ARABIC_PAGES, AR_DRAFT } = await import(
+  pathToFileURL("dist-ssr/entry-prerender.js").href
+);
 
 const SITE = "https://www.sarahateia.com";
 // Placeholders in index.html (a sameAs profile link or a search engine verification code that
@@ -70,6 +72,45 @@ const PAGES = [
       "Free, optional screening questionnaires for depression, anxiety, ADHD, and trauma, with guidance on how to use them before or during counseling.",
   },
   {
+    path: "tools",
+    graph: [
+      ...crumbs(["Resources", `${SITE}/resources/`], ["Calming tools", `${SITE}/tools/`]),
+      {
+        "@type": "HowTo",
+        "@id": `${SITE}/tools/#box-breathing`,
+        name: "How to do box breathing (4-4-4-4)",
+        description:
+          "A slow, even breathing pattern: breathe in for 4 counts, hold for 4, breathe out for 4, hold for 4.",
+        totalTime: "PT1M",
+        url: `${SITE}/tools/#box-breathing`,
+        step: [
+          ["Breathe in", "Breathe in slowly through your nose for a count of 4."],
+          ["Hold", "Hold your breath gently, lungs full, for a count of 4."],
+          ["Breathe out", "Breathe out slowly through your mouth for a count of 4."],
+          ["Hold", "Hold gently, lungs empty, for a count of 4. Repeat for about four rounds."],
+        ].map(([name, text], i) => ({ "@type": "HowToStep", position: i + 1, name, text })),
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${SITE}/tools/#grounding`,
+        name: "How to do the 5-4-3-2-1 grounding exercise",
+        description:
+          "A grounding exercise that brings attention back to the present, one sense at a time.",
+        url: `${SITE}/tools/#grounding`,
+        step: [
+          "Name 5 things you can see.",
+          "Name 4 things you can feel.",
+          "Name 3 things you can hear.",
+          "Name 2 things you can smell.",
+          "Name 1 thing you can taste.",
+        ].map((text, i) => ({ "@type": "HowToStep", position: i + 1, name: text, text })),
+      },
+    ],
+    title: "Box Breathing & Grounding | Sarah Ateia, LPC Associate",
+    description:
+      "Free box breathing guide, 5-4-3-2-1 grounding exercise and stress check-in. No login, nothing saved. From Sarah Ateia, LPC Associate in Irving, TX.",
+  },
+  {
     path: "new-clients",
     graph: crumbs(["New client forms", `${SITE}/new-clients/`]),
     title: "New Client Forms | Sarah Ateia, LPC Associate",
@@ -77,6 +118,27 @@ const PAGES = [
       "What to expect before your first session, plus every form to read ahead: consent and fees, Good Faith Estimate, intake, privacy, and releases.",
   },
 ];
+
+// Arabic pages (right to left). While AR_DRAFT is on they're built for review but set to noindex
+// and kept out of the sitemap. Each one is paired with its English page through hreflang links.
+const AR_BUILT = ARABIC_PAGES.map((page) => ({
+  path: page.path,
+  title: page.title,
+  description: page.description,
+  arabic: true,
+  englishPath: page.englishPath,
+  graph: [
+    {
+      "@type": "WebPage",
+      "@id": `${SITE}/${page.path}/#page`,
+      name: page.title,
+      url: `${SITE}/${page.path}/`,
+      inLanguage: "ar",
+      isPartOf: { "@id": `${SITE}/#website` },
+    },
+  ],
+}));
+const INDEXED_AR = AR_DRAFT ? [] : AR_BUILT;
 
 // The home page's FAQ labels only describe the home page, so each other page gets its own labels.
 const setLabels = (doc, graph = []) =>
@@ -130,7 +192,7 @@ const prerender = async (doc, route) => {
 };
 
 // Stop the build if the sitemap lists anything other than the pages built here.
-const builtUrls = ["", ...[...PAGES, ...SITE_PAGES].map((page) => `${page.path}/`)]
+const builtUrls = ["", ...[...PAGES, ...SITE_PAGES, ...INDEXED_AR].map((page) => `${page.path}/`)]
   .map((path) => `${SITE}/${path}`)
   .sort();
 const sitemapUrls = [...readFileSync("dist/sitemap.xml", "utf8").matchAll(/<loc>(.*?)<\/loc>/g)]
@@ -162,7 +224,28 @@ for (const page of [...PAGES, ...SITE_PAGES]) {
     await prerender(setMeta(html, page), `/${page.path}`),
   );
 }
+for (const page of AR_BUILT) {
+  mkdirSync(`dist/${page.path}`, { recursive: true });
+  let doc = setMeta(html, page)
+    .replace('<html lang="en">', '<html lang="ar" dir="rtl">')
+    .replace('content="en_US"', 'content="ar_AR"');
+  if (AR_DRAFT) doc = setAttribute(doc, 'name="robots"', "noindex, follow");
+  writeFileSync(`dist/${page.path}/index.html`, await prerender(doc, `/${page.path}/`));
+}
 writeFileSync("dist/index.html", await prerender(html, "/"));
+
+// hreflang: each English page and its Arabic version point at each other, with English as the
+// default for everyone else.
+for (const page of AR_BUILT) {
+  const en = `${SITE}${page.englishPath}`;
+  const ar = `${SITE}/${page.path}/`;
+  const links = `<link rel="alternate" hreflang="en" href="${en}" /><link rel="alternate" hreflang="ar" href="${ar}" /><link rel="alternate" hreflang="x-default" href="${en}" />`;
+  for (const file of [`dist${page.englishPath}index.html`, `dist/${page.path}/index.html`]) {
+    const doc = readFileSync(file, "utf8");
+    if (!doc.includes('hreflang="ar"'))
+      writeFileSync(file, doc.replace("</head>", `${links}</head>`));
+  }
+}
 // The fallback page for unknown addresses. It is served with a 404 status, so it should never
 // look like a copy of the home page: no canonical, no shared description, and noindex.
 const notFound = setAttribute(html, 'name="robots"', "noindex, follow")
@@ -232,7 +315,10 @@ for (const url of builtUrls) {
 
 // Old addresses. GitHub Pages can't send a real 301, so each old address gets a tiny page that
 // sends people on at once and tells search engines which page is the real one.
-const REDIRECTS = { "telehealth-counseling": "telehealth-counseling-texas" };
+const REDIRECTS = {
+  "telehealth-counseling": "telehealth-counseling-texas",
+  "outdoor-counseling": "walk-and-talk-therapy-dallas",
+};
 for (const [from, to] of Object.entries(REDIRECTS)) {
   const target = `${SITE}/${to}/`;
   mkdirSync(`dist/${from}`, { recursive: true });

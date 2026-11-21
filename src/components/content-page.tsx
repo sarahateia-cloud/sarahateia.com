@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 /** Turns [label](url) in page text into links. External links (sources) open in the same tab. */
-function Inline({ text }: { text: string }) {
+export function Inline({ text }: { text: string }) {
   const parts = text.split(/\[([^\]]+)\]\(((?:https?:\/\/|\/)[^)\s]+)\)/g);
   return (
     <>
@@ -34,15 +34,17 @@ export function ContentPageView({
   page,
   parent,
   note,
+  arabicHref,
 }: {
   page: ContentPage;
+  arabicHref?: string;
   parent?: { label: string; href: string };
   note?: ReactNode;
 }) {
   return (
     <div className="min-h-screen bg-background pb-24 text-foreground md:pb-0">
-      <SiteHeader />
-      <main id="main" className="mx-auto max-w-3xl px-6 pt-32 max-[340px]:pt-36 pb-20 sm:pt-40">
+      <SiteHeader arabicHref={arabicHref} />
+      <main id="main" className="mx-auto max-w-3xl px-6 pt-36 max-[340px]:pt-40 pb-20 sm:pt-40">
         <div id="top">
           <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
             <a
@@ -63,9 +65,7 @@ export function ContentPageView({
               </>
             )}
           </nav>
-          <p className="mt-4 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            {page.eyebrow}
-          </p>
+          <p className="mt-4 text-sm font-semibold text-clay">{page.eyebrow}</p>
           <h1 className="mt-3 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
             {page.heading}
           </h1>
@@ -84,14 +84,11 @@ export function ContentPageView({
             </p>
           )}
           {page.takeaways && (
-            <section
-              aria-labelledby="key-takeaways"
-              className="mt-8 rounded-2xl border border-border bg-card p-6"
-            >
+            <section aria-labelledby="key-takeaways" className="ds-card mt-8 p-6">
               <h2 id="key-takeaways" className="font-serif text-xl text-foreground">
                 Key takeaways
               </h2>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-[1.0625rem] leading-relaxed text-muted-foreground marker:text-taupe">
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-relaxed text-muted-foreground marker:text-taupe">
                 {page.takeaways.map((item) => (
                   <li key={item}>
                     <Inline text={item} />
@@ -109,15 +106,12 @@ export function ContentPageView({
               {block.heading}
             </h2>
             {block.paragraphs?.map((paragraph) => (
-              <p
-                key={paragraph}
-                className="mt-4 text-[1.0625rem] leading-relaxed text-muted-foreground"
-              >
+              <p key={paragraph} className="mt-4 text-base leading-relaxed text-muted-foreground">
                 <Inline text={paragraph} />
               </p>
             ))}
             {block.list && (
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-[1.0625rem] leading-relaxed text-muted-foreground marker:text-taupe">
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-base leading-relaxed text-muted-foreground marker:text-taupe">
                 {block.list.map((item) => (
                   <li key={item}>
                     <Inline text={item} />
@@ -131,11 +125,11 @@ export function ContentPageView({
         {page.faqs && (
           <section className="mt-14">
             <h2 className="font-serif text-2xl text-foreground sm:text-3xl">Common questions</h2>
-            <div className="mt-6 divide-y divide-border rounded-3xl border border-border bg-card">
+            <div className="ds-card mt-6 divide-y divide-border">
               {page.faqs.map((faq) => (
                 <div key={faq.q} className="px-6 py-5 sm:px-8">
-                  <h3 className="font-serif text-lg text-foreground">{faq.q}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <h3 className="font-serif text-xl text-foreground">{faq.q}</h3>
+                  <p className="mt-2 text-base leading-relaxed text-muted-foreground">
                     <Inline text={faq.a} />
                   </p>
                 </div>
@@ -165,7 +159,7 @@ export function ContentPageView({
         )}
 
         {page.disclaimer && (
-          <p className="mt-8 rounded-2xl border border-border bg-card px-6 py-4 text-sm leading-relaxed text-muted-foreground">
+          <p className="ds-card-quiet mt-8 px-6 py-4 text-sm leading-relaxed text-muted-foreground">
             {page.disclaimer}
           </p>
         )}
@@ -194,10 +188,7 @@ export function ContentPageView({
           </nav>
         )}
 
-        <section
-          id="consult"
-          className="mt-14 rounded-3xl border border-border bg-card px-6 py-10 text-center sm:px-10"
-        >
+        <section id="consult" className="ds-card mt-14 px-6 py-10 text-center sm:px-10">
           <LogoMark className="mx-auto mb-4 h-11 w-11" />
           <h2 className="font-serif text-2xl text-foreground sm:text-3xl">
             Start with a free 15-minute consultation.
