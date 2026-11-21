@@ -106,7 +106,7 @@ const PAGES = [
         ].map((text, i) => ({ "@type": "HowToStep", position: i + 1, name: text, text })),
       },
     ],
-    title: "Box Breathing & Grounding | Sarah Ateia, LPC Associate",
+    title: "Free Calming Tools | Sarah Ateia, LPC Associate",
     description:
       "Free box breathing guide, 5-4-3-2-1 grounding exercise and stress check-in. No login, nothing saved. From Sarah Ateia, LPC Associate in Irving, TX.",
   },

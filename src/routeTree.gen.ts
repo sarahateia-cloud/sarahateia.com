@@ -39,6 +39,7 @@ import { Route as ResourcesSelfReflectionRouteImport } from './routes/resources/
 import { Route as ResourcesSlugRouteImport } from './routes/resources/$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as ArArabicCounselingRouteImport } from './routes/ar/arabic-counseling'
+import { Route as ArAboutRouteImport } from './routes/ar/about'
 
 const YoungAdultCounselingRoute = YoungAdultCounselingRouteImport.update({
   id: '/young-adult-counseling',
@@ -195,6 +196,11 @@ const ArArabicCounselingRoute = ArArabicCounselingRouteImport.update({
   path: '/ar/arabic-counseling',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArAboutRoute = ArAboutRouteImport.update({
+  id: '/ar/about',
+  path: '/ar/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -220,6 +226,7 @@ export interface FileRoutesByFullPath {
   '/tools': typeof ToolsRoute
   '/walk-and-talk-therapy-dallas': typeof WalkAndTalkTherapyDallasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
+  '/ar/about': typeof ArAboutRoute
   '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
@@ -252,6 +259,7 @@ export interface FileRoutesByTo {
   '/tools': typeof ToolsRoute
   '/walk-and-talk-therapy-dallas': typeof WalkAndTalkTherapyDallasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
+  '/ar/about': typeof ArAboutRoute
   '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
@@ -285,6 +293,7 @@ export interface FileRoutesById {
   '/tools': typeof ToolsRoute
   '/walk-and-talk-therapy-dallas': typeof WalkAndTalkTherapyDallasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
+  '/ar/about': typeof ArAboutRoute
   '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
@@ -319,6 +328,7 @@ export interface FileRouteTypes {
     | '/tools'
     | '/walk-and-talk-therapy-dallas'
     | '/young-adult-counseling'
+    | '/ar/about'
     | '/ar/arabic-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
@@ -351,6 +361,7 @@ export interface FileRouteTypes {
     | '/tools'
     | '/walk-and-talk-therapy-dallas'
     | '/young-adult-counseling'
+    | '/ar/about'
     | '/ar/arabic-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
@@ -383,6 +394,7 @@ export interface FileRouteTypes {
     | '/tools'
     | '/walk-and-talk-therapy-dallas'
     | '/young-adult-counseling'
+    | '/ar/about'
     | '/ar/arabic-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
@@ -416,6 +428,7 @@ export interface RootRouteChildren {
   ToolsRoute: typeof ToolsRoute
   WalkAndTalkTherapyDallasRoute: typeof WalkAndTalkTherapyDallasRoute
   YoungAdultCounselingRoute: typeof YoungAdultCounselingRoute
+  ArAboutRoute: typeof ArAboutRoute
   ArArabicCounselingRoute: typeof ArArabicCounselingRoute
   BlogSlugRoute: typeof BlogSlugRoute
   ResourcesSlugRoute: typeof ResourcesSlugRoute
@@ -637,6 +650,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArArabicCounselingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ar/about': {
+      id: '/ar/about'
+      path: '/ar/about'
+      fullPath: '/ar/about'
+      preLoaderRoute: typeof ArAboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -664,6 +684,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsRoute: ToolsRoute,
   WalkAndTalkTherapyDallasRoute: WalkAndTalkTherapyDallasRoute,
   YoungAdultCounselingRoute: YoungAdultCounselingRoute,
+  ArAboutRoute: ArAboutRoute,
   ArArabicCounselingRoute: ArArabicCounselingRoute,
   BlogSlugRoute: BlogSlugRoute,
   ResourcesSlugRoute: ResourcesSlugRoute,

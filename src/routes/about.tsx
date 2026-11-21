@@ -10,9 +10,9 @@ const PSYCHOLOGY_TODAY =
   "https://www.psychologytoday.com/us/therapists/sarah-ateia-khattab-supervised-by-don-zablosky-l-irving-tx/1869085";
 
 const H2 = "mt-12 font-serif text-2xl leading-snug text-foreground sm:text-3xl";
-const P = "mt-4 text-[1.0625rem] leading-relaxed text-muted-foreground";
+const P = "mt-4 text-base leading-relaxed text-muted-foreground";
 const UL =
-  "mt-4 list-disc space-y-2 pl-5 text-[1.0625rem] leading-relaxed text-muted-foreground marker:text-taupe";
+  "mt-4 list-disc space-y-2 pl-5 text-base leading-relaxed text-muted-foreground marker:text-taupe";
 const A = "underline underline-offset-4 hover:text-foreground";
 
 /**
@@ -23,16 +23,14 @@ const A = "underline underline-offset-4 hover:text-foreground";
 function About() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <SiteHeader />
-      <main id="main" className="mx-auto max-w-3xl px-6 pt-32 max-[340px]:pt-36 pb-20 sm:pt-40">
+      <SiteHeader arabicHref="/ar/about/" />
+      <main id="main" className="mx-auto max-w-3xl px-6 pt-44 max-[340px]:pt-48 pb-20 sm:pt-40">
         <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
           <a href="/" className="inline-flex min-h-11 items-center hover:text-foreground">
             Home
           </a>
         </nav>
-        <p className="mt-4 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          About
-        </p>
+        <p className="mt-4 text-sm font-semibold text-clay">About</p>
         <h1 className="mt-3 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
           About Sarah Ateia, LPC Associate
         </h1>
@@ -51,7 +49,7 @@ function About() {
         </p>
         <ul className={UL}>
           <li>
-            <a href="/outdoor-counseling/" className={A}>
+            <a href="/walk-and-talk-therapy-dallas/" className={A}>
               Walk and talk therapy
             </a>{" "}
             outdoors, usually on a trail in Irving, instead of an office

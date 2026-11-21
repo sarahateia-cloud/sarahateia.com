@@ -91,6 +91,14 @@ export function ArabicPageView({ page }: { page: ArabicPage }) {
                   {p}
                 </p>
               ))}
+              {section.link && (
+                <a
+                  href={section.link.href}
+                  className="mt-4 inline-flex min-h-11 items-center text-lg font-semibold text-primary-foreground underline underline-offset-4"
+                >
+                  {section.link.label}
+                </a>
+              )}
               {section.list && (
                 <ul className="ds-card mt-5 divide-y divide-border px-6 text-lg leading-loose text-muted-foreground">
                   {section.list.map((item) => (

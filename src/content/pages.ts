@@ -4541,7 +4541,14 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/grounding-techniques-for-anxiety",
     published: "2026-11-21",
-    related: [LINK.boxBreathing, LINK.regulation, LINK.anxiety, LINK.outdoor, LINK.groundingGuide],
+    related: [
+      LINK.boxBreathing,
+      LINK.tools,
+      LINK.regulation,
+      LINK.anxiety,
+      LINK.outdoor,
+      LINK.groundingGuide,
+    ],
     title: "Grounding Techniques for Anxiety: How to Use Them",
     description:
       "Grounding techniques for anxiety, including the 5-4-3-2-1 method: step-by-step how to use them, what research says, and when to get more support.",
@@ -4629,7 +4636,7 @@ export const ARTICLES: ContentPage[] = [
         heading: "Can I practice grounding with a counselor in Dallas–Fort Worth?",
         paragraphs: [
           "Yes. Grounding is part of how I work in walk and talk sessions outdoors in Dallas–Fort Worth and in telehealth sessions across Texas.",
-          "I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S. You can also download my free [grounding guide](/guides/grounding-guide.pdf) or try [walk and talk therapy](/outdoor-counseling/).",
+          "I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S. You can also download my free [grounding guide](/guides/grounding-guide.pdf) or try [walk and talk therapy](/walk-and-talk-therapy-dallas/).",
         ],
       },
     ],
@@ -4651,7 +4658,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/box-breathing",
     published: "2026-11-21",
-    related: [LINK.grounding, LINK.regulation, LINK.anxiety, LINK.holisticCounseling],
+    related: [LINK.grounding, LINK.tools, LINK.regulation, LINK.anxiety, LINK.holisticCounseling],
     title: "Box Breathing: How to Do It and Why It Helps",
     description:
       "How to do box breathing step by step, what a 2023 randomized trial found about breathing exercises and anxiety, and when to use it.",
