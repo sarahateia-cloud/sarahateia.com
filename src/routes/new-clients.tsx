@@ -9,6 +9,7 @@ import {
   SiteHeader,
 } from "@/components/site-header";
 import { SCREENING_TOOLS } from "@/content/screening-tools";
+import { CurrentClientBooking } from "@/components/ds/booking";
 import { ACTIVE_PAYMENT_LINKS } from "@/lib/payments";
 
 export const Route = createFileRoute("/new-clients")({
@@ -71,6 +72,8 @@ function NewClients() {
           Here’s what to expect, and every form you’ll be asked to sign, so you can read them at
           your own pace beforehand.
         </p>
+
+        <CurrentClientBooking className="mt-10" />
 
         <ol className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {STEPS.map((step, i) => (
