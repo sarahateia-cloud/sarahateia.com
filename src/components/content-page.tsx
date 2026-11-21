@@ -69,11 +69,35 @@ export function ContentPageView({
           <h1 className="mt-3 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
             {page.heading}
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{page.intro}</p>
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+            <Inline text={page.intro} />
+          </p>
+          {/* Who, what and where, stated plainly near the top of every page. */}
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            Sarah Ateia, LPC Associate (supervised by Don Zablosky, LPC-S), offers counseling in
+            Irving and across Dallas–Fort Worth, and telehealth anywhere in Texas.
+          </p>
           {page.arabicIntro && (
             <p lang="ar" dir="rtl" className="mt-4 text-lg leading-relaxed text-muted-foreground">
               {page.arabicIntro}
             </p>
+          )}
+          {page.takeaways && (
+            <section
+              aria-labelledby="key-takeaways"
+              className="mt-8 rounded-2xl border border-border bg-card p-6"
+            >
+              <h2 id="key-takeaways" className="font-serif text-xl text-foreground">
+                Key takeaways
+              </h2>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-[1.0625rem] leading-relaxed text-muted-foreground marker:text-taupe">
+                {page.takeaways.map((item) => (
+                  <li key={item}>
+                    <Inline text={item} />
+                  </li>
+                ))}
+              </ul>
+            </section>
           )}
           <BookingActions className="mt-8" />
         </div>

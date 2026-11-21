@@ -13,6 +13,8 @@ export type ContentPage = {
   eyebrow: string;
   heading: string;
   intro: string;
+  /** Short "Key takeaways" bullets shown at the top of a guide, for readers and AI answer engines. */
+  takeaways?: string[];
   blocks: Block[];
   faqs?: Faq[];
   /** Other pages on the site to suggest at the end, so every page is linked from more than one place. */
