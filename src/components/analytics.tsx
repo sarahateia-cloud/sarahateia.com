@@ -17,6 +17,9 @@ const COLLECTED =
   "the pages you view, how far you scroll and how long you stay, your device, browser, screen size and language setting, and your approximate location, which Google works out from your internet connection";
 
 const CONSENT_TEXT = `With your permission, I’d use Google Analytics to count visits and see which pages are useful. If you accept, Google receives ${COLLECTED}. It also sets a cookie so it can recognize your browser on later visits. Google Analytics collects nothing unless you accept, and the site works the same either way.`;
+// The one-line version shown first; the full text above is one tap away under “What’s shared”.
+const CONSENT_SUMMARY =
+  "I count visits with Google Analytics, which sets a cookie, but only if you accept. The site works the same either way.";
 
 // Only pages that are live belong here. All three are excluded by PRIVATE_PATHS above.
 const NOT_COUNTED = "Visits to the crisis, New Clients, and Screening Tools pages aren’t counted";
@@ -232,9 +235,9 @@ function setChoice(choice: Choice) {
 }
 
 /**
- * Asks first, and only loads Google Analytics after a visitor chooses Accept. The question
- * sits at the very top of the page, in the page itself, so it never covers the booking form
- * or anything else.
+ * Asks first, and only loads Google Analytics after a visitor chooses Accept. The question is a
+ * small card at the bottom of the screen with a one-line summary; the full wording opens under
+ * "What’s shared", so the page itself is the first thing a visitor sees.
  */
 export function Analytics() {
   const [asking, setAsking] = useState(false);
@@ -274,7 +277,7 @@ export function Analytics() {
 
   // Accept and Reject look exactly alike, so neither is nudged.
   const choiceButton =
-    "min-h-11 flex-1 rounded-full border border-foreground/40 bg-background px-6 text-sm font-medium text-foreground transition-colors hover:bg-muted sm:w-32 sm:flex-none";
+    "min-h-11 flex-1 rounded-full border border-foreground/40 bg-background px-6 text-sm font-medium text-foreground transition-[background-color,transform] duration-150 hover:bg-muted active:scale-[0.97] motion-reduce:active:scale-100 sm:w-32 sm:flex-none";
 
   return (
     <div
@@ -282,21 +285,23 @@ export function Analytics() {
       tabIndex={-1}
       role="region"
       aria-label="Visit counting choice"
-      className="relative z-40 border-b border-border bg-card focus:outline-none"
+      className="consent-sheet fixed inset-x-3 bottom-3 z-50 mx-auto max-w-xl rounded-2xl border border-border bg-card p-4 shadow-[0_8px_30px_rgb(0_0_0/0.08)] focus:outline-none sm:inset-x-6 sm:bottom-6 sm:p-5"
     >
-      <div className="mx-auto max-w-6xl px-6 py-4 lg:flex lg:items-center lg:gap-8">
-        <div className="lg:flex-1">
-          <p className="font-medium text-foreground">Count your visit?</p>
-          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{CONSENT_TEXT}</p>
-        </div>
-        <div className="mt-3 flex gap-3 lg:mt-0">
-          <button type="button" onClick={() => choose("allow")} className={choiceButton}>
-            Accept
-          </button>
-          <button type="button" onClick={() => choose("decline")} className={choiceButton}>
-            Reject
-          </button>
-        </div>
+      <p className="font-medium text-foreground">Cookies</p>
+      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{CONSENT_SUMMARY}</p>
+      <details className="mt-1 text-sm text-muted-foreground">
+        <summary className="inline-flex min-h-11 cursor-pointer items-center underline underline-offset-4 hover:text-foreground">
+          What’s shared
+        </summary>
+        <p className="pb-2 leading-relaxed">{CONSENT_TEXT}</p>
+      </details>
+      <div className="mt-2 flex gap-3">
+        <button type="button" onClick={() => choose("allow")} className={choiceButton}>
+          Accept
+        </button>
+        <button type="button" onClick={() => choose("decline")} className={choiceButton}>
+          Reject
+        </button>
       </div>
     </div>
   );

@@ -1117,13 +1117,13 @@
 /* Phone booking bar: slides up once the page's opening section is out of view. */
 .sticky-call {
   transform: translateY(110%);
-  transition: transform 250ms ease-out;
+  transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 .sticky-call[data-show="true"] {
   transform: translateY(0);
 }
 /* Never cover the visit-statistics question. */
-body:has([aria-label="Visit statistics choice"]) .sticky-call {
+body:has([aria-label="Visit counting choice"]) .sticky-call {
   display: none;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1141,6 +1141,10 @@ body:has([aria-label="Visit statistics choice"]) .sticky-call {
   .nudge-link:hover .nudge-icon {
     transform: translate(2px, -2px);
   }
+  /* Internal "Keep reading" links point forward, not out of the site. */
+  .nudge-link:hover .nudge-icon.nudge-right {
+    transform: translateX(3px);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .nudge-icon {
@@ -1148,5 +1152,102 @@ body:has([aria-label="Visit statistics choice"]) .sticky-call {
   }
   .nudge-link:hover .nudge-icon {
     transform: none;
+  }
+}
+
+/* Visit-counting card: rises in once, on the drawer curve. Never moves for reduced motion. */
+.consent-sheet {
+  transition:
+    transform 400ms cubic-bezier(0.32, 0.72, 0, 1),
+    opacity 300ms ease;
+}
+@starting-style {
+  .consent-sheet {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .consent-sheet {
+    transition: opacity 200ms ease;
+  }
+  @starting-style {
+    .consent-sheet {
+      transform: none;
+    }
+  }
+}
+
+/* Desktop Services menu: grows from its button, the way a dropdown should. Occasional, so 160ms. */
+.services-menu {
+  transform-origin: top left;
+  transition:
+    transform 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+@starting-style {
+  details[open] > .services-menu {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+
+/* Phone menu: settles in rather than appearing all at once. */
+.menu-sheet {
+  transition:
+    opacity 200ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+@starting-style {
+  .menu-sheet {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+/* "Thank you" after a call request: a rare moment, so it gets a little more care.
+   The check draws itself, then the words rise into place. */
+.success-check path {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  animation: success-draw 450ms cubic-bezier(0.23, 1, 0.32, 1) 120ms forwards;
+}
+.success-rise {
+  animation: success-rise 400ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+@keyframes success-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes success-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-menu,
+  .menu-sheet {
+    transition: opacity 150ms ease;
+  }
+  @starting-style {
+    details[open] > .services-menu,
+    .menu-sheet {
+      transform: none;
+    }
+  }
+  .success-check path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .success-rise {
+    animation-name: success-fade;
+  }
+  @keyframes success-fade {
+    from {
+      opacity: 0;
+    }
   }
 }

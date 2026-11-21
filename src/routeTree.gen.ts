@@ -9,17 +9,42 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YoungAdultCounselingRouteImport } from './routes/young-adult-counseling'
+import { Route as TelehealthCounselingTexasRouteImport } from './routes/telehealth-counseling-texas'
 import { Route as TelehealthCounselingRouteImport } from './routes/telehealth-counseling'
 import { Route as ScreeningToolsRouteImport } from './routes/screening-tools'
 import { Route as OutdoorCounselingRouteImport } from './routes/outdoor-counseling'
 import { Route as NewClientsRouteImport } from './routes/new-clients'
+import { Route as HolisticCounselingRouteImport } from './routes/holistic-counseling'
 import { Route as GlossaryRouteImport } from './routes/glossary'
+import { Route as DepressionCounselingDallasRouteImport } from './routes/depression-counseling-dallas'
 import { Route as CrisisRouteImport } from './routes/crisis'
+import { Route as CounselingLasColinasTxRouteImport } from './routes/counseling-las-colinas-tx'
+import { Route as CounselingIrvingTxRouteImport } from './routes/counseling-irving-tx'
+import { Route as CounselingGrandPrairieTxRouteImport } from './routes/counseling-grand-prairie-tx'
+import { Route as CounselingFarmersBranchTxRouteImport } from './routes/counseling-farmers-branch-tx'
+import { Route as CounselingDallasTxRouteImport } from './routes/counseling-dallas-tx'
+import { Route as CounselingCoppellTxRouteImport } from './routes/counseling-coppell-tx'
 import { Route as ArabicCounselingRouteImport } from './routes/arabic-counseling'
+import { Route as AnxietyTherapyDallasRouteImport } from './routes/anxiety-therapy-dallas'
+import { Route as AffordableTherapyDallasRouteImport } from './routes/affordable-therapy-dallas'
+import { Route as AdhdTherapyRouteImport } from './routes/adhd-therapy'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResourcesIndexRouteImport } from './routes/resources/index'
+import { Route as ResourcesSelfReflectionRouteImport } from './routes/resources/self-reflection'
 import { Route as ResourcesSlugRouteImport } from './routes/resources/$slug'
 
+const YoungAdultCounselingRoute = YoungAdultCounselingRouteImport.update({
+  id: '/young-adult-counseling',
+  path: '/young-adult-counseling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TelehealthCounselingTexasRoute =
+  TelehealthCounselingTexasRouteImport.update({
+    id: '/telehealth-counseling-texas',
+    path: '/telehealth-counseling-texas',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const TelehealthCounselingRoute = TelehealthCounselingRouteImport.update({
   id: '/telehealth-counseling',
   path: '/telehealth-counseling',
@@ -40,19 +65,77 @@ const NewClientsRoute = NewClientsRouteImport.update({
   path: '/new-clients',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HolisticCounselingRoute = HolisticCounselingRouteImport.update({
+  id: '/holistic-counseling',
+  path: '/holistic-counseling',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GlossaryRoute = GlossaryRouteImport.update({
   id: '/glossary',
   path: '/glossary',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DepressionCounselingDallasRoute =
+  DepressionCounselingDallasRouteImport.update({
+    id: '/depression-counseling-dallas',
+    path: '/depression-counseling-dallas',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CrisisRoute = CrisisRouteImport.update({
   id: '/crisis',
   path: '/crisis',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CounselingLasColinasTxRoute = CounselingLasColinasTxRouteImport.update({
+  id: '/counseling-las-colinas-tx',
+  path: '/counseling-las-colinas-tx',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CounselingIrvingTxRoute = CounselingIrvingTxRouteImport.update({
+  id: '/counseling-irving-tx',
+  path: '/counseling-irving-tx',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CounselingGrandPrairieTxRoute =
+  CounselingGrandPrairieTxRouteImport.update({
+    id: '/counseling-grand-prairie-tx',
+    path: '/counseling-grand-prairie-tx',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CounselingFarmersBranchTxRoute =
+  CounselingFarmersBranchTxRouteImport.update({
+    id: '/counseling-farmers-branch-tx',
+    path: '/counseling-farmers-branch-tx',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CounselingDallasTxRoute = CounselingDallasTxRouteImport.update({
+  id: '/counseling-dallas-tx',
+  path: '/counseling-dallas-tx',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CounselingCoppellTxRoute = CounselingCoppellTxRouteImport.update({
+  id: '/counseling-coppell-tx',
+  path: '/counseling-coppell-tx',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ArabicCounselingRoute = ArabicCounselingRouteImport.update({
   id: '/arabic-counseling',
   path: '/arabic-counseling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnxietyTherapyDallasRoute = AnxietyTherapyDallasRouteImport.update({
+  id: '/anxiety-therapy-dallas',
+  path: '/anxiety-therapy-dallas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AffordableTherapyDallasRoute = AffordableTherapyDallasRouteImport.update({
+  id: '/affordable-therapy-dallas',
+  path: '/affordable-therapy-dallas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdhdTherapyRoute = AdhdTherapyRouteImport.update({
+  id: '/adhd-therapy',
+  path: '/adhd-therapy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -65,6 +148,11 @@ const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
   path: '/resources/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResourcesSelfReflectionRoute = ResourcesSelfReflectionRouteImport.update({
+  id: '/resources/self-reflection',
+  path: '/resources/self-reflection',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
   id: '/resources/$slug',
   path: '/resources/$slug',
@@ -73,95 +161,207 @@ const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/adhd-therapy': typeof AdhdTherapyRoute
+  '/affordable-therapy-dallas': typeof AffordableTherapyDallasRoute
+  '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
+  '/counseling-coppell-tx': typeof CounselingCoppellTxRoute
+  '/counseling-dallas-tx': typeof CounselingDallasTxRoute
+  '/counseling-farmers-branch-tx': typeof CounselingFarmersBranchTxRoute
+  '/counseling-grand-prairie-tx': typeof CounselingGrandPrairieTxRoute
+  '/counseling-irving-tx': typeof CounselingIrvingTxRoute
+  '/counseling-las-colinas-tx': typeof CounselingLasColinasTxRoute
   '/crisis': typeof CrisisRoute
+  '/depression-counseling-dallas': typeof DepressionCounselingDallasRoute
   '/glossary': typeof GlossaryRoute
+  '/holistic-counseling': typeof HolisticCounselingRoute
   '/new-clients': typeof NewClientsRoute
   '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
+  '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
+  '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/resources/$slug': typeof ResourcesSlugRoute
+  '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
   '/resources/': typeof ResourcesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/adhd-therapy': typeof AdhdTherapyRoute
+  '/affordable-therapy-dallas': typeof AffordableTherapyDallasRoute
+  '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
+  '/counseling-coppell-tx': typeof CounselingCoppellTxRoute
+  '/counseling-dallas-tx': typeof CounselingDallasTxRoute
+  '/counseling-farmers-branch-tx': typeof CounselingFarmersBranchTxRoute
+  '/counseling-grand-prairie-tx': typeof CounselingGrandPrairieTxRoute
+  '/counseling-irving-tx': typeof CounselingIrvingTxRoute
+  '/counseling-las-colinas-tx': typeof CounselingLasColinasTxRoute
   '/crisis': typeof CrisisRoute
+  '/depression-counseling-dallas': typeof DepressionCounselingDallasRoute
   '/glossary': typeof GlossaryRoute
+  '/holistic-counseling': typeof HolisticCounselingRoute
   '/new-clients': typeof NewClientsRoute
   '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
+  '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
+  '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/resources/$slug': typeof ResourcesSlugRoute
+  '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
   '/resources': typeof ResourcesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/adhd-therapy': typeof AdhdTherapyRoute
+  '/affordable-therapy-dallas': typeof AffordableTherapyDallasRoute
+  '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
+  '/counseling-coppell-tx': typeof CounselingCoppellTxRoute
+  '/counseling-dallas-tx': typeof CounselingDallasTxRoute
+  '/counseling-farmers-branch-tx': typeof CounselingFarmersBranchTxRoute
+  '/counseling-grand-prairie-tx': typeof CounselingGrandPrairieTxRoute
+  '/counseling-irving-tx': typeof CounselingIrvingTxRoute
+  '/counseling-las-colinas-tx': typeof CounselingLasColinasTxRoute
   '/crisis': typeof CrisisRoute
+  '/depression-counseling-dallas': typeof DepressionCounselingDallasRoute
   '/glossary': typeof GlossaryRoute
+  '/holistic-counseling': typeof HolisticCounselingRoute
   '/new-clients': typeof NewClientsRoute
   '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
+  '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
+  '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/resources/$slug': typeof ResourcesSlugRoute
+  '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
   '/resources/': typeof ResourcesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/adhd-therapy'
+    | '/affordable-therapy-dallas'
+    | '/anxiety-therapy-dallas'
     | '/arabic-counseling'
+    | '/counseling-coppell-tx'
+    | '/counseling-dallas-tx'
+    | '/counseling-farmers-branch-tx'
+    | '/counseling-grand-prairie-tx'
+    | '/counseling-irving-tx'
+    | '/counseling-las-colinas-tx'
     | '/crisis'
+    | '/depression-counseling-dallas'
     | '/glossary'
+    | '/holistic-counseling'
     | '/new-clients'
     | '/outdoor-counseling'
     | '/screening-tools'
     | '/telehealth-counseling'
+    | '/telehealth-counseling-texas'
+    | '/young-adult-counseling'
     | '/resources/$slug'
+    | '/resources/self-reflection'
     | '/resources/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/adhd-therapy'
+    | '/affordable-therapy-dallas'
+    | '/anxiety-therapy-dallas'
     | '/arabic-counseling'
+    | '/counseling-coppell-tx'
+    | '/counseling-dallas-tx'
+    | '/counseling-farmers-branch-tx'
+    | '/counseling-grand-prairie-tx'
+    | '/counseling-irving-tx'
+    | '/counseling-las-colinas-tx'
     | '/crisis'
+    | '/depression-counseling-dallas'
     | '/glossary'
+    | '/holistic-counseling'
     | '/new-clients'
     | '/outdoor-counseling'
     | '/screening-tools'
     | '/telehealth-counseling'
+    | '/telehealth-counseling-texas'
+    | '/young-adult-counseling'
     | '/resources/$slug'
+    | '/resources/self-reflection'
     | '/resources'
   id:
     | '__root__'
     | '/'
+    | '/adhd-therapy'
+    | '/affordable-therapy-dallas'
+    | '/anxiety-therapy-dallas'
     | '/arabic-counseling'
+    | '/counseling-coppell-tx'
+    | '/counseling-dallas-tx'
+    | '/counseling-farmers-branch-tx'
+    | '/counseling-grand-prairie-tx'
+    | '/counseling-irving-tx'
+    | '/counseling-las-colinas-tx'
     | '/crisis'
+    | '/depression-counseling-dallas'
     | '/glossary'
+    | '/holistic-counseling'
     | '/new-clients'
     | '/outdoor-counseling'
     | '/screening-tools'
     | '/telehealth-counseling'
+    | '/telehealth-counseling-texas'
+    | '/young-adult-counseling'
     | '/resources/$slug'
+    | '/resources/self-reflection'
     | '/resources/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdhdTherapyRoute: typeof AdhdTherapyRoute
+  AffordableTherapyDallasRoute: typeof AffordableTherapyDallasRoute
+  AnxietyTherapyDallasRoute: typeof AnxietyTherapyDallasRoute
   ArabicCounselingRoute: typeof ArabicCounselingRoute
+  CounselingCoppellTxRoute: typeof CounselingCoppellTxRoute
+  CounselingDallasTxRoute: typeof CounselingDallasTxRoute
+  CounselingFarmersBranchTxRoute: typeof CounselingFarmersBranchTxRoute
+  CounselingGrandPrairieTxRoute: typeof CounselingGrandPrairieTxRoute
+  CounselingIrvingTxRoute: typeof CounselingIrvingTxRoute
+  CounselingLasColinasTxRoute: typeof CounselingLasColinasTxRoute
   CrisisRoute: typeof CrisisRoute
+  DepressionCounselingDallasRoute: typeof DepressionCounselingDallasRoute
   GlossaryRoute: typeof GlossaryRoute
+  HolisticCounselingRoute: typeof HolisticCounselingRoute
   NewClientsRoute: typeof NewClientsRoute
   OutdoorCounselingRoute: typeof OutdoorCounselingRoute
   ScreeningToolsRoute: typeof ScreeningToolsRoute
   TelehealthCounselingRoute: typeof TelehealthCounselingRoute
+  TelehealthCounselingTexasRoute: typeof TelehealthCounselingTexasRoute
+  YoungAdultCounselingRoute: typeof YoungAdultCounselingRoute
   ResourcesSlugRoute: typeof ResourcesSlugRoute
+  ResourcesSelfReflectionRoute: typeof ResourcesSelfReflectionRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/young-adult-counseling': {
+      id: '/young-adult-counseling'
+      path: '/young-adult-counseling'
+      fullPath: '/young-adult-counseling'
+      preLoaderRoute: typeof YoungAdultCounselingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/telehealth-counseling-texas': {
+      id: '/telehealth-counseling-texas'
+      path: '/telehealth-counseling-texas'
+      fullPath: '/telehealth-counseling-texas'
+      preLoaderRoute: typeof TelehealthCounselingTexasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/telehealth-counseling': {
       id: '/telehealth-counseling'
       path: '/telehealth-counseling'
@@ -190,11 +390,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewClientsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/holistic-counseling': {
+      id: '/holistic-counseling'
+      path: '/holistic-counseling'
+      fullPath: '/holistic-counseling'
+      preLoaderRoute: typeof HolisticCounselingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/glossary': {
       id: '/glossary'
       path: '/glossary'
       fullPath: '/glossary'
       preLoaderRoute: typeof GlossaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/depression-counseling-dallas': {
+      id: '/depression-counseling-dallas'
+      path: '/depression-counseling-dallas'
+      fullPath: '/depression-counseling-dallas'
+      preLoaderRoute: typeof DepressionCounselingDallasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/crisis': {
@@ -204,11 +418,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CrisisRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/counseling-las-colinas-tx': {
+      id: '/counseling-las-colinas-tx'
+      path: '/counseling-las-colinas-tx'
+      fullPath: '/counseling-las-colinas-tx'
+      preLoaderRoute: typeof CounselingLasColinasTxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/counseling-irving-tx': {
+      id: '/counseling-irving-tx'
+      path: '/counseling-irving-tx'
+      fullPath: '/counseling-irving-tx'
+      preLoaderRoute: typeof CounselingIrvingTxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/counseling-grand-prairie-tx': {
+      id: '/counseling-grand-prairie-tx'
+      path: '/counseling-grand-prairie-tx'
+      fullPath: '/counseling-grand-prairie-tx'
+      preLoaderRoute: typeof CounselingGrandPrairieTxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/counseling-farmers-branch-tx': {
+      id: '/counseling-farmers-branch-tx'
+      path: '/counseling-farmers-branch-tx'
+      fullPath: '/counseling-farmers-branch-tx'
+      preLoaderRoute: typeof CounselingFarmersBranchTxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/counseling-dallas-tx': {
+      id: '/counseling-dallas-tx'
+      path: '/counseling-dallas-tx'
+      fullPath: '/counseling-dallas-tx'
+      preLoaderRoute: typeof CounselingDallasTxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/counseling-coppell-tx': {
+      id: '/counseling-coppell-tx'
+      path: '/counseling-coppell-tx'
+      fullPath: '/counseling-coppell-tx'
+      preLoaderRoute: typeof CounselingCoppellTxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/arabic-counseling': {
       id: '/arabic-counseling'
       path: '/arabic-counseling'
       fullPath: '/arabic-counseling'
       preLoaderRoute: typeof ArabicCounselingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/anxiety-therapy-dallas': {
+      id: '/anxiety-therapy-dallas'
+      path: '/anxiety-therapy-dallas'
+      fullPath: '/anxiety-therapy-dallas'
+      preLoaderRoute: typeof AnxietyTherapyDallasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/affordable-therapy-dallas': {
+      id: '/affordable-therapy-dallas'
+      path: '/affordable-therapy-dallas'
+      fullPath: '/affordable-therapy-dallas'
+      preLoaderRoute: typeof AffordableTherapyDallasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/adhd-therapy': {
+      id: '/adhd-therapy'
+      path: '/adhd-therapy'
+      fullPath: '/adhd-therapy'
+      preLoaderRoute: typeof AdhdTherapyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -225,6 +502,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/resources/self-reflection': {
+      id: '/resources/self-reflection'
+      path: '/resources/self-reflection'
+      fullPath: '/resources/self-reflection'
+      preLoaderRoute: typeof ResourcesSelfReflectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/resources/$slug': {
       id: '/resources/$slug'
       path: '/resources/$slug'
@@ -237,14 +521,28 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdhdTherapyRoute: AdhdTherapyRoute,
+  AffordableTherapyDallasRoute: AffordableTherapyDallasRoute,
+  AnxietyTherapyDallasRoute: AnxietyTherapyDallasRoute,
   ArabicCounselingRoute: ArabicCounselingRoute,
+  CounselingCoppellTxRoute: CounselingCoppellTxRoute,
+  CounselingDallasTxRoute: CounselingDallasTxRoute,
+  CounselingFarmersBranchTxRoute: CounselingFarmersBranchTxRoute,
+  CounselingGrandPrairieTxRoute: CounselingGrandPrairieTxRoute,
+  CounselingIrvingTxRoute: CounselingIrvingTxRoute,
+  CounselingLasColinasTxRoute: CounselingLasColinasTxRoute,
   CrisisRoute: CrisisRoute,
+  DepressionCounselingDallasRoute: DepressionCounselingDallasRoute,
   GlossaryRoute: GlossaryRoute,
+  HolisticCounselingRoute: HolisticCounselingRoute,
   NewClientsRoute: NewClientsRoute,
   OutdoorCounselingRoute: OutdoorCounselingRoute,
   ScreeningToolsRoute: ScreeningToolsRoute,
   TelehealthCounselingRoute: TelehealthCounselingRoute,
+  TelehealthCounselingTexasRoute: TelehealthCounselingTexasRoute,
+  YoungAdultCounselingRoute: YoungAdultCounselingRoute,
   ResourcesSlugRoute: ResourcesSlugRoute,
+  ResourcesSelfReflectionRoute: ResourcesSelfReflectionRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,
 }
 export const routeTree = rootRouteImport

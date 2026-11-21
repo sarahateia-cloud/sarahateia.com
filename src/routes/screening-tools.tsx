@@ -20,8 +20,7 @@ function ScreeningTools() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title =
-      "Optional Screening Tools | Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S";
+    document.title = "Optional Screening Tools | Sarah Ateia, LPC Associate";
   }, []);
 
   return (

@@ -39,3 +39,16 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # After the site is live, tell IndexNow (Bing, Yandex, Seznam, Naver) to recrawl every sitemap URL.
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/indexnow-submit.mjs --origin https://www.sarahateia.com

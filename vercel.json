@@ -1,0 +1,25 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/telehealth-counseling",
+      "destination": "/telehealth-counseling-texas/",
+      "permanent": true
+    },
+    {
+      "source": "/telehealth-counseling/",
+      "destination": "/telehealth-counseling-texas/",
+      "permanent": true
+    }
+  ]
+}

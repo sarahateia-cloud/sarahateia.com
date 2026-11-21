@@ -54,8 +54,7 @@ const FORMS = [
 
 function NewClients() {
   useEffect(() => {
-    document.title =
-      "New Client Forms | Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S";
+    document.title = "New Client Forms | Sarah Ateia, LPC Associate";
   }, []);
 
   return (

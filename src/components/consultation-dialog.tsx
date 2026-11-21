@@ -162,11 +162,11 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
     return (
       <div className="py-8 text-center" role="status">
         <div
-          className="mx-auto flex h-14 w-14 items-center justify-center rounded-full"
+          className="success-rise mx-auto flex h-14 w-14 items-center justify-center rounded-full"
           style={{ background: "color-mix(in oklab, var(--sage) 50%, transparent)" }}
         >
           <svg
-            className="h-6 w-6 text-foreground"
+            className="success-check h-6 w-6 text-foreground"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -176,8 +176,16 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <p className="mt-6 font-serif text-2xl text-foreground">Thank you.</p>
-        <p className="mx-auto mt-3 max-w-sm text-base text-muted-foreground">
+        <p
+          className="success-rise mt-6 font-serif text-2xl text-foreground"
+          style={{ animationDelay: "180ms" }}
+        >
+          Thank you.
+        </p>
+        <p
+          className="success-rise mx-auto mt-3 max-w-sm text-base text-muted-foreground"
+          style={{ animationDelay: "240ms" }}
+        >
           I’ll call you soon for your free 15-minute consultation.
         </p>
       </div>
@@ -284,9 +292,13 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
       </button>
       {!ready && (
         <p className="text-center text-sm text-muted-foreground">
-          The form is still loading. If it doesn’t start working, please call{" "}
+          Prefer not to wait for the form? Call{" "}
           <a href={PHONE_HREF} className="underline underline-offset-4">
             {PHONE_DISPLAY}
+          </a>{" "}
+          or email{" "}
+          <a href="mailto:attya.llc@gmail.com" className="underline underline-offset-4">
+            attya.llc@gmail.com
           </a>
           .
         </p>
