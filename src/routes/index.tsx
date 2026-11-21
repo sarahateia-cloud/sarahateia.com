@@ -7,6 +7,7 @@ import { LogoMark } from "@/components/logo";
 import { NatureBand } from "@/components/nature-band";
 import { WatercolorBloom } from "@/components/watercolor-bloom";
 import { Tilt, useScrollReveal } from "@/components/motion";
+import { ScrollWords, useScrollScenes } from "@/components/scroll-scenes";
 import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
 import sarahHeadshot from "@/assets/sarah-headshot.webp";
 import sarahGraduation from "@/assets/sarah-graduation.webp";
@@ -186,6 +187,7 @@ const CARD = "rounded-2xl border border-border bg-card p-6";
 
 function Index() {
   useScrollReveal();
+  useScrollScenes();
 
   return (
     <div className="min-h-screen bg-background pb-24 text-foreground md:pb-0">
@@ -293,8 +295,11 @@ function Index() {
 
         {/* 3. The photo headline. */}
         <section className="ds-section">
-          <p className="reveal mx-auto max-w-4xl px-6 text-center font-serif text-[2rem] font-light leading-[1.3] tracking-[-0.01em] text-foreground sm:text-5xl sm:leading-[1.25]">
-            Counseling outdoors{" "}
+          <p
+            data-scroll-words
+            className="mx-auto max-w-4xl px-6 text-center font-serif text-[2rem] font-light leading-[1.3] tracking-[-0.01em] text-foreground sm:text-5xl sm:leading-[1.25]"
+          >
+            <ScrollWords text="Counseling outdoors" />{" "}
             <InlinePhoto
               src={sarahOverlook}
               alt="Sarah looking out over the city from an open-air terrace"
@@ -303,7 +308,7 @@ function Index() {
               position="60% 45%"
               tilt="-rotate-3"
             />{" "}
-            or from home{" "}
+            <ScrollWords text="or from home" />{" "}
             <InlinePhoto
               src={chicoPortrait}
               alt="Chico, Sarah’s orange cat, wearing a gray hoodie"
@@ -312,7 +317,11 @@ function Index() {
               position="50% 20%"
               tilt="rotate-3"
             />
-            , in <em className="text-taupe">English</em> or <em className="text-taupe">Arabic</em>.
+            <span className="scroll-word">, in</span>{" "}
+            <em className="scroll-word text-taupe">English</em>{" "}
+            <span className="scroll-word">or</span>{" "}
+            <em className="scroll-word text-taupe">Arabic</em>
+            <span className="scroll-word">.</span>
           </p>
         </section>
 
@@ -353,7 +362,7 @@ function Index() {
           <div className="reveal mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <SectionHeading eyebrow="About" title="A relational, considered approach." />
-              <figure className="mx-auto mt-8 max-w-xs lg:max-w-none">
+              <figure data-parallax="28" className="mx-auto mt-8 max-w-xs lg:max-w-none">
                 <Tilt>
                   <img
                     src={sarahGraduation}
@@ -388,7 +397,7 @@ function Index() {
                 your biology instead of against it, as you work toward the changes that matter to
                 you.
               </p>
-              <dl className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <dl data-stagger className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {[
                   [
                     "Graduate Study",
@@ -462,7 +471,7 @@ function Index() {
             <SectionHeading title="Who I support" center>
               <p>Some of the areas I focus on.</p>
             </SectionHeading>
-            <ul className="mt-8 flex flex-wrap justify-center gap-2">
+            <ul data-stagger className="mt-8 flex flex-wrap justify-center gap-2">
               {SUPPORT_AREAS.map((item) => (
                 <li
                   key={item}
@@ -639,7 +648,7 @@ function Index() {
         {/* 9. A pause: watercolor and Chico. */}
         <section className="ds-section border-t border-border/60 bg-secondary/50">
           <div className="reveal mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-12">
-            <figure className="lg:col-span-7">
+            <figure data-parallax="24" className="lg:col-span-7">
               <div className="rounded-[1.75rem] border border-border bg-[#fbf8f1] p-4 sm:p-6">
                 <WatercolorBloom className="block h-auto w-full" />
               </div>
@@ -903,6 +912,7 @@ function InlinePhoto({
 }) {
   return (
     <span
+      data-scroll-pop
       className={`inline-block h-[0.9em] w-[1.55em] overflow-hidden rounded-full border-2 border-card align-[-0.12em] shadow-[0_10px_24px_-12px_oklch(0.35_0.04_70_/_0.6)] ${tilt}`}
       aria-hidden
     >
