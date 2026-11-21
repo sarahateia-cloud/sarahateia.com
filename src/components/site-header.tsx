@@ -4,6 +4,7 @@ import { VisitStatisticsNote } from "@/components/analytics";
 import { BookCallLink } from "@/components/ds/booking";
 import { BUTTON } from "@/components/ds/buttons";
 import { LanguageToggle } from "@/components/language-toggle";
+import { AR_DRAFT } from "@/content/arabic-status";
 import { Logo } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 import { FOOTER_AREAS, FOOTER_RESOURCES, SERVICES } from "@/content/services";
@@ -28,7 +29,15 @@ const NAV_LINKS: { label: string; href: string; menuOnly?: boolean }[] = [
  * `dark` styles the header for the dark hero it sits over. `arabicHref` adds the English/Arabic
  * switch on pages that have an Arabic version.
  */
-export function SiteHeader({ dark = false, arabicHref }: { dark?: boolean; arabicHref?: string }) {
+export function SiteHeader({
+  dark = false,
+  arabicHref: requestedArabicHref,
+}: {
+  dark?: boolean;
+  arabicHref?: string;
+}) {
+  // No toggle to draft Arabic pages: visitors shouldn't land on unreviewed text.
+  const arabicHref = AR_DRAFT ? undefined : requestedArabicHref;
   const [open, setOpen] = useState(false);
   const services = useRef<HTMLDetailsElement>(null);
   const menuButton = useRef<HTMLButtonElement>(null);

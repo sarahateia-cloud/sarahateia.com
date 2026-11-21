@@ -9,7 +9,7 @@
 // - Sarah's title stays "LPC Associate" in Latin letters, followed by the plain Arabic meaning,
 //   so it is never mistaken for a fully licensed LPC. The English supervisor line also appears.
 // - Fees match the approved English text only ($100, reduced rates). No sliding-scale minimum.
-export const AR_DRAFT = true;
+export { AR_DRAFT } from "./arabic-status";
 
 export type ArabicSection = {
   id?: string;
