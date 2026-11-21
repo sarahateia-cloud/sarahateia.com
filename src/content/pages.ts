@@ -15,6 +15,10 @@ export type ContentPage = {
   intro: string;
   /** Short "Key takeaways" bullets shown at the top of a guide, for readers and AI answer engines. */
   takeaways?: string[];
+  /** Blog posts: a byline under the title, a Sources list, and a closing disclaimer. */
+  byline?: string;
+  sources?: { label: string; url: string }[];
+  disclaimer?: string;
   blocks: Block[];
   faqs?: Faq[];
   /** Other pages on the site to suggest at the end, so every page is linked from more than one place. */
@@ -113,6 +117,14 @@ const LINK = {
   selfReflection: {
     label: "Quotes and self-reflection tools",
     href: "/resources/self-reflection/",
+  },
+  genes: {
+    label: "Can your genes affect your mental health?",
+    href: "/blog/genes-and-mental-health/",
+  },
+  comt: {
+    label: "The COMT gene and anxiety: warrior or worrier?",
+    href: "/blog/comt-gene-anxiety/",
   },
   lasColinas: { label: "Counseling in Las Colinas, TX", href: "/counseling-las-colinas-tx/" },
   newClients: { label: "New client forms", href: "/new-clients/" },
@@ -4510,6 +4522,173 @@ export const ARTICLES: ContentPage[] = [
   },
 ];
 
+// Blog posts live at /blog/. Educational only: each ends with the medical disclaimer.
+export const BLOG_POSTS: ContentPage[] = [
+  {
+    path: "blog/genes-and-mental-health",
+    published: "2026-11-21",
+    related: [LINK.comt, LINK.anxiety, LINK.depression, LINK.outdoor],
+    title: "Genes and Mental Health: What COMT and MTHFR Tell You",
+    description:
+      "Can genes like COMT and MTHFR affect anxiety or depression? What the research says, what DNA tests can’t tell you, and what helps whatever your genes.",
+    eyebrow: "Genes and mental health",
+    heading:
+      "Can Your Genes Affect Your Mental Health? What COMT and MTHFR Can (and Can’t) Tell You",
+    byline: "By Sarah Ateia, LPC Associate (supervised by Don Zablosky, LPC-S)",
+    disclaimer:
+      "This article is for education only and isn't medical advice. Talk to your doctor before getting genetic testing or starting any supplement.",
+    sources: [
+      {
+        label:
+          "Gilbody S, Lewis S, Lightfoot T. MTHFR genetic polymorphisms and psychiatric disorders: a HuGE review. Am J Epidemiol. 2007.",
+        url: "https://doi.org/10.1093/aje/kwj347",
+      },
+      {
+        label:
+          "Hickey SE et al. ACMG Practice Guideline: lack of evidence for MTHFR polymorphism testing. Genet Med. 2013;15(2):153-6.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/23288205/",
+      },
+      {
+        label:
+          "Stein DJ et al. Warriors versus worriers: the role of COMT gene variants. CNS Spectr. 2006.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/17008817/",
+      },
+    ],
+    intro:
+      "Yes, a little. Genes like COMT and MTHFR can slightly raise or lower how sensitive you are to stress, anxiety or low mood, but no single gene causes anxiety or depression.",
+    takeaways: [
+      "Genes like COMT and MTHFR can slightly raise or lower how sensitive you are to stress, anxiety or low mood.",
+      "No single gene causes anxiety or depression. Sleep, stress, relationships, nutrition and life events matter a lot.",
+      "Your genes aren’t your destiny. Therapy, movement and healthy routines help no matter what your DNA says.",
+    ],
+    blocks: [
+      {
+        heading: "Do genes cause anxiety or depression?",
+        paragraphs: [
+          "No single gene causes anxiety or depression. Genes can nudge how your brain handles stress and mood chemicals, but they work together with your environment, habits and life experiences.",
+        ],
+      },
+      {
+        heading: "What are COMT and MTHFR?",
+        paragraphs: [
+          "They’re two genes people often hear about from DNA tests.",
+          "COMT helps break down dopamine and other stress chemicals in the front of the brain, the part that handles focus and emotions. You can read more in [the COMT gene and anxiety](/blog/comt-gene-anxiety/).",
+          "MTHFR helps your body process folate (vitamin B9) and a substance called homocysteine ([Gilbody et al., 2007](https://doi.org/10.1093/aje/kwj347)).",
+        ],
+      },
+      {
+        heading: "Should I get tested?",
+        paragraphs: [
+          "Talk to your doctor first.",
+          "Medical genetics experts say routine MTHFR testing has limited usefulness for most people, and a result usually doesn’t change what you should do day to day ([ACMG, 2013](https://pubmed.ncbi.nlm.nih.gov/23288205/)).",
+        ],
+      },
+      {
+        heading: "What actually helps, whatever your genes?",
+        paragraphs: [
+          "Consistent sleep, movement and time outside, steady meals, real connection with people, and therapy that teaches you how your own stress response works.",
+          "Therapy can be part of that, including [walk and talk therapy](/outdoor-counseling/) outdoors, [anxiety therapy](/anxiety-therapy-dallas/) and [depression counseling](/depression-counseling-dallas/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is anxiety genetic?",
+        a: "Partly. Genes can make some people more sensitive to stress, but environment and experience shape whether anxiety develops.",
+      },
+      {
+        q: "Can a therapist read my DNA results?",
+        a: "A counselor can talk with you about how stress and mood affect your life, but genetic results should be reviewed with your doctor or a genetic counselor.",
+      },
+    ],
+  },
+  {
+    path: "blog/comt-gene-anxiety",
+    published: "2026-11-21",
+    related: [LINK.genes, LINK.anxiety, LINK.depression, LINK.regulation],
+    title: "The COMT Gene and Anxiety: Warrior or Worrier?",
+    description:
+      "What the COMT gene does, what the Val158Met variant means, and why the “warrior vs. worrier” idea is a tendency, not a diagnosis.",
+    eyebrow: "Genes and anxiety",
+    heading: "The COMT Gene and Anxiety: Are You a “Warrior” or a “Worrier”?",
+    byline: "By Sarah Ateia, LPC Associate (supervised by Don Zablosky, LPC-S)",
+    disclaimer:
+      "This article is for education only and isn't medical advice. Talk to your doctor before getting genetic testing or starting any supplement.",
+    sources: [
+      {
+        label:
+          "Stein DJ et al. Warriors versus worriers: the role of COMT gene variants. CNS Spectr. 2006.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/17008817/",
+      },
+      {
+        label:
+          "Lee LO, Prescott CA. Association of the COMT val158met polymorphism and anxiety-related traits: a meta-analysis.",
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3991696/",
+      },
+      {
+        label:
+          "Mier D, Kirsch P, Meyer-Lindenberg A. Neural substrates of pleiotropic action of genetic variation in COMT: a meta-analysis. Mol Psychiatry. 2010.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/19417742/",
+      },
+    ],
+    intro:
+      "COMT is a gene that controls how fast your brain clears dopamine in the area that handles focus and emotions. One common version may make some people more sensitive to stress and anxiety, but it’s a tendency, not a diagnosis.",
+    takeaways: [
+      "COMT is a gene that controls how fast your brain clears dopamine in the area that handles focus and emotions.",
+      "One common version (called “Met”) slows the enzyme down by about 2 to 4 times, which may sharpen focus but can make some people more sensitive to stress and anxiety.",
+      "Researchers call this the “warrior vs. worrier” idea, but it’s a tendency, not a diagnosis.",
+    ],
+    blocks: [
+      {
+        heading: "What does the COMT gene do?",
+        paragraphs: [
+          "COMT makes an enzyme that breaks down dopamine, adrenaline and noradrenaline.",
+          "It matters most in the prefrontal cortex, the part of your brain behind your forehead that helps you plan, focus and calm emotions.",
+        ],
+      },
+      {
+        heading: "What is the Val158Met variant?",
+        paragraphs: [
+          "People carry two copies of COMT, and each copy is usually one of two versions: “Val” or “Met.”",
+          "The Met version makes the enzyme work about 2 to 4 times slower, so more dopamine stays active in the front of the brain.",
+        ],
+      },
+      {
+        heading: "What is the “warrior vs. worrier” idea?",
+        paragraphs: [
+          "Scientists noticed a trade-off ([Stein et al., 2006](https://pubmed.ncbi.nlm.nih.gov/17008817/)).",
+          "People with Val versions may handle sudden stress a little better (“warriors”). People with Met versions may have an edge in memory and attention but can be more prone to worry and anxiety under pressure (“worriers”) ([Mier et al., 2010](https://pubmed.ncbi.nlm.nih.gov/19417742/)).",
+        ],
+      },
+      {
+        heading: "Does COMT cause anxiety?",
+        paragraphs: [
+          "No. It may make some people more stress-sensitive.",
+          "Studies show the effect depends on things like sex and ethnicity, and life experiences matter just as much ([Lee & Prescott](https://pmc.ncbi.nlm.nih.gov/articles/PMC3991696/)). You can read more in [can your genes affect your mental health?](/blog/genes-and-mental-health/)",
+        ],
+      },
+      {
+        heading: "What helps if you feel like a “worrier”?",
+        paragraphs: [
+          "Learning your stress signals, calming your body (breathing, grounding, movement outdoors), steady sleep, and therapy that builds coping skills.",
+          "Being a “worrier” often comes with real strengths: attention to detail, empathy and focus.",
+          "If worry is getting in the way, [anxiety therapy](/anxiety-therapy-dallas/) can help you build those skills, and [depression counseling](/depression-counseling-dallas/) is there if low mood is part of it too.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can I change my COMT gene?",
+        a: "No, but you can change how your body and mind respond to stress.",
+      },
+      {
+        q: "Should I take supplements for COMT?",
+        a: "Talk to your doctor. Don’t start supplements based on a DNA test alone.",
+      },
+    ],
+  },
+];
+
 const url = (path: string) => `https://www.sarahateia.com/${path}/`;
 const PRACTICE = { "@id": "https://www.sarahateia.com/#practice" };
 const SARAH = { "@id": "https://www.sarahateia.com/#sarah" };
@@ -4610,6 +4789,49 @@ export const SITE_PAGES: {
       breadcrumbs(
         ["Home", "https://www.sarahateia.com/"],
         ["Resources", url("resources")],
+        [crumb(page), url(page.path)],
+      ),
+      ...faqLabel(page),
+    ],
+  })),
+  {
+    path: "blog",
+    title: title("Blog: Mind, Body and Mental Health"),
+    description:
+      "Plain-language articles on how genes, stress and the body shape mental health, and what helps whatever your DNA says. Educational only.",
+    graph: [
+      {
+        "@type": "CollectionPage",
+        "@id": `${url("blog")}#page`,
+        name: "Blog",
+        url: url("blog"),
+        isPartOf: { "@id": "https://www.sarahateia.com/#website" },
+        hasPart: BLOG_POSTS.map((a) => ({ "@id": `${url(a.path)}#article` })),
+      },
+      breadcrumbs(["Home", "https://www.sarahateia.com/"], ["Blog", url("blog")]),
+    ],
+  },
+  ...BLOG_POSTS.map((page) => ({
+    path: page.path,
+    title: page.title,
+    description: page.description,
+    graph: [
+      {
+        "@type": "BlogPosting",
+        "@id": `${url(page.path)}#article`,
+        headline: page.heading,
+        description: page.description,
+        url: url(page.path),
+        datePublished: page.published ?? PUBLISHED,
+        dateModified: page.published ?? PUBLISHED,
+        inLanguage: "en-US",
+        author: { ...SARAH, "@type": "Person", name: "Sarah Ateia", jobTitle: "LPC Associate" },
+        publisher: PRACTICE,
+        citation: (page.sources ?? []).map((source) => source.url),
+      },
+      breadcrumbs(
+        ["Home", "https://www.sarahateia.com/"],
+        ["Blog", url("blog")],
         [crumb(page), url(page.path)],
       ),
       ...faqLabel(page),

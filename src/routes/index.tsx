@@ -15,7 +15,7 @@ import chicoPortrait from "@/assets/chico.webp";
 import chicoSoft from "@/assets/chico-soft.webp";
 import chicoSleeping from "@/assets/chico-sleeping.webp";
 import brainArt from "@/assets/brain-watercolor.webp";
-import { SERVICES } from "@/content/services";
+import { BLOG_CARDS, SERVICES } from "@/content/services";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -413,6 +413,46 @@ function Index() {
                 ))}
               </dl>
             </div>
+          </div>
+        </section>
+
+        {/* 5b. The site's theme: biology shapes us, but genes aren't destiny. Links to the blog. */}
+        <section id="biology" className="ds-section border-t border-border/60">
+          <div className="reveal mx-auto max-w-5xl px-6">
+            <SectionHeading
+              eyebrow="Mind, body and biology"
+              title="Your genes aren’t your destiny."
+            >
+              <p>
+                Genes can nudge how sensitive you are to stress, anxiety or low mood. But sleep,
+                movement, connection and the way you understand your own stress response matter a
+                lot, and they can change. That’s the heart of how I work: learning to move with your
+                biology instead of against it.
+              </p>
+            </SectionHeading>
+            <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {BLOG_CARDS.map((post) => (
+                <li key={post.href}>
+                  <a
+                    href={post.href}
+                    className={`${CARD} block h-full transition-colors duration-200 hover:border-cta/50`}
+                  >
+                    <span className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                      {post.eyebrow}
+                    </span>
+                    <span className="mt-2 block font-serif text-xl text-foreground">
+                      {post.title}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm text-muted-foreground">
+              <a href="/blog/" className="underline underline-offset-4 hover:text-foreground">
+                Read the blog
+              </a>{" "}
+              · For education only, not medical advice.
+            </p>
           </div>
         </section>
 
