@@ -1,6 +1,5 @@
 import { StrictMode } from "react";
-import { flushSync } from "react-dom";
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import { RouterProvider } from "@tanstack/react-router";
 import { getRouter } from "./router";
 import { captureEarlyInput } from "./lib/early-input";
@@ -27,11 +26,15 @@ const app = (
   </StrictMode>
 );
 
-// Built pages arrive with their text already in place, so keep it showing until the route is ready.
-// Anything typed into the booking form meanwhile is copied just before the page is redrawn,
-// and the redraw happens at once, so no keystroke falls in between.
+// Built pages arrive with their text already in place. Once the route is ready, React takes over
+// that same page instead of drawing it again, which keeps phones from stalling on load. Anything
+// typed into the booking form meanwhile is copied first, in case React has to redraw part of it.
 router.load().then(() => {
-  const root = createRoot(rootEl);
   captureEarlyInput();
-  flushSync(() => root.render(app));
+  if (rootEl.hasChildNodes()) {
+    // Tells the router this page was built ahead of time, so it renders the same wrappers as the
+    // build did and React can reuse the page as is.
+    router.ssr = { manifest: undefined };
+    hydrateRoot(rootEl, app);
+  } else createRoot(rootEl).render(app);
 });
