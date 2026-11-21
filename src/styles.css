@@ -150,9 +150,10 @@
   }
 }
 
-/* Dark mode follows the device setting: dusk on the trail, not black glass. */
+/* Dark mode follows the device setting unless the visitor picks Light or Dark in the footer
+   (stored on their device as data-theme on <html>): dusk on the trail, not black glass. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     color-scheme: dark;
     --background: #181b13;
     --card: #21251b;
@@ -188,6 +189,42 @@
     --shadow-float: 0 2px 8px rgb(0 0 0 / 0.3), 0 24px 60px -28px rgb(0 0 0 / 0.5);
     --edge-light: inset 0 1px 0 rgb(255 255 255 / 0.05);
   }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #181b13;
+  --card: #21251b;
+  --popover: #2a2f23;
+  --secondary: #2a2f23;
+  --muted: #262a1f;
+  --foreground: #ece6d6;
+  --muted-foreground: #b5b19e; /* 8.1:1 on canvas */
+  --primary: #2f3a29;
+  --primary-foreground: #c3d4b2;
+  --sage: #7f9473;
+  --taupe: #a9bf95;
+  --clay: #de9f86; /* 7.8:1 on canvas */
+  --clay-soft: #3a2a22;
+  --terracotta: #c98e74;
+  --gold: #7f9473;
+  --accent: #2f3428;
+  --accent-foreground: #ece6d6;
+  --destructive: #f08a74;
+  --destructive-foreground: #181b13;
+  --border: color-mix(in oklab, var(--foreground) 13%, transparent);
+  --input: #77735f;
+  --ring: #a9bf95;
+  --sand: #2a2f23;
+  --rose: #2f3428;
+  --night: #1c2017;
+  --cream: #181b13;
+  --mist: #262b24;
+  --cta: #a9bf95; /* 8.8:1 on canvas */
+  --cta-hover: #bccfa9;
+  --cta-foreground: #1a2014; /* 8.4:1 on --cta */
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-float: 0 2px 8px rgb(0 0 0 / 0.3), 0 24px 60px -28px rgb(0 0 0 / 0.5);
+  --edge-light: inset 0 1px 0 rgb(255 255 255 / 0.05);
 }
 
 @layer base {
@@ -1531,7 +1568,7 @@ body:has([aria-label="Visit counting choice"]) .sticky-call {
   height: 100%;
 }
 @media (prefers-color-scheme: dark) {
-  .trail-scene {
+  :root:not([data-theme="light"]) .trail-scene {
     --sky-top: #232a23;
     --sky-mid: #3a3428;
     --sky-low: #5a4433;
@@ -1547,6 +1584,22 @@ body:has([aria-label="Visit counting choice"]) .sticky-call {
     --grass: #55553a;
     --grass-near: #3c3e2a;
   }
+}
+:root[data-theme="dark"] .trail-scene {
+  --sky-top: #232a23;
+  --sky-mid: #3a3428;
+  --sky-low: #5a4433;
+  --sun: #c98e74;
+  --sun-disc: #e2a882;
+  --hill-far: #3d4636;
+  --hill-mid: #323b2c;
+  --field: #3f3e2c;
+  --canopy: #26301f;
+  --trunk: #1f1c16;
+  --path-far: #6b5442;
+  --path-near: #574132;
+  --grass: #55553a;
+  --grass-near: #3c3e2a;
 }
 .trail-sky-top {
   stop-color: var(--sky-top);
@@ -1613,4 +1666,60 @@ body:has([aria-label="Visit counting choice"]) .sticky-call {
   to {
     transform: translate3d(0, var(--depth, 0px), 0);
   }
+}
+
+/* Colors switch in the footer: a quiet segmented control. */
+.theme-switch {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--input);
+  border-radius: 999px;
+  background: var(--card);
+}
+.theme-switch-option {
+  min-height: 44px;
+  min-width: 64px;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+.theme-switch-option[aria-checked="true"] {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 600;
+}
+.theme-switch-option:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Guides: a thin reading-progress line under the top edge. It only scales (transform). */
+.reading-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 3px;
+  z-index: 60;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--sage), var(--taupe));
+  pointer-events: none;
+}
+
+/* Guides: "On this page" list. Numbers in clay, headings in ink. */
+.toc-list {
+  counter-reset: toc;
+}
+.toc-list li {
+  counter-increment: toc;
+}
+.toc-list a::before {
+  content: counter(toc, decimal-leading-zero);
+  flex: none;
+  width: 2rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8125rem;
+  color: var(--clay);
 }
