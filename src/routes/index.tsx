@@ -254,7 +254,7 @@ function Index() {
                     Request a call
                   </h2>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Free 15-minute consultation. I’ll call you back.
+                    Free 15-minute consultation. I’ll get back to you.
                   </p>
                 </div>
               </div>
