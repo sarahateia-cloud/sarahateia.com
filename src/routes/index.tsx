@@ -439,7 +439,7 @@ function Index() {
                 biology instead of against it.
               </p>
             </SectionHeading>
-            <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <ul data-stagger className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
               {BLOG_CARDS.map((post) => (
                 <li key={post.href}>
                   <a
