@@ -203,10 +203,16 @@ function Index() {
                 <span className="h-1.5 w-1.5 rounded-full bg-cta" aria-hidden />
                 Now accepting new clients
               </p>
-              <h1 className="font-serif text-[2.6rem] font-light leading-[1.05] tracking-[-0.02em] text-foreground sm:text-6xl lg:text-[4.5rem]">
+              {/* The page's one heading is Sarah's name, so searches for her name find this page.
+                  The large line below keeps the same look as before. */}
+              <h1 className="mb-4 font-sans text-sm font-medium tracking-normal text-foreground sm:text-base">
+                Sarah Ateia Khattab, LPC Associate,{" "}
+                <span className="text-muted-foreground">supervised by Don Zablosky, LPC-S</span>
+              </h1>
+              <p className="font-serif text-[2.6rem] font-light leading-[1.05] tracking-[-0.02em] text-foreground sm:text-6xl lg:text-[4.5rem]">
                 You’ve tried managing it. What if you could finally{" "}
                 <em className="text-taupe">understand</em> it?
-              </h1>
+              </p>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
                 There’s a reason your mind works the way it does: your stress response, your
                 attention, your emotional patterns. My practice is rooted in that belief, with
