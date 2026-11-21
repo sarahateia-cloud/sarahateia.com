@@ -2,33 +2,52 @@ import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { Phone } from "lucide-react";
 import { ConsultationButton } from "@/components/consultation-dialog";
-import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
+import { BOOKING_URL, PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 import { BUTTON } from "@/components/ds/buttons";
 
+/** Opens the free consultation booking page on Calendly in a new tab. */
+export function BookCallLink({ className, children }: { className: string; children: ReactNode }) {
+  return (
+    <a href={BOOKING_URL} target="_blank" rel="noopener" className={className}>
+      {children}
+      <span className="sr-only"> (opens Calendly in a new tab)</span>
+    </a>
+  );
+}
+
+const QUIET_LINK =
+  "inline-flex min-h-11 items-center text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground";
+
 /**
- * The two ways to book, side by side: request a call-back, or call now.
- * `requestHref` jumps to a form on the page; without it, the request opens the pop-up form.
+ * The ways to book: pick a time for the free call, or call now, with a quieter option to ask for
+ * a call-back. `requestHref` jumps to a form on the page; without it, the call-back opens the
+ * pop-up form.
  */
 export function BookingActions({
   requestHref,
+  center = false,
   className = "",
 }: {
   requestHref?: string;
+  center?: boolean;
   className?: string;
 }) {
   return (
-    <div className={`flex flex-col gap-3 sm:flex-row ${className}`}>
+    <div className={`flex flex-col gap-2 ${center ? "items-center" : "items-start"} ${className}`}>
+      <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+        <BookCallLink className={BUTTON.cta}>Book a Free Call</BookCallLink>
+        <a href={PHONE_HREF} className={BUTTON.secondary}>
+          <Phone className="h-4 w-4" aria-hidden />
+          Call {PHONE_DISPLAY}
+        </a>
+      </div>
       {requestHref ? (
-        <a href={requestHref} className={BUTTON.cta}>
-          Request a Call
+        <a href={requestHref} className={QUIET_LINK}>
+          Or ask me to call you
         </a>
       ) : (
-        <ConsultationButton className={BUTTON.cta}>Request a Call</ConsultationButton>
+        <ConsultationButton className={QUIET_LINK}>Or ask me to call you</ConsultationButton>
       )}
-      <a href={PHONE_HREF} className={BUTTON.secondary}>
-        <Phone className="h-4 w-4" aria-hidden />
-        Call {PHONE_DISPLAY}
-      </a>
     </div>
   );
 }
@@ -105,9 +124,7 @@ export function StickyCallBar() {
       inert={!show}
     >
       <div className="mx-auto flex max-w-md gap-3">
-        <ConsultationButton className={`${BUTTON.cta} flex-1 px-4`}>
-          Request a Call
-        </ConsultationButton>
+        <BookCallLink className={`${BUTTON.cta} flex-1 px-4`}>Book a Free Call</BookCallLink>
         <a
           href={PHONE_HREF}
           className={`${BUTTON.secondary} px-5`}

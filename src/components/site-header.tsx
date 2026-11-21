@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { VisitStatisticsNote } from "@/components/analytics";
-import { ConsultationButton } from "@/components/consultation-dialog";
+import { BookCallLink } from "@/components/ds/booking";
 import { BUTTON } from "@/components/ds/buttons";
 import { Logo } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
@@ -89,7 +89,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
               {link.label}
             </a>
           ))}
-          <ConsultationButton className={BUTTON.ctaSmall}>Request a Call</ConsultationButton>
+          <BookCallLink className={BUTTON.ctaSmall}>Book a Free Call</BookCallLink>
         </div>
         <div className="flex items-center gap-2 lg:hidden">
           <a
@@ -161,7 +161,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
             </ul>
           </div>
           <div className="space-y-3 px-10 pb-12">
-            <ConsultationButton className={BUTTON.cta}>Request a Call</ConsultationButton>
+            <BookCallLink className={BUTTON.cta}>Book a Free Call</BookCallLink>
             <a
               href={PHONE_HREF}
               className="flex min-h-11 items-center gap-2.5 text-sm font-medium text-foreground"
@@ -296,6 +296,18 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-6 pb-10">
         <NoticeToClients className="text-xs" />
         <VisitStatisticsNote className="mt-4 max-w-2xl text-xs leading-relaxed text-muted-foreground" />
+        <p className="mt-4 max-w-2xl text-xs leading-relaxed text-muted-foreground">
+          <span className="font-medium text-foreground">Booking:</span> “Book a Free Call” opens
+          Calendly, which collects your name, email and phone number to schedule the call and has
+          its own{" "}
+          <a
+            href="https://calendly.com/privacy"
+            className="underline underline-offset-4 hover:text-foreground"
+          >
+            privacy policy
+          </a>
+          . Please don’t include health details when booking.
+        </p>
       </div>
     </footer>
   );
