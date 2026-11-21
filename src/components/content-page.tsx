@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 /** Turns [label](url) in page text into links. External links (sources) open in the same tab. */
-function Inline({ text }: { text: string }) {
+export function Inline({ text }: { text: string }) {
   const parts = text.split(/\[([^\]]+)\]\(((?:https?:\/\/|\/)[^)\s]+)\)/g);
   return (
     <>

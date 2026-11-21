@@ -299,7 +299,10 @@ for (const url of builtUrls) {
 
 // Old addresses. GitHub Pages can't send a real 301, so each old address gets a tiny page that
 // sends people on at once and tells search engines which page is the real one.
-const REDIRECTS = { "telehealth-counseling": "telehealth-counseling-texas" };
+const REDIRECTS = {
+  "telehealth-counseling": "telehealth-counseling-texas",
+  "outdoor-counseling": "walk-and-talk-therapy-dallas",
+};
 for (const [from, to] of Object.entries(REDIRECTS)) {
   const target = `${SITE}/${to}/`;
   mkdirSync(`dist/${from}`, { recursive: true });

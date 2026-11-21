@@ -209,7 +209,10 @@ function ToolsPage() {
               anxiety therapy in Dallas
             </a>
             . If you’d like to talk it through, sessions are held{" "}
-            <a href="/outdoor-counseling/" className="text-foreground underline underline-offset-4">
+            <a
+              href="/walk-and-talk-therapy-dallas/"
+              className="text-foreground underline underline-offset-4"
+            >
               outdoors in Dallas–Fort Worth
             </a>{" "}
             or{" "}

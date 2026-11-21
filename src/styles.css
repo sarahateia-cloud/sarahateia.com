@@ -1495,3 +1495,109 @@ body:has([aria-label="Visit counting choice"]) .sticky-call {
     }
   }
 }
+
+/* Walk and talk hero: a drawn North Texas trail at golden hour. Colors are scene tokens so the
+   sky turns to dusk in dark mode. */
+.trail-scene {
+  --sky-top: #f6dcc4;
+  --sky-mid: #f7e9d6;
+  --sky-low: #f5efe3;
+  --sun: #fbe3b8;
+  --sun-disc: #f7cf98;
+  --hill-far: #c9cfb4;
+  --hill-mid: #a7b48f;
+  --field: #c3b98c;
+  --canopy: #6e8160;
+  --trunk: #5e5240;
+  --path-far: #e6cfb2;
+  --path-near: #d2a98a;
+  --grass: #8d8a5c;
+  --grass-near: #6f7149;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+@media (prefers-color-scheme: dark) {
+  .trail-scene {
+    --sky-top: #232a23;
+    --sky-mid: #3a3428;
+    --sky-low: #5a4433;
+    --sun: #c98e74;
+    --sun-disc: #e2a882;
+    --hill-far: #3d4636;
+    --hill-mid: #323b2c;
+    --field: #3f3e2c;
+    --canopy: #26301f;
+    --trunk: #1f1c16;
+    --path-far: #6b5442;
+    --path-near: #574132;
+    --grass: #55553a;
+    --grass-near: #3c3e2a;
+  }
+}
+.trail-sky-top {
+  stop-color: var(--sky-top);
+}
+.trail-sky-mid {
+  stop-color: var(--sky-mid);
+}
+.trail-sky-low {
+  stop-color: var(--sky-low);
+}
+.trail-sun-core {
+  stop-color: var(--sun);
+}
+.trail-sun-disc {
+  fill: var(--sun-disc);
+}
+.trail-hill-far {
+  fill: var(--hill-far);
+}
+.trail-hill-mid {
+  fill: var(--hill-mid);
+}
+.trail-field {
+  fill: var(--field);
+}
+.trail-canopy {
+  fill: var(--canopy);
+}
+.trail-trunk {
+  stroke: var(--trunk);
+}
+.trail-trunk-fill {
+  fill: var(--trunk);
+}
+.trail-path-far {
+  stop-color: var(--path-far);
+}
+.trail-path-near {
+  stop-color: var(--path-near);
+}
+.trail-grass {
+  stroke: var(--grass);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.trail-grass-near {
+  stroke: var(--grass-near);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+/* Soft parallax: far layers drift a little as the page scrolls past the hero. CSS only (no scroll
+   listeners), transform only, and switched off entirely for reduced motion. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .trail-layer {
+      animation: trail-drift linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+  }
+}
+@keyframes trail-drift {
+  to {
+    transform: translate3d(0, var(--depth, 0px), 0);
+  }
+}

@@ -86,7 +86,7 @@ export function SectionHeading({
  * Phone-only bar with the two booking actions. It appears after the hero scrolls away and
  * hides again while a booking form or the booking section is on screen.
  */
-export function StickyCallBar() {
+export function StickyCallBar({ bookLabel = "Book a Free Call" }: { bookLabel?: string }) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -118,7 +118,7 @@ export function StickyCallBar() {
       inert={!show}
     >
       <div className="mx-auto flex max-w-md gap-3">
-        <BookCallLink className={`${BUTTON.cta} flex-1 px-4`}>Book a Free Call</BookCallLink>
+        <BookCallLink className={`${BUTTON.cta} flex-1 px-4`}>{bookLabel}</BookCallLink>
         <a
           href={PHONE_HREF}
           className={`${BUTTON.secondary} px-5`}

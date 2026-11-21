@@ -33,7 +33,10 @@ export type ContentPage = {
 
 const LINK = {
   arabic: { label: "Counseling in Arabic", href: "/arabic-counseling/" },
-  outdoor: { label: "Walk and talk therapy in Dallas–Fort Worth", href: "/outdoor-counseling/" },
+  outdoor: {
+    label: "Walk and talk therapy in Dallas–Fort Worth",
+    href: "/walk-and-talk-therapy-dallas/",
+  },
   telehealth: {
     label: "Telehealth counseling anywhere in Texas",
     href: "/telehealth-counseling-texas/",
@@ -191,7 +194,7 @@ export const TOPICS: ContentPage[] = [
         paragraphs: [
           "Yes. I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, and I offer counseling in Arabic and English for people in Dallas–Fort Worth and online across Texas.",
           "You don’t need to choose one language before we start. Tell me what feels most natural, and you can change your mind at any point.",
-          "Sessions can happen outdoors as [walk and talk therapy](/outdoor-counseling/) or by video through [telehealth anywhere in Texas](/telehealth-counseling-texas/).",
+          "Sessions can happen outdoors as [walk and talk therapy](/walk-and-talk-therapy-dallas/) or by video through [telehealth anywhere in Texas](/telehealth-counseling-texas/).",
         ],
       },
       {
@@ -249,7 +252,7 @@ export const TOPICS: ContentPage[] = [
           "Arabic counseling sessions happen either outdoors as walk and talk sessions in Dallas–Fort Worth or online by video for anyone located in Texas.",
         ],
         list: [
-          "[Walk and talk sessions](/outdoor-counseling/), usually at Sam Houston Trail Park in Irving",
+          "[Walk and talk sessions](/walk-and-talk-therapy-dallas/), usually at Sam Houston Trail Park in Irving",
           "[Online sessions anywhere in Texas](/telehealth-counseling-texas/), in Arabic or English",
           "$100 per session, with reduced rates based on household income",
           "Self-pay only, with no insurance billing",
@@ -285,7 +288,7 @@ export const TOPICS: ContentPage[] = [
     ],
   },
   {
-    path: "outdoor-counseling",
+    path: "walk-and-talk-therapy-dallas",
     related: [LINK.walkTalk, LINK.outdoorFit, LINK.anxiety, LINK.telehealth, LINK.walkBenefits],
     title: "Walk and Talk Therapy in Dallas | Outdoor Therapy",
     description:
@@ -303,27 +306,6 @@ export const TOPICS: ContentPage[] = [
         ],
       },
       {
-        heading: "What does a walk and talk therapy session look like?",
-        paragraphs: [
-          "A walk and talk session is a regular counseling session held outside: we meet at an agreed spot, walk at an easy pace or sit, and talk about whatever you bring.",
-        ],
-        list: [
-          "We meet on a trail in Irving, or another quiet park that’s easy for you to reach",
-          "We walk at an easy pace or settle on a bench or blanket",
-          "You set the pace, and we can stop anytime",
-          "Sessions are available in English or Arabic",
-        ],
-      },
-      {
-        heading: "Why do some people prefer walk and talk therapy?",
-        paragraphs: [
-          "Some people prefer walk and talk therapy because talking side by side can feel less intense than sitting face to face, and the words can come more easily while moving.",
-          "Movement and nature both have research behind them. A large review of 97 earlier reviews found physical activity was linked with lower symptoms of depression and anxiety ([Singh et al., 2023](https://doi.org/10.1136/bjsports-2022-106195)).",
-          "In a study of 36 city residents, a nature break of 20 to 30 minutes gave the biggest drop in the stress hormone cortisol for the time spent ([Hunter et al., 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6458297/)).",
-          "Studies on walk and talk therapy itself are still small, so think of it as a different setting for counseling rather than a different treatment. You can read more about the [benefits of walk and talk therapy](/resources/walk-and-talk-therapy-benefits/) or [what walk and talk therapy is](/resources/what-is-walk-and-talk-therapy/).",
-        ],
-      },
-      {
         heading: "Who is walk and talk therapy for?",
         paragraphs: [
           "Walk and talk therapy is for adults who want counseling in a setting that feels less formal than an office, and you don’t need to be fit or sporty to try it.",
@@ -336,20 +318,6 @@ export const TOPICS: ContentPage[] = [
         paragraphs: [
           "Walk and talk therapy with me costs $100 per session, the same as an online session, with reduced rates available based on household income.",
           "Sessions are self-pay, and I don’t bill insurance. [Affordable therapy in Dallas](/affordable-therapy-dallas/) explains how the sliding scale and optional packages work.",
-        ],
-      },
-      {
-        heading: "Is walk and talk therapy private?",
-        paragraphs: [
-          "Walk and talk therapy is confidential like any counseling, but parks are public places, so complete privacy can’t be guaranteed.",
-          "We pick quieter spots and can pause or move whenever someone’s nearby. You can also switch to online therapy at any time.",
-        ],
-      },
-      {
-        heading: "What if the weather is bad for walk and talk therapy?",
-        paragraphs: [
-          "When it’s too hot, cold, or stormy to meet comfortably outside, we move that session online instead of canceling it.",
-          "In Texas summers, a shaded path or a cooler time of day can help.",
         ],
       },
       {
@@ -376,6 +344,10 @@ export const TOPICS: ContentPage[] = [
       {
         q: "Is there a consent form for outdoor sessions?",
         a: "Yes, there’s a short consent form for outdoor sessions that covers privacy, weather, and safety. You’ll review and sign it before your first outdoor session, and I’ll walk you through it when we get started.",
+      },
+      {
+        q: "What should I wear to a walk and talk session?",
+        a: "Wear comfortable shoes and clothes you can walk in, and bring water. In summer, a hat and sunscreen help; in winter, a layer you can take off. We keep an easy pace, so there’s no need for workout gear.",
       },
       {
         q: "Do sessions get canceled for weather?",
@@ -485,7 +457,7 @@ export const TOPICS: ContentPage[] = [
         heading: "Can I meet in person instead of online?",
         paragraphs: [
           "If you live near Irving, you can meet outdoors for walk and talk therapy instead of online, or mix the two.",
-          "You can [meet outdoors for walk and talk therapy](/outdoor-counseling/), usually at Sam Houston Trail Park. See [counseling in Irving](/counseling-irving-tx/) or [counseling in Dallas](/counseling-dallas-tx/).",
+          "You can [meet outdoors for walk and talk therapy](/walk-and-talk-therapy-dallas/), usually at Sam Houston Trail Park. See [counseling in Irving](/counseling-irving-tx/) or [counseling in Dallas](/counseling-dallas-tx/).",
         ],
       },
     ],
@@ -568,7 +540,7 @@ export const TOPICS: ContentPage[] = [
           "Young adult counseling sessions happen either outdoors as walk and talk sessions in Dallas–Fort Worth or online by video from anywhere in Texas.",
         ],
         list: [
-          "[Walk and talk sessions](/outdoor-counseling/) outdoors, usually at Sam Houston Trail Park in Irving, or another quiet park we choose together",
+          "[Walk and talk sessions](/walk-and-talk-therapy-dallas/) outdoors, usually at Sam Houston Trail Park in Irving, or another quiet park we choose together",
           "[Online therapy from anywhere in Texas](/telehealth-counseling-texas/), including your dorm or apartment",
           "Self-pay, with a sliding scale available",
           "A free 15-minute phone call to see if we’re a good fit",
@@ -690,7 +662,7 @@ export const TOPICS: ContentPage[] = [
         paragraphs: [
           "Anxiety lives in the body as much as the mind, so sleep, caffeine, movement, and stress all change how loud the alarm gets.",
           "Movement is one of the better-studied pieces. A large 2023 review of 97 systematic reviews found that physical activity had a medium-sized effect on anxiety symptoms compared with usual care ([Singh et al., 2023](https://doi.org/10.1136/bjsports-2022-106195)).",
-          "Some people find that moving while they talk calms the body enough to think clearly, which is one reason I offer [walk and talk therapy](/outdoor-counseling/).",
+          "Some people find that moving while they talk calms the body enough to think clearly, which is one reason I offer [walk and talk therapy](/walk-and-talk-therapy-dallas/).",
         ],
       },
       {
@@ -797,7 +769,7 @@ export const TOPICS: ContentPage[] = [
         paragraphs: [
           "Regular sleep, daylight, gentle movement, and time with people you trust can all support mood alongside counseling.",
           "Movement is one of the better-studied pieces. A large 2023 review of 97 systematic reviews found that physical activity had a medium-sized effect on depression symptoms compared with usual care ([Singh et al., 2023](https://doi.org/10.1136/bjsports-2022-106195)).",
-          "We look at your daily rhythm together and adjust what’s realistic, even on low-energy days. [Walk and talk sessions](/outdoor-counseling/) build a little movement and daylight into the hour itself.",
+          "We look at your daily rhythm together and adjust what’s realistic, even on low-energy days. [Walk and talk sessions](/walk-and-talk-therapy-dallas/) build a little movement and daylight into the hour itself.",
         ],
       },
       {
@@ -895,7 +867,7 @@ export const TOPICS: ContentPage[] = [
         paragraphs: [
           "Adult ADHD counseling with me starts with how ADHD shows up in your life, not a checklist.",
           "From there we build practical systems that fit how your brain works, like breaking tasks into first steps, using reminders and visual cues, and planning around your energy. Solution-focused work helps us notice what already works so you can do more of it.",
-          "I also take a holistic view. Sleep, movement, and stress all affect focus, and some people find it easier to think while walking, which is one reason I offer [walk and talk sessions](/outdoor-counseling/).",
+          "I also take a holistic view. Sleep, movement, and stress all affect focus, and some people find it easier to think while walking, which is one reason I offer [walk and talk sessions](/walk-and-talk-therapy-dallas/).",
         ],
       },
       {
@@ -1000,7 +972,7 @@ export const TOPICS: ContentPage[] = [
           "Noticing where stress shows up in your body",
           "Breathing and grounding skills to help calm your nervous system",
           "Looking at sleep, movement, and daily rhythms",
-          "Time outdoors through [walk and talk sessions](/outdoor-counseling/)",
+          "Time outdoors through [walk and talk sessions](/walk-and-talk-therapy-dallas/)",
           "Exploring values, meaning, culture, and faith, if they matter to you",
           "Learning how things like genetics, sleep, and stress can affect mood, as education only, not testing or diagnosis",
         ],
@@ -1442,7 +1414,7 @@ export const CITY_PAGES: ContentPage[] = [
         paragraphs: [
           "Walk and talk therapy for Dallas residents happens outdoors in Irving, just west of the city, usually at Sam Houston Trail Park.",
           "Some people like ending the day with a walk and a conversation instead of another hour on a screen. The pace is gentle, and we can sit on a bench instead of walking. If the weather turns, that session moves online.",
-          "You can read more about how sessions work on the [walk and talk therapy in Dallas](/outdoor-counseling/) page.",
+          "You can read more about how sessions work on the [walk and talk therapy in Dallas](/walk-and-talk-therapy-dallas/) page.",
         ],
       },
       {
@@ -1532,7 +1504,7 @@ export const CITY_PAGES: ContentPage[] = [
         paragraphs: [
           "Yes, in-person sessions for Coppell residents happen outdoors in neighboring Irving, usually at Sam Houston Trail Park.",
           "Some weeks we cover a lot of ground, and other weeks we sit on a bench for the whole hour. Many people find it easier to open up side by side than face to face across a desk.",
-          "You can meet outdoors some weeks and online others, whatever works. See how [outdoor sessions work](/outdoor-counseling/).",
+          "You can meet outdoors some weeks and online others, whatever works. See how [outdoor sessions work](/walk-and-talk-therapy-dallas/).",
         ],
       },
       {
@@ -1631,7 +1603,7 @@ export const CITY_PAGES: ContentPage[] = [
         paragraphs: [
           "Walk and talk therapy for Grand Prairie residents happens in Irving, just north of the city, usually at Sam Houston Trail Park.",
           "We walk at an easy pace or sit, and you set the pace. You don’t need to be fit or sporty, and if the Texas heat or a storm makes it uncomfortable to be outside, we move that session online.",
-          "Learn more about [walk and talk therapy in Dallas–Fort Worth](/outdoor-counseling/).",
+          "Learn more about [walk and talk therapy in Dallas–Fort Worth](/walk-and-talk-therapy-dallas/).",
         ],
       },
       {
@@ -1828,7 +1800,7 @@ export const ARTICLES: ContentPage[] = [
         ],
         list: [
           "What you’re looking for, in as much or as little detail as you’d like",
-          "Whether you’d prefer [outdoor sessions](/outdoor-counseling/) or [telehealth](/telehealth-counseling-texas/), and English or Arabic",
+          "Whether you’d prefer [outdoor sessions](/walk-and-talk-therapy-dallas/) or [telehealth](/telehealth-counseling-texas/), and English or Arabic",
           "Fees, including how reduced rates work",
           "What the next step would be, if we both think it’s a good fit",
         ],
@@ -2037,7 +2009,7 @@ export const ARTICLES: ContentPage[] = [
         paragraphs: [
           "Yes, your choice doesn’t have to be permanent, and you can move between outdoor and telehealth sessions.",
           "With me, you can switch a session to telehealth at any time, whether because of the weather or just because you’d prefer it that day.",
-          "If you’d like to try it, read [what walk and talk therapy is](/resources/what-is-walk-and-talk-therapy/), see how [walk and talk therapy in Dallas–Fort Worth](/outdoor-counseling/) works, or start with a [free consultation](/resources/free-counseling-consultation/).",
+          "If you’d like to try it, read [what walk and talk therapy is](/resources/what-is-walk-and-talk-therapy/), see how [walk and talk therapy in Dallas–Fort Worth](/walk-and-talk-therapy-dallas/) works, or start with a [free consultation](/resources/free-counseling-consultation/).",
         ],
       },
     ],
@@ -2227,7 +2199,7 @@ export const ARTICLES: ContentPage[] = [
         heading: "Where can I find holistic counseling in Dallas–Fort Worth or online in Texas?",
         paragraphs: [
           "I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, and I offer holistic, grounding counseling outdoors in Dallas–Fort Worth parks or by telehealth for clients located in Texas at the time of each session, in English or Arabic. I’m based in Irving, and I welcome clients of every faith or none.",
-          "You can read more about [walk and talk therapy in Dallas–Fort Worth](/outdoor-counseling/), [telehealth counseling anywhere in Texas](/telehealth-counseling-texas/), and [counseling in Arabic](/arabic-counseling/).",
+          "You can read more about [walk and talk therapy in Dallas–Fort Worth](/walk-and-talk-therapy-dallas/), [telehealth counseling anywhere in Texas](/telehealth-counseling-texas/), and [counseling in Arabic](/arabic-counseling/).",
           "Sessions are $100, with packages and reduced rates available, and I’m self-pay only. A free 15-minute phone consultation is a good place to ask any of the questions above.",
           "Outdoor sessions happen in public parks, so complete privacy can’t be guaranteed, and telehealth is always an option.",
         ],
@@ -2863,7 +2835,7 @@ export const ARTICLES: ContentPage[] = [
       {
         heading: "How much does a session cost with me?",
         paragraphs: [
-          "My standard fee is $100 per session, for [walk and talk sessions in Dallas–Fort Worth](/outdoor-counseling/) or online therapy anywhere in Texas.",
+          "My standard fee is $100 per session, for [walk and talk sessions in Dallas–Fort Worth](/walk-and-talk-therapy-dallas/) or online therapy anywhere in Texas.",
           "A sliding scale based on household income and session packages are available. I’m self-pay only and don’t bill insurance.",
           "You can ask about cost during a free 15-minute phone call before committing to anything. [Affordable therapy in Dallas](/affordable-therapy-dallas/) has more on reduced rates.",
         ],
@@ -3027,7 +2999,7 @@ export const ARTICLES: ContentPage[] = [
         paragraphs: [
           "Yes, sliding scale therapy is available in Dallas, and I offer reduced rates based on household income for walk and talk sessions in Dallas–Fort Worth and online therapy anywhere in Texas.",
           "I’m self-pay only, so nothing is billed to insurance. Ask during your [free 15-minute consultation](/resources/free-counseling-consultation/), and we’ll agree on a fee before your first session.",
-          "You can read more about [walk and talk therapy](/outdoor-counseling/) and [telehealth counseling in Texas](/telehealth-counseling-texas/).",
+          "You can read more about [walk and talk therapy](/walk-and-talk-therapy-dallas/) and [telehealth counseling in Texas](/telehealth-counseling-texas/).",
         ],
       },
     ],
@@ -3178,7 +3150,7 @@ export const ARTICLES: ContentPage[] = [
         heading: "Where can I find walk and talk therapy in Dallas?",
         paragraphs: [
           "Walk and talk therapy in the Dallas area is available with me for people across Dallas–Fort Worth, usually on a trail in Irving or another quiet park we choose together.",
-          "Sessions are open to people who live or work in [Irving](/counseling-irving-tx/), [Dallas](/counseling-dallas-tx/), Las Colinas, Coppell, Grand Prairie, and Farmers Branch. You can read how sessions work on the [walk and talk therapy](/outdoor-counseling/) page.",
+          "Sessions are open to people who live or work in [Irving](/counseling-irving-tx/), [Dallas](/counseling-dallas-tx/), Las Colinas, Coppell, Grand Prairie, and Farmers Branch. You can read how sessions work on the [walk and talk therapy](/walk-and-talk-therapy-dallas/) page.",
           "You can start with a [free 15-minute phone call](/resources/free-counseling-consultation/) to see if it feels right.",
         ],
       },
@@ -3501,7 +3473,7 @@ export const ARTICLES: ContentPage[] = [
         paragraphs: [
           "Holistic counseling in Dallas–Fort Worth is available with me as talk therapy that pays attention to the body, sleep, movement, and nature.",
           "My approach is holistic and grounding, and it stays within talk therapy. I combine person-centered, solution-focused, and Jungian ideas with research on the body, sleep, movement, and nature.",
-          "Sessions happen as [walk and talk sessions](/outdoor-counseling/) in Dallas–Fort Worth or [online anywhere in Texas](/telehealth-counseling-texas/). I don’t prescribe medication or offer medical treatments. You can read more about [holistic counseling in Dallas–Fort Worth](/holistic-counseling/).",
+          "Sessions happen as [walk and talk sessions](/walk-and-talk-therapy-dallas/) in Dallas–Fort Worth or [online anywhere in Texas](/telehealth-counseling-texas/). I don’t prescribe medication or offer medical treatments. You can read more about [holistic counseling in Dallas–Fort Worth](/holistic-counseling/).",
         ],
       },
     ],
@@ -4090,7 +4062,7 @@ export const ARTICLES: ContentPage[] = [
       {
         heading: "Is there a walk and talk or online therapist near Dallas and Irving?",
         paragraphs: [
-          "I offer a free 15-minute call to see if we’re a good fit, with [walk and talk sessions](/outdoor-counseling/) near Irving and online sessions anywhere in Texas.",
+          "I offer a free 15-minute call to see if we’re a good fit, with [walk and talk sessions](/walk-and-talk-therapy-dallas/) near Irving and online sessions anywhere in Texas.",
           "See [counseling in Dallas](/counseling-dallas-tx/) for how that works.",
         ],
       },
@@ -4187,7 +4159,7 @@ export const ARTICLES: ContentPage[] = [
       {
         heading: "Can a first counseling session be outdoors or online?",
         paragraphs: [
-          "A first counseling session with me can happen outdoors as [walk and talk therapy](/outdoor-counseling/) in Dallas–Fort Worth or [online anywhere in Texas](/telehealth-counseling-texas/).",
+          "A first counseling session with me can happen outdoors as [walk and talk therapy](/walk-and-talk-therapy-dallas/) in Dallas–Fort Worth or [online anywhere in Texas](/telehealth-counseling-texas/).",
           "You can choose whichever feels more comfortable, and you can switch later if your needs change.",
         ],
       },
@@ -4270,7 +4242,7 @@ export const ARTICLES: ContentPage[] = [
         paragraphs: [
           "Time in nature can lower stress hormones, even in a city park.",
           "In one study of city residents, spending time in a place that felt like nature lowered stress hormones measured in saliva, with 20 to 30 minutes giving the most benefit for the time spent ([Hunter, Gillespie & Chen, 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6458297/)).",
-          "A tree-lined street, a backyard, or a local trail can count. Some people combine this with counseling through [walk and talk therapy](/outdoor-counseling/).",
+          "A tree-lined street, a backyard, or a local trail can count. Some people combine this with counseling through [walk and talk therapy](/walk-and-talk-therapy-dallas/).",
         ],
       },
       {
@@ -4414,7 +4386,7 @@ export const ARTICLES: ContentPage[] = [
         heading: "Where can I try walk and talk therapy in Irving and Dallas?",
         paragraphs: [
           "Walk and talk therapy is available with me usually on a trail in Irving, for people across Irving, Dallas, and nearby cities.",
-          "You can read how sessions work on the [walk and talk therapy](/outdoor-counseling/) page, or see [counseling in Irving](/counseling-irving-tx/) for the area I serve in person.",
+          "You can read how sessions work on the [walk and talk therapy](/walk-and-talk-therapy-dallas/) page, or see [counseling in Irving](/counseling-irving-tx/) for the area I serve in person.",
           "If you’re new to the idea, start with [what walk and talk therapy is](/resources/what-is-walk-and-talk-therapy/) or [whether outdoor counseling is right for you](/resources/is-outdoor-counseling-right-for-you/).",
         ],
       },
@@ -4597,7 +4569,7 @@ export const BLOG_POSTS: ContentPage[] = [
         heading: "What actually helps, whatever your genes?",
         paragraphs: [
           "Consistent sleep, movement and time outside, steady meals, real connection with people, and therapy that teaches you how your own stress response works.",
-          "Therapy can be part of that, including [walk and talk therapy](/outdoor-counseling/) outdoors, [anxiety therapy](/anxiety-therapy-dallas/) and [depression counseling](/depression-counseling-dallas/).",
+          "Therapy can be part of that, including [walk and talk therapy](/walk-and-talk-therapy-dallas/) outdoors, [anxiety therapy](/anxiety-therapy-dallas/) and [depression counseling](/depression-counseling-dallas/).",
         ],
       },
     ],
@@ -4754,7 +4726,7 @@ export const SITE_PAGES: {
         // Outdoor sessions only happen in Dallas–Fort Worth parks. Telehealth reaches all of Texas.
         areaServed: page.city
           ? { "@type": "City", name: `${page.city}, TX` }
-          : page.path === "outdoor-counseling"
+          : page.path === "walk-and-talk-therapy-dallas"
             ? { "@type": "Place", name: "Dallas–Fort Worth metroplex" }
             : { "@type": "State", name: "Texas" },
       },

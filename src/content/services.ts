@@ -6,7 +6,7 @@ export const SERVICES = [
   { label: "Adult ADHD counseling", href: "/adhd-therapy/" },
   { label: "Young adults", href: "/young-adult-counseling/" },
   { label: "Holistic counseling", href: "/holistic-counseling/" },
-  { label: "Walk and talk therapy", href: "/outdoor-counseling/" },
+  { label: "Walk and talk therapy", href: "/walk-and-talk-therapy-dallas/" },
   { label: "Online therapy in Texas", href: "/telehealth-counseling-texas/" },
   { label: "Counseling in Arabic", href: "/arabic-counseling/" },
   { label: "Affordable therapy", href: "/affordable-therapy-dallas/" },

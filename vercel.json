@@ -20,6 +20,16 @@
       "source": "/telehealth-counseling/",
       "destination": "/telehealth-counseling-texas/",
       "permanent": true
+    },
+    {
+      "source": "/outdoor-counseling",
+      "destination": "/walk-and-talk-therapy-dallas/",
+      "permanent": true
+    },
+    {
+      "source": "/outdoor-counseling/",
+      "destination": "/walk-and-talk-therapy-dallas/",
+      "permanent": true
     }
   ]
 }

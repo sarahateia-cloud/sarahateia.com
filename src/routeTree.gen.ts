@@ -10,11 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YoungAdultCounselingRouteImport } from './routes/young-adult-counseling'
+import { Route as WalkAndTalkTherapyDallasRouteImport } from './routes/walk-and-talk-therapy-dallas'
 import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as TelehealthCounselingTexasRouteImport } from './routes/telehealth-counseling-texas'
 import { Route as TelehealthCounselingRouteImport } from './routes/telehealth-counseling'
 import { Route as ScreeningToolsRouteImport } from './routes/screening-tools'
-import { Route as OutdoorCounselingRouteImport } from './routes/outdoor-counseling'
 import { Route as NewClientsRouteImport } from './routes/new-clients'
 import { Route as HolisticCounselingRouteImport } from './routes/holistic-counseling'
 import { Route as GlossaryRouteImport } from './routes/glossary'
@@ -44,6 +44,12 @@ const YoungAdultCounselingRoute = YoungAdultCounselingRouteImport.update({
   path: '/young-adult-counseling',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WalkAndTalkTherapyDallasRoute =
+  WalkAndTalkTherapyDallasRouteImport.update({
+    id: '/walk-and-talk-therapy-dallas',
+    path: '/walk-and-talk-therapy-dallas',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ToolsRoute = ToolsRouteImport.update({
   id: '/tools',
   path: '/tools',
@@ -63,11 +69,6 @@ const TelehealthCounselingRoute = TelehealthCounselingRouteImport.update({
 const ScreeningToolsRoute = ScreeningToolsRouteImport.update({
   id: '/screening-tools',
   path: '/screening-tools',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OutdoorCounselingRoute = OutdoorCounselingRouteImport.update({
-  id: '/outdoor-counseling',
-  path: '/outdoor-counseling',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewClientsRoute = NewClientsRouteImport.update({
@@ -206,11 +207,11 @@ export interface FileRoutesByFullPath {
   '/glossary': typeof GlossaryRoute
   '/holistic-counseling': typeof HolisticCounselingRoute
   '/new-clients': typeof NewClientsRoute
-  '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/tools': typeof ToolsRoute
+  '/walk-and-talk-therapy-dallas': typeof WalkAndTalkTherapyDallasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -237,11 +238,11 @@ export interface FileRoutesByTo {
   '/glossary': typeof GlossaryRoute
   '/holistic-counseling': typeof HolisticCounselingRoute
   '/new-clients': typeof NewClientsRoute
-  '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/tools': typeof ToolsRoute
+  '/walk-and-talk-therapy-dallas': typeof WalkAndTalkTherapyDallasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -269,11 +270,11 @@ export interface FileRoutesById {
   '/glossary': typeof GlossaryRoute
   '/holistic-counseling': typeof HolisticCounselingRoute
   '/new-clients': typeof NewClientsRoute
-  '/outdoor-counseling': typeof OutdoorCounselingRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/tools': typeof ToolsRoute
+  '/walk-and-talk-therapy-dallas': typeof WalkAndTalkTherapyDallasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -302,11 +303,11 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/holistic-counseling'
     | '/new-clients'
-    | '/outdoor-counseling'
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
     | '/tools'
+    | '/walk-and-talk-therapy-dallas'
     | '/young-adult-counseling'
     | '/ar/arabic-counseling'
     | '/blog/$slug'
@@ -333,11 +334,11 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/holistic-counseling'
     | '/new-clients'
-    | '/outdoor-counseling'
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
     | '/tools'
+    | '/walk-and-talk-therapy-dallas'
     | '/young-adult-counseling'
     | '/ar/arabic-counseling'
     | '/blog/$slug'
@@ -364,11 +365,11 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/holistic-counseling'
     | '/new-clients'
-    | '/outdoor-counseling'
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
     | '/tools'
+    | '/walk-and-talk-therapy-dallas'
     | '/young-adult-counseling'
     | '/ar/arabic-counseling'
     | '/blog/$slug'
@@ -396,11 +397,11 @@ export interface RootRouteChildren {
   GlossaryRoute: typeof GlossaryRoute
   HolisticCounselingRoute: typeof HolisticCounselingRoute
   NewClientsRoute: typeof NewClientsRoute
-  OutdoorCounselingRoute: typeof OutdoorCounselingRoute
   ScreeningToolsRoute: typeof ScreeningToolsRoute
   TelehealthCounselingRoute: typeof TelehealthCounselingRoute
   TelehealthCounselingTexasRoute: typeof TelehealthCounselingTexasRoute
   ToolsRoute: typeof ToolsRoute
+  WalkAndTalkTherapyDallasRoute: typeof WalkAndTalkTherapyDallasRoute
   YoungAdultCounselingRoute: typeof YoungAdultCounselingRoute
   ArArabicCounselingRoute: typeof ArArabicCounselingRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -418,6 +419,13 @@ declare module '@tanstack/react-router' {
       path: '/young-adult-counseling'
       fullPath: '/young-adult-counseling'
       preLoaderRoute: typeof YoungAdultCounselingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/walk-and-talk-therapy-dallas': {
+      id: '/walk-and-talk-therapy-dallas'
+      path: '/walk-and-talk-therapy-dallas'
+      fullPath: '/walk-and-talk-therapy-dallas'
+      preLoaderRoute: typeof WalkAndTalkTherapyDallasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools': {
@@ -446,13 +454,6 @@ declare module '@tanstack/react-router' {
       path: '/screening-tools'
       fullPath: '/screening-tools'
       preLoaderRoute: typeof ScreeningToolsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/outdoor-counseling': {
-      id: '/outdoor-counseling'
-      path: '/outdoor-counseling'
-      fullPath: '/outdoor-counseling'
-      preLoaderRoute: typeof OutdoorCounselingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/new-clients': {
@@ -636,11 +637,11 @@ const rootRouteChildren: RootRouteChildren = {
   GlossaryRoute: GlossaryRoute,
   HolisticCounselingRoute: HolisticCounselingRoute,
   NewClientsRoute: NewClientsRoute,
-  OutdoorCounselingRoute: OutdoorCounselingRoute,
   ScreeningToolsRoute: ScreeningToolsRoute,
   TelehealthCounselingRoute: TelehealthCounselingRoute,
   TelehealthCounselingTexasRoute: TelehealthCounselingTexasRoute,
   ToolsRoute: ToolsRoute,
+  WalkAndTalkTherapyDallasRoute: WalkAndTalkTherapyDallasRoute,
   YoungAdultCounselingRoute: YoungAdultCounselingRoute,
   ArArabicCounselingRoute: ArArabicCounselingRoute,
   BlogSlugRoute: BlogSlugRoute,
