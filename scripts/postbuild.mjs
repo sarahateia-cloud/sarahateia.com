@@ -165,6 +165,48 @@ for (const url of builtUrls) {
 if (!notFound.includes('content="noindex') || notFound.includes('rel="canonical"')) {
   throw new Error("404.html must be noindex and have no canonical link");
 }
+// Stop the build if any page's search labels break the rules: every page must have valid JSON-LD
+// with exactly one ProfessionalService (no street address), nothing may carry reviews or
+// ratings, and every article needs an Article label with a real, past publish date.
+const today = new Date().toISOString().slice(0, 10);
+const articlePaths = new Set(
+  SITE_PAGES.filter((page) => /^resources\/.+/.test(page.path)).map((page) => `${page.path}/`),
+);
+const walk = (value, visit) => {
+  if (Array.isArray(value)) return value.forEach((item) => walk(item, visit));
+  if (value && typeof value === "object") {
+    visit(value);
+    Object.values(value).forEach((item) => walk(item, visit));
+  }
+};
+for (const url of builtUrls) {
+  const path = url.slice(SITE.length + 1);
+  const page = readFileSync(`dist/${path}index.html`, "utf8");
+  const blocks = [...page.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  if (blocks.length !== 1) throw new Error(`Expected one JSON-LD block on ${url}`);
+  const graph = JSON.parse(blocks[0][1])["@graph"];
+  const types = [];
+  walk(graph, (node) => {
+    if (node["@type"]) types.push(node["@type"]);
+    if ("review" in node || "aggregateRating" in node || "streetAddress" in node) {
+      throw new Error(`Reviews, ratings or a street address in the labels on ${url}`);
+    }
+  });
+  if (types.some((type) => type === "Review" || type === "AggregateRating")) {
+    throw new Error(`Review or rating label on ${url}`);
+  }
+  if (types.filter((type) => type === "ProfessionalService").length !== 1) {
+    throw new Error(`Expected exactly one ProfessionalService on ${url}`);
+  }
+  if (articlePaths.has(path)) {
+    const article = graph.find((item) => item["@type"] === "Article");
+    const date = article?.datePublished ?? "";
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || date > today) {
+      throw new Error(`Article on ${url} needs a datePublished that isn't in the future`);
+    }
+  }
+}
+
 // Old addresses. GitHub Pages can't send a real 301, so each old address gets a tiny page that
 // sends people on at once and tells search engines which page is the real one.
 const REDIRECTS = { "telehealth-counseling": "telehealth-counseling-texas" };
