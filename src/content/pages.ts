@@ -274,7 +274,7 @@ export const TOPICS: ContentPage[] = [
   {
     path: "outdoor-counseling",
     related: [LINK.walkTalk, LINK.outdoorFit, LINK.anxiety, LINK.telehealth, LINK.walkBenefits],
-    title: "Walk and Talk Therapy in Dallas",
+    title: "Walk and Talk Therapy in Dallas | Outdoor Therapy",
     description:
       "Walk and talk therapy for Dallas and outdoor therapy on a trail in Irving, TX. How sessions, privacy, weather, and getting started work.",
     eyebrow: "Walk and talk therapy",
@@ -389,11 +389,11 @@ export const TOPICS: ContentPage[] = [
       LINK.firstSession,
       LINK.newClients,
     ],
-    title: title("Telehealth Counseling in Texas"),
+    title: title("Online Therapy in Texas"),
     description:
       "Online therapy by video for anyone in Texas, from Houston to El Paso: how it works, privacy, and fees. Self-pay, sliding scale, free 15-minute call.",
     eyebrow: "Online therapy",
-    heading: "Telehealth counseling anywhere in Texas.",
+    heading: "Online therapy and telehealth counseling anywhere in Texas.",
     intro:
       "Yes, you can get telehealth counseling anywhere in Texas: I offer online therapy by video to anyone who is physically located in Texas during each session. That includes Dallas–Fort Worth, Houston, Austin, San Antonio, the Rio Grande Valley, and El Paso, with sessions in English or Arabic.",
     blocks: [
@@ -619,7 +619,7 @@ export const TOPICS: ContentPage[] = [
       LINK.regulation,
       LINK.groundingGuide,
     ],
-    title: "Anxiety Therapist in Dallas, TX",
+    title: "Anxiety Therapy in Dallas, TX",
     description:
       "Anxiety therapist in Dallas, TX offering talk therapy for worry and stress. Walk and talk sessions in DFW or online across Texas. Sliding scale available.",
     eyebrow: "Anxiety therapy",
@@ -2127,7 +2127,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.culture,
       LINK.consultation,
     ],
-    title: title("Muslim Faith and Therapy"),
+    title: title("How to Find a Muslim Therapist"),
     description:
       "How to find a therapist who respects your Muslim faith and culture, what holistic, mind-body counseling looks like, and what research says about it.",
     eyebrow: "Choosing a counselor",
@@ -4212,7 +4212,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.selfReflection,
       LINK.groundingGuide,
     ],
-    title: title("Calming Your Nervous System"),
+    title: title("Nervous System Regulation Tips"),
     description:
       "Research-based nervous system regulation techniques: slow breathing, movement, time in nature, and sleep, plus simple grounding and when to get support.",
     eyebrow: "Mind and body",
