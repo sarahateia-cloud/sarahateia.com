@@ -18,6 +18,8 @@ export function captureEarlyInput() {
     "input[name], textarea[name]",
   )) {
     if (field.type === "hidden" || field.name.startsWith("_")) continue;
+    // A choice button only counts when it's picked.
+    if (field instanceof HTMLInputElement && field.type === "radio" && !field.checked) continue;
     if (field.value) values.set(field.name, field.value);
   }
   const active = document.activeElement;
@@ -35,7 +37,9 @@ export function restoreEarlyInput(form: HTMLFormElement | null) {
   captured = null;
   for (const [name, value] of values) {
     const field = form.elements.namedItem(name);
-    if (
+    if (field instanceof RadioNodeList) {
+      if (!field.value) field.value = value;
+    } else if (
       (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) &&
       !field.value
     ) {

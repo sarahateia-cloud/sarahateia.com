@@ -113,6 +113,22 @@ function ScreeningTools() {
           </ConsultationButton>
         </section>
 
+        <p className="mt-10 text-sm leading-relaxed text-muted-foreground">
+          Learn more about{" "}
+          <a href="/adhd-therapy/" className="underline underline-offset-4">
+            adult ADHD counseling
+          </a>
+          ,{" "}
+          <a href="/anxiety-therapy-dallas/" className="underline underline-offset-4">
+            anxiety therapy in Dallas
+          </a>
+          , and{" "}
+          <a href="/depression-counseling-dallas/" className="underline underline-offset-4">
+            depression counseling in Dallas
+          </a>
+          .
+        </p>
+
         <p className="mt-10 text-xs leading-relaxed text-muted-foreground">
           Sarah Ateia Khattab, M.S., NCC · Licensed Professional Counselor Associate #104391 ·
           Supervised by Don Zablosky, LPC-S, LMFT-S, NCC

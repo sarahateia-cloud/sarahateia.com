@@ -11,6 +11,7 @@ import { BUTTON } from "@/components/ds/buttons";
 import { LogoMark } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 import { restoreEarlyInput } from "@/lib/early-input";
+import { countEvent } from "@/lib/contact-events";
 
 // Google Apps Script web app that saves each request to the "Call Requests" Sheet.
 const CALL_REQUEST_ENDPOINT =
@@ -51,15 +52,25 @@ function loadTurnstile() {
 const INPUT_CLASS =
   "w-full rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground transition placeholder:text-muted-foreground/60 focus:border-cta focus:outline-none focus:ring-2 focus:ring-cta/25 aria-[invalid=true]:border-destructive aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-destructive/20 aria-[invalid=true]:focus:border-destructive aria-[invalid=true]:focus:ring-destructive/30 sm:text-sm";
 
-const EMAIL_ERROR = "Please check your email address, or leave it blank.";
-const PHONE_ERROR = "Please enter a 10-digit phone number so I can call you back.";
+const EMAIL_ERROR = "Please check your email address.";
+const PHONE_ERROR = "Please enter a 10-digit phone number.";
+const REACH_ERROR = "Please add a phone number or an email so I can reach you.";
+const PHONE_FOR_METHOD_ERROR = "Please add a phone number, or choose email.";
+const EMAIL_FOR_METHOD_ERROR = "Please add an email, or choose a call or text.";
+const METHOD_ERROR = "Please choose how you’d like me to reach you.";
+
+const CONTACT_METHODS = ["Call", "Text", "Email"] as const;
+const SESSION_TYPES = ["In person", "Telehealth", "Walk and talk"] as const;
+
+const CHOICE_CLASS =
+  "flex min-h-11 cursor-pointer items-center justify-center rounded-xl border border-border bg-background px-3 text-center text-sm text-foreground transition-colors hover:border-foreground/40 has-[:checked]:border-cta has-[:checked]:bg-cta/10 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-cta/25";
 
 /** Blank is fine. Anything typed must look like name@example.com, matching what the browser checks. */
 function isValidEmail(value: string) {
   return value === "" || (value.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
 }
 
-/** The call-back request form, used at the top of the home page and in the pop-up. */
+/** The consultation request form, used at the top of the home page and in the pop-up. */
 export function ConsultationForm({ onSent }: { onSent?: () => void }) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -69,6 +80,9 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
   const emailErrorId = `${useId()}-email-error`;
   const [phoneError, setPhoneError] = useState<string | null>(null);
   const phoneErrorId = `${useId()}-phone-error`;
+  const [methodError, setMethodError] = useState<string | null>(null);
+  const methodErrorId = `${useId()}-method-error`;
+  const reachHintId = `${useId()}-reach-hint`;
   // False until this page's script is running. Until then the button stays off, so the
   // browser can never send the form on its own or put what's typed into the page address.
   const [ready, setReady] = useState(false);
@@ -106,18 +120,48 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const email = String(formData.get("email") ?? "").trim();
-    const phone = String(formData.get("phone") ?? "");
-    if (phone.replace(/\D/g, "").length < 10) {
+    const phone = String(formData.get("phone") ?? "").trim();
+    const contactMethod = String(formData.get("contact_method") ?? "");
+    const sessionType = String(formData.get("session_type") ?? "");
+    setPhoneError(null);
+    setEmailError(null);
+    setMethodError(null);
+    const focusField = (name: string) =>
+      form.querySelector<HTMLInputElement>(`input[name="${name}"]`)?.focus();
+
+    // Phone or email: at least one, and whichever is typed must look right.
+    if (phone && phone.replace(/\D/g, "").length < 10) {
       setPhoneError(PHONE_ERROR);
-      e.currentTarget.querySelector<HTMLInputElement>('input[name="phone"]')?.focus();
+      focusField("phone");
       return;
     }
     // Backup for browsers that don't check email fields themselves.
     if (!isValidEmail(email)) {
       setEmailError(EMAIL_ERROR);
-      e.currentTarget.querySelector<HTMLInputElement>('input[name="email"]')?.focus();
+      focusField("email");
+      return;
+    }
+    if (!phone && !email) {
+      setPhoneError(REACH_ERROR);
+      focusField("phone");
+      return;
+    }
+    if (!contactMethod) {
+      setMethodError(METHOD_ERROR);
+      focusField("contact_method");
+      return;
+    }
+    if (contactMethod !== "Email" && !phone) {
+      setPhoneError(PHONE_FOR_METHOD_ERROR);
+      focusField("phone");
+      return;
+    }
+    if (contactMethod === "Email" && !email) {
+      setEmailError(EMAIL_FOR_METHOD_ERROR);
+      focusField("email");
       return;
     }
 
@@ -136,17 +180,26 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
         method: "POST",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify({
+          // "name" now holds the first name only, so the Sheet's existing column still fills.
           name: formData.get("name"),
           phone,
           email,
+          contact_method: contactMethod,
+          session_type: sessionType,
           best_time: formData.get("best_time"),
-          reason: formData.get("reason"),
+          // The Sheet's old "reason" column gets the two choices, so they show up even before
+          // the script saves contact_method and session_type in columns of their own.
+          reason: [`Reach by: ${contactMethod}`, sessionType && `Session type: ${sessionType}`]
+            .filter(Boolean)
+            .join(". "),
           _gotcha: formData.get("_gotcha"),
           turnstile_token: turnstileToken,
         }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.ok) throw new Error(data.error ?? "Submission failed.");
+      // Only the event name is counted. No form field values are ever sent with it.
+      countEvent("consult_request_submitted");
       setSubmitted(true);
       onSent?.();
     } catch (err) {
@@ -162,11 +215,11 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
     return (
       <div className="py-8 text-center" role="status">
         <div
-          className="mx-auto flex h-14 w-14 items-center justify-center rounded-full"
+          className="success-rise mx-auto flex h-14 w-14 items-center justify-center rounded-full"
           style={{ background: "color-mix(in oklab, var(--sage) 50%, transparent)" }}
         >
           <svg
-            className="h-6 w-6 text-foreground"
+            className="success-check h-6 w-6 text-foreground"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -176,9 +229,17 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <p className="mt-6 font-serif text-2xl text-foreground">Thank you.</p>
-        <p className="mx-auto mt-3 max-w-sm text-base text-muted-foreground">
-          I’ll call you soon for your free 15-minute consultation.
+        <p
+          className="success-rise mt-6 font-serif text-2xl text-foreground"
+          style={{ animationDelay: "180ms" }}
+        >
+          Thank you.
+        </p>
+        <p
+          className="success-rise mx-auto mt-3 max-w-sm text-base text-muted-foreground"
+          style={{ animationDelay: "240ms" }}
+        >
+          I’ll reach out soon to set up your free 15-minute consultation.
         </p>
       </div>
     );
@@ -196,72 +257,129 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
       onFocusCapture={startSpamCheck}
       className="space-y-4"
     >
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <Field label="Name">
-          <input name="name" type="text" autoComplete="name" required className={INPUT_CLASS} />
-        </Field>
-        <div>
-          <Field label="Phone number">
-            <input
-              name="phone"
-              type="tel"
-              autoComplete="tel"
-              required
-              aria-invalid={phoneError ? true : undefined}
-              aria-describedby={phoneError ? phoneErrorId : undefined}
-              onInput={() => setPhoneError(null)}
-              className={INPUT_CLASS}
-            />
-          </Field>
-          {phoneError && (
-            <span id={phoneErrorId} role="alert" className="mt-1.5 block text-sm text-destructive">
-              {phoneError}
-            </span>
-          )}
-        </div>
-      </div>
-      <Field label="Email" optional>
+      <Field label="First name">
         <input
-          name="email"
-          type="email"
-          autoComplete="email"
-          inputMode="email"
-          maxLength={254}
-          aria-invalid={emailError ? true : undefined}
-          aria-describedby={emailError ? emailErrorId : undefined}
-          onInvalid={(e) => {
-            // Show the message under the field instead of the browser's pop-up bubble.
-            e.preventDefault();
-            setEmailError(EMAIL_ERROR);
-            if (e.currentTarget.form?.querySelector(":invalid") === e.currentTarget) {
-              e.currentTarget.focus();
-            }
-          }}
-          onInput={() => setEmailError(null)}
-          className={INPUT_CLASS}
-        />
-      </Field>
-      {emailError && (
-        <span id={emailErrorId} role="alert" className="mt-1.5 block text-sm text-destructive">
-          {emailError}
-        </span>
-      )}
-      <Field label="Best time to call">
-        <input
-          name="best_time"
+          name="name"
           type="text"
-          placeholder="Weekday mornings, after 5 pm…"
+          autoComplete="given-name"
+          maxLength={60}
           required
           className={INPUT_CLASS}
         />
       </Field>
-      <Field label="Reason for reaching out" optional>
-        <textarea
-          name="reason"
-          rows={2}
-          maxLength={200}
-          placeholder="A few words is plenty."
-          className={`${INPUT_CLASS} resize-none`}
+      <div>
+        <p id={reachHintId} className="mb-2 text-sm text-muted-foreground">
+          A phone number or an email is enough. You don’t need both.
+        </p>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div>
+            <Field label="Phone">
+              <input
+                name="phone"
+                type="tel"
+                autoComplete="tel"
+                aria-invalid={phoneError ? true : undefined}
+                aria-describedby={phoneError ? `${reachHintId} ${phoneErrorId}` : reachHintId}
+                onInput={() => setPhoneError(null)}
+                className={INPUT_CLASS}
+              />
+            </Field>
+            {phoneError && (
+              <span
+                id={phoneErrorId}
+                role="alert"
+                className="mt-1.5 block text-sm text-destructive"
+              >
+                {phoneError}
+              </span>
+            )}
+          </div>
+          <div>
+            <Field label="Email">
+              <input
+                name="email"
+                type="email"
+                autoComplete="email"
+                inputMode="email"
+                maxLength={254}
+                aria-invalid={emailError ? true : undefined}
+                aria-describedby={emailError ? `${reachHintId} ${emailErrorId}` : reachHintId}
+                onInvalid={(e) => {
+                  // Show the message under the field instead of the browser's pop-up bubble.
+                  e.preventDefault();
+                  setEmailError(EMAIL_ERROR);
+                  if (e.currentTarget.form?.querySelector(":invalid") === e.currentTarget) {
+                    e.currentTarget.focus();
+                  }
+                }}
+                onInput={() => {
+                  setEmailError(null);
+                  // Either one is enough, so an email also clears "add a phone or an email".
+                  setPhoneError((current) => (current === REACH_ERROR ? null : current));
+                }}
+                className={INPUT_CLASS}
+              />
+            </Field>
+            {emailError && (
+              <span
+                id={emailErrorId}
+                role="alert"
+                className="mt-1.5 block text-sm text-destructive"
+              >
+                {emailError}
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+      <fieldset aria-describedby={methodError ? methodErrorId : undefined}>
+        <legend className="mb-1.5 text-sm font-medium text-foreground">
+          Best way to reach you
+        </legend>
+        <div className="grid grid-cols-3 gap-2">
+          {CONTACT_METHODS.map((method) => (
+            <label key={method} className={CHOICE_CLASS}>
+              <input
+                type="radio"
+                name="contact_method"
+                value={method}
+                onChange={() => setMethodError(null)}
+                className="sr-only"
+              />
+              {method}
+            </label>
+          ))}
+        </div>
+        {methodError && (
+          <span id={methodErrorId} role="alert" className="mt-1.5 block text-sm text-destructive">
+            {methodError}
+          </span>
+        )}
+      </fieldset>
+      <fieldset>
+        <legend className="mb-1.5 flex w-full items-baseline justify-between text-sm font-medium text-foreground">
+          <span>Type of session</span>
+          <span className="text-xs font-normal text-muted-foreground">
+            <span className="sr-only"> </span>(optional)
+          </span>
+        </legend>
+        <div className="grid grid-cols-3 gap-2">
+          {SESSION_TYPES.map((type) => (
+            <label key={type} className={CHOICE_CLASS}>
+              <input type="radio" name="session_type" value={type} className="sr-only" />
+              {type}
+            </label>
+          ))}
+        </div>
+      </fieldset>
+      <Field label="Best times to reach you">
+        <input
+          name="best_time"
+          type="text"
+          maxLength={100}
+          placeholder="Weekday mornings, after 5 pm…"
+          required
+          className={INPUT_CLASS}
         />
       </Field>
       {/* Hidden from people. The Sheet script discards anything a bot fills in here. */}
@@ -275,6 +393,10 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
       />
       {TURNSTILE_SITE_KEY && <div ref={turnstileBox} />}
 
+      <p className="rounded-xl bg-muted/60 px-4 py-3 text-sm leading-relaxed text-foreground">
+        Please don’t share health details here. We’ll talk about what brings you in during your free
+        15-minute consultation.
+      </p>
       <button
         type="submit"
         disabled={!ready || submitting}
@@ -284,9 +406,13 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
       </button>
       {!ready && (
         <p className="text-center text-sm text-muted-foreground">
-          The form is still loading. If it doesn’t start working, please call{" "}
+          Prefer not to wait for the form? Call{" "}
           <a href={PHONE_HREF} className="underline underline-offset-4">
             {PHONE_DISPLAY}
+          </a>{" "}
+          or email{" "}
+          <a href="mailto:attya.llc@gmail.com" className="underline underline-offset-4">
+            attya.llc@gmail.com
           </a>
           .
         </p>
@@ -300,10 +426,19 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
           .
         </p>
       )}
+      <p className="text-center text-sm leading-relaxed text-muted-foreground">
+        This form isn’t watched around the clock. If you’re in crisis, call or text{" "}
+        <a href="tel:988" className="underline underline-offset-4 hover:text-foreground">
+          988
+        </a>{" "}
+        or call 911, or{" "}
+        <a href="/crisis/" className="underline underline-offset-4 hover:text-foreground">
+          find 24/7 crisis help
+        </a>
+        .
+      </p>
       <p className="text-center text-xs leading-relaxed text-muted-foreground">
-        Used only to contact you about scheduling. Please save private health details for our call.
-        This form isn’t watched around the clock. If you’re in crisis, call or text 988, or call
-        911.
+        Used only to contact you about scheduling.
         {TURNSTILE_SITE_KEY && (
           <>
             {" "}
@@ -344,7 +479,7 @@ export function ConsultationButton({
   return (
     <Dialog onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
-        <button type="button" className={className}>
+        <button type="button" className={className} data-booking="">
           {children}
         </button>
       </DialogTrigger>
@@ -355,8 +490,8 @@ export function ConsultationButton({
             Request a call
           </DialogTitle>
           <DialogDescription className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Leave your details and I’ll call you back for a free 15-minute consultation. No pressure
-            and no commitment.
+            Leave a way to reach you and I’ll get back to you for a free 15-minute consultation. No
+            pressure and no commitment.
           </DialogDescription>
         </div>
         <ConsultationForm key={timesOpened} onSent={() => setSent(true)} />
