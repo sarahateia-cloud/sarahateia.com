@@ -19,7 +19,7 @@ const COLLECTED =
 const CONSENT_TEXT = `With your permission, I’d use Google Analytics to count visits and see which pages are useful. If you accept, Google receives ${COLLECTED}. It also sets a cookie so it can recognize your browser on later visits. Google Analytics collects nothing unless you accept, and the site works the same either way.`;
 // The one-line version shown first; the full text above is one tap away under “What’s shared”.
 const CONSENT_SUMMARY =
-  "With your permission, I’d use Google Analytics to count visits and see which pages are useful. If you accept, it sets a cookie. The site works the same either way.";
+  "I count visits with Google Analytics, which sets a cookie, but only if you accept. The site works the same either way.";
 
 // Only pages that are live belong here. All three are excluded by PRIVATE_PATHS above.
 const NOT_COUNTED = "Visits to the crisis, New Clients, and Screening Tools pages aren’t counted";
@@ -287,7 +287,7 @@ export function Analytics() {
       aria-label="Visit counting choice"
       className="consent-sheet fixed inset-x-3 bottom-3 z-50 mx-auto max-w-xl rounded-2xl border border-border bg-card p-4 shadow-[0_8px_30px_rgb(0_0_0/0.08)] focus:outline-none sm:inset-x-6 sm:bottom-6 sm:p-5"
     >
-      <p className="font-medium text-foreground">Count your visit?</p>
+      <p className="font-medium text-foreground">Cookies</p>
       <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{CONSENT_SUMMARY}</p>
       <details className="mt-1 text-sm text-muted-foreground">
         <summary className="inline-flex min-h-11 cursor-pointer items-center underline underline-offset-4 hover:text-foreground">
