@@ -134,7 +134,9 @@ export function ContentPageView({
               {page.faqs.map((faq) => (
                 <div key={faq.q} className="px-6 py-5 sm:px-8">
                   <h3 className="font-serif text-lg text-foreground">{faq.q}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{faq.a}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    <Inline text={faq.a} />
+                  </p>
                 </div>
               ))}
             </div>
