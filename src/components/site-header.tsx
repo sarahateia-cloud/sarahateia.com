@@ -143,9 +143,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
                 </li>
               ))}
             </ul>
-            <p className="mt-10 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              Services
-            </p>
+            <p className="mt-10 text-sm font-semibold text-clay">Services</p>
             <ul className="mt-2 grid grid-cols-1 gap-x-6 sm:grid-cols-2">
               {SERVICES.map((service) => (
                 <li key={service.href}>
@@ -324,7 +322,7 @@ export function NoticeToClients({ className = "" }: { className?: string }) {
     <div
       className={`rounded-2xl border border-border bg-card/60 p-5 leading-relaxed text-muted-foreground ${className}`}
     >
-      <p className="font-medium uppercase tracking-[0.16em] text-foreground">Notice to clients</p>
+      <p className="font-semibold text-foreground">Notice to clients</p>
       <p className="mt-2">
         The Texas Behavioral Health Executive Council investigates and prosecutes professional
         misconduct committed by marriage and family therapists, professional counselors,

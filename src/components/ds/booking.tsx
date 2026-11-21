@@ -68,21 +68,15 @@ export function SectionHeading({
 }) {
   return (
     <div className={center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
-      {eyebrow && (
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          {eyebrow}
-        </p>
-      )}
+      {eyebrow && <p className="text-sm font-semibold text-clay">{eyebrow}</p>}
       <h2
         id={id}
-        className="mt-3 font-serif text-[2rem] leading-[1.15] text-foreground sm:text-[2.6rem]"
+        className="mt-3 font-serif text-[2rem] leading-[1.12] text-foreground sm:text-[2.6rem]"
       >
         {title}
       </h2>
       {children && (
-        <div className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-          {children}
-        </div>
+        <div className="mt-4 text-base leading-relaxed text-muted-foreground">{children}</div>
       )}
     </div>
   );

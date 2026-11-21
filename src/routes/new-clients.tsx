@@ -61,8 +61,8 @@ function NewClients() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
 
-      <main id="main" className="mx-auto max-w-4xl px-6 pt-32 max-[340px]:pt-36 pb-24 sm:pt-40">
-        <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">New clients</p>
+      <main id="main" className="mx-auto max-w-4xl px-6 pt-36 max-[340px]:pt-40 pb-24 sm:pt-40">
+        <p className="text-sm font-semibold text-clay">New clients</p>
         <h1 className="mt-3 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
           Before your first session.
         </h1>

@@ -197,11 +197,11 @@ function Index() {
         {/* 1. Hero: who, what, and both ways to book, with the form in reach. */}
         <section
           id="top"
-          className="holo-scope holo-bg overflow-hidden pt-28 pb-16 max-[380px]:pt-36 sm:pt-36 sm:pb-24"
+          className="holo-scope holo-bg overflow-hidden pt-40 pb-16 max-[380px]:pt-44 sm:pt-36 sm:pb-24"
         >
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 lg:grid-cols-12 lg:gap-x-12">
             <div className="lg:col-span-7 lg:pt-4">
-              <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm font-semibold text-muted-foreground">
                 <span className="h-1.5 w-1.5 rounded-full bg-cta" aria-hidden />
                 Now accepting new clients
               </p>
@@ -413,9 +413,7 @@ function Index() {
                   ["Certification", "National Certified Counselor", "NBCC · NCC #1746909"],
                 ].map(([label, title, detail]) => (
                   <div key={label} className="rounded-2xl border border-border bg-card p-5">
-                    <dt className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                      {label}
-                    </dt>
+                    <dt className="text-sm font-semibold text-clay">{label}</dt>
                     <dd className="mt-2 font-serif text-lg text-foreground">{title}</dd>
                     <dd className="text-sm text-muted-foreground">{detail}</dd>
                   </div>
@@ -446,9 +444,7 @@ function Index() {
                     href={post.href}
                     className={`${CARD} block h-full transition-colors duration-200 hover:border-cta/50`}
                   >
-                    <span className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                      {post.eyebrow}
-                    </span>
+                    <span className="text-sm font-semibold text-clay">{post.eyebrow}</span>
                     <span className="mt-2 block font-serif text-xl text-foreground">
                       {post.title}
                     </span>
@@ -482,10 +478,7 @@ function Index() {
               ))}
             </ul>
             <nav aria-labelledby="services-heading" className="mt-10">
-              <h3
-                id="services-heading"
-                className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground"
-              >
+              <h3 id="services-heading" className="text-sm font-semibold text-clay">
                 Services
               </h3>
               <ul className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-1">
@@ -558,7 +551,7 @@ function Index() {
                   ].map((tag) => (
                     <li
                       key={tag}
-                      className="rounded-full border border-border bg-card px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground"
+                      className="rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-clay"
                     >
                       {tag}
                     </li>
@@ -571,9 +564,7 @@ function Index() {
             </div>
 
             <div className="mt-16">
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                What I bring
-              </p>
+              <p className="text-sm font-semibold text-clay">What I bring</p>
               <h3 className="mt-3 max-w-2xl font-serif text-2xl leading-tight text-foreground sm:text-3xl">
                 Three things I hold in every session.
               </h3>
@@ -649,7 +640,7 @@ function Index() {
         <section className="ds-section border-t border-border/60 bg-secondary/50">
           <div className="reveal mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-12">
             <figure data-parallax="24" className="lg:col-span-7">
-              <div className="rounded-[1.75rem] border border-border bg-[#fbf8f1] p-4 sm:p-6">
+              <div className="rounded-[1.75rem] border border-border bg-card p-4 sm:p-6">
                 <WatercolorBloom className="block h-auto w-full" />
               </div>
             </figure>
@@ -866,7 +857,7 @@ function Index() {
         <section className="pb-[var(--section-y)]">
           <div className="mx-auto max-w-3xl px-6">
             <div className="rounded-2xl border border-border bg-secondary/50 p-8 sm:p-10">
-              <h2 className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground [font-family:var(--font-sans)]">
+              <h2 className="text-sm font-semibold text-clay [font-family:var(--font-sans)]">
                 Disclosures
               </h2>
               <ul className="mt-5 divide-y divide-border/60 text-sm leading-relaxed text-muted-foreground">

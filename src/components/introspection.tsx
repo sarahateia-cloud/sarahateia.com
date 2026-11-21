@@ -134,9 +134,7 @@ function CognitiveFunctions() {
       <div className="grid grid-cols-4 gap-2">
         {FAMILIES.map((family) => (
           <div key={family.name} className="text-center">
-            <p className="text-[0.7rem] uppercase tracking-[0.14em] text-muted-foreground">
-              {family.name}
-            </p>
+            <p className="text-xs font-semibold text-muted-foreground">{family.name}</p>
             <div className="mt-2 flex flex-col items-center gap-2">
               {family.functions.map((f) => (
                 <button
@@ -192,9 +190,7 @@ export function Introspection() {
     <section id="introspection" className="border-t border-border/60 py-16 sm:py-20">
       <div className="reveal mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            For fun and introspection
-          </p>
+          <p className="text-sm font-semibold text-clay">For fun and introspection</p>
           <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground sm:text-4xl">
             Curious how your mind works?
           </h2>

@@ -237,7 +237,7 @@ export function QuoteFeature({
                 </blockquote>
                 {quote.author && (
                   <figcaption
-                    className={`quote-author mt-6 text-sm uppercase leading-relaxed tracking-[0.18em] text-muted-foreground ${
+                    className={`quote-author mt-6 text-base leading-relaxed text-muted-foreground ${
                       centered ? "justify-center" : ""
                     }`}
                     style={{ "--i": words.length } as CSSProperties}

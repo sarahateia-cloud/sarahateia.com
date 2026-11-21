@@ -43,63 +43,150 @@
   --color-cta: var(--cta);
   --color-cta-hover: var(--cta-hover);
   --color-cta-foreground: var(--cta-foreground);
-  --font-serif: "Cormorant Garamond", "Cormorant", ui-serif, Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces Variable", "Fraunces", ui-serif, Georgia, serif;
+  --font-sans:
+    "Atkinson Hyperlegible Next Variable", "Atkinson Hyperlegible Next", ui-sans-serif, system-ui,
+    sans-serif;
+  --font-arabic: "Noto Naskh Arabic", "Geeza Pro", "Arial", serif;
+  /* Type scale: 18px body. Small text never drops below 13px. */
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.55;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.6;
+  --text-base: 1.125rem;
+  --text-base--line-height: 1.65;
+  --text-lg: 1.25rem;
+  --text-lg--line-height: 1.6;
+  --color-clay-soft: var(--clay-soft);
+  --color-mist: var(--mist);
 }
 
+/* ------------------------------------------------------------------------------------------
+   Design system: "trail at golden hour". Warm cream paper, sage leaves, soft clay soil and
+   deep olive ink. One solid booking color (deep sage). Clay is a quiet second voice for
+   emphasis and small marks, never a big fill. Every pair below meets WCAG AA (checked with
+   scripts in the PR); text pairs are 4.5:1 or better, borders on inputs 3:1 or better.
+   ------------------------------------------------------------------------------------------ */
 :root {
+  color-scheme: light;
   --radius: 0.875rem;
 
-  /* Linen and sage mist: neutral pastels with soft charcoal text */
-  --background: oklch(0.965 0.007 80); /* linen */
-  --foreground: oklch(0.34 0.008 80); /* soft charcoal */
+  /* Surfaces: L0 canvas, L1 cards, L2 raised bands and menus. */
+  --background: #f5efe3; /* warm cream */
+  --card: #fbf8f1; /* shell */
+  --popover: #fbf8f1;
+  --secondary: #ece4d3; /* oat, raised band */
+  --muted: #efe8da;
 
-  --card: oklch(0.995 0.004 80);
-  --card-foreground: oklch(0.34 0.008 80);
-  --popover: oklch(0.995 0.004 80);
-  --popover-foreground: oklch(0.34 0.008 80);
+  /* Ink */
+  --foreground: #2d3322; /* deep olive, 11.4:1 on cream */
+  --card-foreground: var(--foreground);
+  --popover-foreground: var(--foreground);
+  --secondary-foreground: var(--foreground);
+  --muted-foreground: #585c46; /* olive grey, 6.0:1 on cream, 5.5:1 on oat */
 
-  --primary: oklch(0.87 0.03 140); /* pastel sage, for buttons */
-  --primary-foreground: oklch(0.33 0.03 145); /* deep sage, text on buttons and links */
+  /* Sage */
+  --primary: #dfe6d4; /* sage tint, soft fills */
+  --primary-foreground: #3c5036; /* deep sage text on tints and links */
+  --sage: #8fa382; /* mid sage, decoration only */
+  --taupe: #4a6142; /* deep sage for emphasis */
 
-  --secondary: oklch(0.925 0.013 80); /* oat */
-  --secondary-foreground: oklch(0.34 0.01 80);
+  /* Clay */
+  --clay: #8b4f3a; /* dusty clay, 5.6:1 on cream: small text and marks */
+  --clay-soft: #f0ddd2; /* clay tint, small chips and highlights */
+  --terracotta: #c98e74; /* logo and illustration warmth */
+  --gold: #8fa382; /* legacy accent name, now mid sage */
 
-  --muted: oklch(0.94 0.01 80);
-  --muted-foreground: oklch(0.48 0.012 70); /* 5.9:1 on linen, 5.3:1 on oat */
+  --accent: #e7e3d3;
+  --accent-foreground: #2d3322;
 
-  --accent: oklch(0.905 0.01 220); /* mist blue */
-  --accent-foreground: oklch(0.37 0.02 225);
+  --destructive: #a63d2a; /* brick, 5.5:1 on cream */
+  --destructive-foreground: #fbf8f1;
 
-  --destructive: oklch(0.55 0.18 25);
-  --destructive-foreground: oklch(0.99 0 0);
+  /* Hairlines: decorative borders are soft; anything you type into gets a 3:1 edge. */
+  --border: color-mix(in oklab, var(--foreground) 12%, transparent);
+  --input: #8a846d;
+  --ring: #4a6142;
 
-  --border: oklch(0.9 0.01 80);
-  --input: oklch(0.9 0.01 80);
-  --ring: oklch(0.42 0.05 150); /* = --cta, focus outlines */
-
-  --sand: oklch(0.925 0.013 80);
-  --clay: oklch(0.72 0.045 140); /* kept for util compat */
-  --sage: oklch(0.72 0.045 140); /* mid sage */
-  --rose: oklch(0.905 0.01 220); /* mist */
-  --taupe: oklch(0.5 0.045 145); /* deep sage for em emphasis */
-  --terracotta: oklch(0.76 0.06 78); /* logo orchid, soft gold */
-  --gold: oklch(0.72 0.045 140); /* accent (swap here to recolor) */
-  --night: oklch(0.955 0.009 90); /* base for the hero */
-  --cream: oklch(0.965 0.007 80);
+  --sand: #ece4d3;
+  --rose: #e7e3d3;
+  --night: #f2ebdd; /* base for the hero */
+  --cream: #f5efe3;
+  --mist: #dfe3dc;
 
   /* The one solid "book a consultation" color. Use it only for booking. */
-  --cta: oklch(0.42 0.05 150); /* deep sage, 7.5:1 on linen */
-  --cta-hover: oklch(0.37 0.05 150);
-  --cta-foreground: oklch(0.99 0.004 80); /* cream, 8:1 on --cta */
+  --cta: #4a6142; /* deep sage, 6.0:1 on cream */
+  --cta-hover: #3c5036;
+  --cta-foreground: #fbf8f1; /* 6.4:1 on --cta */
 
-  /* One vertical rhythm for every section band. */
+  /* Depth: hairline first, then a whisper of shadow (alpha < 0.08). */
+  --shadow-soft: 0 1px 3px rgb(45 51 34 / 0.06), 0 12px 32px -18px rgb(45 51 34 / 0.07);
+  --shadow-float: 0 2px 6px rgb(45 51 34 / 0.05), 0 24px 60px -28px rgb(45 51 34 / 0.07);
+  --edge-light: inset 0 1px 0 rgb(255 255 255 / 0.6);
+
+  /* Spacing scale (4px base). Sections use --section-y; components use --space-*. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
   --section-y: 4.5rem;
+
+  /* Motion: calm and short. Only transform and opacity move. */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 150ms;
+  --dur-base: 240ms;
+  --dur-slow: 600ms;
 }
 
 @media (min-width: 640px) {
   :root {
     --section-y: 6rem;
+  }
+}
+
+/* Dark mode follows the device setting: dusk on the trail, not black glass. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --background: #181b13;
+    --card: #21251b;
+    --popover: #2a2f23;
+    --secondary: #2a2f23;
+    --muted: #262a1f;
+    --foreground: #ece6d6;
+    --muted-foreground: #b5b19e; /* 8.1:1 on canvas */
+    --primary: #2f3a29;
+    --primary-foreground: #c3d4b2;
+    --sage: #7f9473;
+    --taupe: #a9bf95;
+    --clay: #de9f86; /* 7.8:1 on canvas */
+    --clay-soft: #3a2a22;
+    --terracotta: #c98e74;
+    --gold: #7f9473;
+    --accent: #2f3428;
+    --accent-foreground: #ece6d6;
+    --destructive: #f08a74;
+    --destructive-foreground: #181b13;
+    --border: color-mix(in oklab, var(--foreground) 13%, transparent);
+    --input: #77735f;
+    --ring: #a9bf95;
+    --sand: #2a2f23;
+    --rose: #2f3428;
+    --night: #1c2017;
+    --cream: #181b13;
+    --mist: #262b24;
+    --cta: #a9bf95; /* 8.8:1 on canvas */
+    --cta-hover: #bccfa9;
+    --cta-foreground: #1a2014; /* 8.4:1 on --cta */
+    --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.3);
+    --shadow-float: 0 2px 8px rgb(0 0 0 / 0.3), 0 24px 60px -28px rgb(0 0 0 / 0.5);
+    --edge-light: inset 0 1px 0 rgb(255 255 255 / 0.05);
   }
 }
 
@@ -112,12 +199,17 @@
       scroll-behavior: smooth;
     }
   }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv11";
+    font-size: 1.125rem; /* 18px body */
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
   h1,
   h2,
@@ -125,16 +217,117 @@
   h4 {
     font-family: var(--font-serif);
     font-weight: 400;
-    letter-spacing: -0.01em;
+    /* Fraunces' soft axis rounds the serifs: warm like river stones, not sharp like print. */
+    font-variation-settings:
+      "SOFT" 100,
+      "WONK" 0;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
   }
+  p,
+  li {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--clay-soft);
+    color: var(--foreground);
+  }
+  /* Arabic text reads in Naskh, a little larger and looser than Latin text beside it. */
+  :lang(ar) {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+    line-height: 1.9;
+  }
+  :lang(ar) :is(h1, h2, h3, h4) {
+    font-family: var(--font-arabic);
+    font-variation-settings: normal;
+    letter-spacing: 0;
+    line-height: 1.45;
+  }
+}
+
+/* ---------- Components ---------- */
+
+/* Card: L1 surface. Hairline first, whisper of shadow, edge light in dark mode. */
+.ds-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-soft), var(--edge-light);
+}
+/* A quieter card for notes and asides: one step off the canvas, no shadow. */
+.ds-card-quiet {
+  background: color-mix(in oklab, var(--secondary) 60%, var(--background));
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+}
+/* A small clay mark for notes that need a second look (draft, not a diagnosis, etc). */
+.ds-note {
+  border-inline-start: 3px solid var(--clay);
+  background: var(--clay-soft);
+  border-radius: 0.75rem;
+  padding: var(--space-4) var(--space-5);
+}
+
+/* Form fields: 48px tall, 18px text (no zoom-on-focus on phones), a 3:1 edge, a clear focus ring. */
+.ds-input {
+  width: 100%;
+  min-height: 3rem;
+  border-radius: 0.875rem;
+  border: 1px solid var(--input);
+  background: var(--card);
+  padding: 0.75rem 1rem;
+  font-size: 1.0625rem;
+  color: var(--foreground);
+  transition:
+    border-color var(--dur-fast) ease,
+    box-shadow var(--dur-fast) ease;
+}
+.ds-input::placeholder {
+  color: color-mix(in oklab, var(--muted-foreground) 75%, transparent);
+}
+.ds-input:focus {
+  outline: none;
+  border-color: var(--cta);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--cta) 25%, transparent);
+}
+.ds-input[aria-invalid="true"] {
+  border-color: var(--destructive);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--destructive) 18%, transparent);
+}
+.ds-label {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+.ds-hint {
+  font-size: 0.9375rem;
+  color: var(--muted-foreground);
+}
+
+/* Range slider in the system colors. */
+.ds-range {
+  width: 100%;
+  accent-color: var(--cta);
+  min-height: 2.75rem;
+}
+
+/* A clear pause between ideas: a short clay stroke, not a full-width rule. */
+.ds-mark {
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--clay);
 }
 
 /* Light hero section: re-points theme tokens inside it. */
 .holo-scope {
   --background: var(--night);
-  --card: oklch(0.995 0.004 80 / 0.7);
-  --secondary: oklch(0.995 0.004 80 / 0.6);
-  --border: oklch(0.34 0.008 80 / 0.1);
+  --card: color-mix(in oklab, var(--card) 72%, transparent);
+  --secondary: color-mix(in oklab, var(--card) 60%, transparent);
+  --border: color-mix(in oklab, var(--foreground) 11%, transparent);
   color: var(--foreground);
 }
 
@@ -142,8 +335,17 @@
   position: relative;
   isolation: isolate;
   background:
-    radial-gradient(55% 65% at 85% 10%, oklch(0.92 0.025 140 / 0.6), transparent 70%),
-    radial-gradient(45% 55% at 5% 95%, oklch(0.93 0.012 220 / 0.7), transparent 70%), var(--night);
+    radial-gradient(
+      55% 65% at 85% 10%,
+      color-mix(in oklab, var(--sage) 22%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      45% 55% at 5% 95%,
+      color-mix(in oklab, var(--terracotta) 14%, transparent),
+      transparent 70%
+    ),
+    var(--night);
 }
 
 /* Faint lab-grid that fades toward the edges. */
@@ -154,8 +356,16 @@
   z-index: -1;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, oklch(0.34 0.008 80 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(0.34 0.008 80 / 0.05) 1px, transparent 1px);
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--foreground) 5%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--foreground) 5%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 80%);
 }
@@ -169,15 +379,15 @@
   pointer-events: none;
   background: radial-gradient(
     520px circle at var(--mx, 70%) var(--my, 30%),
-    oklch(1 0 0 / 0.55),
+    color-mix(in oklab, var(--card) 55%, transparent),
     transparent 60%
   );
 }
 
 .glass {
-  background: oklch(1 0 0 / 0.5);
-  border: 1px solid oklch(1 0 0 / 0.75);
-  box-shadow: 0 10px 40px -24px oklch(0.18 0 0 / 0.2);
+  background: color-mix(in oklab, var(--card) 55%, transparent);
+  border: 1px solid color-mix(in oklab, var(--card) 80%, transparent);
+  box-shadow: var(--shadow-soft), var(--edge-light);
   backdrop-filter: blur(16px) saturate(150%);
   -webkit-backdrop-filter: blur(16px) saturate(150%);
 }
@@ -187,8 +397,8 @@
   background: linear-gradient(
     100deg,
     var(--taupe),
-    oklch(0.62 0.05 160) 45%,
-    oklch(0.55 0.03 220) 75%,
+    color-mix(in oklab, var(--taupe) 70%, var(--clay)) 45%,
+    var(--clay) 75%,
     var(--taupe)
   );
   background-size: 220% 100%;
@@ -203,8 +413,8 @@
   background: linear-gradient(
     90deg,
     transparent,
-    oklch(0.72 0.045 140 / 0.7),
-    oklch(0.8 0.02 220 / 0.7),
+    color-mix(in oklab, var(--sage) 70%, transparent),
+    color-mix(in oklab, var(--terracotta) 60%, transparent),
     transparent
   );
 }
@@ -236,10 +446,10 @@
   pointer-events: none;
   background: conic-gradient(
     from 0deg at 60% 40%,
-    oklch(0.9 0.03 140 / 0.45),
-    oklch(0.92 0.015 220 / 0.4),
-    oklch(0.9 0.02 80 / 0.35),
-    oklch(0.9 0.03 140 / 0.45)
+    color-mix(in oklab, var(--sage) 30%, transparent),
+    color-mix(in oklab, var(--mist) 40%, transparent),
+    color-mix(in oklab, var(--terracotta) 20%, transparent),
+    color-mix(in oklab, var(--sage) 30%, transparent)
   );
   filter: blur(70px);
   animation: aurora-spin 40s linear infinite;
@@ -266,7 +476,6 @@
   display: inline-block;
   opacity: 0;
   transform: translate3d(0, 0.5em, 0);
-  filter: blur(6px);
   animation: rise 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: calc(var(--i, 0) * 70ms + 150ms);
 }
@@ -275,7 +484,6 @@
   to {
     opacity: 1;
     transform: none;
-    filter: blur(0);
   }
 }
 
@@ -326,7 +534,7 @@
   height: 2px;
   transform-origin: 0 50%;
   transform: scaleX(0);
-  background: var(--gold);
+  background: var(--clay);
   pointer-events: none;
 }
 
@@ -411,7 +619,7 @@
 
 /* Painted nature bands: soft mist drifting sideways, and a slow settle-in zoom while scrolling past. */
 .nature-fog {
-  background: radial-gradient(50% 50% at 50% 50%, #f4f1ea 0%, transparent 70%);
+  background: radial-gradient(50% 50% at 50% 50%, #f5efe3 0%, transparent 70%);
   animation: fog-drift 46s ease-in-out infinite alternate;
   animation-delay: var(--fog-delay, 0s);
   will-change: transform;
@@ -695,12 +903,10 @@
   from {
     opacity: 0;
     transform: translate3d(0, 6px, 0);
-    filter: blur(4px);
   }
   to {
     opacity: 1;
     transform: none;
-    filter: none;
   }
 }
 
@@ -735,7 +941,7 @@
   bottom: -7%;
   height: 14%;
   border-radius: 50%;
-  background: radial-gradient(closest-side, oklch(0.3 0.02 80 / 0.25), transparent);
+  background: radial-gradient(closest-side, rgb(45 51 34 / 0.2), transparent);
   filter: blur(6px);
   transform: translateZ(-30px);
 }
@@ -789,13 +995,13 @@
   stroke: var(--cta);
 }
 .enn-flow-stress {
-  stroke: oklch(0.6 0.09 40);
+  stroke: var(--clay);
 }
 .enn-arrowhead-growth {
   fill: var(--cta);
 }
 .enn-arrowhead-stress {
-  fill: oklch(0.6 0.09 40);
+  fill: var(--clay);
 }
 @keyframes enn-flow {
   to {
@@ -868,7 +1074,7 @@
   background: var(--cta);
 }
 .enn-key-stress {
-  background: oklch(0.6 0.09 40);
+  background: var(--clay);
 }
 @media (prefers-reduced-motion: no-preference) {
   .is-visible .enn-float {
@@ -903,8 +1109,16 @@
   inset: -30%;
   z-index: -1;
   background:
-    radial-gradient(40% 35% at 32% 42%, oklch(0.88 0.04 140 / 0.55), transparent 70%),
-    radial-gradient(35% 30% at 68% 58%, oklch(0.9 0.04 70 / 0.5), transparent 70%);
+    radial-gradient(
+      40% 35% at 32% 42%,
+      color-mix(in oklab, var(--sage) 35%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      35% 30% at 68% 58%,
+      color-mix(in oklab, var(--terracotta) 28%, transparent),
+      transparent 70%
+    );
   filter: blur(30px);
 }
 .quote-feature blockquote {
@@ -951,12 +1165,10 @@
 @keyframes quote-word-in {
   from {
     opacity: 0;
-    filter: blur(8px);
     transform: translate3d(0, 0.4em, 0) rotateX(40deg);
   }
   to {
     opacity: 1;
-    filter: none;
     transform: none;
   }
 }
