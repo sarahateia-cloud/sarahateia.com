@@ -313,6 +313,46 @@ for (const url of builtUrls) {
   }
 }
 
+// Stop the build if any page's wording breaks the CLAUDE.md compliance rules: every page must show
+// the supervisor disclosure, and none may carry testimonial, rating, outcome-promise or
+// independent-practice wording. This also protects pages added by unattended runs.
+const SUPERVISOR = "supervised by Don Zablosky, LPC-S";
+const BANNED = [
+  [/testimonial/i, "testimonial"],
+  [/clients? (say|said|love)/i, '"clients say" wording'],
+  [/what (my |our )?clients (say|think)/i, '"clients say" wording'],
+  [/★|star rating|\d(\.\d)? stars?\b|five[- ]star|5[- ]star/i, "star rating"],
+  [/top[- ]rated|best therapist|best counselor/i, "superlative"],
+  [/my private practice|practice owner|independent practice/i, "independent-practice claim"],
+  [
+    /guaranteed (results|relief|outcomes?)|we guarantee|i guarantee|cure (your|anxiety|depression|adhd)/i,
+    "guarantee or cure",
+  ],
+  [
+    /\bDr\.? Sarah|Sarah Ateia(?: Khattab)?,? (?:M\.S\., )?LPC(?! Associate)\b/,
+    'Sarah\'s title without "Associate"',
+  ],
+];
+const visibleText = (doc) =>
+  doc
+    .replace(/<script\b[\s\S]*?<\/script>/g, " ")
+    .replace(/<style\b[\s\S]*?<\/style>/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&#x27;|&#39;|&rsquo;|’/g, "'")
+    .replace(/\s+/g, " ");
+const problems = [];
+for (const url of builtUrls) {
+  const path = url.slice(SITE.length + 1);
+  const text = visibleText(readFileSync(`dist/${path}index.html`, "utf8"));
+  if (!text.includes(SUPERVISOR)) problems.push(`${url}: missing "${SUPERVISOR}"`);
+  for (const [pattern, label] of BANNED) {
+    const hit = text.match(pattern);
+    if (hit) problems.push(`${url}: ${label} ("${hit[0]}")`);
+  }
+}
+if (problems.length) throw new Error(`Compliance check failed:\n${problems.join("\n")}`);
+
 // Old addresses. GitHub Pages can't send a real 301, so each old address gets a tiny page that
 // sends people on at once and tells search engines which page is the real one.
 const REDIRECTS = {

@@ -5115,7 +5115,7 @@ export const SITE_PAGES: {
   })),
   {
     path: "blog",
-    title: title("Blog: Mind, Body and Mental Health"),
+    title: title("Mind-Body Mental Health Blog"),
     description:
       "Plain-language articles on how genes, stress and the body shape mental health, and what helps whatever your DNA says. Educational only.",
     graph: [
