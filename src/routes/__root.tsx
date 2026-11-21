@@ -1,5 +1,6 @@
 import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
 import { Analytics } from "@/components/analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 
 function NotFoundComponent() {
   return (
@@ -40,6 +41,7 @@ function RootComponent() {
       {/* The visit counting question sits above the page, never on top of it. The page is
           wrapped so its floating header starts below the question instead of covering it. */}
       <Analytics />
+      <VercelAnalytics />
       <div className="relative">
         <Outlet />
       </div>
