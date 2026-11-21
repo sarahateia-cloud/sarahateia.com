@@ -10,7 +10,6 @@ import { Tilt, useScrollReveal } from "@/components/motion";
 import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
 import sarahHeadshot from "@/assets/sarah-headshot.webp";
 import sarahGraduation from "@/assets/sarah-graduation.webp";
-import sarahHarbor from "@/assets/sarah-harbor.webp";
 import sarahOverlook from "@/assets/sarah-overlook.webp";
 import chicoPortrait from "@/assets/chico.webp";
 import chicoSoft from "@/assets/chico-soft.webp";
@@ -351,7 +350,7 @@ function Index() {
           <div className="reveal mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <SectionHeading eyebrow="About" title="A relational, considered approach." />
-              <figure className="mx-auto mt-8 grid max-w-md grid-cols-2 gap-4 lg:max-w-none lg:grid-cols-1 lg:gap-6">
+              <figure className="mx-auto mt-8 max-w-xs lg:max-w-none">
                 <Tilt>
                   <img
                     src={sarahGraduation}
@@ -360,16 +359,6 @@ function Index() {
                     alt="Sarah at her graduate commencement, holding flowers"
                     loading="lazy"
                     className="depth-far aspect-[4/5] w-full rounded-[1.75rem] border border-border object-cover"
-                  />
-                </Tilt>
-                <Tilt>
-                  <img
-                    src={sarahHarbor}
-                    width={800}
-                    height={1000}
-                    alt="Sarah in a blue hijab, sitting at a table by the water"
-                    loading="lazy"
-                    className="depth-near aspect-[4/5] w-full rounded-[1.75rem] border border-border object-cover"
                   />
                 </Tilt>
               </figure>
