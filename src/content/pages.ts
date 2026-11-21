@@ -165,6 +165,7 @@ const LINK = {
   },
   glossary: { label: "Counseling glossary in English and Arabic", href: "/glossary/" },
   crisis: { label: "Crisis resources in Dallas–Fort Worth", href: "/crisis/" },
+  tools: { label: "Free calming tools: box breathing and grounding", href: "/tools/" },
 };
 
 // Titles stay under 60 characters: keyword first, then this ending.
@@ -629,6 +630,7 @@ export const TOPICS: ContentPage[] = [
       LINK.youngAdult,
       LINK.screening,
       LINK.regulation,
+      LINK.tools,
       LINK.groundingGuide,
     ],
     title: "Anxiety Therapy in Dallas, TX",
@@ -4223,6 +4225,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.outdoor,
       LINK.selfReflection,
       LINK.groundingGuide,
+      LINK.tools,
     ],
     title: title("Nervous System Regulation Tips"),
     description:

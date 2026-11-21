@@ -1463,3 +1463,35 @@ body:has([aria-label="Visit counting choice"]) .sticky-call {
     }
   }
 }
+
+/* Calming tools. The breathing circle's size is set each frame from script (transform only);
+   with reduced motion it stays still and only its opacity changes. */
+.breath-orb {
+  background: radial-gradient(
+    circle at 50% 40%,
+    color-mix(in oklab, var(--primary) 90%, var(--card)),
+    color-mix(in oklab, var(--sage) 55%, var(--primary))
+  );
+  border: 1px solid color-mix(in oklab, var(--sage) 60%, transparent);
+  box-shadow: var(--shadow-float), var(--edge-light);
+  will-change: transform;
+}
+.tool-fade {
+  animation: tool-fade var(--dur-base) var(--ease-out) both;
+}
+@keyframes tool-fade {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 6px, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tool-fade {
+    animation: tool-fade-opacity var(--dur-fast) ease both;
+  }
+  @keyframes tool-fade-opacity {
+    from {
+      opacity: 0;
+    }
+  }
+}

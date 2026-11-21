@@ -54,6 +54,45 @@ const PAGES = [
       "Free, optional screening questionnaires for depression, anxiety, ADHD, and trauma, with guidance on how to use them before or during counseling.",
   },
   {
+    path: "tools",
+    graph: [
+      ...crumbs(["Resources", `${SITE}/resources/`], ["Calming tools", `${SITE}/tools/`]),
+      {
+        "@type": "HowTo",
+        "@id": `${SITE}/tools/#box-breathing`,
+        name: "How to do box breathing (4-4-4-4)",
+        description:
+          "A slow, even breathing pattern: breathe in for 4 counts, hold for 4, breathe out for 4, hold for 4.",
+        totalTime: "PT1M",
+        url: `${SITE}/tools/#box-breathing`,
+        step: [
+          ["Breathe in", "Breathe in slowly through your nose for a count of 4."],
+          ["Hold", "Hold your breath gently, lungs full, for a count of 4."],
+          ["Breathe out", "Breathe out slowly through your mouth for a count of 4."],
+          ["Hold", "Hold gently, lungs empty, for a count of 4. Repeat for about four rounds."],
+        ].map(([name, text], i) => ({ "@type": "HowToStep", position: i + 1, name, text })),
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${SITE}/tools/#grounding`,
+        name: "How to do the 5-4-3-2-1 grounding exercise",
+        description:
+          "A grounding exercise that brings attention back to the present, one sense at a time.",
+        url: `${SITE}/tools/#grounding`,
+        step: [
+          "Name 5 things you can see.",
+          "Name 4 things you can feel.",
+          "Name 3 things you can hear.",
+          "Name 2 things you can smell.",
+          "Name 1 thing you can taste.",
+        ].map((text, i) => ({ "@type": "HowToStep", position: i + 1, name: text, text })),
+      },
+    ],
+    title: "Box Breathing & Grounding | Sarah Ateia, LPC Associate",
+    description:
+      "Free box breathing guide, 5-4-3-2-1 grounding exercise and stress check-in. No login, nothing saved. From Sarah Ateia, LPC Associate in Irving, TX.",
+  },
+  {
     path: "new-clients",
     graph: crumbs(["New client forms", `${SITE}/new-clients/`]),
     title: "New Client Forms | Sarah Ateia, LPC Associate",

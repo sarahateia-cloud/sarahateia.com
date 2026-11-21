@@ -22,6 +22,7 @@ export const FOOTER_RESOURCES = [
   { label: "Glossary", href: "/glossary/" },
   { label: "Self-reflection", href: "/resources/self-reflection/" },
   { label: "Screening tools", href: "/screening-tools/" },
+  { label: "Calming tools", href: "/tools/" },
 ];
 
 /** The cities served in person, plus statewide telehealth. Linked from every footer. */

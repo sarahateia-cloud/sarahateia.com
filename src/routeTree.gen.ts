@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YoungAdultCounselingRouteImport } from './routes/young-adult-counseling'
+import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as TelehealthCounselingTexasRouteImport } from './routes/telehealth-counseling-texas'
 import { Route as TelehealthCounselingRouteImport } from './routes/telehealth-counseling'
 import { Route as ScreeningToolsRouteImport } from './routes/screening-tools'
@@ -39,6 +40,11 @@ import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 const YoungAdultCounselingRoute = YoungAdultCounselingRouteImport.update({
   id: '/young-adult-counseling',
   path: '/young-adult-counseling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsRoute = ToolsRouteImport.update({
+  id: '/tools',
+  path: '/tools',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TelehealthCounselingTexasRoute =
@@ -192,6 +198,7 @@ export interface FileRoutesByFullPath {
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
+  '/tools': typeof ToolsRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
@@ -220,6 +227,7 @@ export interface FileRoutesByTo {
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
+  '/tools': typeof ToolsRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
@@ -249,6 +257,7 @@ export interface FileRoutesById {
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
+  '/tools': typeof ToolsRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
@@ -279,6 +288,7 @@ export interface FileRouteTypes {
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
+    | '/tools'
     | '/young-adult-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
@@ -307,6 +317,7 @@ export interface FileRouteTypes {
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
+    | '/tools'
     | '/young-adult-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
@@ -335,6 +346,7 @@ export interface FileRouteTypes {
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
+    | '/tools'
     | '/young-adult-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
@@ -364,6 +376,7 @@ export interface RootRouteChildren {
   ScreeningToolsRoute: typeof ScreeningToolsRoute
   TelehealthCounselingRoute: typeof TelehealthCounselingRoute
   TelehealthCounselingTexasRoute: typeof TelehealthCounselingTexasRoute
+  ToolsRoute: typeof ToolsRoute
   YoungAdultCounselingRoute: typeof YoungAdultCounselingRoute
   BlogSlugRoute: typeof BlogSlugRoute
   ResourcesSlugRoute: typeof ResourcesSlugRoute
@@ -379,6 +392,13 @@ declare module '@tanstack/react-router' {
       path: '/young-adult-counseling'
       fullPath: '/young-adult-counseling'
       preLoaderRoute: typeof YoungAdultCounselingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools': {
+      id: '/tools'
+      path: '/tools'
+      fullPath: '/tools'
+      preLoaderRoute: typeof ToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/telehealth-counseling-texas': {
@@ -580,6 +600,7 @@ const rootRouteChildren: RootRouteChildren = {
   ScreeningToolsRoute: ScreeningToolsRoute,
   TelehealthCounselingRoute: TelehealthCounselingRoute,
   TelehealthCounselingTexasRoute: TelehealthCounselingTexasRoute,
+  ToolsRoute: ToolsRoute,
   YoungAdultCounselingRoute: YoungAdultCounselingRoute,
   BlogSlugRoute: BlogSlugRoute,
   ResourcesSlugRoute: ResourcesSlugRoute,
