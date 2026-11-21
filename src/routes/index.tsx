@@ -10,7 +10,6 @@ import { Tilt, useScrollReveal } from "@/components/motion";
 import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
 import sarahHeadshot from "@/assets/sarah-headshot.webp";
 import sarahGraduation from "@/assets/sarah-graduation.webp";
-import sarahHarbor from "@/assets/sarah-harbor.webp";
 import sarahOverlook from "@/assets/sarah-overlook.webp";
 import chicoPortrait from "@/assets/chico.webp";
 import chicoSoft from "@/assets/chico-soft.webp";
@@ -122,7 +121,7 @@ const FEES = [
 const STEPS = [
   {
     title: "Reach out",
-    body: `Call ${PHONE_DISPLAY}, or leave your details and I’ll call you back.`,
+    body: `Pick a time online, call ${PHONE_DISPLAY}, or leave your details and I’ll call you back.`,
   },
   {
     title: "Free 15-minute consultation",
@@ -213,10 +212,7 @@ function Index() {
                 attention, your emotional patterns. My practice is rooted in that belief, with
                 sessions outdoors in Dallas–Fort Worth parks and by telehealth across Texas.
               </p>
-              <BookingActions
-                requestHref="#request-call"
-                className="mt-8 lg:[&>a:first-child]:hidden"
-              />
+              <BookingActions requestHref="#request-call" className="mt-8" />
               <dl className="mt-8 grid max-w-xl grid-cols-1 gap-x-8 gap-y-3 border-t border-border pt-6 text-sm sm:grid-cols-2">
                 <div>
                   <dt className="text-muted-foreground">Licensed in Texas</dt>
@@ -342,7 +338,7 @@ function Index() {
                 </li>
               ))}
             </ol>
-            <BookingActions className="mt-10 justify-center" />
+            <BookingActions center className="mt-10" />
           </div>
         </section>
 
@@ -351,7 +347,7 @@ function Index() {
           <div className="reveal mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <SectionHeading eyebrow="About" title="A relational, considered approach." />
-              <figure className="mx-auto mt-8 grid max-w-md grid-cols-2 gap-4 lg:max-w-none lg:grid-cols-1 lg:gap-6">
+              <figure className="mx-auto mt-8 max-w-xs lg:max-w-none">
                 <Tilt>
                   <img
                     src={sarahGraduation}
@@ -362,16 +358,6 @@ function Index() {
                     className="depth-far aspect-[4/5] w-full rounded-[1.75rem] border border-border object-cover"
                   />
                 </Tilt>
-                <Tilt>
-                  <img
-                    src={sarahHarbor}
-                    width={800}
-                    height={1000}
-                    alt="Sarah in a blue hijab, sitting at a table by the water"
-                    loading="lazy"
-                    className="depth-near aspect-[4/5] w-full rounded-[1.75rem] border border-border object-cover"
-                  />
-                </Tilt>
               </figure>
             </div>
             <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg lg:col-span-8">
@@ -380,10 +366,12 @@ function Index() {
               </p>
               <p>
                 I am a Licensed Professional Counselor Associate (LPC Associate) in Texas and a
-                National Certified Counselor (NCC), with a background in healthcare. I grew up in a
-                multicultural environment, which shaped how I connect with people and how I hold
-                space for different backgrounds and lived experiences. I offer sessions in English
-                and Arabic.
+                National Certified Counselor (NCC), with a background in healthcare. Before becoming
+                a counselor, I worked as a TMS technician in an integrative psychiatry practice,
+                which gave me a close look at how mood, the brain, and treatment fit together. (I
+                don’t provide TMS.) I grew up in a multicultural environment, which shaped how I
+                connect with people and how I hold space for different backgrounds and lived
+                experiences. I offer sessions in English and Arabic.
               </p>
               <p>
                 I believe everyone has a blueprint, but most people have not been given the tools to
@@ -493,8 +481,24 @@ function Index() {
                   for noticing patterns in mood, stress, attention, and regulation. Not diagnosis,
                   not medical advice, always alongside the relational work itself.
                 </p>
+                <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  My approach is holistic: mind and body are treated as one system, so we pay
+                  attention to sleep, movement, breath, and stress alongside thoughts and feelings.
+                  The relationship comes first. My work is person-centered, so you set the pace and
+                  the goals. I also draw on solution-focused counseling, which many men in
+                  particular find practical and direct: we look at what’s already working and build
+                  on it. And for clients drawn to deeper questions of meaning, dreams, and the parts
+                  of yourself you don’t usually show, I bring in Jungian-informed ideas.
+                </p>
                 <ul className="flex flex-wrap gap-2 pt-2">
-                  {["Grounding", "Mind–body", "Nature-based", "Relational"].map((tag) => (
+                  {[
+                    "Holistic",
+                    "Mind–body",
+                    "Person-centered",
+                    "Solution-focused",
+                    "Jungian-informed",
+                    "Nature-based",
+                  ].map((tag) => (
                     <li
                       key={tag}
                       className="rounded-full border border-border bg-card px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground"
@@ -761,7 +765,7 @@ function Index() {
                   your details and I’ll call you, or call me directly.
                 </p>
               </SectionHeading>
-              <BookingActions className="mt-8 justify-center" />
+              <BookingActions center className="mt-8" />
               <p className="mt-6 text-sm text-muted-foreground">
                 Standard fee $100 per session. Reduced rates available.
               </p>
