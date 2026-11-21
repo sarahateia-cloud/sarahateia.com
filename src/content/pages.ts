@@ -147,6 +147,10 @@ const LINK = {
     label: "Holistic counseling in Dallas–Fort Worth",
     href: "/holistic-counseling/",
   },
+  groundingGuide: {
+    label: "Free grounding guide (PDF)",
+    href: "/guides/grounding-guide.pdf",
+  },
   glossary: { label: "Counseling glossary in English and Arabic", href: "/glossary/" },
   crisis: { label: "Crisis resources in Dallas–Fort Worth", href: "/crisis/" },
 };
@@ -613,6 +617,7 @@ export const TOPICS: ContentPage[] = [
       LINK.youngAdult,
       LINK.screening,
       LINK.regulation,
+      LINK.groundingGuide,
     ],
     title: "Anxiety Therapist in Dallas, TX",
     description:
@@ -2593,6 +2598,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.adhd,
       LINK.regulation,
       LINK.selfReflection,
+      LINK.groundingGuide,
     ],
     title: title("Self-Care for Mental Health"),
     description:
@@ -4204,6 +4210,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.selfCare,
       LINK.outdoor,
       LINK.selfReflection,
+      LINK.groundingGuide,
     ],
     title: title("Calming Your Nervous System"),
     description:
