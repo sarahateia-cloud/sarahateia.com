@@ -1,9 +1,11 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ContentPageView } from "@/components/content-page";
-import { ARTICLES, publishedLabel } from "@/content/pages";
+import { publishedLabel } from "@/content/pages";
 
 export const Route = createFileRoute("/resources/$slug")({
-  loader: ({ params }) => {
+  // The article text loads on its own, so other pages don't download every article.
+  loader: async ({ params }) => {
+    const { ARTICLES } = await import("@/content/pages");
     const page = ARTICLES.find((article) => article.path === `resources/${params.slug}`);
     if (!page) throw notFound();
     return page;
