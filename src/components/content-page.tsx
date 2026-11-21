@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 /** Turns [label](url) in page text into links. External links (sources) open in the same tab. */
 export function Inline({ text }: { text: string }) {
@@ -30,51 +30,6 @@ import { LogoMark } from "@/components/logo";
 import { SiteFooter, SiteHeader } from "@/components/site-header";
 import type { ContentPage } from "@/content/pages";
 
-/** Anchor id for a section heading, e.g. "What is LPC?" -> "what-is-lpc". */
-const sectionId = (heading: string) =>
-  heading
-    .toLowerCase()
-    .replace(/[’']/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-
-/** Minutes to read the page's main text at an unhurried 200 words a minute. */
-function readingMinutes(page: ContentPage) {
-  const text = [
-    page.intro,
-    ...(page.takeaways ?? []),
-    ...page.blocks.flatMap((b) => [b.heading, ...(b.paragraphs ?? []), ...(b.list ?? [])]),
-    ...(page.faqs ?? []).flatMap((f) => [f.q, f.a]),
-  ].join(" ");
-  return Math.max(1, Math.round(text.split(/\s+/).length / 200));
-}
-
-/** A thin line at the top that fills as you read. Decorative, so screen readers skip it. */
-function ReadingProgress() {
-  const bar = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
-      if (bar.current) bar.current.style.transform = `scaleX(${progress})`;
-    };
-    const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (frame) cancelAnimationFrame(frame);
-    };
-  }, []);
-  return <div ref={bar} className="reading-progress" aria-hidden="true" />;
-}
-
 export function ContentPageView({
   page,
   parent,
@@ -86,12 +41,8 @@ export function ContentPageView({
   parent?: { label: string; href: string };
   note?: ReactNode;
 }) {
-  // Longer guides get a contents list, reading time and a progress line.
-  const isGuide = page.blocks.length >= 4;
-  const minutes = readingMinutes(page);
   return (
     <div className="min-h-screen bg-background pb-24 text-foreground md:pb-0">
-      {isGuide && <ReadingProgress />}
       <SiteHeader arabicHref={arabicHref} />
       <main id="main" className="mx-auto max-w-3xl px-6 pt-44 max-[340px]:pt-48 pb-20 sm:pt-40">
         <div id="top">
@@ -119,7 +70,6 @@ export function ContentPageView({
             {page.heading}
           </h1>
           {page.byline && <p className="mt-4 text-sm font-medium text-foreground">{page.byline}</p>}
-          {isGuide && <p className="mt-3 text-sm text-muted-foreground">{minutes} min read</p>}
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             <Inline text={page.intro} />
           </p>
@@ -147,40 +97,11 @@ export function ContentPageView({
               </ul>
             </section>
           )}
-          {isGuide && (
-            <nav aria-labelledby="on-this-page" className="ds-card-quiet mt-8 px-6 py-5">
-              <h2 id="on-this-page" className="text-sm font-semibold text-clay">
-                On this page
-              </h2>
-              <ol className="toc-list mt-2 divide-y divide-border">
-                {page.blocks.map((block) => (
-                  <li key={block.heading}>
-                    <a
-                      href={`#${sectionId(block.heading)}`}
-                      className="flex min-h-11 items-center py-2 text-base leading-snug text-foreground underline-offset-4 hover:underline"
-                    >
-                      {block.heading}
-                    </a>
-                  </li>
-                ))}
-                {page.faqs && (
-                  <li>
-                    <a
-                      href="#common-questions"
-                      className="flex min-h-11 items-center py-2 text-base leading-snug text-foreground underline-offset-4 hover:underline"
-                    >
-                      Common questions
-                    </a>
-                  </li>
-                )}
-              </ol>
-            </nav>
-          )}
           <BookingActions className="mt-8" />
         </div>
 
         {page.blocks.map((block) => (
-          <section key={block.heading} id={sectionId(block.heading)} className="mt-12 scroll-mt-40">
+          <section key={block.heading} className="mt-12">
             <h2 className="font-serif text-[1.75rem] leading-tight text-foreground sm:text-3xl">
               {block.heading}
             </h2>
@@ -202,7 +123,7 @@ export function ContentPageView({
         ))}
 
         {page.faqs && (
-          <section id="common-questions" className="mt-14 scroll-mt-40">
+          <section className="mt-14">
             <h2 className="font-serif text-2xl text-foreground sm:text-3xl">Common questions</h2>
             <div className="ds-card mt-6 divide-y divide-border">
               {page.faqs.map((faq) => (
