@@ -6,7 +6,14 @@ import { pathToFileURL } from "node:url";
 const { render, SITE_PAGES } = await import(pathToFileURL("dist-ssr/entry-prerender.js").href);
 
 const SITE = "https://www.sarahateia.com";
-const html = readFileSync("dist/index.html", "utf8");
+// Placeholders in index.html (a sameAs profile link or a search engine verification code that
+// still says REPLACE) are dropped here, so they never reach the live site until filled in.
+const html = readFileSync("dist/index.html", "utf8")
+  .replace(/,\s*"https:\/\/[^"]*REPLACE[^"]*"/g, "")
+  .replace(/\s*<!-- Search engine verification:[\s\S]*?-->/, "")
+  .replace(/\s*<meta name="[^"]+" content="REPLACE[^"]*" \/>/g, "");
+if (html.includes("REPLACE"))
+  throw new Error("A REPLACE placeholder would be published; check index.html");
 
 // Breadcrumb labels for the pages built here (content pages get theirs from SITE_PAGES).
 const crumbs = (...items) => [

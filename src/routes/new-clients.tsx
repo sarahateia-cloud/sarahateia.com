@@ -180,6 +180,25 @@ function NewClients() {
 
         <NoticeToClients className="mt-6 text-sm" />
 
+        <p className="mt-10 text-sm leading-relaxed text-muted-foreground">
+          Before you start, you might find these helpful:{" "}
+          <a
+            href="/resources/free-counseling-consultation/"
+            className="underline underline-offset-4"
+          >
+            what happens in a free consultation
+          </a>
+          ,{" "}
+          <a href="/resources/first-counseling-session/" className="underline underline-offset-4">
+            what a first session is like
+          </a>
+          , and{" "}
+          <a href="/resources/what-is-an-lpc-associate/" className="underline underline-offset-4">
+            what an LPC Associate is
+          </a>
+          .
+        </p>
+
         <p className="mt-10 text-sm text-muted-foreground">
           In crisis? Call or text 988, call 911, or{" "}
           <a href="/crisis/" className="underline underline-offset-4">

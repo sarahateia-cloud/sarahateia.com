@@ -102,6 +102,16 @@ const LINK = {
   screening: { label: "Optional screening tools", href: "/screening-tools/" },
   affordable: { label: "Affordable therapy in Dallas", href: "/affordable-therapy-dallas/" },
   irving: { label: "Counseling in Irving, TX", href: "/counseling-irving-tx/" },
+  coppell: { label: "Counseling in Coppell, TX", href: "/counseling-coppell-tx/" },
+  grandPrairie: { label: "Counseling in Grand Prairie, TX", href: "/counseling-grand-prairie-tx/" },
+  farmersBranch: {
+    label: "Counseling in Farmers Branch, TX",
+    href: "/counseling-farmers-branch-tx/",
+  },
+  selfReflection: {
+    label: "Quotes and self-reflection tools",
+    href: "/resources/self-reflection/",
+  },
   lasColinas: { label: "Counseling in Las Colinas, TX", href: "/counseling-las-colinas-tx/" },
   newClients: { label: "New client forms", href: "/new-clients/" },
   choose: {
@@ -227,16 +237,16 @@ export const TOPICS: ContentPage[] = [
     related: [LINK.walkTalk, LINK.outdoorFit, LINK.anxiety, LINK.telehealth, LINK.walkBenefits],
     title: "Walk and Talk Therapy in Dallas",
     description:
-      "Walk and talk therapy for Dallas and outdoor therapy in Irving, TX, usually at Sam Houston Trail Park. How sessions, privacy, and weather work.",
+      "Walk and talk therapy for Dallas and outdoor therapy on a trail in Irving, TX. How sessions, privacy, weather, and getting started work.",
     eyebrow: "Walk and talk therapy",
     heading: "Walk and talk therapy in Dallas.",
     intro:
-      "Walk and talk therapy is counseling outdoors instead of in an office. We walk side by side at an easy pace, or sit if that feels better. All my in-person sessions happen this way, usually at Sam Houston Trail Park in Irving, or another quiet park we choose together.",
+      "Walk and talk therapy is counseling outdoors instead of in an office: we walk side by side at an easy pace, or sit if that feels better. All my in-person sessions happen this way, usually on a trail in Irving or another quiet park we choose together.",
     blocks: [
       {
         heading: "What does a walk and talk session look like?",
         list: [
-          "We meet at Sam Houston Trail Park in Irving, or another quiet park that’s easy for you to reach",
+          "We meet on a trail in Irving, or another quiet park that’s easy for you to reach",
           "We walk at an easy pace or settle on a bench or blanket",
           "You set the pace, and we can stop anytime",
           "Sessions are available in English or Arabic",
@@ -245,7 +255,7 @@ export const TOPICS: ContentPage[] = [
       {
         heading: "Outdoor therapy in Irving, TX",
         paragraphs: [
-          "Irving is my home base, so most outdoor sessions happen at Sam Houston Trail Park there. It’s a practical meeting point for people in [Irving](/counseling-irving-tx/), [Las Colinas](/counseling-las-colinas-tx/), [Coppell](/counseling-coppell-tx/), [Grand Prairie](/counseling-grand-prairie-tx/), [Farmers Branch](/counseling-farmers-branch-tx/), and [Dallas](/counseling-dallas-tx/). If another quiet park suits you better, we can choose one together.",
+          "Irving is my home base, so most outdoor sessions happen on a trail there. It’s a practical meeting point for people in [Irving](/counseling-irving-tx/), [Las Colinas](/counseling-las-colinas-tx/), [Coppell](/counseling-coppell-tx/), [Grand Prairie](/counseling-grand-prairie-tx/), [Farmers Branch](/counseling-farmers-branch-tx/), and [Dallas](/counseling-dallas-tx/). If another quiet park suits you better, we can choose one together.",
         ],
       },
       {
@@ -315,6 +325,7 @@ export const TOPICS: ContentPage[] = [
       LINK.cost,
       LINK.consultation,
       LINK.firstSession,
+      LINK.newClients,
     ],
     title: title("Telehealth Counseling in Texas"),
     description:
@@ -403,11 +414,11 @@ export const TOPICS: ContentPage[] = [
       LINK.slidingScale,
       LINK.firstSession,
     ],
-    title: "Therapy for Young Adults in Dallas",
+    title: "Young Adult Counseling in Dallas, TX",
     description:
       "Therapy for young adults in Dallas facing anxiety, low mood, ADHD, and big life changes. Walk and talk in DFW or online anywhere in Texas.",
     eyebrow: "Young adults",
-    heading: "Therapy for young adults in Dallas.",
+    heading: "Young adult counseling in Dallas.",
     intro:
       "Your late teens and twenties can bring a lot at once: leaving home, school or a first job, relationships, money, and figuring out who you are apart from what others expect. I offer counseling for young adults in Dallas–Fort Worth and online anywhere in Texas, with room to slow down and make sense of it all.",
     blocks: [
@@ -437,6 +448,19 @@ export const TOPICS: ContentPage[] = [
           "Online therapy from anywhere in Texas, including your dorm or apartment",
           "Self-pay, with a sliding scale available",
           "A free 15-minute phone call to see if we’re a good fit",
+        ],
+      },
+      {
+        heading: "What should you look for in a therapist for young adults?",
+        paragraphs: [
+          "The right fit matters more than any single method. A good therapist for young adults takes your goals seriously, explains how counseling works in plain language, and respects that you’re the one deciding what to focus on. It’s fine to ask questions on the first call, like how sessions run, how confidentiality works, and what happens if something isn’t helping.",
+        ],
+        list: [
+          "They talk with you, not at you, and don’t treat you like a kid",
+          "They’re open about fees and scheduling from the start",
+          "They understand school, first jobs, money stress, and family expectations",
+          "They’re clear that counseling is your choice, even if a parent is helping pay",
+          "They’ll tell you honestly if someone else would be a better fit",
         ],
       },
     ],
@@ -627,11 +651,11 @@ export const TOPICS: ContentPage[] = [
   {
     path: "adhd-therapy",
     related: [LINK.adhdDiagnose, LINK.adhd, LINK.youngAdult, LINK.screening, LINK.adhdWomen],
-    title: "Adult ADHD Counseling in Dallas, TX",
+    title: "ADHD Therapist in Dallas, TX | Adult ADHD Counseling",
     description:
       "Adult ADHD counseling in Dallas, TX for focus, routines, work, and the stress ADHD brings. Talk therapy, walk and talk in DFW or online across Texas.",
     eyebrow: "Adult ADHD counseling",
-    heading: "Adult ADHD counseling in Dallas, TX.",
+    heading: "ADHD therapist for adults in Dallas, TX.",
     intro:
       "Adult ADHD counseling helps with the everyday side of ADHD: time, focus, follow-through, and the frustration and self-doubt that often build up over years of feeling behind. Many adults only start to wonder about ADHD in college, at work, or after a child is diagnosed. I offer talk therapy for adults and young adults with ADHD or suspected ADHD, through walk and talk sessions in Dallas–Fort Worth or online anywhere in Texas.",
     blocks: [
@@ -652,6 +676,19 @@ export const TOPICS: ContentPage[] = [
         paragraphs: [
           "We start with how ADHD shows up in your life, not a checklist. From there we build practical systems that fit how your brain works, like breaking tasks into first steps, using reminders and visual cues, and planning around your energy. Solution-focused work helps us notice what already works so you can do more of it.",
           "I also take a holistic view. Sleep, movement, and stress all affect focus, and some people find it easier to think while walking, which is one reason I offer walk and talk sessions.",
+        ],
+      },
+      {
+        heading: "What does ADHD therapy look like day to day?",
+        paragraphs: [
+          "Sessions stay practical. We pick one or two areas that are costing you the most, try small changes between sessions, and adjust based on what actually happened rather than what should have happened. Over time, many people find it easier to plan, start tasks, and be kinder to themselves when things slip.",
+        ],
+        list: [
+          "Setting up reminders, visual schedules, and routines that fit how your brain works",
+          "Breaking big tasks into first steps small enough to start",
+          "Planning around energy, sleep, and the times of day you focus best",
+          "Working through shame and self-criticism from years of feeling behind",
+          "Talking through how ADHD shows up at work, in school, and in relationships",
         ],
       },
       {
@@ -699,7 +736,7 @@ export const TOPICS: ContentPage[] = [
       LINK.regulation,
       LINK.burnout,
     ],
-    title: "Holistic Counseling in Dallas",
+    title: "Holistic Counseling in Dallas | Holistic Therapist",
     description:
       "Holistic counseling in Dallas that looks at mind and body together: stress, sleep, movement, and meaning. Walk and talk or online across Texas.",
     eyebrow: "Holistic counseling",
@@ -723,6 +760,19 @@ export const TOPICS: ContentPage[] = [
         heading: "How is holistic counseling different from regular therapy?",
         paragraphs: [
           "It’s still talk therapy, with the same training, ethics, and confidentiality. The difference is focus: instead of looking at one symptom on its own, we look at how mind, body, and life fit together. My approach draws on person-centered, solution-focused, and Jungian ideas, along with research on movement, sleep, and time in nature.",
+        ],
+      },
+      {
+        heading: "What might a holistic session include?",
+        paragraphs: [
+          "Every session is still talk therapy. Alongside talking, we might slow down to notice what’s happening in your body, try a short grounding or breathing exercise, or look at how sleep, movement, and stress are affecting your mood that week. Slow, steady breathing has research behind it for calming the body’s stress response ([Zaccaro et al., 2018](https://doi.org/10.3389/fnhum.2018.00353)), and regular movement is linked with lower anxiety and depression ([Singh et al., 2023](https://doi.org/10.1136/bjsports-2022-106195)).",
+        ],
+        list: [
+          "Grounding exercises that use your senses to bring you back to the present",
+          "Paced breathing you can use before a hard conversation or at bedtime",
+          "Noticing body signals, like a tight jaw or shallow breath, as early cues of stress",
+          "Small, realistic changes to sleep, movement, and time outdoors",
+          "Making room for culture, values, and what gives your life meaning",
         ],
       },
       {
@@ -760,28 +810,45 @@ export const TOPICS: ContentPage[] = [
   {
     path: "affordable-therapy-dallas",
     related: [LINK.cost, LINK.slidingScale, LINK.telehealth, LINK.dallas, LINK.choose],
-    title: title("Affordable Therapy in Dallas"),
+    title: "Sliding Scale Therapy in Dallas, TX",
     description:
-      "Affordable therapy in Dallas without insurance: $100 self-pay sessions, a sliding scale, and 6 or 8-session packages. No diagnosis sent to an insurer.",
-    eyebrow: "Self-pay therapy",
-    heading: "Affordable therapy in Dallas without insurance.",
+      "Sliding scale therapy in Dallas without insurance: self-pay counseling with fees based on household income, optional packages, and a free 15-minute call.",
+    eyebrow: "Sliding scale, self-pay therapy",
+    heading: "Sliding scale therapy in Dallas.",
     intro:
-      "I’m a self-pay therapist serving Dallas, Irving, and the rest of Texas online. Sessions are $100, a sliding scale is available for people who need it, and packages lower the price of each session. Here’s how paying for therapy without insurance works with me.",
+      "Yes, you can get sliding scale therapy in Dallas without insurance: my fees can be lowered based on your household income, and you never have to explain your circumstances. I’m a self-pay LPC Associate, supervised by Don Zablosky, LPC-S, offering walk and talk sessions in Irving and online sessions anywhere in Texas.",
     blocks: [
       {
-        heading: "What does therapy cost without insurance?",
+        heading: "How does my sliding scale work?",
         list: [
-          "$100 per session, online or as a walk and talk session",
-          "A sliding scale based on household income. Ask about it during your free call; there’s no need to explain your circumstances.",
-          "6 sessions for $540 ($90 each), paid upfront",
-          "8 sessions for $640 ($80 each), paid upfront",
-          "A free 15-minute phone consultation before you commit to anything",
+          "Your fee is based on household income, which you simply tell me. There’s no need to show paperwork or explain your circumstances.",
+          "We agree on your fee before your first session, so there are no surprises",
+          "Your rate stays private and is reviewed every six months, or sooner if your income changes",
+          "Optional prepaid packages lower the cost of each session",
+          "Current standard fees are listed in the [fees section](/#fees) on the home page",
+          "A free 15-minute phone consultation comes before you commit to anything",
         ],
       },
       {
         heading: "How do the packages work?",
         paragraphs: [
-          "Packages are optional. If you decide not to continue, any sessions you haven’t used are refunded at the package rate. For example, if you’ve used 3 sessions of an 8-session package, you’re refunded $400 (5 × $80).",
+          "Packages are optional and paid upfront. If you decide not to continue, any sessions you haven’t used are refunded at the package rate, so you’re never locked in.",
+        ],
+      },
+      {
+        heading: "Is sliding scale therapy the same quality?",
+        paragraphs: [
+          "Yes. A lower fee doesn’t mean shorter sessions, less attention, or a different kind of care. You get the same counselor, the same session length, and the same approach as anyone paying the standard fee. Research on counseling consistently finds that the working relationship between you and your counselor is one of the strongest predictors of progress ([Flückiger et al., 2018](https://doi.org/10.1037/pst0000172)), and that doesn’t depend on what you pay.",
+        ],
+      },
+      {
+        heading: "Who is a sliding scale for?",
+        list: [
+          "Students and young adults starting out",
+          "People between jobs or working part time",
+          "Anyone whose insurance doesn’t cover counseling, or who has a high deductible",
+          "Families supporting several people on one income",
+          "Anyone who would otherwise go without support because of cost",
         ],
       },
       {
@@ -832,7 +899,16 @@ export const CITY_PAGES: ContentPage[] = [
   {
     path: "counseling-irving-tx",
     city: "Irving",
-    related: [LINK.outdoor, LINK.anxiety, LINK.arabic, LINK.telehealth, LINK.walkBenefits],
+    related: [
+      LINK.outdoor,
+      LINK.anxiety,
+      LINK.arabic,
+      LINK.telehealth,
+      LINK.walkBenefits,
+      LINK.coppell,
+      LINK.grandPrairie,
+      LINK.farmersBranch,
+    ],
     title: title("Counseling in Irving, TX"),
     description:
       "Counseling in Irving, TX with walk and talk sessions at Sam Houston Trail Park or online. English or Arabic. Self-pay, sliding scale, free 15-minute call.",
@@ -899,6 +975,9 @@ export const CITY_PAGES: ContentPage[] = [
       LINK.telehealth,
       LINK.outdoor,
       LINK.burnout,
+      LINK.coppell,
+      LINK.grandPrairie,
+      LINK.farmersBranch,
     ],
     title: title("Counseling in Las Colinas, TX"),
     description:
@@ -955,7 +1034,17 @@ export const CITY_PAGES: ContentPage[] = [
   {
     path: "counseling-dallas-tx",
     city: "Dallas",
-    related: [LINK.anxiety, LINK.depression, LINK.telehealth, LINK.cost, LINK.lpcVs, LINK.choose],
+    related: [
+      LINK.anxiety,
+      LINK.depression,
+      LINK.telehealth,
+      LINK.cost,
+      LINK.lpcVs,
+      LINK.choose,
+      LINK.coppell,
+      LINK.grandPrairie,
+      LINK.farmersBranch,
+    ],
     title: title("Counseling in Dallas, TX"),
     description:
       "Counseling in Dallas, TX without the cross-town drive: online sessions or walk and talk just west in Irving. Self-pay, sliding scale, free 15-minute call.",
@@ -1192,7 +1281,14 @@ export const CITY_PAGES: ContentPage[] = [
 export const ARTICLES: ContentPage[] = [
   {
     path: "resources/free-counseling-consultation",
-    related: [LINK.associate, LINK.outdoor, LINK.telehealth, LINK.firstSession, LINK.choose],
+    related: [
+      LINK.associate,
+      LINK.outdoor,
+      LINK.telehealth,
+      LINK.firstSession,
+      LINK.choose,
+      LINK.newClients,
+    ],
     title: title("Free Counseling Consultation"),
     description:
       "What to expect from a free 15-minute counseling consultation, what you can ask, and what you don’t need to share yet.",
@@ -1236,7 +1332,7 @@ export const ARTICLES: ContentPage[] = [
   },
   {
     path: "resources/what-is-an-lpc-associate",
-    related: [LINK.consultation, LINK.arabic, LINK.outdoor, LINK.lpcVs],
+    related: [LINK.consultation, LINK.arabic, LINK.outdoor, LINK.lpcVs, LINK.glossary],
     title: title("What Is an LPC Associate?"),
     description:
       "A plain-language explanation of what an LPC Associate is in Texas, what supervision means, and how to verify a counselor’s license.",
@@ -1302,7 +1398,7 @@ export const ARTICLES: ContentPage[] = [
   },
   {
     path: "resources/choosing-a-counselor-language-culture",
-    related: [LINK.arabic, LINK.muslimFaith, LINK.consultation, LINK.telehealth],
+    related: [LINK.arabic, LINK.muslimFaith, LINK.consultation, LINK.telehealth, LINK.glossary],
     title: title("Culture & Language in Therapy"),
     description:
       "Questions to ask when you’re looking for a counselor who respects your language, culture, faith, and family.",
@@ -1641,7 +1737,14 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/self-care-for-mental-health",
     published: "2026-11-18",
-    related: [LINK.holisticCounseling, LINK.depression, LINK.outdoor, LINK.adhd, LINK.regulation],
+    related: [
+      LINK.holisticCounseling,
+      LINK.depression,
+      LINK.outdoor,
+      LINK.adhd,
+      LINK.regulation,
+      LINK.selfReflection,
+    ],
     title: title("Self-Care for Mental Health"),
     description:
       "Research-informed self-care for mental health: sleep, movement, connection, grounding, and limits, plus signs it may be time to talk with a counselor.",
@@ -1763,6 +1866,29 @@ export const ARTICLES: ContentPage[] = [
         ],
       },
       {
+        heading: "What should I ask about fees before starting therapy?",
+        list: [
+          "What is the fee per session, and how long is a session?",
+          "Do you offer a sliding scale or packages?",
+          "When is payment due, and how can I pay?",
+          "What is your cancellation policy?",
+          "Will you give me a Good Faith Estimate in writing?",
+          "Is the first call or consultation free?",
+        ],
+      },
+      {
+        heading: "Is cheaper therapy less effective?",
+        paragraphs: [
+          "Not necessarily. Price reflects things like a counselor’s license level, location, and overhead more than the quality of the relationship. Research across many studies finds that the working relationship between client and counselor is one of the most consistent predictors of progress ([Flückiger et al., 2018](https://doi.org/10.1037/pst0000172)). A counselor you trust and can afford to see regularly is often a better choice than one you can only see once.",
+        ],
+      },
+      {
+        heading: "Can I use an HSA or FSA to pay for therapy?",
+        paragraphs: [
+          "Often, yes, when counseling is for your mental health, but the rules depend on your plan. The IRS counts fees paid to mental health providers such as psychologists and psychiatrists as medical expenses ([IRS Topic 502](https://www.irs.gov/taxtopics/tc502)), and HSA and FSA plans set their own rules on top of that. Check with your plan administrator before your first session, and keep your receipts.",
+        ],
+      },
+      {
         heading: "How much does a session cost with me?",
         paragraphs: [
           "My standard fee is $100 per session, for walk and talk sessions in Dallas–Fort Worth or online therapy anywhere in Texas. A sliding scale based on household income and session packages are available. I’m self-pay only and don’t bill insurance. You can ask about cost during a free 15-minute phone call before committing to anything.",
@@ -1789,6 +1915,14 @@ export const ARTICLES: ContentPage[] = [
       {
         q: "Is online therapy cheaper than in-person?",
         a: "Not always. Many counselors charge the same for both. My fee is the same for online therapy and walk and talk sessions.",
+      },
+      {
+        q: "Why do therapy prices vary so much in Dallas?",
+        a: "Fees reflect the provider’s license level, training, location, session length, and overhead. A higher price doesn’t guarantee a better fit, so it’s worth asking about sliding scales and free consultations before you decide.",
+      },
+      {
+        q: "Is online therapy cheaper than in-person therapy?",
+        a: "Sometimes, but not always. Many counselors charge the same for both. Online sessions can still save you time and gas, which adds up over weeks of sessions. With me, the fee is the same either way.",
       },
     ],
   },
@@ -1821,7 +1955,7 @@ export const ARTICLES: ContentPage[] = [
         ],
       },
       {
-        heading: "Sliding scale therapy in Dallas with me",
+        heading: "How does sliding scale therapy work in Dallas with me?",
         paragraphs: [
           "I’m self-pay only, and reduced rates are available based on household income, for walk and talk sessions in Dallas–Fort Worth and online therapy anywhere in Texas. Ask during your free 15-minute consultation, and we’ll agree on a fee before your first session.",
         ],
@@ -1833,7 +1967,7 @@ export const ARTICLES: ContentPage[] = [
         ],
       },
       {
-        heading: "Sliding scale vs. other low-cost options",
+        heading: "How is a sliding scale different from other low-cost options?",
         list: [
           "A sliding scale keeps you with the counselor you chose, at a fee you agree on together",
           "An Employee Assistance Program is free but usually limited to a few sessions",
@@ -1849,6 +1983,36 @@ export const ARTICLES: ContentPage[] = [
           "Community mental health centers, which often charge based on income",
           "Employee Assistance Programs (EAPs), which often include a few free sessions",
           "Dial 211 to find low-cost services near you",
+        ],
+      },
+      {
+        heading: "Is sliding scale therapy lower quality?",
+        paragraphs: [
+          "No. A sliding scale changes the fee, not the care. You get the same counselor, the same session length, and the same approach as someone paying the full fee. Research consistently finds that the working relationship between you and your counselor is one of the strongest predictors of progress ([Flückiger et al., 2018](https://doi.org/10.1037/pst0000172)), and that has nothing to do with what you pay.",
+        ],
+      },
+      {
+        heading: "Is it okay to ask a therapist for a lower fee?",
+        paragraphs: [
+          "Yes. Counselors who offer a sliding scale expect the question, and asking doesn’t make you look less committed. You can simply say, “Do you offer a sliding scale, and how does it work?” A good counselor will answer plainly and won’t ask you to justify your situation.",
+        ],
+        list: [
+          "Ask on the first call, before you book a session",
+          "Ask how the fee is set and whether you’ll need to share proof of income",
+          "Ask how often the fee is reviewed",
+          "Ask whether reduced-fee spots are limited, so you know where you stand",
+        ],
+      },
+      {
+        heading: "What is a sliding scale usually based on?",
+        paragraphs: [
+          "Each counselor sets their own scale, but most look at a few of the same things:",
+        ],
+        list: [
+          "Household income before taxes",
+          "How many people that income supports",
+          "Big ongoing costs, like medical bills or student loans",
+          "Whether the reduced fee is meant to be temporary or ongoing",
         ],
       },
     ],
@@ -1873,6 +2037,18 @@ export const ARTICLES: ContentPage[] = [
         q: "What if I can’t afford counseling right now?",
         a: "Try the options above, or dial 211 to find free and low-cost services near you. If you’re in crisis, call or text 988 any time. It’s free.",
       },
+      {
+        q: "Do I need to prove my income for a sliding scale?",
+        a: "It depends on the counselor. Some ask for paperwork, and others, including me, simply ask you to share your household income. Ask on the first call so you know what to expect.",
+      },
+      {
+        q: "Can my sliding scale fee change?",
+        a: "Usually, yes. Many counselors review reduced fees from time to time. I review mine every six months, or sooner if your income changes in either direction.",
+      },
+      {
+        q: "Does a sliding scale mean shorter or fewer sessions?",
+        a: "No. The session length and the care are the same. Only the fee changes.",
+      },
     ],
   },
   {
@@ -1888,7 +2064,7 @@ export const ARTICLES: ContentPage[] = [
       "Walk and talk therapy is counseling that happens while you and your counselor walk outdoors, usually in a park, instead of sitting in an office. It’s the same talk therapy, with the same confidentiality rules and the same goals. Only the setting changes.",
     blocks: [
       {
-        heading: "How a session works",
+        heading: "How does a walk and talk therapy session work?",
         list: [
           "You and the counselor agree on a place, often a quiet park or trail",
           "You walk side by side at a comfortable pace, or sit on a bench for part of it",
@@ -1898,13 +2074,13 @@ export const ARTICLES: ContentPage[] = [
         ],
       },
       {
-        heading: "What research says",
+        heading: "What does research say about walk and talk therapy?",
         paragraphs: [
           "There isn’t much research on walk and talk therapy itself yet, and most of what exists is small. It builds on two well-studied ideas, though. Regular physical activity is linked with lower anxiety and depression ([Singh et al., 2023](https://doi.org/10.1136/bjsports-2022-106195)), and time in green spaces is linked with lower stress ([Hunter et al., 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6458297/)). Many people also say that walking side by side, without constant eye contact, makes hard conversations feel a little easier.",
         ],
       },
       {
-        heading: "Who it may suit",
+        heading: "Who is walk and talk therapy for?",
         list: [
           "People who feel restless or boxed in sitting in an office",
           "Anyone who thinks more clearly while moving",
@@ -1913,15 +2089,43 @@ export const ARTICLES: ContentPage[] = [
         ],
       },
       {
-        heading: "When it may not be the right fit",
+        heading: "Is walk and talk therapy covered by insurance?",
+        paragraphs: [
+          "Insurance plans pay for counseling based on the service and the provider, not the setting, so walk and talk sessions are treated like any other counseling session. Whether yours is covered depends on your plan and on whether the counselor bills insurance at all. Many walk and talk counselors are self-pay. I’m self-pay only, with a [sliding scale](/resources/what-is-sliding-scale-therapy/) available, and you can read more about [what therapy costs without insurance](/resources/therapy-cost-without-insurance/).",
+        ],
+      },
+      {
+        heading: "What if I see someone I know during a session?",
+        paragraphs: [
+          "It can happen in a public park, so it helps to plan for it. Before the first session, we agree on what we’ll do: usually a quick nod or hello, a pause in the conversation, and moving on. You never have to explain who I am. If that possibility feels like too much, [online therapy](/telehealth-counseling-texas/) is always an option.",
+        ],
+      },
+      {
+        heading: "How should I prepare for walk and talk therapy?",
+        list: [
+          "Wear comfortable shoes and clothes for the weather",
+          "Bring water, especially from late spring through early fall in Texas",
+          "Put your phone on silent so you can focus",
+          "Mention any injuries, health conditions, or limits on walking so we can adjust the pace or sit",
+          "Think about what you want to talk about, but don’t worry about having it all planned",
+        ],
+      },
+      {
+        heading: "How does weather affect walk and talk therapy in Texas?",
+        paragraphs: [
+          "Texas summers can be dangerously hot, so sessions may move earlier in the day, stay in the shade, or switch to online when the heat index is high. Storms and cold snaps work the same way. If the weather isn’t safe or comfortable, we meet by video instead, and the session still counts.",
+        ],
+      },
+      {
+        heading: "When is walk and talk therapy not the right fit?",
         paragraphs: [
           "Parks are public, so complete privacy can’t be guaranteed. If talking where others might pass by would hold you back, or if walking is physically hard right now, sitting outdoors or online therapy may suit you better. There’s no wrong choice.",
         ],
       },
       {
-        heading: "Walk and talk therapy in Dallas–Fort Worth",
+        heading: "Where can I do walk and talk therapy in Dallas–Fort Worth?",
         paragraphs: [
-          "I offer walk and talk sessions for people across Dallas–Fort Worth, usually at Sam Houston Trail Park in Irving, or another quiet park we choose together. You can start with a free 15-minute phone call to see if it feels right.",
+          "I offer walk and talk sessions for people across Dallas–Fort Worth, usually on a trail in Irving or another quiet park we choose together. You can start with a free 15-minute phone call to see if it feels right.",
         ],
       },
     ],
@@ -1946,6 +2150,14 @@ export const ARTICLES: ContentPage[] = [
         q: "Can I switch between walking and online sessions?",
         a: "With me, yes. You can mix walk and talk and online sessions depending on the weather and your week.",
       },
+      {
+        q: "How long is a walk and talk therapy session?",
+        a: "Usually the same length as an office session. The time includes walking, pausing, and sitting, at whatever pace feels right that day.",
+      },
+      {
+        q: "Can we sit instead of walking?",
+        a: "Yes. Many sessions mix walking and sitting on a bench or in the shade, and some people sit the whole time. The outdoor setting matters more than the steps.",
+      },
     ],
   },
   {
@@ -1958,7 +2170,7 @@ export const ARTICLES: ContentPage[] = [
     eyebrow: "ADHD",
     heading: "Can a therapist diagnose ADHD?",
     intro:
-      "Sometimes. It depends on the therapist’s license, training, and state law. Psychologists, psychiatrists, and other medical providers commonly diagnose ADHD, and in many states some licensed counselors and social workers do too. Many therapists refer clients to a psychologist or doctor for a full evaluation, then help with the day-to-day side of ADHD.",
+      "Sometimes. It depends on the therapist’s license, training, and state law, and counselors and psychologists can’t prescribe ADHD medication in Texas. Psychologists, psychiatrists, and other medical providers are the most common places to get an ADHD evaluation, and many counselors refer clients there for testing, then help with the day-to-day side of ADHD.",
     blocks: [
       {
         heading: "Who can diagnose ADHD?",
@@ -1966,10 +2178,17 @@ export const ARTICLES: ContentPage[] = [
           "Psychologists, who often do the most in-depth testing",
           "Psychiatrists and psychiatric nurse practitioners, who can also prescribe medication",
           "Primary care doctors and pediatricians",
-          "In many states, licensed counselors and clinical social workers with the right training",
+          "Some licensed counselors and clinical social workers, depending on their training and state law",
         ],
         paragraphs: [
           "If you want a formal diagnosis, ask the provider directly whether they do ADHD evaluations and what theirs includes.",
+        ],
+      },
+      {
+        heading: "What can licensed counselors do in Texas?",
+        paragraphs: [
+          "Texas law defines professional counseling to include assessing, evaluating, and treating mental, emotional, and behavioral disorders, and it specifically excludes diagnosing or treating physical conditions ([Texas Occupations Code §503.003](https://statutes.capitol.texas.gov/Docs/OC/pdf/OC.503.pdf)). Whether a particular counselor offers formal ADHD evaluations depends on their training and how they practice, so it’s always worth asking directly.",
+          "An LPC Associate, like me, is a counselor who has finished a graduate degree and passed the licensing exam and is practicing under the supervision of a fully licensed LPC Supervisor while completing supervised hours. You can read more in [the difference between an LPC, an LPC Associate, and a psychologist](/resources/lpc-vs-lpc-associate-vs-psychologist/).",
         ],
       },
       {
@@ -1985,7 +2204,30 @@ export const ARTICLES: ContentPage[] = [
       {
         heading: "Can a therapist prescribe ADHD medication?",
         paragraphs: [
-          "No. Counselors, social workers, and most psychologists can’t prescribe medication. ADHD medication is prescribed by psychiatrists, psychiatric nurse practitioners, and other medical providers. A few states allow specially trained psychologists to prescribe, but Texas isn’t one of them.",
+          "No. Counselors and social workers can’t prescribe medication in any state, and in Texas psychologists can’t either. ADHD medication is prescribed by psychiatrists, psychiatric nurse practitioners, primary care doctors, and other medical providers. A handful of states let specially trained psychologists prescribe, but a 2025 bill to allow it in Texas did not pass ([Texas Senate Bill 2999](https://legiscan.com/TX/research/SB2999)).",
+        ],
+      },
+      {
+        heading: "When should I see a psychiatrist about ADHD?",
+        paragraphs: [
+          "A psychiatrist or other prescriber is the right next step when medication is on the table or when symptoms are part of a bigger picture that needs a medical eye. Counseling can continue alongside that care.",
+        ],
+        list: [
+          "You want to talk about whether ADHD medication could help",
+          "You’re already taking medication and have side effects or questions about the dose",
+          "Focus problems came on suddenly or late in life, which can point to a medical cause worth checking",
+          "You also have symptoms like extreme mood swings, panic, or heavy alcohol or drug use",
+          "Daily life has become very hard to manage at work, school, or home",
+        ],
+      },
+      {
+        heading: "What should I bring to an ADHD evaluation?",
+        list: [
+          "Old report cards or teacher comments, if you can find them",
+          "Specific examples of where things go wrong now, like missed deadlines or bills",
+          "A list of any medications and supplements you take",
+          "Notes on your sleep, since poor sleep can look a lot like ADHD",
+          "If possible, a parent, partner, or friend who can share what they’ve noticed",
         ],
       },
       {
@@ -2004,9 +2246,9 @@ export const ARTICLES: ContentPage[] = [
         ],
       },
       {
-        heading: "ADHD support with me",
+        heading: "Can I get ADHD support while I wait for an evaluation?",
         paragraphs: [
-          "I don’t offer ADHD evaluations or prescribe medication. I offer talk therapy for young adults and adults with ADHD or suspected ADHD, through walk and talk sessions in Dallas–Fort Worth or online anywhere in Texas. If you’re looking for an evaluation, we can talk through where to go.",
+          "Yes. Waitlists for evaluations can be long, and you don’t need a diagnosis to start counseling. I don’t offer ADHD evaluations or prescribe medication. I offer talk therapy for young adults and adults with ADHD or suspected ADHD, through walk and talk sessions in Dallas–Fort Worth or online anywhere in Texas. If you’re looking for an evaluation, we can talk through where to go.",
         ],
       },
     ],
@@ -2021,11 +2263,19 @@ export const ARTICLES: ContentPage[] = [
       },
       {
         q: "Can a therapist prescribe ADHD medication?",
-        a: "No. In Texas, ADHD medication is prescribed by psychiatrists, psychiatric nurse practitioners, and other medical providers, not therapists.",
+        a: "No. In Texas, ADHD medication is prescribed by psychiatrists, psychiatric nurse practitioners, and other medical providers, not counselors or psychologists.",
       },
       {
         q: "Is there a free ADHD screening questionnaire?",
         a: "Yes. The ASRS v1.1 is a free adult ADHD screening questionnaire, linked on our screening tools page. It isn’t a diagnosis, but it can help you decide whether to seek an evaluation.",
+      },
+      {
+        q: "Is ADHD testing covered by insurance?",
+        a: "Often at least partly, but it depends on your plan and the provider. Ask the evaluator what the full evaluation costs, whether they bill insurance, and what your plan covers before you book.",
+      },
+      {
+        q: "Does an LPC Associate diagnose ADHD?",
+        a: "It depends on training, supervision, and how the counselor practices, so ask directly. I don’t provide ADHD evaluations. If you want one, I can help you think through where to go, such as a psychologist or psychiatrist.",
       },
     ],
   },
@@ -2038,6 +2288,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.depression,
       LINK.selfCare,
       LINK.muslimFaith,
+      LINK.selfReflection,
     ],
     title: title("What Is Holistic Therapy?"),
     description:
@@ -2074,6 +2325,31 @@ export const ARTICLES: ContentPage[] = [
         ],
       },
       {
+        heading: "What happens in a holistic therapy session?",
+        paragraphs: [
+          "A holistic session is still talk therapy. What changes is how much attention goes to the body and daily life alongside thoughts and feelings. A session might look something like this:",
+        ],
+        list: [
+          "Checking in on how the week went, including sleep, energy, and stress",
+          "Talking through what’s on your mind, at your pace",
+          "Noticing what happens in your body as you talk, like a tight chest or a clenched jaw",
+          "Trying a short grounding or breathing exercise if it fits the moment",
+          "Choosing one small, realistic step to try before the next session",
+        ],
+      },
+      {
+        heading: "Which mind-body practices have research behind them?",
+        paragraphs: [
+          "Some mind-body practices are better studied than others. Slow, paced breathing has been linked with a calmer nervous system and lower stress ([Zaccaro et al., 2018](https://doi.org/10.3389/fnhum.2018.00353)). Regular physical activity is linked with lower anxiety and depression ([Singh et al., 2023](https://doi.org/10.1136/bjsports-2022-106195)), and time in green spaces is linked with lower stress ([Hunter et al., 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6458297/)). These are supports that work alongside counseling, not replacements for it, and results vary from person to person.",
+        ],
+      },
+      {
+        heading: "Is holistic therapy the same as alternative medicine?",
+        paragraphs: [
+          "No. Holistic counseling is talk therapy with licensed oversight. It doesn’t involve supplements, diets, energy work, or medical treatment, and a holistic counselor shouldn’t tell you to change or stop any medication. If a practice promises a cure or asks you to give up medical care, that’s a red flag.",
+        ],
+      },
+      {
         heading: "How do I find a holistic therapist I can trust?",
         list: [
           "Check that they’re licensed, and look up the license on your state board’s website",
@@ -2083,7 +2359,7 @@ export const ARTICLES: ContentPage[] = [
         ],
       },
       {
-        heading: "Holistic counseling with me",
+        heading: "Where can I find holistic counseling in Dallas?",
         paragraphs: [
           "My approach is holistic and grounding, and it stays within talk therapy. I combine person-centered, solution-focused, and Jungian ideas with research on the body, sleep, movement, and nature. Sessions happen as walk and talk sessions in Dallas–Fort Worth or online anywhere in Texas. I don’t prescribe medication or offer medical treatments.",
         ],
@@ -2105,6 +2381,14 @@ export const ARTICLES: ContentPage[] = [
       {
         q: "Will a holistic therapist tell me to stop my medication?",
         a: "A trustworthy one won’t. Decisions about medication belong with you and your prescriber.",
+      },
+      {
+        q: "Does holistic therapy involve religion or spirituality?",
+        a: "Only if you want it to. For some people, faith or spirituality is part of what gives life meaning, and for others it isn’t. Nothing is assumed, and the focus stays on what matters to you.",
+      },
+      {
+        q: "Is holistic therapy evidence-based?",
+        a: "Holistic counseling is talk therapy that draws on approaches with research behind them, like paced breathing, physical activity, and time outdoors. It isn’t a single tested method, so ask any counselor which approaches they use and why.",
       },
     ],
   },
@@ -2550,7 +2834,13 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/nervous-system-regulation-techniques",
     published: "2026-11-20",
-    related: [LINK.holisticCounseling, LINK.anxiety, LINK.selfCare, LINK.outdoor],
+    related: [
+      LINK.holisticCounseling,
+      LINK.anxiety,
+      LINK.selfCare,
+      LINK.outdoor,
+      LINK.selfReflection,
+    ],
     title: title("Calming Your Nervous System"),
     description:
       "Research-based nervous system regulation techniques: slow breathing, movement, time in nature, and sleep, plus simple grounding and when to get support.",
@@ -2691,7 +2981,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/lpc-vs-lpc-associate-vs-psychologist",
     published: "2026-11-20",
-    related: [LINK.associate, LINK.choose, LINK.telehealth, LINK.adhdDiagnose],
+    related: [LINK.associate, LINK.choose, LINK.telehealth, LINK.adhdDiagnose, LINK.glossary],
     title: title("LPC vs. Psychologist in Texas"),
     description:
       "The differences between an LPC, an LPC Associate, and a psychologist in Texas: training, supervision, and how to decide who to see.",
