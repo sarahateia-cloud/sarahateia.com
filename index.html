@@ -13,6 +13,13 @@
       content="Sarah Ateia Khattab, LPC Associate, supervised by Don Zablosky, LPC-S"
     />
     <meta name="robots" content="index, follow, max-image-preview:large" />
+    <script>
+      // Apply a Light/Dark choice saved on this device before the first paint (see theme-switch.tsx).
+      try {
+        var t = localStorage.getItem("sa-theme");
+        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
     <meta name="theme-color" content="#f5efe3" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#181b13" media="(prefers-color-scheme: dark)" />
     <meta name="color-scheme" content="light dark" />
