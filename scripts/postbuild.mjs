@@ -106,7 +106,7 @@ const PAGES = [
         ].map((text, i) => ({ "@type": "HowToStep", position: i + 1, name: text, text })),
       },
     ],
-    title: "Box Breathing & Grounding | Sarah Ateia, LPC Associate",
+    title: "Free Calming Tools | Sarah Ateia, LPC Associate",
     description:
       "Free box breathing guide, 5-4-3-2-1 grounding exercise and stress check-in. No login, nothing saved. From Sarah Ateia, LPC Associate in Irving, TX.",
   },
@@ -230,13 +230,13 @@ for (const page of AR_BUILT) {
     .replace('<html lang="en">', '<html lang="ar" dir="rtl">')
     .replace('content="en_US"', 'content="ar_AR"');
   if (AR_DRAFT) doc = setAttribute(doc, 'name="robots"', "noindex, follow");
-  writeFileSync(`dist/${page.path}/index.html`, await prerender(doc, `/${page.path}/`));
+  writeFileSync(`dist/${page.path}/index.html`, await prerender(doc, `/${page.path}`));
 }
 writeFileSync("dist/index.html", await prerender(html, "/"));
 
 // hreflang: each English page and its Arabic version point at each other, with English as the
-// default for everyone else.
-for (const page of AR_BUILT) {
+// default for everyone else. Added only once the Arabic pages are published (not drafts).
+for (const page of INDEXED_AR) {
   const en = `${SITE}${page.englishPath}`;
   const ar = `${SITE}/${page.path}/`;
   const links = `<link rel="alternate" hreflang="en" href="${en}" /><link rel="alternate" hreflang="ar" href="${ar}" /><link rel="alternate" hreflang="x-default" href="${en}" />`;

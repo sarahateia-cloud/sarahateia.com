@@ -33,6 +33,13 @@ function RootComponent() {
     <>
       <a
         href="#main"
+        onClick={() => {
+          // Move keyboard focus into the page, not just the scroll position.
+          const main = document.getElementById("main");
+          if (!main) return;
+          main.tabIndex = -1;
+          main.focus({ preventScroll: true });
+        }}
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-primary focus:px-5 focus:py-3 focus:text-sm focus:text-primary-foreground"
       >
         Skip to main content

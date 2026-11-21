@@ -13,7 +13,7 @@ function Blog() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
-      <main id="main" className="mx-auto max-w-3xl px-6 pt-36 max-[340px]:pt-40 pb-20 sm:pt-40">
+      <main id="main" className="mx-auto max-w-3xl px-6 pt-44 max-[340px]:pt-48 pb-20 sm:pt-40">
         <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
           <a href="/" className="inline-flex min-h-11 items-center hover:text-foreground">
             Home

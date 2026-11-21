@@ -197,7 +197,7 @@ function Index() {
         {/* 1. Hero: who, what, and both ways to book, with the form in reach. */}
         <section
           id="top"
-          className="holo-scope holo-bg overflow-hidden pt-40 pb-16 max-[380px]:pt-44 sm:pt-36 sm:pb-24"
+          className="holo-scope holo-bg overflow-hidden pt-48 pb-16 max-[380px]:pt-52 sm:pt-36 sm:pb-24"
         >
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 lg:grid-cols-12 lg:gap-x-12">
             <div className="lg:col-span-7 lg:pt-4">

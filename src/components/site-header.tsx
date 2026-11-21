@@ -4,6 +4,7 @@ import { VisitStatisticsNote } from "@/components/analytics";
 import { BookCallLink } from "@/components/ds/booking";
 import { BUTTON } from "@/components/ds/buttons";
 import { LanguageToggle } from "@/components/language-toggle";
+import { AR_DRAFT } from "@/content/arabic-status";
 import { Logo } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 import { FOOTER_AREAS, FOOTER_RESOURCES, SERVICES } from "@/content/services";
@@ -28,9 +29,20 @@ const NAV_LINKS: { label: string; href: string; menuOnly?: boolean }[] = [
  * `dark` styles the header for the dark hero it sits over. `arabicHref` adds the English/Arabic
  * switch on pages that have an Arabic version.
  */
-export function SiteHeader({ dark = false, arabicHref }: { dark?: boolean; arabicHref?: string }) {
+export function SiteHeader({
+  dark = false,
+  arabicHref: requestedArabicHref,
+}: {
+  dark?: boolean;
+  arabicHref?: string;
+}) {
+  // No toggle to draft Arabic pages: visitors shouldn't land on unreviewed text.
+  const arabicHref = AR_DRAFT ? undefined : requestedArabicHref;
   const [open, setOpen] = useState(false);
   const services = useRef<HTMLDetailsElement>(null);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const sheet = useRef<HTMLDivElement>(null);
+  const wasOpen = useRef(false);
 
   // Close the Services list on a click outside it or on Escape, like any other menu.
   useEffect(() => {
@@ -49,10 +61,34 @@ export function SiteHeader({ dark = false, arabicHref }: { dark?: boolean; arabi
     };
   }, []);
 
+  // Phone menu: focus moves into it, Tab stays inside it, Escape closes it, and focus returns to
+  // the menu button afterwards.
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    if (!open) {
+      if (wasOpen.current) menuButton.current?.focus();
+      wasOpen.current = false;
+      return;
+    }
+    wasOpen.current = true;
+    const focusables = () =>
+      Array.from(sheet.current?.querySelectorAll<HTMLElement>("a[href], button") ?? []);
+    focusables()[0]?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") return setOpen(false);
+      if (e.key !== "Tab") return;
+      const items = focusables();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
@@ -63,8 +99,9 @@ export function SiteHeader({ dark = false, arabicHref }: { dark?: boolean; arabi
       className={`absolute top-0 left-0 right-0 ${open ? "z-[60]" : "z-30"} ${dark ? "holo-scope" : ""}`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 sm:py-8">
-        <a href="/" aria-label="Sarah Ateia Khattab, home" className="xl:min-w-60 xl:pe-6">
+        <a href="/" className="xl:min-w-60 xl:pe-6">
           <Logo />
+          <span className="sr-only"> (home)</span>
         </a>
         <div className="hidden flex-shrink-0 items-center gap-4 whitespace-nowrap text-sm text-muted-foreground xl:flex">
           <details ref={services} className="relative">
@@ -108,6 +145,7 @@ export function SiteHeader({ dark = false, arabicHref }: { dark?: boolean; arabi
             Call
           </a>
           <button
+            ref={menuButton}
             type="button"
             onClick={() => setOpen(true)}
             aria-label="Open menu"
@@ -121,6 +159,7 @@ export function SiteHeader({ dark = false, arabicHref }: { dark?: boolean; arabi
 
       {open && (
         <div
+          ref={sheet}
           className="menu-sheet fixed inset-0 z-40 flex flex-col bg-background"
           role="dialog"
           aria-modal="true"
@@ -216,7 +255,7 @@ export function SiteFooter() {
               {PHONE_DISPLAY}
             </a>
           </p>
-          <nav aria-label="Services" className="mt-2">
+          <nav aria-label="All services" className="mt-2">
             <ul className="flex flex-wrap gap-x-4">
               {SERVICES.map((service) => (
                 <li key={service.href}>
