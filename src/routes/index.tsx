@@ -35,7 +35,6 @@ const SUPPORT_AREAS = [
   "Identity / self-understanding",
   "Self-esteem concerns",
   "Genetics-informed psychoeducation",
-  "Men’s mental health",
 ];
 
 const CONSULT_PERKS = [
@@ -379,12 +378,11 @@ function Index() {
               <p>
                 I am a Licensed Professional Counselor Associate (LPC Associate) in Texas and a
                 National Certified Counselor (NCC), with a background in healthcare. Before becoming
-                a counselor, I worked as a TMS technician in an integrative psychiatry practice, which
-                gave me a close look at how mood, the brain, and treatment fit together. (I don’t
-                provide TMS.) I grew up in a
-                multicultural environment, which shaped how I connect with people and how I hold
-                space for different backgrounds and lived experiences. I offer sessions in English
-                and Arabic.
+                a counselor, I worked as a TMS technician in an integrative psychiatry practice,
+                which gave me a close look at how mood, the brain, and treatment fit together. (I
+                don’t provide TMS.) I grew up in a multicultural environment, which shaped how I
+                connect with people and how I hold space for different backgrounds and lived
+                experiences. I offer sessions in English and Arabic.
               </p>
               <p>
                 I believe everyone has a blueprint, but most people have not been given the tools to
@@ -498,13 +496,20 @@ function Index() {
                   My approach is holistic: mind and body are treated as one system, so we pay
                   attention to sleep, movement, breath, and stress alongside thoughts and feelings.
                   The relationship comes first. My work is person-centered, so you set the pace and
-                  the goals. I also draw on solution-focused counseling, which many men in particular
-                  find practical and direct: we look at what’s already working and build on it. And
-                  for clients drawn to deeper questions of meaning, dreams, and the parts of yourself
-                  you don’t usually show, I bring in Jungian-informed ideas.
+                  the goals. I also draw on solution-focused counseling, which many men in
+                  particular find practical and direct: we look at what’s already working and build
+                  on it. And for clients drawn to deeper questions of meaning, dreams, and the parts
+                  of yourself you don’t usually show, I bring in Jungian-informed ideas.
                 </p>
                 <ul className="flex flex-wrap gap-2 pt-2">
-                  {["Holistic", "Mind–body", "Person-centered", "Solution-focused", "Jungian-informed", "Nature-based"].map((tag) => (
+                  {[
+                    "Holistic",
+                    "Mind–body",
+                    "Person-centered",
+                    "Solution-focused",
+                    "Jungian-informed",
+                    "Nature-based",
+                  ].map((tag) => (
                     <li
                       key={tag}
                       className="rounded-full border border-border bg-card px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground"
