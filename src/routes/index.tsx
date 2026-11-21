@@ -745,6 +745,13 @@ function Index() {
                   </p>
                 </div>
                 <div className="border-t border-border bg-secondary/50 px-6 py-6 sm:px-8">
+                  <h3 className="font-serif text-lg text-foreground">When payment is due</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Payment is due before each session starts. We’ll go over how to pay during your
+                    free consultation.
+                  </p>
+                </div>
+                <div className="border-t border-border bg-secondary/50 px-6 py-6 sm:px-8">
                   <h3 className="font-serif text-lg text-foreground">How reduced rates work</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     Reduced rates are based on your household income, which you simply tell me.
