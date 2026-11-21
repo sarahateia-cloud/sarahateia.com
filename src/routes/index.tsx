@@ -214,9 +214,9 @@ function Index() {
                 <em className="text-taupe">understand</em> it?
               </p>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                There’s a reason your mind works the way it does: your stress response, your
-                attention, your emotional patterns. My practice is rooted in that belief, with
-                sessions outdoors in Dallas–Fort Worth parks and by telehealth across Texas.
+                I’m an LPC Associate based in Irving, offering in-person walk and talk counseling
+                outdoors across Dallas–Fort Worth and telehealth anywhere in Texas. I’m self-pay,
+                with a sliding scale based on household income.
               </p>
               <BookingActions requestHref="#request-call" className="mt-8" />
               <dl className="mt-8 grid max-w-xl grid-cols-1 gap-x-8 gap-y-3 border-t border-border pt-6 text-sm sm:grid-cols-2">
@@ -378,7 +378,8 @@ function Index() {
                 and treatment fit together. (I don’t provide transcranial magnetic stimulation.) I
                 grew up in a multicultural environment, which shaped how I connect with people and
                 how I hold space for different backgrounds and lived experiences. I offer sessions
-                in English and Arabic.
+                in English and Arabic. I work with clients of every faith and of no faith, and I
+                only bring spirituality into sessions if you want to.
               </p>
               <p>
                 I believe everyone has a blueprint, but most people have not been given the tools to
