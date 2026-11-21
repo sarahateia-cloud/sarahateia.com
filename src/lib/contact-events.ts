@@ -5,7 +5,7 @@
 // Pages, which can't serve Vercel's script, so there it never loads. Wherever it runs, it waits
 // for the same Accept as Google Analytics and never counts the private pages.
 import { inject, track } from "@vercel/analytics";
-import { PHONE_HREF } from "@/lib/contact";
+import { BOOKING_URL, PHONE_HREF } from "@/lib/contact";
 
 declare const __VERCEL_ANALYTICS__: boolean;
 
@@ -46,12 +46,16 @@ export function startVercelAnalytics({
     "click",
     (e) => {
       const target = e.target instanceof Element ? e.target : null;
-      // Booking buttons open the request form, or jump to it on the home page.
-      if (target?.closest("[data-booking]")) return countEvent("booking_click");
       const href = target?.closest("a[href]")?.getAttribute("href") ?? "";
-      // Only Sarah's own number. Taps on 988, 911 and other crisis lines are never counted.
-      if (href === PHONE_HREF) countEvent("phone_click");
-      else if (href.startsWith("mailto:")) countEvent("email_click");
+      // Booking: the Calendly scheduling link, and the buttons that open or jump to the request form.
+      if (href.startsWith(BOOKING_URL) || target?.closest("[data-booking]")) {
+        countEvent("booking_click");
+      } else if (href === PHONE_HREF) {
+        // Only Sarah's own number. Taps on 988, 911 and other crisis lines are never counted.
+        countEvent("phone_click");
+      } else if (href.startsWith("mailto:")) {
+        countEvent("email_click");
+      }
     },
     { capture: true },
   );
