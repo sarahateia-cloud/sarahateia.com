@@ -31,8 +31,10 @@ import { Route as AffordableTherapyDallasRouteImport } from './routes/affordable
 import { Route as AdhdTherapyRouteImport } from './routes/adhd-therapy'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResourcesIndexRouteImport } from './routes/resources/index'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as ResourcesSelfReflectionRouteImport } from './routes/resources/self-reflection'
 import { Route as ResourcesSlugRouteImport } from './routes/resources/$slug'
+import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 
 const YoungAdultCounselingRoute = YoungAdultCounselingRouteImport.update({
   id: '/young-adult-counseling',
@@ -148,6 +150,11 @@ const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
   path: '/resources/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResourcesSelfReflectionRoute = ResourcesSelfReflectionRouteImport.update({
   id: '/resources/self-reflection',
   path: '/resources/self-reflection',
@@ -156,6 +163,11 @@ const ResourcesSelfReflectionRoute = ResourcesSelfReflectionRouteImport.update({
 const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
   id: '/resources/$slug',
   path: '/resources/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -181,8 +193,10 @@ export interface FileRoutesByFullPath {
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
+  '/blog/': typeof BlogIndexRoute
   '/resources/': typeof ResourcesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -207,8 +221,10 @@ export interface FileRoutesByTo {
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
+  '/blog': typeof BlogIndexRoute
   '/resources': typeof ResourcesIndexRoute
 }
 export interface FileRoutesById {
@@ -234,8 +250,10 @@ export interface FileRoutesById {
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
+  '/blog/': typeof BlogIndexRoute
   '/resources/': typeof ResourcesIndexRoute
 }
 export interface FileRouteTypes {
@@ -262,8 +280,10 @@ export interface FileRouteTypes {
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
     | '/young-adult-counseling'
+    | '/blog/$slug'
     | '/resources/$slug'
     | '/resources/self-reflection'
+    | '/blog/'
     | '/resources/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -288,8 +308,10 @@ export interface FileRouteTypes {
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
     | '/young-adult-counseling'
+    | '/blog/$slug'
     | '/resources/$slug'
     | '/resources/self-reflection'
+    | '/blog'
     | '/resources'
   id:
     | '__root__'
@@ -314,8 +336,10 @@ export interface FileRouteTypes {
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
     | '/young-adult-counseling'
+    | '/blog/$slug'
     | '/resources/$slug'
     | '/resources/self-reflection'
+    | '/blog/'
     | '/resources/'
   fileRoutesById: FileRoutesById
 }
@@ -341,8 +365,10 @@ export interface RootRouteChildren {
   TelehealthCounselingRoute: typeof TelehealthCounselingRoute
   TelehealthCounselingTexasRoute: typeof TelehealthCounselingTexasRoute
   YoungAdultCounselingRoute: typeof YoungAdultCounselingRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   ResourcesSlugRoute: typeof ResourcesSlugRoute
   ResourcesSelfReflectionRoute: typeof ResourcesSelfReflectionRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
@@ -502,6 +528,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/resources/self-reflection': {
       id: '/resources/self-reflection'
       path: '/resources/self-reflection'
@@ -514,6 +547,13 @@ declare module '@tanstack/react-router' {
       path: '/resources/$slug'
       fullPath: '/resources/$slug'
       preLoaderRoute: typeof ResourcesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -541,8 +581,10 @@ const rootRouteChildren: RootRouteChildren = {
   TelehealthCounselingRoute: TelehealthCounselingRoute,
   TelehealthCounselingTexasRoute: TelehealthCounselingTexasRoute,
   YoungAdultCounselingRoute: YoungAdultCounselingRoute,
+  BlogSlugRoute: BlogSlugRoute,
   ResourcesSlugRoute: ResourcesSlugRoute,
   ResourcesSelfReflectionRoute: ResourcesSelfReflectionRoute,
+  BlogIndexRoute: BlogIndexRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,
 }
 export const routeTree = rootRouteImport

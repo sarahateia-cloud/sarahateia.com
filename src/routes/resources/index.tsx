@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteFooter, SiteHeader } from "@/components/site-header";
-import { ARTICLES, CITY_PAGES, TOPICS } from "@/content/pages";
+import { ARTICLES, BLOG_POSTS, CITY_PAGES, TOPICS } from "@/content/pages";
 
 export const Route = createFileRoute("/resources/")({
   component: Resources,
@@ -31,6 +31,18 @@ function Resources() {
               <span className="block font-serif text-xl text-foreground">{article.heading}</span>
               <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
                 {article.description}
+              </span>
+            </a>
+          ))}
+        </div>
+
+        <h2 className="mt-12 font-serif text-2xl text-foreground sm:text-3xl">From the blog</h2>
+        <div className="mt-6 space-y-4">
+          {BLOG_POSTS.map((post) => (
+            <a key={post.path} href={`/${post.path}/`} className={LINK_CARD}>
+              <span className="block font-serif text-xl text-foreground">{post.heading}</span>
+              <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
+                {post.description}
               </span>
             </a>
           ))}

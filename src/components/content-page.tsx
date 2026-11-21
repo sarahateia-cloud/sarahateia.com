@@ -69,6 +69,7 @@ export function ContentPageView({
           <h1 className="mt-3 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
             {page.heading}
           </h1>
+          {page.byline && <p className="mt-4 text-sm font-medium text-foreground">{page.byline}</p>}
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             <Inline text={page.intro} />
           </p>
@@ -141,6 +142,32 @@ export function ContentPageView({
               ))}
             </div>
           </section>
+        )}
+
+        {page.sources && (
+          <section aria-labelledby="sources" className="mt-14">
+            <h2 id="sources" className="font-serif text-2xl text-foreground sm:text-3xl">
+              Sources
+            </h2>
+            <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
+              {page.sources.map((source) => (
+                <li key={source.url}>
+                  <a
+                    href={source.url}
+                    className="underline underline-offset-4 hover:text-foreground"
+                  >
+                    {source.label}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        {page.disclaimer && (
+          <p className="mt-8 rounded-2xl border border-border bg-card px-6 py-4 text-sm leading-relaxed text-muted-foreground">
+            {page.disclaimer}
+          </p>
         )}
 
         {page.related && page.related.length > 0 && (
