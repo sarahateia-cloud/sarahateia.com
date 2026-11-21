@@ -4,15 +4,12 @@ import { BreathingExercise } from "@/components/breathing-exercise";
 import { ConsultationForm } from "@/components/consultation-dialog";
 import { BookingActions, SectionHeading, StickyCallBar } from "@/components/ds/booking";
 import { LogoMark } from "@/components/logo";
-import { Introspection } from "@/components/introspection";
-import { QuoteFeature } from "@/components/quote-feature";
 import { NatureBand } from "@/components/nature-band";
 import { WatercolorBloom } from "@/components/watercolor-bloom";
 import { Tilt, useScrollReveal } from "@/components/motion";
 import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
 import sarahHeadshot from "@/assets/sarah-headshot.webp";
 import sarahGraduation from "@/assets/sarah-graduation.webp";
-import sarahHarbor from "@/assets/sarah-harbor.webp";
 import sarahOverlook from "@/assets/sarah-overlook.webp";
 import chicoPortrait from "@/assets/chico.webp";
 import chicoSoft from "@/assets/chico-soft.webp";
@@ -124,7 +121,7 @@ const FEES = [
 const STEPS = [
   {
     title: "Reach out",
-    body: `Call ${PHONE_DISPLAY}, or leave your details and I’ll call you back.`,
+    body: `Pick a time online, call ${PHONE_DISPLAY}, or leave your details and I’ll call you back.`,
   },
   {
     title: "Free 15-minute consultation",
@@ -206,19 +203,22 @@ function Index() {
                 <span className="h-1.5 w-1.5 rounded-full bg-cta" aria-hidden />
                 Now accepting new clients
               </p>
-              <h1 className="font-serif text-[2.6rem] font-light leading-[1.05] tracking-[-0.02em] text-foreground sm:text-6xl lg:text-[4.5rem]">
+              {/* The page's one heading is Sarah's name, so searches for her name find this page.
+                  The large line below keeps the same look as before. */}
+              <h1 className="mb-4 font-sans text-sm font-medium tracking-normal text-foreground sm:text-base">
+                Sarah Ateia Khattab, LPC Associate,{" "}
+                <span className="text-muted-foreground">supervised by Don Zablosky, LPC-S</span>
+              </h1>
+              <p className="font-serif text-[2.6rem] font-light leading-[1.05] tracking-[-0.02em] text-foreground sm:text-6xl lg:text-[4.5rem]">
                 You’ve tried managing it. What if you could finally{" "}
                 <em className="text-taupe">understand</em> it?
-              </h1>
+              </p>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
                 There’s a reason your mind works the way it does: your stress response, your
                 attention, your emotional patterns. My practice is rooted in that belief, with
                 sessions outdoors in Dallas–Fort Worth parks and by telehealth across Texas.
               </p>
-              <BookingActions
-                requestHref="#request-call"
-                className="mt-8 lg:[&>a:first-child]:hidden"
-              />
+              <BookingActions requestHref="#request-call" className="mt-8" />
               <dl className="mt-8 grid max-w-xl grid-cols-1 gap-x-8 gap-y-3 border-t border-border pt-6 text-sm sm:grid-cols-2">
                 <div>
                   <dt className="text-muted-foreground">Licensed in Texas</dt>
@@ -256,7 +256,7 @@ function Index() {
                     Request a call
                   </h2>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Free 15-minute consultation. I’ll call you back.
+                    Free 15-minute consultation. I’ll get back to you.
                   </p>
                 </div>
               </div>
@@ -273,15 +273,18 @@ function Index() {
         </section>
 
         {/* 2. At a glance: the facts people check before booking. */}
-        <section aria-label="At a glance" className="border-y border-border bg-card">
+        <section aria-labelledby="at-a-glance" className="border-y border-border bg-card">
+          <h2 id="at-a-glance" className="sr-only">
+            At a glance
+          </h2>
           <ul className="mx-auto grid max-w-6xl grid-cols-1 divide-y divide-border px-6 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4">
             <li className="py-6 sm:pr-6">
-              <p className="font-serif text-xl text-foreground">Free 15-minute consultation</p>
+              <h3 className="font-serif text-xl text-foreground">Free 15-minute consultation</h3>
               <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{STEPS[1].body}</p>
             </li>
             {CONSULT_PERKS.map((perk) => (
               <li key={perk.title} className="py-6 sm:pr-6">
-                <p className="font-serif text-xl text-foreground">{perk.title}</p>
+                <h3 className="font-serif text-xl text-foreground">{perk.title}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{perk.body}</p>
               </li>
             ))}
@@ -294,6 +297,7 @@ function Index() {
             Counseling outdoors{" "}
             <InlinePhoto
               src={sarahOverlook}
+              alt="Sarah looking out over the city from an open-air terrace"
               width={1600}
               height={1066}
               position="60% 45%"
@@ -302,6 +306,7 @@ function Index() {
             or from home{" "}
             <InlinePhoto
               src={chicoPortrait}
+              alt="Chico, Sarah’s orange cat, wearing a gray hoodie"
               width={900}
               height={675}
               position="50% 20%"
@@ -339,7 +344,7 @@ function Index() {
                 </li>
               ))}
             </ol>
-            <BookingActions className="mt-10 justify-center" />
+            <BookingActions center className="mt-10" />
           </div>
         </section>
 
@@ -348,7 +353,7 @@ function Index() {
           <div className="reveal mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <SectionHeading eyebrow="About" title="A relational, considered approach." />
-              <figure className="mx-auto mt-8 grid max-w-md grid-cols-2 gap-4 lg:max-w-none lg:grid-cols-1 lg:gap-6">
+              <figure className="mx-auto mt-8 max-w-xs lg:max-w-none">
                 <Tilt>
                   <img
                     src={sarahGraduation}
@@ -359,25 +364,21 @@ function Index() {
                     className="depth-far aspect-[4/5] w-full rounded-[1.75rem] border border-border object-cover"
                   />
                 </Tilt>
-                <Tilt>
-                  <img
-                    src={sarahHarbor}
-                    width={800}
-                    height={1000}
-                    alt="Sarah in a blue hijab, sitting at a table by the water"
-                    loading="lazy"
-                    className="depth-near aspect-[4/5] w-full rounded-[1.75rem] border border-border object-cover"
-                  />
-                </Tilt>
               </figure>
             </div>
             <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg lg:col-span-8">
+              <p className="font-medium text-foreground">
+                Sarah Ateia, M.S., LPC Associate — Supervised by Don Zablosky, LPC-S, LMFT-S, NCC
+              </p>
               <p>
                 I am a Licensed Professional Counselor Associate (LPC Associate) in Texas and a
-                National Certified Counselor (NCC), with a background in healthcare. I grew up in a
-                multicultural environment, which shaped how I connect with people and how I hold
-                space for different backgrounds and lived experiences. I offer sessions in English
-                and Arabic.
+                National Certified Counselor (NCC), with a background in healthcare. Before becoming
+                a counselor, I worked as a transcranial magnetic stimulation (TMS) technician in an
+                integrative psychiatry practice, which gave me a close look at how mood, the brain,
+                and treatment fit together. (I don’t provide transcranial magnetic stimulation.) I
+                grew up in a multicultural environment, which shaped how I connect with people and
+                how I hold space for different backgrounds and lived experiences. I offer sessions
+                in English and Arabic.
               </p>
               <p>
                 I believe everyone has a blueprint, but most people have not been given the tools to
@@ -397,7 +398,7 @@ function Index() {
                   [
                     "License",
                     "LPC Associate #104391",
-                    "Texas BHEC · Supervised by Don Zablosky, LPC-S",
+                    "Texas BHEC · Supervised by Don Zablosky, LPC-S, LMFT-S, NCC",
                   ],
                   ["Certification", "National Certified Counselor", "NBCC · NCC #1746909"],
                 ].map(([label, title, detail]) => (
@@ -458,15 +459,13 @@ function Index() {
           </div>
         </section>
 
-        <QuoteFeature slot={0} />
-
         {/* 7. Approach and the three principles. */}
         <section id="approach" className="ds-section relative isolate overflow-hidden">
           <img
             src={brainArt}
             width={192}
             height={336}
-            alt=""
+            alt="Soft watercolor illustration of a brain"
             aria-hidden
             loading="lazy"
             className="pointer-events-none absolute top-24 -right-16 -z-10 h-[28rem] w-auto max-w-none opacity-20 mix-blend-multiply [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_72%)] sm:right-0 lg:right-auto lg:left-[-3rem]"
@@ -489,8 +488,24 @@ function Index() {
                   for noticing patterns in mood, stress, attention, and regulation. Not diagnosis,
                   not medical advice, always alongside the relational work itself.
                 </p>
+                <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  My approach is holistic: mind and body are treated as one system, so we pay
+                  attention to sleep, movement, breath, and stress alongside thoughts and feelings.
+                  The relationship comes first. My work is person-centered, so you set the pace and
+                  the goals. I also draw on solution-focused counseling, which many men in
+                  particular find practical and direct: we look at what’s already working and build
+                  on it. And for clients drawn to deeper questions of meaning, dreams, and the parts
+                  of yourself you don’t usually show, I bring in Jungian-informed ideas.
+                </p>
                 <ul className="flex flex-wrap gap-2 pt-2">
-                  {["Grounding", "Mind–body", "Nature-based", "Relational"].map((tag) => (
+                  {[
+                    "Holistic",
+                    "Mind–body",
+                    "Person-centered",
+                    "Solution-focused",
+                    "Jungian-informed",
+                    "Nature-based",
+                  ].map((tag) => (
                     <li
                       key={tag}
                       className="rounded-full border border-border bg-card px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground"
@@ -605,7 +620,7 @@ function Index() {
             src={chicoSoft}
             width={900}
             height={1200}
-            alt=""
+            alt="Chico, Sarah’s orange cat, resting in soft light"
             aria-hidden
             loading="lazy"
             className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover object-[60%_45%] opacity-25"
@@ -687,10 +702,6 @@ function Index() {
           </div>
         </section>
 
-        <Introspection />
-
-        <QuoteFeature slot={1} align="left" />
-
         {/* 11. Fees. */}
         <section id="fees" className="ds-section border-t border-border/60 bg-secondary/50">
           <div className="reveal mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-12">
@@ -718,7 +729,7 @@ function Index() {
                       className="flex items-baseline justify-between gap-6 px-6 py-5 sm:px-8"
                     >
                       <div>
-                        <p className="font-serif text-xl text-foreground">{fee.service}</p>
+                        <h3 className="font-serif text-xl text-foreground">{fee.service}</h3>
                         <p className="mt-1 text-sm text-muted-foreground">{fee.detail}</p>
                       </div>
                       <p className="whitespace-nowrap font-serif text-xl text-taupe">{fee.price}</p>
@@ -726,7 +737,7 @@ function Index() {
                   ))}
                 </ul>
                 <div className="border-t border-border bg-secondary/50 px-6 py-6 sm:px-8">
-                  <p className="font-serif text-lg text-foreground">How packages work</p>
+                  <h3 className="font-serif text-lg text-foreground">How packages work</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     Packages are optional. If you decide not to continue, any sessions you haven’t
                     used are refunded at the package rate. For example, if you’ve used 3 sessions of
@@ -734,7 +745,14 @@ function Index() {
                   </p>
                 </div>
                 <div className="border-t border-border bg-secondary/50 px-6 py-6 sm:px-8">
-                  <p className="font-serif text-lg text-foreground">How reduced rates work</p>
+                  <h3 className="font-serif text-lg text-foreground">When payment is due</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Payment is due before each session starts. We’ll go over how to pay during your
+                    free consultation.
+                  </p>
+                </div>
+                <div className="border-t border-border bg-secondary/50 px-6 py-6 sm:px-8">
+                  <h3 className="font-serif text-lg text-foreground">How reduced rates work</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     Reduced rates are based on your household income, which you simply tell me.
                     There’s no need to explain your circumstances. Your rate stays private and is
@@ -761,7 +779,7 @@ function Index() {
                   your details and I’ll call you, or call me directly.
                 </p>
               </SectionHeading>
-              <BookingActions className="mt-8 justify-center" />
+              <BookingActions center className="mt-8" />
               <p className="mt-6 text-sm text-muted-foreground">
                 Standard fee $100 per session. Reduced rates available.
               </p>
@@ -829,12 +847,14 @@ function Index() {
 /** A small rounded photo that sits inside a line of text, like a word. Decorative only. */
 function InlinePhoto({
   src,
+  alt,
   width,
   height,
   position,
   tilt,
 }: {
   src: string;
+  alt: string;
   width: number;
   height: number;
   position: string;
@@ -849,7 +869,7 @@ function InlinePhoto({
         src={src}
         width={width}
         height={height}
-        alt=""
+        alt={alt}
         loading="lazy"
         className="h-full w-full object-cover"
         style={{ objectPosition: position }}

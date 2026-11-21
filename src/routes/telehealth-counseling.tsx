@@ -1,9 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { ContentPageView } from "@/components/content-page";
-import { TOPICS } from "@/content/pages";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
-const page = TOPICS.find((topic) => topic.path === "telehealth-counseling")!;
-
+// Old address. The built site serves a redirect page here (see scripts/postbuild.mjs); this
+// covers in-app navigation to the old link.
 export const Route = createFileRoute("/telehealth-counseling")({
-  component: () => <ContentPageView page={page} />,
+  beforeLoad: () => {
+    throw redirect({ to: "/telehealth-counseling-texas", statusCode: 301 });
+  },
 });

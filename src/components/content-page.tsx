@@ -1,4 +1,29 @@
 import type { ReactNode } from "react";
+
+/** Turns [label](url) in page text into links. External links (sources) open in the same tab. */
+function Inline({ text }: { text: string }) {
+  const parts = text.split(/\[([^\]]+)\]\(((?:https?:\/\/|\/)[^)\s]+)\)/g);
+  return (
+    <>
+      {parts.map((part, i) => {
+        if (i % 3 === 0) return part;
+        if (i % 3 === 2) return null;
+        const href = parts[i + 1];
+        const external = href.startsWith("http");
+        return (
+          <a
+            key={i}
+            href={href}
+            className="text-foreground underline underline-offset-4 hover:text-primary-foreground"
+            {...(external ? { rel: "noopener" } : {})}
+          >
+            {part}
+          </a>
+        );
+      })}
+    </>
+  );
+}
 import { ArrowRight } from "lucide-react";
 import { BookingActions, StickyCallBar } from "@/components/ds/booking";
 import { LogoMark } from "@/components/logo";
@@ -45,6 +70,11 @@ export function ContentPageView({
             {page.heading}
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{page.intro}</p>
+          {page.arabicIntro && (
+            <p lang="ar" dir="rtl" className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              {page.arabicIntro}
+            </p>
+          )}
           <BookingActions className="mt-8" />
         </div>
 
@@ -58,13 +88,15 @@ export function ContentPageView({
                 key={paragraph}
                 className="mt-4 text-[1.0625rem] leading-relaxed text-muted-foreground"
               >
-                {paragraph}
+                <Inline text={paragraph} />
               </p>
             ))}
             {block.list && (
               <ul className="mt-4 list-disc space-y-2 pl-5 text-[1.0625rem] leading-relaxed text-muted-foreground marker:text-taupe">
                 {block.list.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>
+                    <Inline text={item} />
+                  </li>
                 ))}
               </ul>
             )}
@@ -120,7 +152,7 @@ export function ContentPageView({
           <p className="mx-auto mt-3 max-w-md text-muted-foreground">
             A short call to see if we’re a good fit, with no pressure and no commitment.
           </p>
-          <BookingActions className="mt-8 justify-center" />
+          <BookingActions center className="mt-8" />
         </section>
 
         {note && <p className="mt-8 text-xs leading-relaxed text-muted-foreground">{note}</p>}

@@ -1,21 +1,22 @@
-import { useEffect, useState } from "react";
-import { Menu, Phone, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { VisitStatisticsNote } from "@/components/analytics";
-import { ConsultationButton } from "@/components/consultation-dialog";
+import { BookCallLink } from "@/components/ds/booking";
 import { BUTTON } from "@/components/ds/buttons";
 import { Logo } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
-import { FOOTER_RESOURCES, SERVICES } from "@/content/services";
+import { FOOTER_AREAS, FOOTER_RESOURCES, SERVICES } from "@/content/services";
 
 export { PHONE_DISPLAY, PHONE_HREF };
 
-// Root-relative so the same links work from the crisis page.
-const NAV_LINKS = [
+// Root-relative so the same links work from the crisis page. `menuOnly` links stay in the mobile
+// menu and footer but are left out of the desktop bar, which has no room once Services is added.
+const NAV_LINKS: { label: string; href: string; menuOnly?: boolean }[] = [
   { label: "About", href: "/#about" },
-  { label: "Approach", href: "/#approach" },
+  { label: "Approach", href: "/#approach", menuOnly: true },
   { label: "Fees", href: "/#fees" },
   { label: "Resources", href: "/resources/" },
-  { label: "Screening Tools", href: "/screening-tools/" },
+  { label: "Screening Tools", href: "/screening-tools/", menuOnly: true },
   { label: "FAQ", href: "/#faq" },
   { label: "New Clients", href: "/new-clients/" },
   { label: "Crisis Resources", href: "/crisis/" },
@@ -24,6 +25,24 @@ const NAV_LINKS = [
 /** `dark` styles the header for the dark hero it sits over. */
 export function SiteHeader({ dark = false }: { dark?: boolean }) {
   const [open, setOpen] = useState(false);
+  const services = useRef<HTMLDetailsElement>(null);
+
+  // Close the Services list on a click outside it or on Escape, like any other menu.
+  useEffect(() => {
+    const close = (e: Event) => {
+      const el = services.current;
+      if (!el?.open) return;
+      if (e instanceof KeyboardEvent ? e.key === "Escape" : !el.contains(e.target as Node)) {
+        el.open = false;
+      }
+    };
+    document.addEventListener("click", close);
+    document.addEventListener("keydown", close);
+    return () => {
+      document.removeEventListener("click", close);
+      document.removeEventListener("keydown", close);
+    };
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -34,22 +53,43 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
   }, [open]);
 
   return (
-    <header className={`absolute top-0 left-0 right-0 z-30 ${dark ? "holo-scope" : ""}`}>
+    // While the menu is open the header rises above everything, including the visit-counting question.
+    <header
+      className={`absolute top-0 left-0 right-0 ${open ? "z-[60]" : "z-30"} ${dark ? "holo-scope" : ""}`}
+    >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 sm:py-8">
-        <a href="/" aria-label="Sarah Ateia Khattab, home">
+        <a href="/" aria-label="Sarah Ateia Khattab, home" className="lg:min-w-64">
           <Logo />
         </a>
         <div className="hidden flex-shrink-0 items-center gap-5 whitespace-nowrap text-sm text-muted-foreground lg:flex xl:gap-7">
+          <details ref={services} className="relative">
+            <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1 transition-colors hover:text-foreground [&::-webkit-details-marker]:hidden">
+              Services
+              <ChevronDown className="h-3.5 w-3.5" aria-hidden />
+            </summary>
+            <ul className="services-menu absolute left-0 top-full z-40 mt-1 w-64 rounded-2xl border border-border bg-card p-2 shadow-[0_8px_30px_rgb(0_0_0/0.08)]">
+              {SERVICES.map((service) => (
+                <li key={service.href}>
+                  <a
+                    href={service.href}
+                    className="flex min-h-11 items-center rounded-xl px-3 text-foreground transition-colors hover:bg-secondary/60"
+                  >
+                    {service.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </details>
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
+              className={`${link.menuOnly ? "hidden" : "inline-flex"} min-h-11 items-center transition-colors hover:text-foreground`}
             >
               {link.label}
             </a>
           ))}
-          <ConsultationButton className={BUTTON.ctaSmall}>Request a Call</ConsultationButton>
+          <BookCallLink className={BUTTON.ctaSmall}>Book a Free Call</BookCallLink>
         </div>
         <div className="flex items-center gap-2 lg:hidden">
           <a
@@ -74,7 +114,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
 
       {open && (
         <div
-          className="fixed inset-0 z-40 flex flex-col bg-background"
+          className="menu-sheet fixed inset-0 z-40 flex flex-col bg-background"
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
@@ -89,21 +129,39 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
               <X className="h-5 w-5" aria-hidden />
             </button>
           </div>
-          <ul className="flex flex-1 flex-col justify-center gap-6 px-10">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="inline-flex min-h-12 items-center font-serif text-4xl font-light transition-colors hover:text-cta"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div className="flex-1 overflow-y-auto px-10 py-4">
+            <ul className="flex flex-col gap-4">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="inline-flex min-h-12 items-center font-serif text-4xl font-light transition-colors hover:text-cta"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-10 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              Services
+            </p>
+            <ul className="mt-2 grid grid-cols-1 gap-x-6 sm:grid-cols-2">
+              {SERVICES.map((service) => (
+                <li key={service.href}>
+                  <a
+                    href={service.href}
+                    onClick={() => setOpen(false)}
+                    className="inline-flex min-h-11 items-center text-lg text-foreground transition-colors hover:text-cta"
+                  >
+                    {service.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="space-y-3 px-10 pb-12">
-            <ConsultationButton className={BUTTON.cta}>Request a Call</ConsultationButton>
+            <BookCallLink className={BUTTON.cta}>Book a Free Call</BookCallLink>
             <a
               href={PHONE_HREF}
               className="flex min-h-11 items-center gap-2.5 text-sm font-medium text-foreground"
@@ -133,8 +191,8 @@ export function SiteFooter() {
             Irving, Texas · Outdoor sessions in Dallas–Fort Worth · Telehealth across Texas
           </p>
           <p className="mt-2 max-w-md text-xs text-muted-foreground">
-            Serving Irving, Las Colinas, Coppell, Grand Prairie, Carrollton, Farmers Branch, Dallas,
-            Fort Worth, Arlington, Garland, Mesquite, and Wilmer.
+            In person in Irving, Las Colinas, Dallas, Coppell, Grand Prairie, and Farmers Branch.
+            Telehealth anywhere in Texas.
           </p>
         </div>
         <div className="text-sm text-muted-foreground sm:text-right">
@@ -181,6 +239,20 @@ export function SiteFooter() {
               ))}
             </ul>
           </nav>
+          <nav aria-label="Areas served" className="mt-2">
+            <ul className="flex flex-wrap gap-x-4">
+              {FOOTER_AREAS.map((service) => (
+                <li key={service.href}>
+                  <a
+                    href={service.href}
+                    className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                  >
+                    {service.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
           <p className="mt-2">
             <a
               href={PSYCHOLOGY_TODAY_URL}
@@ -204,8 +276,13 @@ export function SiteFooter() {
             </a>
           </p>
           <p className="mt-2 text-xs">
-            LPC Associate #104391 · Supervised by{" "}
-            <span className="whitespace-nowrap">Don Zablosky, LPC-S</span> ·{" "}
+            {/* Required wording: the supervisor's name directly follows Sarah's. */}
+            Sarah Ateia, LPC Associate,{" "}
+            <span className="whitespace-nowrap">supervised by Don Zablosky,</span>{" "}
+            <span className="whitespace-nowrap">LPC-S, LMFT-S, NCC</span>
+          </p>
+          <p className="text-xs">
+            License #104391 ·{" "}
             <a
               href={LICENSE_VERIFY_URL}
               className="inline-flex min-h-11 items-center underline underline-offset-4 transition-colors hover:text-foreground"
@@ -219,6 +296,18 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-6 pb-10">
         <NoticeToClients className="text-xs" />
         <VisitStatisticsNote className="mt-4 max-w-2xl text-xs leading-relaxed text-muted-foreground" />
+        <p className="mt-4 max-w-2xl text-xs leading-relaxed text-muted-foreground">
+          <span className="font-medium text-foreground">Booking:</span> “Book a Free Call” opens
+          Calendly, which collects your name, email and phone number to schedule the call and has
+          its own{" "}
+          <a
+            href="https://calendly.com/privacy"
+            className="underline underline-offset-4 hover:text-foreground"
+          >
+            privacy policy
+          </a>
+          . Please don’t include health details when booking.
+        </p>
       </div>
     </footer>
   );
