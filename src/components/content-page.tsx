@@ -34,14 +34,16 @@ export function ContentPageView({
   page,
   parent,
   note,
+  arabicHref,
 }: {
   page: ContentPage;
+  arabicHref?: string;
   parent?: { label: string; href: string };
   note?: ReactNode;
 }) {
   return (
     <div className="min-h-screen bg-background pb-24 text-foreground md:pb-0">
-      <SiteHeader />
+      <SiteHeader arabicHref={arabicHref} />
       <main id="main" className="mx-auto max-w-3xl px-6 pt-36 max-[340px]:pt-40 pb-20 sm:pt-40">
         <div id="top">
           <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">

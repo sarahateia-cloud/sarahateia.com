@@ -191,7 +191,7 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background pb-24 text-foreground md:pb-0">
-      <SiteHeader dark />
+      <SiteHeader dark arabicHref="/ar/" />
 
       <main id="main">
         {/* 1. Hero: who, what, and both ways to book, with the form in reach. */}

@@ -3,7 +3,9 @@
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 
-const { render, SITE_PAGES } = await import(pathToFileURL("dist-ssr/entry-prerender.js").href);
+const { render, SITE_PAGES, ARABIC_PAGES, AR_DRAFT } = await import(
+  pathToFileURL("dist-ssr/entry-prerender.js").href
+);
 
 const SITE = "https://www.sarahateia.com";
 // Placeholders in index.html (a sameAs profile link or a search engine verification code that
@@ -101,6 +103,27 @@ const PAGES = [
   },
 ];
 
+// Arabic pages (right to left). While AR_DRAFT is on they're built for review but set to noindex
+// and kept out of the sitemap. Each one is paired with its English page through hreflang links.
+const AR_BUILT = ARABIC_PAGES.map((page) => ({
+  path: page.path,
+  title: page.title,
+  description: page.description,
+  arabic: true,
+  englishPath: page.englishPath,
+  graph: [
+    {
+      "@type": "WebPage",
+      "@id": `${SITE}/${page.path}/#page`,
+      name: page.title,
+      url: `${SITE}/${page.path}/`,
+      inLanguage: "ar",
+      isPartOf: { "@id": `${SITE}/#website` },
+    },
+  ],
+}));
+const INDEXED_AR = AR_DRAFT ? [] : AR_BUILT;
+
 // The home page's FAQ labels only describe the home page, so each other page gets its own labels.
 const setLabels = (doc, graph = []) =>
   doc.replace(
@@ -153,7 +176,7 @@ const prerender = async (doc, route) => {
 };
 
 // Stop the build if the sitemap lists anything other than the pages built here.
-const builtUrls = ["", ...[...PAGES, ...SITE_PAGES].map((page) => `${page.path}/`)]
+const builtUrls = ["", ...[...PAGES, ...SITE_PAGES, ...INDEXED_AR].map((page) => `${page.path}/`)]
   .map((path) => `${SITE}/${path}`)
   .sort();
 const sitemapUrls = [...readFileSync("dist/sitemap.xml", "utf8").matchAll(/<loc>(.*?)<\/loc>/g)]
@@ -185,7 +208,28 @@ for (const page of [...PAGES, ...SITE_PAGES]) {
     await prerender(setMeta(html, page), `/${page.path}`),
   );
 }
+for (const page of AR_BUILT) {
+  mkdirSync(`dist/${page.path}`, { recursive: true });
+  let doc = setMeta(html, page)
+    .replace('<html lang="en">', '<html lang="ar" dir="rtl">')
+    .replace('content="en_US"', 'content="ar_AR"');
+  if (AR_DRAFT) doc = setAttribute(doc, 'name="robots"', "noindex, follow");
+  writeFileSync(`dist/${page.path}/index.html`, await prerender(doc, `/${page.path}/`));
+}
 writeFileSync("dist/index.html", await prerender(html, "/"));
+
+// hreflang: each English page and its Arabic version point at each other, with English as the
+// default for everyone else.
+for (const page of AR_BUILT) {
+  const en = `${SITE}${page.englishPath}`;
+  const ar = `${SITE}/${page.path}/`;
+  const links = `<link rel="alternate" hreflang="en" href="${en}" /><link rel="alternate" hreflang="ar" href="${ar}" /><link rel="alternate" hreflang="x-default" href="${en}" />`;
+  for (const file of [`dist${page.englishPath}index.html`, `dist/${page.path}/index.html`]) {
+    const doc = readFileSync(file, "utf8");
+    if (!doc.includes('hreflang="ar"'))
+      writeFileSync(file, doc.replace("</head>", `${links}</head>`));
+  }
+}
 // The fallback page for unknown addresses. It is served with a 404 status, so it should never
 // look like a copy of the home page: no canonical, no shared description, and noindex.
 const notFound = setAttribute(html, 'name="robots"', "noindex, follow")

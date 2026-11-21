@@ -5,5 +5,5 @@ import { TOPICS } from "@/content/pages";
 const page = TOPICS.find((topic) => topic.path === "arabic-counseling")!;
 
 export const Route = createFileRoute("/arabic-counseling")({
-  component: () => <ContentPageView page={page} />,
+  component: () => <ContentPageView page={page} arabicHref="/ar/arabic-counseling/" />,
 });

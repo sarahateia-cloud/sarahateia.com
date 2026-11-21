@@ -33,9 +33,11 @@ import { Route as AdhdTherapyRouteImport } from './routes/adhd-therapy'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResourcesIndexRouteImport } from './routes/resources/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as ArIndexRouteImport } from './routes/ar/index'
 import { Route as ResourcesSelfReflectionRouteImport } from './routes/resources/self-reflection'
 import { Route as ResourcesSlugRouteImport } from './routes/resources/$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
+import { Route as ArArabicCounselingRouteImport } from './routes/ar/arabic-counseling'
 
 const YoungAdultCounselingRoute = YoungAdultCounselingRouteImport.update({
   id: '/young-adult-counseling',
@@ -161,6 +163,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArIndexRoute = ArIndexRouteImport.update({
+  id: '/ar/',
+  path: '/ar/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResourcesSelfReflectionRoute = ResourcesSelfReflectionRouteImport.update({
   id: '/resources/self-reflection',
   path: '/resources/self-reflection',
@@ -174,6 +181,11 @@ const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/blog/$slug',
   path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArArabicCounselingRoute = ArArabicCounselingRouteImport.update({
+  id: '/ar/arabic-counseling',
+  path: '/ar/arabic-counseling',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -200,9 +212,11 @@ export interface FileRoutesByFullPath {
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/tools': typeof ToolsRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
+  '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
+  '/ar/': typeof ArIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/resources/': typeof ResourcesIndexRoute
 }
@@ -229,9 +243,11 @@ export interface FileRoutesByTo {
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/tools': typeof ToolsRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
+  '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
+  '/ar': typeof ArIndexRoute
   '/blog': typeof BlogIndexRoute
   '/resources': typeof ResourcesIndexRoute
 }
@@ -259,9 +275,11 @@ export interface FileRoutesById {
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/tools': typeof ToolsRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
+  '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
+  '/ar/': typeof ArIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/resources/': typeof ResourcesIndexRoute
 }
@@ -290,9 +308,11 @@ export interface FileRouteTypes {
     | '/telehealth-counseling-texas'
     | '/tools'
     | '/young-adult-counseling'
+    | '/ar/arabic-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
     | '/resources/self-reflection'
+    | '/ar/'
     | '/blog/'
     | '/resources/'
   fileRoutesByTo: FileRoutesByTo
@@ -319,9 +339,11 @@ export interface FileRouteTypes {
     | '/telehealth-counseling-texas'
     | '/tools'
     | '/young-adult-counseling'
+    | '/ar/arabic-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
     | '/resources/self-reflection'
+    | '/ar'
     | '/blog'
     | '/resources'
   id:
@@ -348,9 +370,11 @@ export interface FileRouteTypes {
     | '/telehealth-counseling-texas'
     | '/tools'
     | '/young-adult-counseling'
+    | '/ar/arabic-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
     | '/resources/self-reflection'
+    | '/ar/'
     | '/blog/'
     | '/resources/'
   fileRoutesById: FileRoutesById
@@ -378,9 +402,11 @@ export interface RootRouteChildren {
   TelehealthCounselingTexasRoute: typeof TelehealthCounselingTexasRoute
   ToolsRoute: typeof ToolsRoute
   YoungAdultCounselingRoute: typeof YoungAdultCounselingRoute
+  ArArabicCounselingRoute: typeof ArArabicCounselingRoute
   BlogSlugRoute: typeof BlogSlugRoute
   ResourcesSlugRoute: typeof ResourcesSlugRoute
   ResourcesSelfReflectionRoute: typeof ResourcesSelfReflectionRoute
+  ArIndexRoute: typeof ArIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
@@ -555,6 +581,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ar/': {
+      id: '/ar/'
+      path: '/ar'
+      fullPath: '/ar/'
+      preLoaderRoute: typeof ArIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/resources/self-reflection': {
       id: '/resources/self-reflection'
       path: '/resources/self-reflection'
@@ -574,6 +607,13 @@ declare module '@tanstack/react-router' {
       path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ar/arabic-counseling': {
+      id: '/ar/arabic-counseling'
+      path: '/ar/arabic-counseling'
+      fullPath: '/ar/arabic-counseling'
+      preLoaderRoute: typeof ArArabicCounselingRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -602,9 +642,11 @@ const rootRouteChildren: RootRouteChildren = {
   TelehealthCounselingTexasRoute: TelehealthCounselingTexasRoute,
   ToolsRoute: ToolsRoute,
   YoungAdultCounselingRoute: YoungAdultCounselingRoute,
+  ArArabicCounselingRoute: ArArabicCounselingRoute,
   BlogSlugRoute: BlogSlugRoute,
   ResourcesSlugRoute: ResourcesSlugRoute,
   ResourcesSelfReflectionRoute: ResourcesSelfReflectionRoute,
+  ArIndexRoute: ArIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,
 }

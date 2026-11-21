@@ -81,7 +81,7 @@ export function Logo({ tagline = true }: { tagline?: boolean }) {
     <span className="inline-flex items-center gap-3">
       <LogoMark className="h-10 w-10 flex-shrink-0 sm:h-11 sm:w-11" />
       <span className="flex flex-col leading-none">
-        <span className="font-serif text-xl tracking-tight text-foreground sm:text-[1.35rem]">
+        <span className="font-serif xl:whitespace-nowrap text-xl tracking-tight text-foreground sm:text-[1.35rem]">
           Sarah Ateia Khattab
         </span>
         {tagline && (
