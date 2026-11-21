@@ -12,7 +12,7 @@ export { PHONE_DISPLAY, PHONE_HREF };
 // Root-relative so the same links work from the crisis page. `menuOnly` links stay in the mobile
 // menu and footer but are left out of the desktop bar, which has no room once Services is added.
 const NAV_LINKS: { label: string; href: string; menuOnly?: boolean }[] = [
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/about/" },
   { label: "Approach", href: "/#approach", menuOnly: true },
   { label: "Fees", href: "/#fees" },
   { label: "Resources", href: "/resources/" },

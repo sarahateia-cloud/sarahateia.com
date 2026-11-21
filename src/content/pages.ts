@@ -114,6 +114,7 @@ const LINK = {
     label: "Counseling in Farmers Branch, TX",
     href: "/counseling-farmers-branch-tx/",
   },
+  aboutSarah: { label: "About Sarah Ateia, LPC Associate", href: "/about/" },
   selfReflection: {
     label: "Quotes and self-reflection tools",
     href: "/resources/self-reflection/",
@@ -1797,6 +1798,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.firstSession,
       LINK.choose,
       LINK.newClients,
+      LINK.aboutSarah,
     ],
     title: title("Free Counseling Consultation"),
     description:
@@ -1887,7 +1889,14 @@ export const ARTICLES: ContentPage[] = [
   },
   {
     path: "resources/what-is-an-lpc-associate",
-    related: [LINK.consultation, LINK.arabic, LINK.outdoor, LINK.lpcVs, LINK.glossary],
+    related: [
+      LINK.consultation,
+      LINK.arabic,
+      LINK.outdoor,
+      LINK.lpcVs,
+      LINK.glossary,
+      LINK.aboutSarah,
+    ],
     title: title("What Is an LPC Associate?"),
     description:
       "A plain-language explanation of what an LPC Associate is in Texas, what supervision means, and how to verify a counselor’s license.",
@@ -3996,7 +4005,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/how-to-choose-a-therapist-dallas",
     published: "2026-11-20",
-    related: [LINK.dallas, LINK.lpcVs, LINK.consultation, LINK.affordable],
+    related: [LINK.dallas, LINK.lpcVs, LINK.consultation, LINK.affordable, LINK.aboutSarah],
     title: title("Choosing a Therapist in Dallas"),
     description:
       "How to choose a therapist in Dallas: what to look for, how to check a Texas license, questions to ask on a free call, and red flags to notice.",
@@ -4438,7 +4447,14 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/lpc-vs-lpc-associate-vs-psychologist",
     published: "2026-11-20",
-    related: [LINK.associate, LINK.choose, LINK.telehealth, LINK.adhdDiagnose, LINK.glossary],
+    related: [
+      LINK.associate,
+      LINK.choose,
+      LINK.telehealth,
+      LINK.adhdDiagnose,
+      LINK.glossary,
+      LINK.aboutSarah,
+    ],
     title: title("LPC vs. Psychologist in Texas"),
     description:
       "The differences between an LPC, an LPC Associate, and a psychologist in Texas: training, supervision, and how to decide who to see.",
