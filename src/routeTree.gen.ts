@@ -30,6 +30,7 @@ import { Route as ArabicCounselingRouteImport } from './routes/arabic-counseling
 import { Route as AnxietyTherapyDallasRouteImport } from './routes/anxiety-therapy-dallas'
 import { Route as AffordableTherapyDallasRouteImport } from './routes/affordable-therapy-dallas'
 import { Route as AdhdTherapyRouteImport } from './routes/adhd-therapy'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResourcesIndexRouteImport } from './routes/resources/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
@@ -149,6 +150,11 @@ const AdhdTherapyRoute = AdhdTherapyRouteImport.update({
   path: '/adhd-therapy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -192,6 +198,7 @@ const ArArabicCounselingRoute = ArArabicCounselingRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/adhd-therapy': typeof AdhdTherapyRoute
   '/affordable-therapy-dallas': typeof AffordableTherapyDallasRoute
   '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
@@ -223,6 +230,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/adhd-therapy': typeof AdhdTherapyRoute
   '/affordable-therapy-dallas': typeof AffordableTherapyDallasRoute
   '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
@@ -255,6 +263,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/adhd-therapy': typeof AdhdTherapyRoute
   '/affordable-therapy-dallas': typeof AffordableTherapyDallasRoute
   '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
@@ -288,6 +297,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/adhd-therapy'
     | '/affordable-therapy-dallas'
     | '/anxiety-therapy-dallas'
@@ -319,6 +329,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/adhd-therapy'
     | '/affordable-therapy-dallas'
     | '/anxiety-therapy-dallas'
@@ -350,6 +361,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/adhd-therapy'
     | '/affordable-therapy-dallas'
     | '/anxiety-therapy-dallas'
@@ -382,6 +394,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AdhdTherapyRoute: typeof AdhdTherapyRoute
   AffordableTherapyDallasRoute: typeof AffordableTherapyDallasRoute
   AnxietyTherapyDallasRoute: typeof AnxietyTherapyDallasRoute
@@ -561,6 +574,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdhdTherapyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -622,6 +642,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AdhdTherapyRoute: AdhdTherapyRoute,
   AffordableTherapyDallasRoute: AffordableTherapyDallasRoute,
   AnxietyTherapyDallasRoute: AnxietyTherapyDallasRoute,

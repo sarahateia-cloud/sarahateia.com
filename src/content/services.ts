@@ -14,6 +14,7 @@ export const SERVICES = [
 
 /** Helpful reading, linked from every footer so no guide depends on a single link. */
 export const FOOTER_RESOURCES = [
+  { label: "About Sarah", href: "/about/" },
   { label: "Resources", href: "/resources/" },
   { label: "Blog", href: "/blog/" },
   { label: "What is an LPC Associate?", href: "/resources/what-is-an-lpc-associate/" },

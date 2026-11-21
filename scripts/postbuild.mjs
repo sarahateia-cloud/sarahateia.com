@@ -32,6 +32,22 @@ const crumbs = (...items) => [
 
 const PAGES = [
   {
+    path: "about",
+    graph: [
+      {
+        "@type": "ProfilePage",
+        "@id": `${SITE}/about/#page`,
+        url: `${SITE}/about/`,
+        name: "About Sarah Ateia, LPC Associate",
+        mainEntity: { "@id": `${SITE}/#sarah` },
+      },
+      ...crumbs(["About", `${SITE}/about/`]),
+    ],
+    title: "About Sarah Ateia, LPC Associate (Irving, TX)",
+    description:
+      "Sarah Ateia, LPC Associate supervised by Don Zablosky, LPC-S: walk and talk counseling in Irving and DFW, telehealth across Texas, English and Arabic.",
+  },
+  {
     path: "resources/self-reflection",
     graph: crumbs(
       ["Resources", `${SITE}/resources/`],
