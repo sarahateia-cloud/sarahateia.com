@@ -19,7 +19,7 @@ export function BookingActions({
   return (
     <div className={`flex flex-col gap-3 sm:flex-row ${className}`}>
       {requestHref ? (
-        <a href={requestHref} className={BUTTON.cta}>
+        <a href={requestHref} className={BUTTON.cta} data-booking="">
           Request a Call
         </a>
       ) : (
