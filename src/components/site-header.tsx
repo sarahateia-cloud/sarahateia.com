@@ -4,7 +4,6 @@ import { VisitStatisticsNote } from "@/components/analytics";
 import { BookCallLink } from "@/components/ds/booking";
 import { BUTTON } from "@/components/ds/buttons";
 import { LanguageToggle } from "@/components/language-toggle";
-import { ThemeSwitch } from "@/components/theme-switch";
 import { AR_DRAFT } from "@/content/arabic-status";
 import { Logo } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
@@ -336,7 +335,6 @@ export function SiteFooter() {
             </a>
           </p>
           <p className="mt-1 text-xs">© {new Date().getFullYear()} Attya LLC.</p>
-          <ThemeSwitch />
         </div>
       </div>
       <div className="mx-auto max-w-6xl px-6 pb-10">
