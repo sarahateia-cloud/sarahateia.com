@@ -10,12 +10,12 @@ import { AR_DRAFT, AR_UI, SUPERVISION_AR, SUPERVISION_EN, type ArabicPage } from
 function DraftBanner() {
   if (!AR_DRAFT) return null;
   return (
-    <div role="note" className="bg-clay px-6 py-2 text-center text-sm text-card">
+    <aside aria-label="Draft notice" className="bg-clay px-6 py-2 text-center text-sm text-card">
       <span className="font-semibold">{AR_UI.draftBanner}</span>{" "}
       <span lang="en" dir="ltr" className="whitespace-nowrap">
         {AR_UI.draftBannerEn}
       </span>
-    </div>
+    </aside>
   );
 }
 

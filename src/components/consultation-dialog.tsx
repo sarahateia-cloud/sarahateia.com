@@ -11,7 +11,6 @@ import { BUTTON } from "@/components/ds/buttons";
 import { LogoMark } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 import { restoreEarlyInput } from "@/lib/early-input";
-import { countEvent } from "@/lib/contact-events";
 
 // Google Apps Script web app that saves each request to the "Call Requests" Sheet.
 const CALL_REQUEST_ENDPOINT =
@@ -199,7 +198,6 @@ export function ConsultationForm({ onSent }: { onSent?: () => void }) {
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.ok) throw new Error(data.error ?? "Submission failed.");
       // Only the event name is counted. No form field values are ever sent with it.
-      countEvent("consult_request_submitted");
       setSubmitted(true);
       onSent?.();
     } catch (err) {

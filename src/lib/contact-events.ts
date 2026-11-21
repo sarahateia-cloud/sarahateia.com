@@ -1,19 +1,17 @@
-// Vercel Web Analytics plus four contact counts. Only an event's name is ever sent: never what
-// someone typed, which number or address they tapped, or anything else about them.
+// Vercel Web Analytics plus two contact counts (phone and email taps). Only an event's name is ever
+// sent: never what someone typed, which number or address they tapped, or anything else about them.
+// Booking is never counted: no event for "Book a Free Call" or for sending the call-request form,
+// so nothing records that a visitor started booking with a counselor.
 //
 // It runs only when the site is built on Vercel (previews today). The live site is on GitHub
 // Pages, which can't serve Vercel's script, so there it never loads. Wherever it runs, it waits
 // for the same Accept as Google Analytics and never counts the private pages.
 import { inject, track } from "@vercel/analytics";
-import { BOOKING_URL, PHONE_HREF } from "@/lib/contact";
+import { PHONE_HREF } from "@/lib/contact";
 
 declare const __VERCEL_ANALYTICS__: boolean;
 
-export type ContactEvent =
-  | "consult_request_submitted"
-  | "phone_click"
-  | "email_click"
-  | "booking_click";
+export type ContactEvent = "phone_click" | "email_click";
 
 let started = false;
 
@@ -47,10 +45,7 @@ export function startVercelAnalytics({
     (e) => {
       const target = e.target instanceof Element ? e.target : null;
       const href = target?.closest("a[href]")?.getAttribute("href") ?? "";
-      // Booking: the Calendly scheduling link, and the buttons that open or jump to the request form.
-      if (href.startsWith(BOOKING_URL) || target?.closest("[data-booking]")) {
-        countEvent("booking_click");
-      } else if (href === PHONE_HREF) {
+      if (href === PHONE_HREF) {
         // Only Sarah's own number. Taps on 988, 911 and other crisis lines are never counted.
         countEvent("phone_click");
       } else if (href.startsWith("mailto:")) {
