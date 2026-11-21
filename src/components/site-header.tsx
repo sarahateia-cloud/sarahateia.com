@@ -67,7 +67,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
               Services
               <ChevronDown className="h-3.5 w-3.5" aria-hidden />
             </summary>
-            <ul className="absolute left-0 top-full z-40 mt-1 w-64 rounded-2xl border border-border bg-card p-2 shadow-[0_8px_30px_rgb(0_0_0/0.08)]">
+            <ul className="services-menu absolute left-0 top-full z-40 mt-1 w-64 rounded-2xl border border-border bg-card p-2 shadow-[0_8px_30px_rgb(0_0_0/0.08)]">
               {SERVICES.map((service) => (
                 <li key={service.href}>
                   <a
@@ -114,7 +114,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
 
       {open && (
         <div
-          className="fixed inset-0 z-40 flex flex-col bg-background"
+          className="menu-sheet fixed inset-0 z-40 flex flex-col bg-background"
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
