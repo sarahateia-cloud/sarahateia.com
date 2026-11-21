@@ -21,7 +21,7 @@ function SelfReflection() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
-      <main id="main" className="pt-36 max-[340px]:pt-40 sm:pt-40">
+      <main id="main" className="pt-44 max-[340px]:pt-48 sm:pt-40">
         <div className="mx-auto max-w-3xl px-6">
           <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
             <a href="/" className="inline-flex min-h-11 items-center hover:text-foreground">

@@ -180,7 +180,7 @@ export function QuoteFeature({
     <section
       ref={band}
       aria-roledescription="carousel"
-      aria-label="Quotes"
+      aria-label={`Quotes, set ${slot + 1}`}
       className="quote-band relative isolate overflow-hidden"
       onPointerEnter={(e) => e.pointerType === "mouse" && setHovering(true)}
       onPointerLeave={() => setHovering(false)}

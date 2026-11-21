@@ -10,12 +10,12 @@ import { AR_DRAFT, AR_UI, SUPERVISION_AR, SUPERVISION_EN, type ArabicPage } from
 function DraftBanner() {
   if (!AR_DRAFT) return null;
   return (
-    <div role="note" className="bg-clay px-6 py-2 text-center text-sm text-card">
+    <aside aria-label="Draft notice" className="bg-clay px-6 py-2 text-center text-sm text-card">
       <span className="font-semibold">{AR_UI.draftBanner}</span>{" "}
       <span lang="en" dir="ltr" className="whitespace-nowrap">
         {AR_UI.draftBannerEn}
       </span>
-    </div>
+    </aside>
   );
 }
 
@@ -91,6 +91,14 @@ export function ArabicPageView({ page }: { page: ArabicPage }) {
                   {p}
                 </p>
               ))}
+              {section.link && (
+                <a
+                  href={section.link.href}
+                  className="mt-4 inline-flex min-h-11 items-center text-lg font-semibold text-primary-foreground underline underline-offset-4"
+                >
+                  {section.link.label}
+                </a>
+              )}
               {section.list && (
                 <ul className="ds-card mt-5 divide-y divide-border px-6 text-lg leading-loose text-muted-foreground">
                   {section.list.map((item) => (

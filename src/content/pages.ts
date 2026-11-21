@@ -176,6 +176,10 @@ const LINK = {
   glossary: { label: "Counseling glossary in English and Arabic", href: "/glossary/" },
   crisis: { label: "Crisis resources in Dallas–Fort Worth", href: "/crisis/" },
   tools: { label: "Free calming tools: box breathing and grounding", href: "/tools/" },
+  personCentered: {
+    label: "What is person-centered therapy?",
+    href: "/resources/what-is-person-centered-therapy/",
+  },
 };
 
 // Titles stay under 60 characters: keyword first, then this ending.
@@ -948,6 +952,7 @@ export const TOPICS: ContentPage[] = [
     path: "holistic-counseling",
     related: [
       LINK.holistic,
+      LINK.personCentered,
       LINK.walkTalk,
       LINK.anxiety,
       LINK.depression,
@@ -3380,6 +3385,7 @@ export const ARTICLES: ContentPage[] = [
     published: "2026-11-19",
     related: [
       LINK.holisticCounseling,
+      LINK.personCentered,
       LINK.anxiety,
       LINK.depression,
       LINK.selfCare,
@@ -4115,7 +4121,13 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/first-counseling-session",
     published: "2026-11-20",
-    related: [LINK.consultation, LINK.newClients, LINK.telehealth, LINK.outdoor],
+    related: [
+      LINK.consultation,
+      LINK.newClients,
+      LINK.personCentered,
+      LINK.telehealth,
+      LINK.outdoor,
+    ],
     title: title("Your First Counseling Session"),
     description:
       "What happens in a first counseling session: what to expect before, during, and after, what you can ask, and how to prepare. No pressure to share.",
@@ -4541,7 +4553,14 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/grounding-techniques-for-anxiety",
     published: "2026-11-21",
-    related: [LINK.boxBreathing, LINK.regulation, LINK.anxiety, LINK.outdoor, LINK.groundingGuide],
+    related: [
+      LINK.boxBreathing,
+      LINK.tools,
+      LINK.regulation,
+      LINK.anxiety,
+      LINK.outdoor,
+      LINK.groundingGuide,
+    ],
     title: "Grounding Techniques for Anxiety: How to Use Them",
     description:
       "Grounding techniques for anxiety, including the 5-4-3-2-1 method: step-by-step how to use them, what research says, and when to get more support.",
@@ -4629,7 +4648,7 @@ export const ARTICLES: ContentPage[] = [
         heading: "Can I practice grounding with a counselor in Dallas–Fort Worth?",
         paragraphs: [
           "Yes. Grounding is part of how I work in walk and talk sessions outdoors in Dallas–Fort Worth and in telehealth sessions across Texas.",
-          "I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S. You can also download my free [grounding guide](/guides/grounding-guide.pdf) or try [walk and talk therapy](/outdoor-counseling/).",
+          "I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S. You can also download my free [grounding guide](/guides/grounding-guide.pdf) or try [walk and talk therapy](/walk-and-talk-therapy-dallas/).",
         ],
       },
     ],
@@ -4651,7 +4670,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/box-breathing",
     published: "2026-11-21",
-    related: [LINK.grounding, LINK.regulation, LINK.anxiety, LINK.holisticCounseling],
+    related: [LINK.grounding, LINK.tools, LINK.regulation, LINK.anxiety, LINK.holisticCounseling],
     title: "Box Breathing: How to Do It and Why It Helps",
     description:
       "How to do box breathing step by step, what a 2023 randomized trial found about breathing exercises and anxiety, and when to use it.",
@@ -4829,6 +4848,98 @@ export const ARTICLES: ContentPage[] = [
       {
         q: "Do LPCs and LCSWs cost different amounts?",
         a: "Fees vary by therapist rather than by license. Ask about fees, sliding scales, and free consultations before you start.",
+      },
+    ],
+  },
+  {
+    path: "resources/what-is-person-centered-therapy",
+    published: "2026-11-21",
+    related: [LINK.holisticCounseling, LINK.holistic, LINK.firstSession, LINK.aboutSarah],
+    title: "What Is Person-Centered Therapy?",
+    description:
+      "Person-centered therapy explained: where it comes from, what sessions feel like, what research says, and who it may suit. Plain language, no jargon.",
+    eyebrow: "Counseling approaches",
+    heading: "What is person-centered therapy?",
+    intro:
+      "Person-centered therapy is a form of talk therapy where you, not the therapist, lead what you talk about and where it goes. The therapist’s job is to understand you accurately and without judgment, so you can make sense of your own experience and find your own next steps.",
+    takeaways: [
+      "Person-centered therapy (also called client-centered therapy) was developed by psychologist Carl Rogers in the 1940s and 1950s.",
+      "You set the pace and the topics. The therapist listens closely, reflects back what they hear, and doesn’t judge.",
+      "Research links therapist empathy with better outcomes across many kinds of therapy.",
+      "Many counselors combine it with other approaches, such as solution-focused or mind-body work.",
+    ],
+    blocks: [
+      {
+        heading: "Where does person-centered therapy come from?",
+        paragraphs: [
+          "Person-centered therapy grew out of the work of American psychologist Carl Rogers, who argued that people tend to grow in healthy directions when they feel truly understood and accepted.",
+          "In a well-known 1957 paper, Rogers described the conditions he believed help people change, including a therapist who is genuine, offers unconditional positive regard, and understands the client with empathy ([Rogers, 1957](https://doi.org/10.1037/h0045357)).",
+        ],
+      },
+      {
+        heading: "What are the core conditions of person-centered therapy?",
+        paragraphs: ["Three therapist qualities sit at the heart of the approach:"],
+        list: [
+          "Genuineness (congruence): the therapist is real with you, not playing a role",
+          "Unconditional positive regard: you’re accepted as a person, whatever you bring",
+          "Empathy: the therapist works to understand your experience the way you feel it",
+        ],
+      },
+      {
+        heading: "What happens in a person-centered therapy session?",
+        paragraphs: [
+          "A session usually feels like a calm, focused conversation where you choose what matters most that day.",
+          "The therapist listens, reflects what they hear in their own words, and asks questions that help you notice your feelings and values. They don’t hand you a fixed plan or tell you what you should do. If you want practical tools, you can ask, and a counselor who blends approaches can bring them in at your pace. You can read more about [what happens in a first counseling session](/resources/first-counseling-session/).",
+        ],
+      },
+      {
+        heading: "Does person-centered therapy work?",
+        paragraphs: [
+          "Research supports the main ingredient of the approach: a meta-analysis of 82 studies with more than 6,000 clients found that therapist empathy was linked with better client outcomes, a moderate and consistent effect ([Elliott et al., 2018](https://doi.org/10.1037/pst0000175)).",
+          "Reviews of humanistic and person-centered therapies have found them helpful for many people, with results broadly similar to other established talk therapies for concerns like depression and relationship difficulties ([Elliott et al., 2021](https://strathprints.strath.ac.uk/74362/)). Like any therapy, it doesn’t work the same way for everyone, and fit with your counselor matters.",
+        ],
+      },
+      {
+        heading: "Who might person-centered therapy suit?",
+        paragraphs: ["It can be a good fit if you:"],
+        list: [
+          "Want space to talk things through without being rushed or judged",
+          "Are dealing with stress, low mood, anxiety, life transitions, or questions about who you are",
+          "Have felt unheard or pushed in past therapy",
+          "Prefer to set your own goals rather than follow a set program",
+        ],
+      },
+      {
+        heading: "When might another approach be a better fit?",
+        paragraphs: [
+          "If you want a highly structured program with homework every week, or you need help for a specific condition with a well-defined treatment, ask a counselor how they would approach it.",
+          "Counseling isn’t a crisis service. If you’re thinking about harming yourself, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+      {
+        heading: "How does Sarah use person-centered therapy?",
+        paragraphs: [
+          "I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, and person-centered work is the base of how I counsel: you decide what we focus on.",
+          "I also draw on solution-focused ideas when you want practical steps, and on [holistic, mind-body counseling](/holistic-counseling/) that pays attention to sleep, breathing, movement, and time outdoors. Sessions happen outdoors through [walk and talk therapy in Dallas–Fort Worth](/walk-and-talk-therapy-dallas/) or by [telehealth anywhere in Texas](/telehealth-counseling-texas/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is person-centered therapy the same as client-centered therapy?",
+        a: "Yes. Carl Rogers first called it client-centered therapy, and the name person-centered became more common later. Both describe the same approach.",
+      },
+      {
+        q: "Does a person-centered therapist give advice?",
+        a: "Usually not in the sense of telling you what to do. The focus is on helping you understand your own feelings and choices. Many counselors who blend approaches will share practical ideas when you ask for them.",
+      },
+      {
+        q: "How long does person-centered therapy take?",
+        a: "There’s no fixed length. Some people come for a few sessions during a hard stretch, and others come for longer. You and your counselor can check in on how it’s going along the way.",
+      },
+      {
+        q: "Can person-centered therapy be done online?",
+        a: "Yes. The approach depends on the conversation and the relationship, so it works by video as well as in person.",
       },
     ],
   },
@@ -5108,7 +5219,7 @@ export const SITE_PAGES: {
   })),
   {
     path: "blog",
-    title: title("Blog: Mind, Body and Mental Health"),
+    title: title("Mind-Body Mental Health Blog"),
     description:
       "Plain-language articles on how genes, stress and the body shape mental health, and what helps whatever your DNA says. Educational only.",
     graph: [

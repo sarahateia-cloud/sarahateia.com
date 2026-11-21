@@ -21,3 +21,13 @@ again for 28 days.
   (online therapy Texas, 590/KD 23; H1 too), outdoor (adds "Outdoor Therapy"), nervous system
   (regulation), Muslim faith article ("Muslim therapist", 390/KD 24).
 - Don't change these five pages again before 2026-12-19.
+
+## 2026-11-21: Semrush gap check and person-centered article
+
+- Ranking data: Semrush (us), still 2 keywords (#59, #92). AI visibility (AIO) tracking isn't
+  available on this Semrush plan.
+- Checked volume and difficulty for 40 more searches (added to `seo/data/keywords-2026-11.csv`).
+- New page: `/resources/what-is-person-centered-therapy/` ("what is person centered therapy",
+  480/mo, KD 5). Linked from holistic counseling, what is holistic therapy and first session.
+- Open gaps for later runs: "adhd burnout" (4,400, KD 14), "therapy for men" (880, KD 17),
+  "life transitions counseling" (880, KD 17).

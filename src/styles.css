@@ -873,8 +873,9 @@
   border-radius: 9999px;
   font-family: var(--font-serif);
   font-size: 1.1rem;
-  color: var(--foreground);
-  background: color-mix(in oklab, var(--fam) 22%, var(--card));
+  /* Pastel badges keep dark ink in both modes (their backgrounds stay light). */
+  color: #2d3322;
+  background: color-mix(in oklab, var(--fam) 22%, #fbf8f1);
   border: 1px solid color-mix(in oklab, var(--fam) 50%, transparent);
   transition:
     transform 200ms cubic-bezier(0.23, 1, 0.32, 1),
@@ -887,7 +888,7 @@
   }
 }
 .cf-pick[aria-pressed="true"] {
-  background: color-mix(in oklab, var(--fam) 75%, var(--card));
+  background: color-mix(in oklab, var(--fam) 75%, #fbf8f1);
   box-shadow:
     0 10px 22px -12px color-mix(in oklab, var(--fam) 80%, black),
     inset 0 1px 0 rgb(255 255 255 / 0.55);
@@ -1019,8 +1020,8 @@
   border-radius: 9999px;
   font-family: var(--font-serif);
   font-size: 1.2rem;
-  color: var(--foreground);
-  background: color-mix(in oklab, var(--node) 40%, var(--card));
+  color: #2d3322;
+  background: color-mix(in oklab, var(--node) 40%, #fbf8f1);
   border: 1px solid color-mix(in oklab, var(--node) 75%, var(--foreground));
   box-shadow:
     0 8px 16px -10px rgb(0 0 0 / 0.35),
@@ -1058,8 +1059,8 @@
   flex-shrink: 0;
   border-radius: 9999px;
   padding: 0.2rem 0.75rem;
-  font-size: 0.75rem;
-  color: var(--foreground);
+  font-size: 0.8125rem;
+  color: #2d3322;
   background: var(--node);
 }
 .enn-key {
@@ -1315,6 +1316,11 @@
   }
 }
 
+/* The skip link's target takes focus without drawing a box around the whole page. */
+main:focus {
+  outline: none;
+}
+
 /* Clear, consistent keyboard focus on everything clickable. */
 :where(a, button, summary, input, textarea, [tabindex]):focus-visible {
   outline: 2px solid var(--cta);
@@ -1324,6 +1330,13 @@
 
 .ds-section {
   padding-block: var(--section-y);
+}
+
+/* Keyboard focus and in-page jumps never land behind the phone booking bar (WCAG 2.4.11). */
+@media (max-width: 767px) {
+  html {
+    scroll-padding-bottom: 6rem;
+  }
 }
 
 /* Phone booking bar: slides up once the page's opening section is out of view. */

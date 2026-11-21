@@ -11,7 +11,7 @@ export const Route = createFileRoute("/tools")({
 });
 
 // No login, nothing typed, nothing saved or sent. Analytics never loads here (PRIVATE_PATHS).
-export const TOOLS_TITLE = "Box Breathing & Grounding | Sarah Ateia, LPC Associate";
+export const TOOLS_TITLE = "Free Calming Tools | Sarah Ateia, LPC Associate";
 
 const Source = ({ href, children }: { href: string; children: ReactNode }) => (
   <a href={href} className="text-foreground underline underline-offset-4" rel="noopener">
@@ -73,7 +73,7 @@ function ToolsPage() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
 
-      <main id="main" className="mx-auto max-w-3xl px-6 pt-36 pb-24 max-[340px]:pt-40 sm:pt-40">
+      <main id="main" className="mx-auto max-w-3xl px-6 pt-44 pb-24 max-[340px]:pt-48 sm:pt-40">
         <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
           <a
             href="/"
@@ -194,7 +194,21 @@ function ToolsPage() {
         <section className="ds-card-quiet mt-16 p-6 sm:p-8">
           <h2 className="font-serif text-2xl text-foreground">Want to keep going?</h2>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-            For more ways to settle your body, read{" "}
+            For step-by-step guides, read{" "}
+            <a
+              href="/resources/box-breathing/"
+              className="text-foreground underline underline-offset-4"
+            >
+              how to do box breathing
+            </a>{" "}
+            and{" "}
+            <a
+              href="/resources/grounding-techniques-for-anxiety/"
+              className="text-foreground underline underline-offset-4"
+            >
+              grounding techniques for anxiety
+            </a>
+            . For more ways to settle your body, read{" "}
             <a
               href="/resources/nervous-system-regulation-techniques/"
               className="text-foreground underline underline-offset-4"

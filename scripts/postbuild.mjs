@@ -106,7 +106,7 @@ const PAGES = [
         ].map((text, i) => ({ "@type": "HowToStep", position: i + 1, name: text, text })),
       },
     ],
-    title: "Box Breathing & Grounding | Sarah Ateia, LPC Associate",
+    title: "Free Calming Tools | Sarah Ateia, LPC Associate",
     description:
       "Free box breathing guide, 5-4-3-2-1 grounding exercise and stress check-in. No login, nothing saved. From Sarah Ateia, LPC Associate in Irving, TX.",
   },
@@ -230,13 +230,13 @@ for (const page of AR_BUILT) {
     .replace('<html lang="en">', '<html lang="ar" dir="rtl">')
     .replace('content="en_US"', 'content="ar_AR"');
   if (AR_DRAFT) doc = setAttribute(doc, 'name="robots"', "noindex, follow");
-  writeFileSync(`dist/${page.path}/index.html`, await prerender(doc, `/${page.path}/`));
+  writeFileSync(`dist/${page.path}/index.html`, await prerender(doc, `/${page.path}`));
 }
 writeFileSync("dist/index.html", await prerender(html, "/"));
 
 // hreflang: each English page and its Arabic version point at each other, with English as the
-// default for everyone else.
-for (const page of AR_BUILT) {
+// default for everyone else. Added only once the Arabic pages are published (not drafts).
+for (const page of INDEXED_AR) {
   const en = `${SITE}${page.englishPath}`;
   const ar = `${SITE}/${page.path}/`;
   const links = `<link rel="alternate" hreflang="en" href="${en}" /><link rel="alternate" hreflang="ar" href="${ar}" /><link rel="alternate" hreflang="x-default" href="${en}" />`;
@@ -312,6 +312,46 @@ for (const url of builtUrls) {
     }
   }
 }
+
+// Stop the build if any page's wording breaks the CLAUDE.md compliance rules: every page must show
+// the supervisor disclosure, and none may carry testimonial, rating, outcome-promise or
+// independent-practice wording. This also protects pages added by unattended runs.
+const SUPERVISOR = "supervised by Don Zablosky, LPC-S";
+const BANNED = [
+  [/testimonial/i, "testimonial"],
+  [/clients? (say|said|love)/i, '"clients say" wording'],
+  [/what (my |our )?clients (say|think)/i, '"clients say" wording'],
+  [/★|star rating|\d(\.\d)? stars?\b|five[- ]star|5[- ]star/i, "star rating"],
+  [/top[- ]rated|best therapist|best counselor/i, "superlative"],
+  [/my private practice|practice owner|independent practice/i, "independent-practice claim"],
+  [
+    /guaranteed (results|relief|outcomes?)|we guarantee|i guarantee|cure (your|anxiety|depression|adhd)/i,
+    "guarantee or cure",
+  ],
+  [
+    /\bDr\.? Sarah|Sarah Ateia(?: Khattab)?,? (?:M\.S\., )?LPC(?! Associate)\b/,
+    'Sarah\'s title without "Associate"',
+  ],
+];
+const visibleText = (doc) =>
+  doc
+    .replace(/<script\b[\s\S]*?<\/script>/g, " ")
+    .replace(/<style\b[\s\S]*?<\/style>/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&#x27;|&#39;|&rsquo;|’/g, "'")
+    .replace(/\s+/g, " ");
+const problems = [];
+for (const url of builtUrls) {
+  const path = url.slice(SITE.length + 1);
+  const text = visibleText(readFileSync(`dist/${path}index.html`, "utf8"));
+  if (!text.includes(SUPERVISOR)) problems.push(`${url}: missing "${SUPERVISOR}"`);
+  for (const [pattern, label] of BANNED) {
+    const hit = text.match(pattern);
+    if (hit) problems.push(`${url}: ${label} ("${hit[0]}")`);
+  }
+}
+if (problems.length) throw new Error(`Compliance check failed:\n${problems.join("\n")}`);
 
 // Old addresses. GitHub Pages can't send a real 301, so each old address gets a tiny page that
 // sends people on at once and tells search engines which page is the real one.
