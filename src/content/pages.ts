@@ -120,6 +120,7 @@ const LINK = {
   },
   boxBreathing: { label: "Box breathing: how to do it", href: "/resources/box-breathing/" },
   lpcVsLcsw: { label: "LPC vs. LCSW: what’s the difference?", href: "/resources/lpc-vs-lcsw/" },
+  aboutSarah: { label: "About Sarah Ateia, LPC Associate", href: "/about/" },
   selfReflection: {
     label: "Quotes and self-reflection tools",
     href: "/resources/self-reflection/",
@@ -1805,6 +1806,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.firstSession,
       LINK.choose,
       LINK.newClients,
+      LINK.aboutSarah,
     ],
     title: title("Free Counseling Consultation"),
     description:
@@ -1902,6 +1904,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.lpcVs,
       LINK.glossary,
       LINK.lpcVsLcsw,
+      LINK.aboutSarah,
     ],
     title: title("What Is an LPC Associate?"),
     description:
@@ -4012,7 +4015,14 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/how-to-choose-a-therapist-dallas",
     published: "2026-11-20",
-    related: [LINK.dallas, LINK.lpcVs, LINK.consultation, LINK.affordable, LINK.lpcVsLcsw],
+    related: [
+      LINK.dallas,
+      LINK.lpcVs,
+      LINK.consultation,
+      LINK.affordable,
+      LINK.lpcVsLcsw,
+      LINK.aboutSarah,
+    ],
     title: title("Choosing a Therapist in Dallas"),
     description:
       "How to choose a therapist in Dallas: what to look for, how to check a Texas license, questions to ask on a free call, and red flags to notice.",
@@ -4463,6 +4473,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.adhdDiagnose,
       LINK.glossary,
       LINK.lpcVsLcsw,
+      LINK.aboutSarah,
     ],
     title: title("LPC vs. Psychologist in Texas"),
     description:
