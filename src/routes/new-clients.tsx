@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { ArrowUpRight, FileText } from "lucide-react";
+import { ArrowUpRight, CreditCard, FileText } from "lucide-react";
 import {
   NoticeToClients,
   PHONE_DISPLAY,
@@ -9,6 +9,7 @@ import {
   SiteHeader,
 } from "@/components/site-header";
 import { SCREENING_TOOLS } from "@/content/screening-tools";
+import { ACTIVE_PAYMENT_LINKS } from "@/lib/payments";
 
 export const Route = createFileRoute("/new-clients")({
   component: NewClients,
@@ -163,6 +164,46 @@ function NewClients() {
             More about these questionnaires
           </a>
         </p>
+
+        {ACTIVE_PAYMENT_LINKS.length > 0 && (
+          <section aria-labelledby="pay-heading" className="mt-12">
+            <h2 id="pay-heading" className="font-serif text-3xl text-foreground">
+              Paying for sessions
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+              Please pay only after we’ve agreed on your fee in the free consultation. Payment opens
+              Stripe’s secure checkout in a new tab. Your card details never touch this site. Don’t
+              include any health information in the payment form.
+            </p>
+            <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+              {ACTIVE_PAYMENT_LINKS.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-full items-start gap-3 rounded-2xl border border-border bg-card p-5 transition hover:bg-secondary/50"
+                  >
+                    <CreditCard className="mt-1 h-5 w-5 flex-shrink-0 text-taupe" aria-hidden />
+                    <span>
+                      <span className="block font-medium text-foreground">{link.label}</span>
+                      <span className="mt-1 block text-sm text-muted-foreground">{link.price}</span>
+                      <span className="sr-only"> (opens Stripe checkout in a new tab)</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Sessions are provided by Sarah Ateia, LPC Associate, supervised by Don Zablosky,
+              LPC-S. Using a reduced rate? Call{" "}
+              <a href={PHONE_HREF} className="text-primary-foreground underline underline-offset-4">
+                {PHONE_DISPLAY}
+              </a>{" "}
+              and I’ll send you the right payment link.
+            </p>
+          </section>
+        )}
 
         <div className="mt-12 rounded-2xl border border-border bg-secondary/50 p-6">
           <p className="font-serif text-xl text-foreground">Your right to a Good Faith Estimate</p>
