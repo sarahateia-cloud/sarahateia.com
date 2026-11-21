@@ -152,7 +152,7 @@ export function ContentPageView({
           <p className="mx-auto mt-3 max-w-md text-muted-foreground">
             A short call to see if we’re a good fit, with no pressure and no commitment.
           </p>
-          <BookingActions className="mt-8 justify-center" />
+          <BookingActions center className="mt-8" />
         </section>
 
         {note && <p className="mt-8 text-xs leading-relaxed text-muted-foreground">{note}</p>}

@@ -122,7 +122,7 @@ const FEES = [
 const STEPS = [
   {
     title: "Reach out",
-    body: `Call ${PHONE_DISPLAY}, or leave your details and I’ll call you back.`,
+    body: `Pick a time online, call ${PHONE_DISPLAY}, or leave your details and I’ll call you back.`,
   },
   {
     title: "Free 15-minute consultation",
@@ -213,10 +213,7 @@ function Index() {
                 attention, your emotional patterns. My practice is rooted in that belief, with
                 sessions outdoors in Dallas–Fort Worth parks and by telehealth across Texas.
               </p>
-              <BookingActions
-                requestHref="#request-call"
-                className="mt-8 lg:[&>a:first-child]:hidden"
-              />
+              <BookingActions requestHref="#request-call" className="mt-8" />
               <dl className="mt-8 grid max-w-xl grid-cols-1 gap-x-8 gap-y-3 border-t border-border pt-6 text-sm sm:grid-cols-2">
                 <div>
                   <dt className="text-muted-foreground">Licensed in Texas</dt>
@@ -342,7 +339,7 @@ function Index() {
                 </li>
               ))}
             </ol>
-            <BookingActions className="mt-10 justify-center" />
+            <BookingActions center className="mt-10" />
           </div>
         </section>
 
@@ -761,7 +758,7 @@ function Index() {
                   your details and I’ll call you, or call me directly.
                 </p>
               </SectionHeading>
-              <BookingActions className="mt-8 justify-center" />
+              <BookingActions center className="mt-8" />
               <p className="mt-6 text-sm text-muted-foreground">
                 Standard fee $100 per session. Reduced rates available.
               </p>
