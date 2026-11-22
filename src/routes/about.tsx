@@ -35,10 +35,11 @@ function About() {
           About Sarah Ateia, LPC Associate
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-          Sarah Ateia, M.S., is an LPC Associate in Texas (#104391), supervised by Don Zablosky,
-          LPC-S. She offers walk and talk counseling outdoors in Irving and across Dallas–Fort
-          Worth, and telehealth anywhere in Texas, in English and Arabic. Her approach is holistic
-          and mind-body: learning to work with your biology instead of against it.
+          Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, is a counselor based in
+          Irving, Texas (LPC Associate #104391, M.S.). She offers walk and talk counseling outdoors
+          in Irving and across Dallas–Fort Worth, and telehealth anywhere in Texas, in English and
+          Arabic. Her approach is holistic and mind-body: learning to work with your biology instead
+          of against it.
         </p>
         <BookingActions className="mt-8" />
 
@@ -219,11 +220,12 @@ function About() {
 
         <h2 className={H2}>Where else can I find Sarah Ateia?</h2>
         <p className={P}>
-          Sarah has a profile on{" "}
+          Sarah Ateia also goes by Sarah Ateia Khattab, the name on her{" "}
           <a href={PSYCHOLOGY_TODAY} className={A}>
-            Psychology Today
+            Psychology Today profile
           </a>
-          , and she writes plain-language guides in{" "}
+          . Both names refer to the same Irving, Texas LPC Associate. She writes plain-language
+          guides in{" "}
           <a href="/resources/" className={A}>
             Resources
           </a>{" "}
