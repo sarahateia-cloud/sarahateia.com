@@ -3,4 +3,20 @@ Allow: /
 # Blank client forms are for reading on the New Clients page, not for search results.
 Disallow: /forms/
 
+# AI search and answer engines are welcome to read and cite the site (same rules as above).
+# Named here so it's clear they are allowed, not just not blocked.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
+Allow: /
+Disallow: /forms/
+
 Sitemap: https://www.sarahateia.com/sitemap.xml
