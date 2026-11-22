@@ -10,11 +10,18 @@ import { Tilt, useScrollReveal } from "@/components/motion";
 import { ScrollWords, useScrollScenes } from "@/components/scroll-scenes";
 import { PHONE_DISPLAY, PHONE_HREF, SiteFooter, SiteHeader } from "@/components/site-header";
 import sarahHeadshot from "@/assets/sarah-headshot.webp";
+import sarahHeadshot128 from "@/assets/sarah-headshot-128.webp";
 import sarahGraduation from "@/assets/sarah-graduation.webp";
 import sarahOverlook from "@/assets/sarah-overlook.webp";
+import sarahOverlook240 from "@/assets/sarah-overlook-240.webp";
+import sarahOverlook800 from "@/assets/sarah-overlook-800.webp";
+import sarahOverlook1200 from "@/assets/sarah-overlook-1200.webp";
 import chicoPortrait from "@/assets/chico.webp";
+import chico240 from "@/assets/chico-240.webp";
+import chico480 from "@/assets/chico-480.webp";
 import chicoSoft from "@/assets/chico-soft.webp";
 import chicoSleeping from "@/assets/chico-sleeping.webp";
+import chicoSleeping300 from "@/assets/chico-sleeping-300.webp";
 import brainArt from "@/assets/brain-watercolor.webp";
 import { BLOG_CARDS, SERVICES } from "@/content/services";
 
@@ -247,7 +254,9 @@ function Index() {
             >
               <div className="mb-5 flex items-center gap-4">
                 <img
-                  src={sarahHeadshot}
+                  src={sarahHeadshot128}
+                  srcSet={`${sarahHeadshot128} 128w, ${sarahHeadshot} 400w`}
+                  sizes="64px"
                   width={400}
                   height={400}
                   alt="Sarah Ateia Khattab smiling"
@@ -301,7 +310,7 @@ function Index() {
           >
             <ScrollWords text="Counseling outdoors" />{" "}
             <InlinePhoto
-              src={sarahOverlook}
+              src={sarahOverlook240}
               alt="Sarah looking out over the city from an open-air terrace"
               width={1600}
               height={1066}
@@ -310,7 +319,7 @@ function Index() {
             />{" "}
             <ScrollWords text="or from home" />{" "}
             <InlinePhoto
-              src={chicoPortrait}
+              src={chico240}
               alt="Chico, Sarah’s orange cat, wearing a gray hoodie"
               width={900}
               height={675}
@@ -618,11 +627,14 @@ function Index() {
             </div>
             <figure className="mt-10 overflow-hidden rounded-[1.75rem] border border-border">
               <img
-                src={sarahOverlook}
+                src={sarahOverlook800}
+                srcSet={`${sarahOverlook800} 800w, ${sarahOverlook1200} 1200w, ${sarahOverlook} 1600w`}
+                sizes="(min-width: 1024px) 72rem, 100vw"
                 width={1600}
                 height={1066}
                 alt="Sarah looking out over the city from an open-air terrace"
                 loading="lazy"
+                decoding="async"
                 className="aspect-[16/9] w-full object-cover object-[60%_50%] sm:aspect-[21/9]"
               />
             </figure>
@@ -678,20 +690,26 @@ function Index() {
                 <div className="relative mx-auto w-full max-w-xs">
                   <div className="aspect-square w-full overflow-hidden rounded-[1.75rem] border border-border bg-secondary">
                     <img
-                      src={chicoPortrait}
+                      src={chico480}
+                      srcSet={`${chico480} 480w, ${chicoPortrait} 675w`}
+                      sizes="20rem"
                       width={900}
                       height={675}
                       alt="Chico, Sarah’s orange cat"
                       loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-cover object-top"
                     />
                   </div>
                   <img
-                    src={chicoSleeping}
+                    src={chicoSleeping300}
+                    srcSet={`${chicoSleeping300} 300w, ${chicoSleeping} 600w`}
+                    sizes="9rem"
                     width={600}
                     height={600}
                     alt="Chico asleep under a floral blanket"
                     loading="lazy"
+                    decoding="async"
                     className="absolute -right-4 -bottom-6 w-32 rotate-3 rounded-2xl border-4 border-card object-cover sm:-right-8 sm:w-36"
                   />
                 </div>
