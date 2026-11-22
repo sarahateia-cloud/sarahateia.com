@@ -11,42 +11,12 @@ import { BUTTON } from "@/components/ds/buttons";
 import { LogoMark } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 import { restoreEarlyInput } from "@/lib/early-input";
-
-// Google Apps Script web app that saves each request to the "Call Requests" Sheet.
-const CALL_REQUEST_ENDPOINT =
-  "https://script.google.com/macros/s/AKfycbxX5Nf0xY_yfHNPQuIbxQ12k9ugFAJbCcNNS_DABaqw4CXt_vH9Mc6R3UnePhyukbHk/exec";
-
-// Cloudflare Turnstile's public site key. The form runs without the spam check while this is empty.
-const TURNSTILE_SITE_KEY: string = "0x4AAAAAAF1wDbU0Wz_KgOYl";
-const TURNSTILE_SCRIPT = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-
-declare global {
-  interface Window {
-    turnstile?: {
-      render: (container: HTMLElement, options: Record<string, unknown>) => string;
-      reset: (widgetId: string) => void;
-      remove: (widgetId: string) => void;
-    };
-  }
-}
-
-let turnstileLoading: Promise<void> | undefined;
-
-function loadTurnstile() {
-  turnstileLoading ??= new Promise<void>((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = TURNSTILE_SCRIPT;
-    script.async = true;
-    script.onload = () => resolve();
-    script.onerror = () => {
-      turnstileLoading = undefined;
-      script.remove();
-      reject(new Error("The spam check couldn't load."));
-    };
-    document.head.appendChild(script);
-  });
-  return turnstileLoading;
-}
+import {
+  CALL_REQUEST_ENDPOINT,
+  TURNSTILE_SITE_KEY,
+  isValidEmail,
+  loadTurnstile,
+} from "@/lib/call-request";
 
 // The design system's field style (see .ds-input in styles.css): 48px tall, 3:1 edge, clear focus.
 const INPUT_CLASS = "ds-input";
@@ -63,11 +33,6 @@ const SESSION_TYPES = ["In person", "Telehealth", "Walk and talk"] as const;
 
 const CHOICE_CLASS =
   "flex min-h-12 cursor-pointer items-center justify-center rounded-xl border border-input bg-card px-2 text-center text-[1rem] leading-tight text-foreground transition-colors hover:border-foreground has-[:checked]:border-cta has-[:checked]:bg-primary has-[:checked]:font-semibold has-[:checked]:text-primary-foreground has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-cta/40";
-
-/** Blank is fine. Anything typed must look like name@example.com, matching what the browser checks. */
-function isValidEmail(value: string) {
-  return value === "" || (value.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
-}
 
 /** The consultation request form, used at the top of the home page and in the pop-up. */
 export function ConsultationForm({ onSent }: { onSent?: () => void }) {

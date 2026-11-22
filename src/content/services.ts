@@ -21,6 +21,7 @@ export const FOOTER_RESOURCES = [
   { label: "What is an LPC Associate?", href: "/resources/what-is-an-lpc-associate/" },
   { label: "Therapy cost without insurance", href: "/resources/therapy-cost-without-insurance/" },
   { label: "What is holistic therapy?", href: "/resources/what-is-holistic-therapy/" },
+  { label: "For referring professionals", href: "/referral-partners/" },
   { label: "Glossary", href: "/glossary/" },
   { label: "Self-reflection", href: "/resources/self-reflection/" },
   { label: "Screening tools", href: "/screening-tools/" },

@@ -117,6 +117,13 @@ const PAGES = [
     description:
       "What to expect before your first session, plus every form to read ahead: consent and fees, Good Faith Estimate, intake, privacy, and releases.",
   },
+  {
+    path: "referral-partners",
+    graph: crumbs(["For referring professionals", `${SITE}/referral-partners/`]),
+    title: "Counselor Referrals for Attorneys & Surgeons | DFW",
+    description:
+      "How attorneys, surgeons and other professionals can refer clients to Sarah Ateia, LPC Associate, for self-pay counseling in DFW and telehealth in Texas.",
+  },
 ];
 
 // Arabic pages (right to left). While AR_DRAFT is on they're built for review but set to noindex

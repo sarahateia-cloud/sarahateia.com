@@ -231,6 +231,10 @@ function About() {
           <a href="/blog/" className={A}>
             blog
           </a>
+          . Attorneys, surgeons and other professionals can read{" "}
+          <a href="/referral-partners/" className={A}>
+            how to refer a client
+          </a>
           .
         </p>
       </main>
