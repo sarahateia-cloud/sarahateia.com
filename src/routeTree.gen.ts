@@ -15,6 +15,7 @@ import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as TelehealthCounselingTexasRouteImport } from './routes/telehealth-counseling-texas'
 import { Route as TelehealthCounselingRouteImport } from './routes/telehealth-counseling'
 import { Route as ScreeningToolsRouteImport } from './routes/screening-tools'
+import { Route as ReferralPartnersRouteImport } from './routes/referral-partners'
 import { Route as NewClientsRouteImport } from './routes/new-clients'
 import { Route as HolisticCounselingRouteImport } from './routes/holistic-counseling'
 import { Route as GlossaryRouteImport } from './routes/glossary'
@@ -71,6 +72,11 @@ const TelehealthCounselingRoute = TelehealthCounselingRouteImport.update({
 const ScreeningToolsRoute = ScreeningToolsRouteImport.update({
   id: '/screening-tools',
   path: '/screening-tools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferralPartnersRoute = ReferralPartnersRouteImport.update({
+  id: '/referral-partners',
+  path: '/referral-partners',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewClientsRoute = NewClientsRouteImport.update({
@@ -220,6 +226,7 @@ export interface FileRoutesByFullPath {
   '/glossary': typeof GlossaryRoute
   '/holistic-counseling': typeof HolisticCounselingRoute
   '/new-clients': typeof NewClientsRoute
+  '/referral-partners': typeof ReferralPartnersRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
@@ -253,6 +260,7 @@ export interface FileRoutesByTo {
   '/glossary': typeof GlossaryRoute
   '/holistic-counseling': typeof HolisticCounselingRoute
   '/new-clients': typeof NewClientsRoute
+  '/referral-partners': typeof ReferralPartnersRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
@@ -287,6 +295,7 @@ export interface FileRoutesById {
   '/glossary': typeof GlossaryRoute
   '/holistic-counseling': typeof HolisticCounselingRoute
   '/new-clients': typeof NewClientsRoute
+  '/referral-partners': typeof ReferralPartnersRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
@@ -322,6 +331,7 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/holistic-counseling'
     | '/new-clients'
+    | '/referral-partners'
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
@@ -355,6 +365,7 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/holistic-counseling'
     | '/new-clients'
+    | '/referral-partners'
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
@@ -388,6 +399,7 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/holistic-counseling'
     | '/new-clients'
+    | '/referral-partners'
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
@@ -422,6 +434,7 @@ export interface RootRouteChildren {
   GlossaryRoute: typeof GlossaryRoute
   HolisticCounselingRoute: typeof HolisticCounselingRoute
   NewClientsRoute: typeof NewClientsRoute
+  ReferralPartnersRoute: typeof ReferralPartnersRoute
   ScreeningToolsRoute: typeof ScreeningToolsRoute
   TelehealthCounselingRoute: typeof TelehealthCounselingRoute
   TelehealthCounselingTexasRoute: typeof TelehealthCounselingTexasRoute
@@ -480,6 +493,13 @@ declare module '@tanstack/react-router' {
       path: '/screening-tools'
       fullPath: '/screening-tools'
       preLoaderRoute: typeof ScreeningToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/referral-partners': {
+      id: '/referral-partners'
+      path: '/referral-partners'
+      fullPath: '/referral-partners'
+      preLoaderRoute: typeof ReferralPartnersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/new-clients': {
@@ -678,6 +698,7 @@ const rootRouteChildren: RootRouteChildren = {
   GlossaryRoute: GlossaryRoute,
   HolisticCounselingRoute: HolisticCounselingRoute,
   NewClientsRoute: NewClientsRoute,
+  ReferralPartnersRoute: ReferralPartnersRoute,
   ScreeningToolsRoute: ScreeningToolsRoute,
   TelehealthCounselingRoute: TelehealthCounselingRoute,
   TelehealthCounselingTexasRoute: TelehealthCounselingTexasRoute,

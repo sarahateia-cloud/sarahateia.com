@@ -22,6 +22,7 @@ const NAV_LINKS: { label: string; href: string; menuOnly?: boolean }[] = [
   { label: "Calming Tools", href: "/tools/", menuOnly: true },
   { label: "FAQ", href: "/#faq" },
   { label: "New Clients", href: "/new-clients/" },
+  { label: "For Professionals", href: "/referral-partners/", menuOnly: true },
   { label: "Crisis Resources", href: "/crisis/" },
 ];
 
