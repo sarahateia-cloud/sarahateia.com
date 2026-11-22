@@ -1,6 +1,6 @@
 // GitHub Pages serves static files only, so give each extra route its own index.html
 // (with page-specific title, description, and canonical) and an SPA fallback 404.html.
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 
 const { render, SITE_PAGES, ARABIC_PAGES, AR_DRAFT } = await import(
@@ -179,10 +179,31 @@ const setMeta = (doc, { path, title, description, graph }) => {
   );
 };
 
+// Start downloading the fonts the first screen needs at the same time as the CSS, instead of after
+// it. Body text and headings use the first two everywhere; the italic serif is only in the home
+// hero, so other pages don't spend bandwidth on it.
+const fontFile = (prefix) => {
+  const name = readdirSync("dist/assets").find(
+    (file) => file.startsWith(prefix) && file.endsWith(".woff2"),
+  );
+  if (!name) throw new Error(`Font to preload not found: ${prefix}`);
+  return `/assets/${name}`;
+};
+const preloadFont = (href) =>
+  `<link rel="preload" as="font" type="font/woff2" href="${href}" crossorigin>`;
+const BASE_FONTS = [
+  fontFile("atkinson-hyperlegible-next-latin-wght-normal-"),
+  fontFile("fraunces-latin-soft-normal-"),
+];
+const HOME_FONTS = [fontFile("fraunces-latin-soft-italic-")];
+const fontPreloads = (route) =>
+  [...BASE_FONTS, ...(route === "/" ? HOME_FONTS : [])].map(preloadFont).join("");
+
 // Put each page's text in its HTML, and show it without waiting for the fade-in if JavaScript is off.
 const prerender = async (doc, route) => {
   const body = await render(route);
   return doc
+    .replace(/<link rel="stylesheet"/, (tag) => `${fontPreloads(route)}${tag}`)
     .replace('<div id="root"></div>', () => `<div id="root">${body}</div>`)
     .replace(/<noscript>[\s\S]*?<\/noscript>/, "")
     .replace(
