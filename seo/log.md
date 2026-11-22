@@ -31,3 +31,13 @@ again for 28 days.
   480/mo, KD 5). Linked from holistic counseling, what is holistic therapy and first session.
 - Open gaps for later runs: "adhd burnout" (4,400, KD 14), "therapy for men" (880, KD 17),
   "life transitions counseling" (880, KD 17).
+
+## 2026-11-22: spam backlinks and name search
+
+- Semrush: 225 referring domains, all link-farm, casino, pharma or throwaway spam. All 225 in
+  `seo/disavow.txt` (not in the site build); upload steps in `seo/DISAVOW.md`.
+- Name search: About title now name-first ("Sarah Ateia, LPC Associate in Irving, TX | About"),
+  About intro uses the full supervisor disclosure plus Irving, and names the "Sarah Ateia Khattab"
+  alias. Person schema adds givenName/familyName, workLocation (Irving, Texas), knowsAbout and
+  mainEntityOfPage → /about/.
+- Don't change the About page again before 2026-12-20.
