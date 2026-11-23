@@ -1907,16 +1907,30 @@ export const ARTICLES: ContentPage[] = [
         ],
       },
       {
+        heading: "How does someone become an LPC Associate in Texas?",
+        paragraphs: [
+          "To become an LPC Associate, a counselor finishes a graduate degree in counseling, passes the required exams, and applies to the state board with an approved supervisor already lined up.",
+          "The Texas Behavioral Health Executive Council lists what an application needs ([BHEC LPC Associate requirements](https://bhec.texas.gov/texas-state-board-of-examiners-of-professional-counselors/applying-for-an-lpc-license/lpc-associate/)):",
+        ],
+        list: [
+          "A master’s degree or higher in counseling or a counseling-related field. Students who started their program on or after August 1, 2017 need at least 60 semester hours of coursework ([22 TAC §681.82](https://www.law.cornell.edu/regulations/texas/22-Tex-Admin-Code-SS-681-82)).",
+          "Official transcripts sent straight from the school to the board, plus proof of a supervised practicum.",
+          "A passing score on a national counseling exam, either the National Counselor Examination (NCE) or the National Clinical Mental Health Counseling Examination (NCMHCE).",
+          "A certificate for the Texas Jurisprudence Examination, which covers state laws and rules for counselors.",
+          "A signed supervisory agreement with a board-approved LPC-S, plus fingerprinting for a background check.",
+        ],
+      },
+      {
         heading: "What does supervision mean for an LPC Associate?",
         paragraphs: [
-          "Supervision means an LPC Associate works with an approved supervisor who oversees their counseling work.",
+          "Supervision means the associate works with an approved LPC Supervisor (LPC-S) who oversees their counseling work. An associate can’t practice independently ([BHEC](https://bhec.texas.gov/texas-state-board-of-examiners-of-professional-counselors/applying-for-an-lpc-license/lpc-associate/)).",
           "I’m an LPC Associate (#104391), and my supervisor is Don Zablosky, LPC-S.",
         ],
       },
       {
         heading: "How long does someone stay an LPC Associate in Texas?",
         paragraphs: [
-          "An LPC Associate in Texas stays an associate for at least 18 months, until they finish the supervised experience required for a full LPC license.",
+          "A counselor stays an associate for at least 18 months, until they finish the supervised hours required for a full LPC license.",
           "To move to a full LPC license, an associate completes at least 3,000 hours of supervised experience over at least 18 months, including at least 1,500 hours of direct counseling ([BHEC supervision FAQs](https://bhec.texas.gov/tbhec/supervision-faqs/); [22 TAC §681.92](https://www.law.cornell.edu/regulations/texas/22-Tex-Admin-Code-SS-681-92)).",
         ],
       },
@@ -4855,7 +4869,7 @@ export const ARTICLES: ContentPage[] = [
     path: "resources/what-is-person-centered-therapy",
     published: "2026-11-21",
     related: [LINK.holisticCounseling, LINK.holistic, LINK.firstSession, LINK.aboutSarah],
-    title: "What Is Person-Centered Therapy?",
+    title: title("Person-Centered Therapy Guide"),
     description:
       "Person-centered therapy explained: where it comes from, what sessions feel like, what research says, and who it may suit. Plain language, no jargon.",
     eyebrow: "Counseling approaches",
