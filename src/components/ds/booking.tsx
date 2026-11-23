@@ -142,10 +142,10 @@ export function StickyCallBar({ bookLabel = "Book a Free Call" }: { bookLabel?: 
 }
 
 /**
- * Booking for current clients: people who've had the free call and signed consent forms.
- * Shows a scheduler button once SESSION_BOOKING_URL is set; until then, text or call to book.
+ * Self-booking for everyone: pick a time and pay when booking (Calendly + Stripe).
+ * Shows the scheduler button once SESSION_BOOKING_URL is set; until then, text or call to book.
  */
-export function CurrentClientBooking({ className = "" }: { className?: string }) {
+export function SessionBooking({ className = "" }: { className?: string }) {
   return (
     <section
       id="book-session"
@@ -153,18 +153,21 @@ export function CurrentClientBooking({ className = "" }: { className?: string })
       className={`scroll-mt-28 rounded-3xl border border-border bg-card p-6 sm:p-8 ${className}`}
     >
       <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-        Current clients
+        Book a session
       </p>
       <h2
         id="book-session-heading"
         className="mt-2 font-serif text-2xl text-foreground sm:text-3xl"
       >
-        Book your next session.
+        Pick a time that works for you.
       </h2>
       <p className="mt-3 text-[1.0625rem] leading-relaxed text-muted-foreground">
-        For clients who’ve had their free consultation and signed their consent forms. New here?{" "}
+        {SESSION_BOOKING_URL
+          ? "Choose a session time and pay securely when you book."
+          : "Text or call to book your session."}{" "}
+        Not sure yet?{" "}
         <BookCallLink className="underline underline-offset-4 hover:text-foreground">
-          Start with a free call
+          Start with a free 15-minute call
         </BookCallLink>
         .
       </p>
@@ -181,7 +184,7 @@ export function CurrentClientBooking({ className = "" }: { className?: string })
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         {SESSION_BOOKING_URL ? (
           <a href={SESSION_BOOKING_URL} target="_blank" rel="noopener" className={BUTTON.cta}>
-            Book a session
+            Book and pay for a session
             <span className="sr-only"> (opens the scheduler in a new tab)</span>
           </a>
         ) : (
@@ -195,9 +198,26 @@ export function CurrentClientBooking({ className = "" }: { className?: string })
           Call {PHONE_DISPLAY}
         </a>
       </div>
-      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-        Payment is due before each session starts. Please keep texts to scheduling and save anything
-        personal for our session.
+      <ul className="mt-5 space-y-2 text-sm leading-relaxed text-muted-foreground">
+        <li>
+          {SESSION_BOOKING_URL
+            ? "Payment is due when you book."
+            : "Payment is due before each session starts."}{" "}
+          Using a reduced rate? Text or call and I’ll book you.
+        </li>
+        <li>
+          First session? Please read and sign{" "}
+          <a href="#forms" className="underline underline-offset-4 hover:text-foreground">
+            your consent forms
+          </a>{" "}
+          before we meet. We can’t start until they’re signed.
+        </li>
+        <li>
+          Please keep booking notes and texts to scheduling. Save anything personal for our session.
+        </li>
+      </ul>
+      <p className="mt-4 text-sm text-muted-foreground">
+        Sessions are with Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S.
       </p>
     </section>
   );

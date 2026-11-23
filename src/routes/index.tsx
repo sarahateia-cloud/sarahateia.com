@@ -848,12 +848,12 @@ function Index() {
                 Standard fee $100 per session. Reduced rates available.
               </p>
               <p className="mt-2 text-sm text-muted-foreground">
-                Already a client?{" "}
+                Ready to book?{" "}
                 <a
                   href="/new-clients/#book-session"
                   className="underline underline-offset-4 hover:text-foreground"
                 >
-                  Book your next session
+                  Book a session
                 </a>
                 .
               </p>

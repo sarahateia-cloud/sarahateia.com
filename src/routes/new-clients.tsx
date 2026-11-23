@@ -9,7 +9,7 @@ import {
   SiteHeader,
 } from "@/components/site-header";
 import { SCREENING_TOOLS } from "@/content/screening-tools";
-import { CurrentClientBooking } from "@/components/ds/booking";
+import { SessionBooking } from "@/components/ds/booking";
 import { ACTIVE_PAYMENT_LINKS } from "@/lib/payments";
 
 export const Route = createFileRoute("/new-clients")({
@@ -73,7 +73,7 @@ function NewClients() {
           your own pace beforehand.
         </p>
 
-        <CurrentClientBooking className="mt-10" />
+        <SessionBooking className="mt-10" />
 
         <ol className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {STEPS.map((step, i) => (
@@ -85,7 +85,9 @@ function NewClients() {
           ))}
         </ol>
 
-        <h2 className="mt-14 font-serif text-3xl text-foreground">Your forms</h2>
+        <h2 id="forms" className="mt-14 scroll-mt-28 font-serif text-3xl text-foreground">
+          Your forms
+        </h2>
         <ul className="mt-6 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card">
           {FORMS.map((form) => (
             <li key={form.file}>
