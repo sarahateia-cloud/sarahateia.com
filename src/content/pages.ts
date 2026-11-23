@@ -42,9 +42,9 @@ const LINK = {
     href: "/telehealth-counseling-texas/",
   },
   youngAdult: { label: "Counseling for young adults", href: "/young-adult-counseling/" },
-  anxiety: { label: "Anxiety therapy in Dallas–Fort Worth", href: "/anxiety-therapy-dallas/" },
+  anxiety: { label: "Anxiety therapist in Dallas, TX", href: "/anxiety-therapy-dallas/" },
   depression: {
-    label: "Depression counseling in Dallas–Fort Worth",
+    label: "Depression counseling in Dallas, TX",
     href: "/depression-counseling-dallas/",
   },
   cost: {
@@ -176,6 +176,10 @@ const LINK = {
   glossary: { label: "Counseling glossary in English and Arabic", href: "/glossary/" },
   crisis: { label: "Crisis resources in Dallas–Fort Worth", href: "/crisis/" },
   tools: { label: "Free calming tools: box breathing and grounding", href: "/tools/" },
+  familyBoundaries: {
+    label: "How to set boundaries with family",
+    href: "/resources/setting-boundaries-with-family/",
+  },
   personCentered: {
     label: "What is person-centered therapy?",
     href: "/resources/what-is-person-centered-therapy/",
@@ -191,7 +195,14 @@ export const TOPICS: ContentPage[] = [
     path: "arabic-counseling",
     // Sarah will provide the Arabic intro text. It stays hidden until this is filled in.
     arabicIntro: "",
-    related: [LINK.culture, LINK.glossary, LINK.telehealth, LINK.irving, LINK.consultation],
+    related: [
+      LINK.culture,
+      LINK.familyBoundaries,
+      LINK.glossary,
+      LINK.telehealth,
+      LINK.irving,
+      LINK.consultation,
+    ],
     title: "Arabic-Speaking Counselor in Dallas, TX",
     description:
       "Arabic-speaking therapist in Dallas, TX, and Arabic counselor online across Texas. Sessions in Arabic, English, or both, with room for culture and family.",
@@ -504,6 +515,7 @@ export const TOPICS: ContentPage[] = [
       LINK.outdoor,
       LINK.slidingScale,
       LINK.firstSession,
+      LINK.familyBoundaries,
     ],
     title: "Therapist for Young Adults in Dallas, TX",
     description:
@@ -618,7 +630,7 @@ export const TOPICS: ContentPage[] = [
       LINK.grounding,
       LINK.boxBreathing,
     ],
-    title: "Anxiety Therapy in Dallas, TX",
+    title: "Anxiety Therapist in Dallas, TX | Anxiety Therapy",
     description:
       "Anxiety therapist in Dallas, TX offering talk therapy for worry and stress. Walk and talk sessions in DFW or online across Texas. Sliding scale available.",
     eyebrow: "Anxiety therapy",
@@ -716,6 +728,10 @@ export const TOPICS: ContentPage[] = [
       {
         q: "Can I try a screening questionnaire first?",
         a: "Yes, you can try a free anxiety questionnaire before starting therapy. The GAD-7 is a widely used one, linked on the [screening tools page](/screening-tools/). It isn’t a diagnosis, and we can look at your results together.",
+      },
+      {
+        q: "How do I find an anxiety therapist in Dallas, TX?",
+        a: "Look for a licensed counselor whose approach and format fit you, check their license on the state’s lookup, and ask how they work with anxiety before you commit. I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, and I see adults for anxiety in Dallas–Fort Worth parks or by telehealth across Texas. A [free 15-minute consultation](/resources/free-counseling-consultation/) is an easy way to see if we’re a good fit, and [how to choose a therapist in Dallas](/resources/how-to-choose-a-therapist-dallas/) lists questions worth asking.",
       },
       {
         q: "Do you offer a sliding scale?",
@@ -830,6 +846,10 @@ export const TOPICS: ContentPage[] = [
       {
         q: "Can I try a screening questionnaire first?",
         a: "Yes, you can try a free depression questionnaire before starting counseling. The PHQ-9 is a widely used one, linked on the [screening tools page](/screening-tools/). It isn’t a diagnosis, and we can go over your results together.",
+      },
+      {
+        q: "Where can I get depression counseling in Dallas, TX?",
+        a: "I offer depression counseling in Dallas, TX through walk and talk sessions in Dallas–Fort Worth parks, or by telehealth if you’re anywhere in Texas. I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S. Sessions are self-pay, with [reduced rates](/affordable-therapy-dallas/) available, and you can start with a [free 15-minute consultation](/resources/free-counseling-consultation/).",
       },
       {
         q: "Do you offer a sliding scale?",
@@ -1907,16 +1927,30 @@ export const ARTICLES: ContentPage[] = [
         ],
       },
       {
+        heading: "How does someone become an LPC Associate in Texas?",
+        paragraphs: [
+          "To become an LPC Associate, a counselor finishes a graduate degree in counseling, passes the required exams, and applies to the state board with an approved supervisor already lined up.",
+          "The Texas Behavioral Health Executive Council lists what an application needs ([BHEC LPC Associate requirements](https://bhec.texas.gov/texas-state-board-of-examiners-of-professional-counselors/applying-for-an-lpc-license/lpc-associate/)):",
+        ],
+        list: [
+          "A master’s degree or higher in counseling or a counseling-related field. Students who started their program on or after August 1, 2017 need at least 60 semester hours of coursework ([22 TAC §681.82](https://www.law.cornell.edu/regulations/texas/22-Tex-Admin-Code-SS-681-82)).",
+          "Official transcripts sent straight from the school to the board, plus proof of a supervised practicum.",
+          "A passing score on a national counseling exam, either the National Counselor Examination (NCE) or the National Clinical Mental Health Counseling Examination (NCMHCE).",
+          "A certificate for the Texas Jurisprudence Examination, which covers state laws and rules for counselors.",
+          "A signed supervisory agreement with a board-approved LPC-S, plus fingerprinting for a background check.",
+        ],
+      },
+      {
         heading: "What does supervision mean for an LPC Associate?",
         paragraphs: [
-          "Supervision means an LPC Associate works with an approved supervisor who oversees their counseling work.",
+          "Supervision means the associate works with an approved LPC Supervisor (LPC-S) who oversees their counseling work. An associate can’t practice independently ([BHEC](https://bhec.texas.gov/texas-state-board-of-examiners-of-professional-counselors/applying-for-an-lpc-license/lpc-associate/)).",
           "I’m an LPC Associate (#104391), and my supervisor is Don Zablosky, LPC-S.",
         ],
       },
       {
         heading: "How long does someone stay an LPC Associate in Texas?",
         paragraphs: [
-          "An LPC Associate in Texas stays an associate for at least 18 months, until they finish the supervised experience required for a full LPC license.",
+          "A counselor stays an associate for at least 18 months, until they finish the supervised hours required for a full LPC license.",
           "To move to a full LPC license, an associate completes at least 3,000 hours of supervised experience over at least 18 months, including at least 1,500 hours of direct counseling ([BHEC supervision FAQs](https://bhec.texas.gov/tbhec/supervision-faqs/); [22 TAC §681.92](https://www.law.cornell.edu/regulations/texas/22-Tex-Admin-Code-SS-681-92)).",
         ],
       },
@@ -2049,7 +2083,14 @@ export const ARTICLES: ContentPage[] = [
   },
   {
     path: "resources/choosing-a-counselor-language-culture",
-    related: [LINK.arabic, LINK.muslimFaith, LINK.consultation, LINK.telehealth, LINK.glossary],
+    related: [
+      LINK.arabic,
+      LINK.muslimFaith,
+      LINK.familyBoundaries,
+      LINK.consultation,
+      LINK.telehealth,
+      LINK.glossary,
+    ],
     title: title("Culture & Language in Therapy"),
     description:
       "Questions to ask when you’re looking for a counselor who respects your language, culture, faith, and family.",
@@ -2379,7 +2420,13 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/attachment-styles-in-relationships",
     published: "2026-11-18",
-    related: [LINK.anxiety, LINK.youngAdult, LINK.abuseRecovery, LINK.selfCare],
+    related: [
+      LINK.anxiety,
+      LINK.youngAdult,
+      LINK.abuseRecovery,
+      LINK.selfCare,
+      LINK.familyBoundaries,
+    ],
     title: title("Attachment Styles Explained"),
     description:
       "A plain-language guide to secure, anxious, avoidant, and disorganized attachment, how each shows up in relationships, and how people grow more secure.",
@@ -2609,6 +2656,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.selfReflection,
       LINK.groundingGuide,
       LINK.grounding,
+      LINK.familyBoundaries,
     ],
     title: title("Self-Care for Mental Health"),
     description:
@@ -4852,10 +4900,106 @@ export const ARTICLES: ContentPage[] = [
     ],
   },
   {
+    path: "resources/setting-boundaries-with-family",
+    published: "2026-11-22",
+    related: [LINK.attachment, LINK.anxiety, LINK.selfCare, LINK.grounding, LINK.consultation],
+    title: title("Setting Boundaries With Family"),
+    description:
+      "A calm, practical guide to setting boundaries with family: what a boundary is, how to say it, handling guilt and pushback, and when counseling can help.",
+    eyebrow: "Relationships",
+    heading: "How do you set boundaries with family?",
+    intro:
+      "You set boundaries with family by getting clear on what you need, saying it simply and kindly, and then following through on what you’ll do if it isn’t respected. A boundary isn’t a way to control anyone else. It’s a decision about what you will and won’t take part in, so you can stay connected without losing yourself.",
+    takeaways: [
+      "A boundary describes what you will do, not what someone else must do.",
+      "Short, calm “I” statements usually land better than long explanations.",
+      "Guilt after setting a boundary is common and doesn’t mean you did something wrong.",
+      "You don’t have to cut family off to protect your peace, and you don’t have to stay in every situation either.",
+    ],
+    blocks: [
+      {
+        heading: "What is a boundary with family?",
+        paragraphs: [
+          "A boundary with family is a limit you choose about your time, space, energy, money, or the topics you’re willing to discuss. Mental Health America describes boundaries as lists of what is and isn’t okay for you ([MHA](https://screening.mhanational.org/content/how-can-i-set-boundaries-my-family/)).",
+          "Boundaries can be small, like leaving a gathering at a set time, or bigger, like not discussing your relationship or body. Either way, the point is to make closeness more sustainable, not to punish anyone.",
+        ],
+      },
+      {
+        heading: "How do I know I need a boundary?",
+        paragraphs: [
+          "You may need a boundary when certain conversations or visits leave you tense, drained, or dreading the next one. Your body often notices before your mind does.",
+          "Signs worth paying attention to:",
+        ],
+        list: [
+          "You feel anxious or on edge for days before a family event",
+          "You say yes to things and then feel resentful",
+          "The same comments about your choices, body, faith, or relationships keep coming up",
+          "You leave conversations feeling smaller or less like yourself",
+        ],
+      },
+      {
+        heading: "How do I say a boundary out loud?",
+        paragraphs: [
+          "Say a boundary out loud with a short, calm statement about what you feel and what you’ll do. You don’t need to defend it at length. MHA suggests “I” statements and practicing with a trusted friend first ([MHA](https://screening.mhanational.org/content/how-can-i-set-boundaries-my-family/)).",
+          "A few examples:",
+        ],
+        list: [
+          "“I’m not going to talk about my weight. If it comes up, I’ll change the subject.”",
+          "“I can stay until 7. After that I’m heading home.”",
+          "“I feel hurt when decisions about my life are discussed without me. I’d like to be asked directly.”",
+          "“I’m not able to lend money right now.”",
+        ],
+      },
+      {
+        heading: "What if my family pushes back?",
+        paragraphs: [
+          "If your family pushes back, stay calm, repeat the boundary once, and follow through on what you said you’d do. Pushback is common when a pattern changes, especially in families that are used to things a certain way.",
+          "Following through might mean ending a call, leaving a room, or stepping outside for a few minutes. MHA notes that a boundary works best when you’re clear about what happens if it’s crossed and you act on it ([MHA](https://screening.mhanational.org/content/how-can-i-set-boundaries-my-family/)).",
+          "You don’t have to win the argument. Your job is to keep your word to yourself.",
+        ],
+      },
+      {
+        heading: "Why do I feel guilty after setting a boundary?",
+        paragraphs: [
+          "Many people feel guilty after setting a boundary because they’re going against a long-standing family role, like being the peacemaker or the one who always helps. Guilt is a sign that something changed, not proof that it was wrong.",
+          "It can help to name the guilt, take a few slow breaths, and remind yourself why the boundary matters. [Grounding techniques](/resources/grounding-techniques-for-anxiety/) can help when guilt or worry feels physical.",
+        ],
+      },
+      {
+        heading: "How do boundaries work across cultures?",
+        paragraphs: [
+          "Boundaries look different across cultures, and they don’t have to mean distance. In many families, including many Arab and immigrant families, respect for parents and close ties are deeply valued, and a boundary may need to be gentler or more indirect.",
+          "A culturally sensitive boundary might sound like honoring a parent’s concern while still making your own decision. You can keep your values and your relationships while protecting your peace. [Choosing a counselor who understands your language and culture](/resources/choosing-a-counselor-language-culture/) can make these conversations easier to explore.",
+        ],
+      },
+      {
+        heading: "Can counseling help with family boundaries?",
+        paragraphs: [
+          "Counseling can help you understand your family patterns, figure out what you need, and practice what to say before you say it. MHA also suggests individual or family counseling as a source of support ([MHA](https://screening.mhanational.org/content/how-can-i-set-boundaries-my-family/)).",
+          "I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S. I offer individual counseling in English and Arabic through walk and talk sessions in Dallas–Fort Worth and telehealth across Texas. I don’t diagnose your relatives, and I don’t offer couples or family sessions. Our work focuses on you. A [free 15-minute consultation](/resources/free-counseling-consultation/) is a good first step.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is setting boundaries with family disrespectful?",
+        a: "No. A calm, clear boundary can be respectful to both you and your family. It tells people how to stay close to you in a way that works.",
+      },
+      {
+        q: "Do I have to cut off my family to have boundaries?",
+        a: "No. Most boundaries are about specific topics, times, or behaviors, not ending a relationship. Some people choose more distance in serious situations, and that’s a personal decision a counselor can help you think through.",
+      },
+      {
+        q: "What if I’m not safe with a family member?",
+        a: "If you’re in danger, call 911. For support, call or text 988, or see [local 24/7 crisis lines](/crisis/).",
+      },
+    ],
+  },
+  {
     path: "resources/what-is-person-centered-therapy",
     published: "2026-11-21",
     related: [LINK.holisticCounseling, LINK.holistic, LINK.firstSession, LINK.aboutSarah],
-    title: "What Is Person-Centered Therapy?",
+    title: title("Person-Centered Therapy Guide"),
     description:
       "Person-centered therapy explained: where it comes from, what sessions feel like, what research says, and who it may suit. Plain language, no jargon.",
     eyebrow: "Counseling approaches",
