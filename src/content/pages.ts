@@ -42,9 +42,9 @@ const LINK = {
     href: "/telehealth-counseling-texas/",
   },
   youngAdult: { label: "Counseling for young adults", href: "/young-adult-counseling/" },
-  anxiety: { label: "Anxiety therapy in Dallas–Fort Worth", href: "/anxiety-therapy-dallas/" },
+  anxiety: { label: "Anxiety therapist in Dallas, TX", href: "/anxiety-therapy-dallas/" },
   depression: {
-    label: "Depression counseling in Dallas–Fort Worth",
+    label: "Depression counseling in Dallas, TX",
     href: "/depression-counseling-dallas/",
   },
   cost: {
@@ -618,7 +618,7 @@ export const TOPICS: ContentPage[] = [
       LINK.grounding,
       LINK.boxBreathing,
     ],
-    title: "Anxiety Therapy in Dallas, TX",
+    title: "Anxiety Therapist in Dallas, TX | Anxiety Therapy",
     description:
       "Anxiety therapist in Dallas, TX offering talk therapy for worry and stress. Walk and talk sessions in DFW or online across Texas. Sliding scale available.",
     eyebrow: "Anxiety therapy",
@@ -716,6 +716,10 @@ export const TOPICS: ContentPage[] = [
       {
         q: "Can I try a screening questionnaire first?",
         a: "Yes, you can try a free anxiety questionnaire before starting therapy. The GAD-7 is a widely used one, linked on the [screening tools page](/screening-tools/). It isn’t a diagnosis, and we can look at your results together.",
+      },
+      {
+        q: "How do I find an anxiety therapist in Dallas, TX?",
+        a: "Look for a licensed counselor whose approach and format fit you, check their license on the state’s lookup, and ask how they work with anxiety before you commit. I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, and I see adults for anxiety in Dallas–Fort Worth parks or by telehealth across Texas. A [free 15-minute consultation](/resources/free-counseling-consultation/) is an easy way to see if we’re a good fit, and [how to choose a therapist in Dallas](/resources/how-to-choose-a-therapist-dallas/) lists questions worth asking.",
       },
       {
         q: "Do you offer a sliding scale?",
@@ -830,6 +834,10 @@ export const TOPICS: ContentPage[] = [
       {
         q: "Can I try a screening questionnaire first?",
         a: "Yes, you can try a free depression questionnaire before starting counseling. The PHQ-9 is a widely used one, linked on the [screening tools page](/screening-tools/). It isn’t a diagnosis, and we can go over your results together.",
+      },
+      {
+        q: "Where can I get depression counseling in Dallas, TX?",
+        a: "I offer depression counseling in Dallas, TX through walk and talk sessions in Dallas–Fort Worth parks, or by telehealth if you’re anywhere in Texas. I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S. Sessions are self-pay, with [reduced rates](/affordable-therapy-dallas/) available, and you can start with a [free 15-minute consultation](/resources/free-counseling-consultation/).",
       },
       {
         q: "Do you offer a sliding scale?",
