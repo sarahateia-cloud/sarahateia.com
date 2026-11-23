@@ -176,6 +176,10 @@ const LINK = {
   glossary: { label: "Counseling glossary in English and Arabic", href: "/glossary/" },
   crisis: { label: "Crisis resources in Dallas–Fort Worth", href: "/crisis/" },
   tools: { label: "Free calming tools: box breathing and grounding", href: "/tools/" },
+  familyBoundaries: {
+    label: "How to set boundaries with family",
+    href: "/resources/setting-boundaries-with-family/",
+  },
   personCentered: {
     label: "What is person-centered therapy?",
     href: "/resources/what-is-person-centered-therapy/",
@@ -191,7 +195,14 @@ export const TOPICS: ContentPage[] = [
     path: "arabic-counseling",
     // Sarah will provide the Arabic intro text. It stays hidden until this is filled in.
     arabicIntro: "",
-    related: [LINK.culture, LINK.glossary, LINK.telehealth, LINK.irving, LINK.consultation],
+    related: [
+      LINK.culture,
+      LINK.familyBoundaries,
+      LINK.glossary,
+      LINK.telehealth,
+      LINK.irving,
+      LINK.consultation,
+    ],
     title: "Arabic-Speaking Counselor in Dallas, TX",
     description:
       "Arabic-speaking therapist in Dallas, TX, and Arabic counselor online across Texas. Sessions in Arabic, English, or both, with room for culture and family.",
@@ -504,6 +515,7 @@ export const TOPICS: ContentPage[] = [
       LINK.outdoor,
       LINK.slidingScale,
       LINK.firstSession,
+      LINK.familyBoundaries,
     ],
     title: "Therapist for Young Adults in Dallas, TX",
     description:
@@ -2071,7 +2083,14 @@ export const ARTICLES: ContentPage[] = [
   },
   {
     path: "resources/choosing-a-counselor-language-culture",
-    related: [LINK.arabic, LINK.muslimFaith, LINK.consultation, LINK.telehealth, LINK.glossary],
+    related: [
+      LINK.arabic,
+      LINK.muslimFaith,
+      LINK.familyBoundaries,
+      LINK.consultation,
+      LINK.telehealth,
+      LINK.glossary,
+    ],
     title: title("Culture & Language in Therapy"),
     description:
       "Questions to ask when you’re looking for a counselor who respects your language, culture, faith, and family.",
@@ -2401,7 +2420,13 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/attachment-styles-in-relationships",
     published: "2026-11-18",
-    related: [LINK.anxiety, LINK.youngAdult, LINK.abuseRecovery, LINK.selfCare],
+    related: [
+      LINK.anxiety,
+      LINK.youngAdult,
+      LINK.abuseRecovery,
+      LINK.selfCare,
+      LINK.familyBoundaries,
+    ],
     title: title("Attachment Styles Explained"),
     description:
       "A plain-language guide to secure, anxious, avoidant, and disorganized attachment, how each shows up in relationships, and how people grow more secure.",
@@ -2631,6 +2656,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.selfReflection,
       LINK.groundingGuide,
       LINK.grounding,
+      LINK.familyBoundaries,
     ],
     title: title("Self-Care for Mental Health"),
     description:
@@ -4870,6 +4896,102 @@ export const ARTICLES: ContentPage[] = [
       {
         q: "Do LPCs and LCSWs cost different amounts?",
         a: "Fees vary by therapist rather than by license. Ask about fees, sliding scales, and free consultations before you start.",
+      },
+    ],
+  },
+  {
+    path: "resources/setting-boundaries-with-family",
+    published: "2026-11-22",
+    related: [LINK.attachment, LINK.anxiety, LINK.selfCare, LINK.grounding, LINK.consultation],
+    title: title("Setting Boundaries With Family"),
+    description:
+      "A calm, practical guide to setting boundaries with family: what a boundary is, how to say it, handling guilt and pushback, and when counseling can help.",
+    eyebrow: "Relationships",
+    heading: "How do you set boundaries with family?",
+    intro:
+      "You set boundaries with family by getting clear on what you need, saying it simply and kindly, and then following through on what you’ll do if it isn’t respected. A boundary isn’t a way to control anyone else. It’s a decision about what you will and won’t take part in, so you can stay connected without losing yourself.",
+    takeaways: [
+      "A boundary describes what you will do, not what someone else must do.",
+      "Short, calm “I” statements usually land better than long explanations.",
+      "Guilt after setting a boundary is common and doesn’t mean you did something wrong.",
+      "You don’t have to cut family off to protect your peace, and you don’t have to stay in every situation either.",
+    ],
+    blocks: [
+      {
+        heading: "What is a boundary with family?",
+        paragraphs: [
+          "A boundary with family is a limit you choose about your time, space, energy, money, or the topics you’re willing to discuss. Mental Health America describes boundaries as lists of what is and isn’t okay for you ([MHA](https://screening.mhanational.org/content/how-can-i-set-boundaries-my-family/)).",
+          "Boundaries can be small, like leaving a gathering at a set time, or bigger, like not discussing your relationship or body. Either way, the point is to make closeness more sustainable, not to punish anyone.",
+        ],
+      },
+      {
+        heading: "How do I know I need a boundary?",
+        paragraphs: [
+          "You may need a boundary when certain conversations or visits leave you tense, drained, or dreading the next one. Your body often notices before your mind does.",
+          "Signs worth paying attention to:",
+        ],
+        list: [
+          "You feel anxious or on edge for days before a family event",
+          "You say yes to things and then feel resentful",
+          "The same comments about your choices, body, faith, or relationships keep coming up",
+          "You leave conversations feeling smaller or less like yourself",
+        ],
+      },
+      {
+        heading: "How do I say a boundary out loud?",
+        paragraphs: [
+          "Say a boundary out loud with a short, calm statement about what you feel and what you’ll do. You don’t need to defend it at length. MHA suggests “I” statements and practicing with a trusted friend first ([MHA](https://screening.mhanational.org/content/how-can-i-set-boundaries-my-family/)).",
+          "A few examples:",
+        ],
+        list: [
+          "“I’m not going to talk about my weight. If it comes up, I’ll change the subject.”",
+          "“I can stay until 7. After that I’m heading home.”",
+          "“I feel hurt when decisions about my life are discussed without me. I’d like to be asked directly.”",
+          "“I’m not able to lend money right now.”",
+        ],
+      },
+      {
+        heading: "What if my family pushes back?",
+        paragraphs: [
+          "If your family pushes back, stay calm, repeat the boundary once, and follow through on what you said you’d do. Pushback is common when a pattern changes, especially in families that are used to things a certain way.",
+          "Following through might mean ending a call, leaving a room, or stepping outside for a few minutes. MHA notes that a boundary works best when you’re clear about what happens if it’s crossed and you act on it ([MHA](https://screening.mhanational.org/content/how-can-i-set-boundaries-my-family/)).",
+          "You don’t have to win the argument. Your job is to keep your word to yourself.",
+        ],
+      },
+      {
+        heading: "Why do I feel guilty after setting a boundary?",
+        paragraphs: [
+          "Many people feel guilty after setting a boundary because they’re going against a long-standing family role, like being the peacemaker or the one who always helps. Guilt is a sign that something changed, not proof that it was wrong.",
+          "It can help to name the guilt, take a few slow breaths, and remind yourself why the boundary matters. [Grounding techniques](/resources/grounding-techniques-for-anxiety/) can help when guilt or worry feels physical.",
+        ],
+      },
+      {
+        heading: "How do boundaries work across cultures?",
+        paragraphs: [
+          "Boundaries look different across cultures, and they don’t have to mean distance. In many families, including many Arab and immigrant families, respect for parents and close ties are deeply valued, and a boundary may need to be gentler or more indirect.",
+          "A culturally sensitive boundary might sound like honoring a parent’s concern while still making your own decision. You can keep your values and your relationships while protecting your peace. [Choosing a counselor who understands your language and culture](/resources/choosing-a-counselor-language-culture/) can make these conversations easier to explore.",
+        ],
+      },
+      {
+        heading: "Can counseling help with family boundaries?",
+        paragraphs: [
+          "Counseling can help you understand your family patterns, figure out what you need, and practice what to say before you say it. MHA also suggests individual or family counseling as a source of support ([MHA](https://screening.mhanational.org/content/how-can-i-set-boundaries-my-family/)).",
+          "I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S. I offer individual counseling in English and Arabic through walk and talk sessions in Dallas–Fort Worth and telehealth across Texas. I don’t diagnose your relatives, and I don’t offer couples or family sessions. Our work focuses on you. A [free 15-minute consultation](/resources/free-counseling-consultation/) is a good first step.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is setting boundaries with family disrespectful?",
+        a: "No. A calm, clear boundary can be respectful to both you and your family. It tells people how to stay close to you in a way that works.",
+      },
+      {
+        q: "Do I have to cut off my family to have boundaries?",
+        a: "No. Most boundaries are about specific topics, times, or behaviors, not ending a relationship. Some people choose more distance in serious situations, and that’s a personal decision a counselor can help you think through.",
+      },
+      {
+        q: "What if I’m not safe with a family member?",
+        a: "If you’re in danger, call 911. For support, call or text 988, or see [local 24/7 crisis lines](/crisis/).",
       },
     ],
   },
