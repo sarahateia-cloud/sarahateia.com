@@ -184,6 +184,10 @@ const LINK = {
     label: "What is person-centered therapy?",
     href: "/resources/what-is-person-centered-therapy/",
   },
+  rsd: {
+    label: "What is rejection sensitive dysphoria in ADHD?",
+    href: "/resources/rejection-sensitive-dysphoria-adhd/",
+  },
 };
 
 // Titles stay under 60 characters: keyword first, then this ending.
@@ -863,7 +867,14 @@ export const TOPICS: ContentPage[] = [
   },
   {
     path: "adhd-therapy",
-    related: [LINK.adhdDiagnose, LINK.adhd, LINK.youngAdult, LINK.screening, LINK.adhdWomen],
+    related: [
+      LINK.adhdDiagnose,
+      LINK.adhd,
+      LINK.youngAdult,
+      LINK.screening,
+      LINK.adhdWomen,
+      LINK.rsd,
+    ],
     title: "ADHD Therapist in Dallas, TX | Adult ADHD Counseling",
     description:
       "Adult ADHD counseling in Dallas, TX for focus, routines, work, and the stress ADHD brings. Talk therapy, walk and talk in DFW or online across Texas.",
@@ -3709,7 +3720,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/adhd-and-anxiety",
     published: "2026-11-19",
-    related: [LINK.adhdTherapy, LINK.anxiety, LINK.adhdDiagnose, LINK.adhdWomen],
+    related: [LINK.adhdTherapy, LINK.anxiety, LINK.adhdDiagnose, LINK.adhdWomen, LINK.rsd],
     title: title("ADHD and Anxiety in Adults"),
     description:
       "ADHD and anxiety share signs like restlessness and poor focus. How they differ, why they often show up together, and what helps adults with both.",
@@ -3831,7 +3842,7 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/adhd-signs-in-women",
     published: "2026-11-20",
-    related: [LINK.adhdTherapy, LINK.adhdDiagnose, LINK.adhdAnxiety, LINK.screening],
+    related: [LINK.adhdTherapy, LINK.adhdDiagnose, LINK.adhdAnxiety, LINK.screening, LINK.rsd],
     title: title("ADHD Signs in Women"),
     description:
       "Common signs of ADHD in adult women, why it’s often missed or found later, and what to do next, from free screening to evaluation and support.",
@@ -5084,6 +5095,113 @@ export const ARTICLES: ContentPage[] = [
       {
         q: "Can person-centered therapy be done online?",
         a: "Yes. The approach depends on the conversation and the relationship, so it works by video as well as in person.",
+      },
+    ],
+  },
+  {
+    path: "resources/rejection-sensitive-dysphoria-adhd",
+    published: "2026-11-23",
+    related: [LINK.adhdTherapy, LINK.adhdWomen, LINK.regulation, LINK.adhdAnxiety],
+    title: title("Rejection Sensitive Dysphoria"),
+    description:
+      "What rejection sensitive dysphoria (RSD) means in ADHD, what it can feel like, what research says, and calm, practical ways to cope with rejection.",
+    eyebrow: "ADHD",
+    heading: "What is rejection sensitive dysphoria in ADHD?",
+    intro:
+      "Rejection sensitive dysphoria (RSD) is a name for intense emotional pain set off by rejection or criticism, whether it’s real or only feels that way. Many adults with ADHD say a small comment or a slow reply can hit them hard and fast, sometimes in the body as much as the mind. RSD isn’t a formal diagnosis, but the experience is real, and there are ways to soften it.",
+    takeaways: [
+      "RSD describes strong, fast emotional pain after real or perceived rejection or criticism.",
+      "It’s a descriptive term, not a formal diagnosis, and research on it is still early.",
+      "Big emotional reactions are common in adults with ADHD and can cause real problems day to day.",
+      "Calming the body first, then checking the story you’re telling yourself, can take some of the sting out.",
+      "A free screener like the ASRS v1.1 is a starting point, not a diagnosis.",
+    ],
+    blocks: [
+      {
+        heading: "What does rejection sensitive dysphoria feel like?",
+        paragraphs: [
+          "RSD often feels like a sudden wave of hurt, shame, or panic that seems much bigger than the moment that set it off.",
+          "Everyone’s experience is different. Some common experiences include:",
+        ],
+        list: [
+          "Replaying a comment or a look for hours, sure it meant something bad",
+          "Feeling crushed by mild feedback at work or school",
+          "Reading a late text reply as a sign someone is upset with you",
+          "Physical reactions, like a tight chest, a sick stomach, or feeling frozen",
+          "Pulling away from people, or working hard to please everyone so no one is disappointed",
+          "Avoiding new things because the risk of failing feels too painful",
+        ],
+      },
+      {
+        heading: "Is rejection sensitive dysphoria a real diagnosis?",
+        paragraphs: [
+          "No. Rejection sensitive dysphoria is a descriptive term, not a formal diagnosis. Psychiatrist William Dodson popularized the name to describe the intense pain of rejection that many people with ADHD report ([CHADD](https://chadd.org/adhd-weekly/rejection-can-more-painful-with-adhd/)).",
+          "Strong emotional reactions are widely recognized in ADHD, though. A major review in the American Journal of Psychiatry estimated that emotion dysregulation shows up in roughly 30% to 70% of adults with ADHD and is a major source of difficulty. It’s treated as an associated feature of ADHD rather than one of its diagnostic criteria ([Shaw et al., 2014](https://doi.org/10.1176/appi.ajp.2013.13070966)).",
+        ],
+      },
+      {
+        heading: "What does research say about RSD and ADHD?",
+        paragraphs: [
+          "Research on rejection sensitivity in ADHD is still early, and most studies are small.",
+          "In one small qualitative study, university students with ADHD described rejection sensitivity as a full-body experience, with sensations like nausea, chest tightness, or feeling paralyzed. They also described hiding their feelings and withdrawing from others, which often left them lonely. Participants suggested that understanding, reassurance, and acceptance could ease its intensity ([Brighton and Sussex Medical School](https://www.bsms.ac.uk/about/news/2026/it-hurts-in-your-body-new-bsms-research-explores-rejection-sensitivity-in-adhd.aspx); [PLOS ONE study](https://doi.org/10.1371/journal.pone.0314669)).",
+          "A survey of 304 college students found that higher ADHD symptom scores were linked with greater rejection sensitivity ([European Psychiatry, 2024](https://doi.org/10.1192/j.eurpsy.2024.594)). Studies like these show a connection, not a cause.",
+        ],
+      },
+      {
+        heading: "How can I cope with rejection sensitivity in the moment?",
+        paragraphs: [
+          "When rejection hits, it often helps to calm your body first and question the story second. These ideas are gentle starting points, not a treatment plan:",
+        ],
+        list: [
+          "Name it: “This is the rejection feeling.” Some people find a label gives them a little space.",
+          "Slow your breathing, for example with [box breathing](/resources/box-breathing/)",
+          "Ground yourself through your senses with [grounding techniques](/resources/grounding-techniques-for-anxiety/)",
+          "Move: a short walk outside can help your body come down from the spike",
+          "Wait before you reply, quit, or send that message",
+          "Ask: what are two other ways to read what happened?",
+          "Tell someone you trust, and let them reassure you",
+        ],
+      },
+      {
+        heading: "What helps with rejection sensitivity over time?",
+        paragraphs: [
+          "Over time, many people find it helps to understand their own patterns, care for the basics that steady the nervous system, and practice kinder self-talk.",
+          "Caring for the basics, like sleep, movement, time outdoors, and connection with people who feel safe, is part of a [holistic, mind-body approach](/holistic-counseling/). [Nervous system regulation techniques](/resources/nervous-system-regulation-techniques/) explains simple ways to practice calming your body before a hard moment arrives.",
+          "If you have ADHD or think you might, a full evaluation and a treatment plan with your doctor, a psychiatrist, or a psychologist may also help. You can start with a free screener, such as the ASRS v1.1 on the [screening tools page](/screening-tools/). It isn’t a diagnosis.",
+        ],
+      },
+      {
+        heading: "When should I talk to someone about rejection sensitivity?",
+        paragraphs: [
+          "It may be time to reach out if fear of rejection keeps you from work, school, or relationships, or if the hurt lingers for days.",
+          "Counseling isn’t a crisis service. If rejection ever leaves you thinking about harming yourself, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+      {
+        heading: "Where can I get support for ADHD and rejection sensitivity in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [adult ADHD counseling](/adhd-therapy/) that looks at both the practical and the emotional side of ADHD, through walk and talk sessions in Dallas–Fort Worth or by telehealth anywhere in Texas.",
+          "I don’t diagnose ADHD or prescribe medication. In counseling, you set the pace and the goals. We can look at what sets off the rejection feeling, practice calming your body, and work on clear, practical steps for the moments that hit hardest.",
+          "Wondering whether it’s ADHD or anxiety? Read [is it ADHD, anxiety, or both?](/resources/adhd-and-anxiety/)",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is rejection sensitive dysphoria only found in ADHD?",
+        a: "The term is most often used with ADHD. Many people feel sensitive to rejection in some way, and a doctor, psychiatrist, or psychologist can help sort out what’s behind strong reactions.",
+      },
+      {
+        q: "Can a counselor diagnose RSD?",
+        a: "RSD isn’t a formal diagnosis, so there’s nothing to diagnose on its own. I don’t diagnose ADHD either. A doctor, psychiatrist, or psychologist can evaluate for ADHD and other conditions.",
+      },
+      {
+        q: "Is there a test for rejection sensitive dysphoria?",
+        a: "There’s no official test for RSD. A free adult ADHD screener like the ASRS v1.1 can be a starting point to bring to a qualified professional, but it isn’t a diagnosis.",
+      },
+      {
+        q: "Does counseling help with rejection sensitivity?",
+        a: "Counseling can give you a calm place to understand your reactions and practice new ways to respond. Results differ from person to person, and there’s no guarantee, so it helps to check in on what’s working as you go.",
       },
     ],
   },
