@@ -41,3 +41,15 @@ again for 28 days.
   alias. Person schema adds givenName/familyName, workLocation (Irving, Texas), knowsAbout and
   mainEntityOfPage → /about/.
 - Don't change the About page again before 2026-12-20.
+
+## 2026-11-24: AEO (AI answer engine) push
+
+- New answer guides for open gaps: `/resources/adhd-burnout/` ("adhd burnout", 4,400, KD 14),
+  `/resources/stress-management/` (Semrush AI topic "stress management in Dallas"; "stress
+  counseling" 1,000, KD 28), `/resources/life-transitions-counseling/` (880, KD 17). Each has
+  key takeaways, question-style headings, FAQ schema and sourced claims; 3–6 internal links in.
+- Article/BlogPosting schema now lists every outside source as `citation`, and supports an
+  `updated` date for `dateModified`.
+- Build now writes `/llms-full.txt` (readable text of every listed page) and fails if
+  `public/llms.txt` leaves out a listed page (it was missing `/blog/`).
+- Monthly AI answer check: prompts and baseline in `seo/AEO.md`.

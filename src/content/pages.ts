@@ -29,6 +29,8 @@ export type ContentPage = {
   arabicIntro?: string;
   /** Articles only: the date this article first went live (YYYY-MM-DD). Defaults to PUBLISHED. */
   published?: string;
+  /** Articles only: the date the content was last meaningfully changed (YYYY-MM-DD). Defaults to published. */
+  updated?: string;
 };
 
 const LINK = {
@@ -187,6 +189,15 @@ const LINK = {
   rsd: {
     label: "What is rejection sensitive dysphoria in ADHD?",
     href: "/resources/rejection-sensitive-dysphoria-adhd/",
+  },
+  adhdBurnout: { label: "What is ADHD burnout?", href: "/resources/adhd-burnout/" },
+  stress: {
+    label: "How to manage stress, and when to see a counselor",
+    href: "/resources/stress-management/",
+  },
+  lifeTransitions: {
+    label: "What is life transitions counseling?",
+    href: "/resources/life-transitions-counseling/",
   },
 };
 
@@ -520,6 +531,7 @@ export const TOPICS: ContentPage[] = [
       LINK.slidingScale,
       LINK.firstSession,
       LINK.familyBoundaries,
+      LINK.lifeTransitions,
     ],
     title: "Therapist for Young Adults in Dallas, TX",
     description:
@@ -630,6 +642,7 @@ export const TOPICS: ContentPage[] = [
       LINK.screening,
       LINK.regulation,
       LINK.tools,
+      LINK.stress,
       LINK.groundingGuide,
       LINK.grounding,
       LINK.boxBreathing,
@@ -874,6 +887,7 @@ export const TOPICS: ContentPage[] = [
       LINK.screening,
       LINK.adhdWomen,
       LINK.rsd,
+      LINK.adhdBurnout,
     ],
     title: "ADHD Therapist in Dallas, TX | Adult ADHD Counseling",
     description:
@@ -990,6 +1004,7 @@ export const TOPICS: ContentPage[] = [
       LINK.outdoor,
       LINK.regulation,
       LINK.burnout,
+      LINK.stress,
     ],
     title: "Holistic Counseling in Dallas | Holistic Therapist",
     description:
@@ -2659,6 +2674,8 @@ export const ARTICLES: ContentPage[] = [
     path: "resources/self-care-for-mental-health",
     published: "2026-11-18",
     related: [
+      LINK.stress,
+      LINK.lifeTransitions,
       LINK.holisticCounseling,
       LINK.depression,
       LINK.outdoor,
@@ -3946,7 +3963,15 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/burnout-vs-depression",
     published: "2026-11-20",
-    related: [LINK.depression, LINK.holisticCounseling, LINK.lasColinas, LINK.selfCare],
+    related: [
+      LINK.depression,
+      LINK.holisticCounseling,
+      LINK.lasColinas,
+      LINK.selfCare,
+      LINK.adhdBurnout,
+      LINK.stress,
+      LINK.lifeTransitions,
+    ],
     title: title("Burnout vs. Depression"),
     description:
       "How burnout and depression differ and overlap, the signs of each, and when to talk with a counselor or doctor. Plain language, with research sources.",
@@ -4288,6 +4313,7 @@ export const ARTICLES: ContentPage[] = [
     path: "resources/nervous-system-regulation-techniques",
     published: "2026-11-20",
     related: [
+      LINK.stress,
       LINK.holisticCounseling,
       LINK.anxiety,
       LINK.selfCare,
@@ -5205,6 +5231,298 @@ export const ARTICLES: ContentPage[] = [
       },
     ],
   },
+  {
+    path: "resources/adhd-burnout",
+    published: "2026-11-24",
+    related: [LINK.adhdTherapy, LINK.burnout, LINK.rsd, LINK.adhdAnxiety, LINK.regulation],
+    title: title("ADHD Burnout: Signs & Recovery"),
+    description:
+      "What ADHD burnout is, common signs, how it differs from depression and job burnout, what early research says, and gentle ways to recover.",
+    eyebrow: "ADHD",
+    heading: "What is ADHD burnout?",
+    intro:
+      "ADHD burnout is a name many adults use for deep exhaustion that builds up after months or years of working hard to keep up, stay organized, and hide how much effort everyday life takes. It isn’t a formal diagnosis, and research on it is new, but the experience is common and there are practical ways to ease it.",
+    takeaways: [
+      "ADHD burnout describes physical, emotional, and mental exhaustion from the constant effort of managing ADHD in daily life.",
+      "It’s an emerging, descriptive term, not a formal diagnosis.",
+      "A 2024 study of 171 employees found that those who screened positive for ADHD reported more job burnout, partly because of difficulties with time management and organization.",
+      "Recovery usually starts with lowering the load, protecting sleep and rest, and building systems that take pressure off willpower.",
+      "If exhaustion comes with hopelessness or lasts for weeks, talk to a doctor or counselor, because it can overlap with depression.",
+    ],
+    blocks: [
+      {
+        heading: "What does ADHD burnout mean?",
+        paragraphs: [
+          "ADHD burnout is a descriptive term for the exhaustion that can follow long stretches of pushing through ADHD symptoms: forcing focus, double-checking everything, catching up late at night, and masking struggles so others don’t notice.",
+          "Researchers have only started to study it. A 2025 qualitative study in Psychology in the Schools called ADHD burnout “an emerging concept” and described it as ongoing bodily, emotional, and mental exhaustion from living in a constant “hyper” state of managing symptoms ([Hossain and Bain, 2025](https://www.open-access.bcu.ac.uk/16467/)). That study listened to parents of children with ADHD, so it’s an early look, not a final definition.",
+        ],
+      },
+      {
+        heading: "What are the signs of ADHD burnout?",
+        paragraphs: [
+          "Everyone’s experience is different. People describing ADHD burnout often mention:",
+        ],
+        list: [
+          "Feeling drained even after rest, or waking up already tired",
+          "Systems and routines that used to work suddenly falling apart",
+          "More forgetfulness, missed deadlines, or trouble starting tasks than usual",
+          "Shorter fuse: irritability, tears, or shutting down over small things",
+          "Pulling away from friends, hobbies, or anything that takes extra energy",
+          "A harsh inner voice that says you’re lazy or failing, even though you’re trying hard",
+        ],
+      },
+      {
+        heading: "Is ADHD burnout the same as job burnout or depression?",
+        paragraphs: [
+          "Not exactly, though they can overlap. The World Health Organization describes burnout as an occupational phenomenon from chronic workplace stress, not a medical condition ([WHO](https://www.who.int/standards/classifications/frequently-asked-questions/burn-out-an-occupational-phenomenon)). ADHD burnout is used more broadly, for exhaustion that comes from managing ADHD across work, home, school, and relationships.",
+          "ADHD does seem to raise the risk of job burnout. In a 2024 study of 171 employees, those who screened positive for ADHD reported noticeably higher burnout, and difficulties with managing time and getting organized helped explain the link ([Turjeman-Levi et al., 2024](https://pmc.ncbi.nlm.nih.gov/articles/PMC11007411/)). The study used a self-report screener rather than a diagnosis, so it shows a connection, not a cause.",
+          "Depression is different. It tends to bring low mood and loss of interest across most of life, not only tiredness. Read [burnout vs. depression](/resources/burnout-vs-depression/) for the differences, and talk with a doctor if you’re unsure.",
+        ],
+      },
+      {
+        heading: "How do you recover from ADHD burnout?",
+        paragraphs: [
+          "Recovery is usually less about trying harder and more about needing less effort to get through the day. These are gentle starting points, not a treatment plan:",
+        ],
+        list: [
+          "Lower the load where you can: drop, delay, or delegate one or two things this week",
+          "Protect sleep and plan real rest, not just collapse at the end of the day",
+          "Make tasks visible and small: a short list, a timer, a body double, a reminder on your phone",
+          "Move your body, ideally outside; even a short walk can help your nervous system settle",
+          "Notice where you’re masking, and find one place where you don’t have to",
+          "Swap self-criticism for curiosity: what made this week harder than usual?",
+        ],
+      },
+      {
+        heading: "How can I prevent ADHD burnout from coming back?",
+        paragraphs: [
+          "Many people find it helps to notice their early warning signs, like routines slipping or sleep getting shorter, and to act before exhaustion takes over.",
+          "Steady basics, such as sleep, movement, time outdoors, and people who feel safe, are part of a [holistic, mind-body approach](/holistic-counseling/). [Nervous system regulation techniques](/resources/nervous-system-regulation-techniques/) and [creative strategies for adults with ADHD](/resources/adhd-creative-strategies/) have more practical ideas.",
+          "If you haven’t had an ADHD evaluation and wonder whether ADHD is part of the picture, a free screener like the ASRS v1.1 on the [screening tools page](/screening-tools/) is a starting point to bring to a doctor, psychiatrist, or psychologist. It isn’t a diagnosis.",
+        ],
+      },
+      {
+        heading: "When should I talk to someone about ADHD burnout?",
+        paragraphs: [
+          "It may be time to reach out if exhaustion lasts for weeks, if you feel hopeless, or if work, school, or relationships are slipping in ways that worry you.",
+          "Counseling isn’t a crisis service. If you’re thinking about harming yourself, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+      {
+        heading: "Where can I get support for ADHD burnout in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [adult ADHD counseling](/adhd-therapy/) through walk and talk sessions in Dallas–Fort Worth or by [telehealth anywhere in Texas](/telehealth-counseling-texas/).",
+          "I don’t diagnose ADHD or prescribe medication. In counseling, we can look at what’s draining you, practice ways to calm your body, and build simple routines that ask less of you. You set the pace and the goals.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is ADHD burnout a real diagnosis?",
+        a: "No. ADHD burnout is a descriptive term, not a formal diagnosis, and research on it is still early. The exhaustion people describe is real, and a doctor or counselor can help sort out what’s behind it.",
+      },
+      {
+        q: "How long does ADHD burnout last?",
+        a: "There’s no set timeline, and no research yet that measures it. Many people notice it eases as the load drops and rest improves. If it lasts for weeks or comes with hopelessness, talk with a doctor or counselor.",
+      },
+      {
+        q: "Can a counselor help with ADHD burnout?",
+        a: "Counseling can give you a steady place to understand what’s draining you and try practical changes. Results differ from person to person and there’s no guarantee. Sarah Ateia, LPC Associate, offers talk therapy only and doesn’t diagnose ADHD or prescribe.",
+      },
+    ],
+  },
+  {
+    path: "resources/stress-management",
+    published: "2026-11-24",
+    related: [LINK.anxiety, LINK.holisticCounseling, LINK.boxBreathing, LINK.burnout, LINK.tools],
+    title: title("Stress Management in Dallas"),
+    description:
+      "What stress is, how it differs from anxiety, research-based ways to manage it day to day, and when to see a stress counselor in Dallas–Fort Worth.",
+    eyebrow: "Stress",
+    heading: "How do you manage stress, and when should you see a counselor?",
+    intro:
+      "Stress is your body and mind responding to pressure, like a deadline, a move, money worries, or caring for someone. A little stress can help you rise to a challenge. When it doesn’t let up, it can wear on sleep, mood, and health. Here’s what stress is, what helps, and when talking to a counselor makes sense.",
+    takeaways: [
+      "Stress is a response to an outside pressure and usually eases once the situation is resolved; anxiety can continue even when there’s no current threat.",
+      "Simple, research-supported basics help: regular movement, sleep, slow breathing, time outdoors, and connection with people.",
+      "In the American Psychological Association’s 2025 survey, 69% of U.S. adults said they needed more emotional support in the past year than they got.",
+      "It may be time to talk to a professional if stress won’t go away or you’re struggling to cope.",
+      "Counseling is available in English or Arabic, walking outdoors in Dallas–Fort Worth or by telehealth across Texas.",
+    ],
+    blocks: [
+      {
+        heading: "What is stress?",
+        paragraphs: [
+          "The National Institute of Mental Health describes stress as the physical or mental response to an outside cause, such as a heavy workload or an illness ([NIMH](https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet)). It can show up as tense muscles, headaches, poor sleep, irritability, or trouble focusing.",
+        ],
+      },
+      {
+        heading: "What’s the difference between stress and anxiety?",
+        paragraphs: [
+          "Stress is tied to a situation and usually goes away once that situation is resolved. Anxiety is the body’s reaction to stress and can stay even when there’s no current threat ([NIMH](https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet)).",
+          "If worry hangs on after the pressure has passed, [anxiety therapy](/anxiety-therapy-dallas/) explains how counseling for anxiety works.",
+        ],
+      },
+      {
+        heading: "Why do so many people feel stressed right now?",
+        paragraphs: [
+          "Many people are carrying more than they used to. In the American Psychological Association’s Stress in America 2025 survey of more than 3,000 U.S. adults, more than six in 10 named societal division as a significant source of stress, about half said they felt isolated or left out at least some of the time, and 69% said they needed more emotional support in the past year than they received ([APA, 2025](https://www.apa.org/news/press/releases/2025/11/nation-suffering-division-loneliness)).",
+          "The same survey found that 92% of adults see relationships as a key source of meaning, which is one reason connection is part of managing stress, not an extra.",
+        ],
+      },
+      {
+        heading: "What are healthy ways to manage stress?",
+        paragraphs: ["These everyday basics have research behind them:"],
+        list: [
+          "Move your body regularly; the CDC recommends 150 minutes a week of moderate activity for adults ([CDC](https://www.cdc.gov/physical-activity-basics/guidelines/adults.html))",
+          "Keep a steady sleep routine and go easy on caffeine ([NIMH](https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet))",
+          "Slow your breathing for a few minutes, for example with [box breathing](/resources/box-breathing/)",
+          "Ground yourself through your senses with [grounding techniques](/resources/grounding-techniques-for-anxiety/)",
+          "Try mind and body practices like relaxation, yoga, or mindfulness ([NCCIH](https://www.nccih.nih.gov/health/providers/digest/mind-and-body-approaches-for-stress-science))",
+          "Write things down: a short journal can get worries out of your head",
+          "Reach out to a friend or family member you trust",
+        ],
+      },
+      {
+        heading: "Can walking outdoors help with stress?",
+        paragraphs: [
+          "Many people find that walking outside takes the edge off. Movement is one of the most consistent stress helpers in research, and being outdoors adds a change of scene. [Walk and talk therapy](/resources/what-is-walk-and-talk-therapy/) brings counseling outside for people who think more clearly on the move.",
+        ],
+      },
+      {
+        heading: "When should you see a counselor for stress?",
+        paragraphs: [
+          "NIMH suggests talking to a professional if you’re struggling to cope or your stress or anxiety symptoms won’t go away ([NIMH](https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet)). Other signs it may help:",
+        ],
+        list: [
+          "Stress is affecting sleep, eating, work, or relationships",
+          "You’re relying on alcohol or other things to get through the day",
+          "You feel stuck, numb, or on edge most of the time",
+          "You can’t tell whether it’s stress, [burnout, or depression](/resources/burnout-vs-depression/)",
+        ],
+      },
+      {
+        heading: "Where can I find stress counseling in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [holistic counseling](/holistic-counseling/) for stress through walk and talk sessions in Dallas–Fort Worth, usually at Sam Houston Trail Park in Irving, or by [telehealth anywhere in Texas](/telehealth-counseling-texas/), in English or Arabic.",
+          "In counseling, we can look at where stress sits in your body and your week, practice ways to calm down, and decide what needs to change. Fees are self-pay; see [affordable therapy in Dallas](/affordable-therapy-dallas/) for costs and reduced rates.",
+          "Counseling isn’t a crisis service. If you’re in crisis, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What’s the fastest way to calm stress in the moment?",
+        a: "Slow breathing is one of the quickest tools. Try breathing in for 4 counts, holding for 4, breathing out for 4, and holding for 4, for about a minute. Grounding through your senses can also help.",
+      },
+      {
+        q: "Is stress the same as anxiety?",
+        a: "No. Stress is a response to an outside pressure and usually eases when the situation is resolved. Anxiety can continue even when there’s no current threat, according to the National Institute of Mental Health.",
+      },
+      {
+        q: "Does insurance cover stress counseling?",
+        a: "Sarah Ateia, LPC Associate, is self-pay only and doesn’t bill insurance. Sessions are $100, with reduced rates available based on household income and optional session packages.",
+      },
+    ],
+  },
+  {
+    path: "resources/life-transitions-counseling",
+    published: "2026-11-24",
+    related: [
+      LINK.youngAdult,
+      LINK.familyBoundaries,
+      LINK.culture,
+      LINK.personCentered,
+      LINK.selfCare,
+    ],
+    title: title("Life Transitions Counseling"),
+    description:
+      "What life transitions counseling is, the changes it can help with, what sessions look like, and how to find support in Dallas–Fort Worth or online.",
+    eyebrow: "Life transitions",
+    heading: "What is life transitions counseling?",
+    intro:
+      "Life transitions counseling is talk therapy focused on a big change, like a move, a new job or job loss, graduation, a breakup, becoming a parent, or a loss. Even good changes can shake your sense of who you are. Counseling gives you a steady place to sort through what’s ending, what’s beginning, and what you want next.",
+    takeaways: [
+      "Life transitions counseling is talk therapy for adjusting to a major change, wanted or unwanted.",
+      "Common transitions include moves, immigration, school to work, job changes, relationships, family changes, and loss.",
+      "Feeling unsettled during a big change is normal; counseling can help when it starts to affect sleep, work, or relationships.",
+      "Sessions usually focus on your values, practical next steps, and steadying your body during uncertainty.",
+      "Support is available in English or Arabic, walking outdoors in Dallas–Fort Worth or by telehealth across Texas.",
+    ],
+    blocks: [
+      {
+        heading: "What counts as a life transition?",
+        paragraphs: [
+          "Any change that reshapes your daily life or your sense of who you are. Some common ones:",
+        ],
+        list: [
+          "Moving to a new city or country, or adjusting to a new culture",
+          "Starting or finishing college, or a first full-time job",
+          "A new job, a promotion, a layoff, or retirement",
+          "A new relationship, marriage, separation, or divorce",
+          "Becoming a parent, or children leaving home",
+          "Caring for a parent, a health change, or losing someone close",
+        ],
+      },
+      {
+        heading: "Why can big changes feel so hard, even good ones?",
+        paragraphs: [
+          "Change asks you to let go of routines, roles, and people that helped you feel steady, often before the new ones are in place. That in-between stretch can bring stress, doubt, loneliness, or grief, even when the change is one you wanted.",
+          "Connection matters during these stretches. In the American Psychological Association’s 2025 Stress in America survey, about half of U.S. adults said they felt isolated at least some of the time, and 69% said they needed more emotional support in the past year than they received ([APA, 2025](https://www.apa.org/news/press/releases/2025/11/nation-suffering-division-loneliness)).",
+        ],
+      },
+      {
+        heading: "What happens in life transitions counseling?",
+        paragraphs: ["Every counselor works differently. In my sessions, the work often includes:"],
+        list: [
+          "Naming what you’re losing and what you’re gaining, so both have room",
+          "Clarifying what matters to you now, which may have shifted",
+          "Breaking the next stage into practical, doable steps",
+          "Calming your body during uncertainty, with tools like [grounding](/resources/grounding-techniques-for-anxiety/) and slow breathing",
+          "Looking at family, cultural, or faith expectations that shape the decision",
+        ],
+      },
+      {
+        heading: "Who is life transitions counseling for?",
+        paragraphs: [
+          "It can suit anyone facing a major change, and it’s especially common for [young adults](/young-adult-counseling/) moving from school to work or living on their own for the first time.",
+          "It can also help people adjusting to life in a new country or balancing two cultures. [Choosing a counselor: language and culture](/resources/choosing-a-counselor-language-culture/) covers what to ask if that’s part of your story.",
+        ],
+      },
+      {
+        heading: "When is it time to talk to someone about a life change?",
+        paragraphs: ["It may help to reach out if:"],
+        list: [
+          "The change is affecting your sleep, eating, work, or relationships",
+          "You feel stuck and can’t make a decision you need to make",
+          "Sadness or worry lasts for weeks rather than easing",
+          "You feel alone with it, or the people around you see it differently",
+        ],
+      },
+      {
+        heading: "Where can I find life transitions counseling in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers counseling for life transitions through [walk and talk sessions in Dallas–Fort Worth](/walk-and-talk-therapy-dallas/), usually at Sam Houston Trail Park in Irving, or by [telehealth anywhere in Texas](/telehealth-counseling-texas/), in English or [Arabic](/arabic-counseling/).",
+          "My approach is [person-centered](/resources/what-is-person-centered-therapy/): you set the pace and the goals. The first step is a free 15-minute phone consultation to see if it feels like a fit.",
+          "Counseling isn’t a crisis service. If you’re in crisis, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How long does life transitions counseling take?",
+        a: "It varies. Some people come for a handful of sessions around one decision or change; others stay longer while things settle. You can decide together with your counselor and change your mind at any time.",
+      },
+      {
+        q: "Do I need a diagnosis to get counseling for a life change?",
+        a: "No. Sarah Ateia, LPC Associate, is self-pay and doesn’t bill insurance, so counseling for a life change doesn’t require an insurance diagnosis.",
+      },
+      {
+        q: "Can I do life transitions counseling online?",
+        a: "Yes. Telehealth sessions are available to anyone located in Texas at the time of the session.",
+      },
+    ],
+  },
 ];
 
 // Blog posts live at /blog/. Educational only: each ends with the medical disclaimer.
@@ -5394,6 +5712,18 @@ const faqLabel = (page: ContentPage) =>
       ]
     : [];
 
+// Every outside source an article links to, so answer engines can see what each claim rests on.
+const citations = (page: ContentPage) => {
+  const text = [
+    page.intro,
+    ...(page.takeaways ?? []),
+    ...page.blocks.flatMap((b) => [...(b.paragraphs ?? []), ...(b.list ?? [])]),
+    ...(page.faqs ?? []).map((f) => f.a),
+  ].join(" ");
+  const links = [...text.matchAll(/\]\((https?:\/\/[^)\s]+)\)/g)].map((m) => m[1]);
+  return [...new Set([...links, ...(page.sources ?? []).map((s) => s.url)])];
+};
+
 // The page's own visible heading, so the search label names what the reader sees.
 const crumb = (page: ContentPage) => page.heading.replace(/\.$/, "");
 
@@ -5466,10 +5796,11 @@ export const SITE_PAGES: {
         description: page.description,
         url: url(page.path),
         datePublished: page.published ?? PUBLISHED,
-        dateModified: page.published ?? PUBLISHED,
+        dateModified: page.updated ?? page.published ?? PUBLISHED,
         inLanguage: "en-US",
         author: { ...SARAH, "@type": "Person", name: "Sarah Ateia", jobTitle: "LPC Associate" },
         publisher: PRACTICE,
+        citation: citations(page),
       },
       breadcrumbs(
         ["Home", "https://www.sarahateia.com/"],
@@ -5508,11 +5839,11 @@ export const SITE_PAGES: {
         description: page.description,
         url: url(page.path),
         datePublished: page.published ?? PUBLISHED,
-        dateModified: page.published ?? PUBLISHED,
+        dateModified: page.updated ?? page.published ?? PUBLISHED,
         inLanguage: "en-US",
         author: { ...SARAH, "@type": "Person", name: "Sarah Ateia", jobTitle: "LPC Associate" },
         publisher: PRACTICE,
-        citation: (page.sources ?? []).map((source) => source.url),
+        citation: citations(page),
       },
       breadcrumbs(
         ["Home", "https://www.sarahateia.com/"],
