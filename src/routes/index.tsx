@@ -2,7 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Download, Phone } from "lucide-react";
 import { BreathingExercise } from "@/components/breathing-exercise";
 import { ConsultationForm } from "@/components/consultation-dialog";
-import { BookingActions, SectionHeading, StickyCallBar } from "@/components/ds/booking";
+import {
+  BookingActions,
+  SectionHeading,
+  SessionBooking,
+  StickyCallBar,
+} from "@/components/ds/booking";
 import { LogoMark } from "@/components/logo";
 import { NatureBand } from "@/components/nature-band";
 import { WatercolorBloom } from "@/components/watercolor-bloom";
@@ -847,17 +852,8 @@ function Index() {
               <p className="mt-6 text-sm text-muted-foreground">
                 Standard fee $100 per session. Reduced rates available.
               </p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Already a client?{" "}
-                <a
-                  href="/new-clients/#book-session"
-                  className="underline underline-offset-4 hover:text-foreground"
-                >
-                  Book your next session
-                </a>
-                .
-              </p>
             </div>
+            <SessionBooking className="mt-6 text-left" />
           </div>
         </section>
 

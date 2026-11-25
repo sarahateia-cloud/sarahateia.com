@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
-import { MessageSquare, Phone } from "lucide-react";
+import { CalendarDays, MessageSquare, Phone } from "lucide-react";
 import { ConsultationButton } from "@/components/consultation-dialog";
 import {
   BOOKING_URL,
@@ -8,6 +8,7 @@ import {
   PHONE_DISPLAY,
   PHONE_HREF,
   SESSION_BOOKING_URL,
+  SESSION_PAYMENT_AT_BOOKING,
   SESSION_HOURS,
   SESSION_SMS_HREF,
 } from "@/lib/contact";
@@ -142,29 +143,47 @@ export function StickyCallBar({ bookLabel = "Book a Free Call" }: { bookLabel?: 
 }
 
 /**
- * Booking for current clients: people who've had the free call and signed consent forms.
- * Shows a scheduler button once SESSION_BOOKING_URL is set; until then, text or call to book.
+ * Booking for existing clients: a 50-minute session on Calendly. While Calendly can't take
+ * payment (SESSION_PAYMENT_AT_BOOKING false), clients pay through the Stripe links below it.
  */
-export function CurrentClientBooking({ className = "" }: { className?: string }) {
+export function SessionBooking({
+  className = "",
+  id = "book-session",
+}: {
+  className?: string;
+  id?: string;
+}) {
   return (
     <section
-      id="book-session"
-      aria-labelledby="book-session-heading"
+      id={id}
+      aria-labelledby={`${id}-heading`}
       className={`scroll-mt-28 rounded-3xl border border-border bg-card p-6 sm:p-8 ${className}`}
     >
       <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-        Current clients
+        Existing clients
       </p>
-      <h2
-        id="book-session-heading"
-        className="mt-2 font-serif text-2xl text-foreground sm:text-3xl"
-      >
+      <h2 id={`${id}-heading`} className="mt-2 font-serif text-2xl text-foreground sm:text-3xl">
         Book your next session.
       </h2>
       <p className="mt-3 text-[1.0625rem] leading-relaxed text-muted-foreground">
-        For clients who’ve had their free consultation and signed their consent forms. New here?{" "}
+        {SESSION_BOOKING_URL ? (
+          <>
+            Book a 50-minute session instantly online, walk and talk or telehealth. Need a time that
+            isn’t listed?{" "}
+            <a
+              href={SESSION_SMS_HREF}
+              className="underline underline-offset-4 hover:text-foreground"
+            >
+              Text me
+            </a>
+            .
+          </>
+        ) : (
+          "Text or call to book your 50-minute session."
+        )}{" "}
+        New here?{" "}
         <BookCallLink className="underline underline-offset-4 hover:text-foreground">
-          Start with a free call
+          Start with a free 15-minute call
         </BookCallLink>
         .
       </p>
@@ -181,6 +200,7 @@ export function CurrentClientBooking({ className = "" }: { className?: string })
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         {SESSION_BOOKING_URL ? (
           <a href={SESSION_BOOKING_URL} target="_blank" rel="noopener" className={BUTTON.cta}>
+            <CalendarDays className="h-4 w-4" aria-hidden />
             Book a session
             <span className="sr-only"> (opens the scheduler in a new tab)</span>
           </a>
@@ -195,9 +215,40 @@ export function CurrentClientBooking({ className = "" }: { className?: string })
           Call {PHONE_DISPLAY}
         </a>
       </div>
-      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-        Payment is due before each session starts. Please keep texts to scheduling and save anything
-        personal for our session.
+      <ul className="mt-5 space-y-2 text-sm leading-relaxed text-muted-foreground">
+        <li>
+          {SESSION_PAYMENT_AT_BOOKING ? (
+            "Payment is due when you book."
+          ) : (
+            <>
+              Payment is due before your session starts.{" "}
+              <a
+                href="/new-clients/#pay"
+                className="underline underline-offset-4 hover:text-foreground"
+              >
+                Pay securely here
+              </a>
+              .
+            </>
+          )}{" "}
+          Using a reduced rate? Text or call and I’ll book you.
+        </li>
+        <li>
+          Please make sure{" "}
+          <a
+            href="/new-clients/#forms"
+            className="underline underline-offset-4 hover:text-foreground"
+          >
+            your consent forms
+          </a>{" "}
+          are signed before your first session.
+        </li>
+        <li>
+          Please keep booking notes and texts to scheduling. Save anything personal for our session.
+        </li>
+      </ul>
+      <p className="mt-4 text-sm text-muted-foreground">
+        Sessions are with Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S.
       </p>
     </section>
   );
