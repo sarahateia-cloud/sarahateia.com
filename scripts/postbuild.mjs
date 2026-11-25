@@ -244,10 +244,24 @@ const HOME_FONTS = [fontFile("fraunces-latin-soft-italic-")];
 const fontPreloads = (route) =>
   [...BASE_FONTS, ...(route === "/" ? HOME_FONTS : [])].map(preloadFont).join("");
 
+// Built pages already carry their text, so the app script isn't needed to draw the first screen.
+// Start it right after the first paint instead of alongside the CSS and fonts, so on slow phones the
+// page shows sooner (Core Web Vitals: LCP). Buttons wake up a moment later; links work as plain links
+// meanwhile, and anything typed early is kept (see captureEarlyInput).
+const APP_SCRIPT = /<script type="module" crossorigin src="([^"]+)"><\/script>/;
+const deferAppScript = (doc) => {
+  if (!APP_SCRIPT.test(doc)) throw new Error("App script tag not found; update deferAppScript");
+  return doc.replace(
+    APP_SCRIPT,
+    (_tag, src) =>
+      `<script>(function(){function go(){var s=document.createElement("script");s.type="module";s.src=${JSON.stringify(src)};document.head.appendChild(s)}function start(){requestAnimationFrame(function(){requestAnimationFrame(function(){setTimeout(go,0)})})}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start);else start()})()</script>`,
+  );
+};
+
 // Put each page's text in its HTML, and show it without waiting for the fade-in if JavaScript is off.
 const prerender = async (doc, route) => {
   const body = await render(route);
-  return doc
+  return deferAppScript(doc)
     .replace(/<link rel="stylesheet"/, (tag) => `${fontPreloads(route)}${tag}`)
     .replace('<div id="root"></div>', () => `<div id="root">${body}</div>`)
     .replace(/<noscript>[\s\S]*?<\/noscript>/, "")
