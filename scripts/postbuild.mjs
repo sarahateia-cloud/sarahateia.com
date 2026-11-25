@@ -383,6 +383,64 @@ for (const url of builtUrls) {
 }
 if (problems.length) throw new Error(`Compliance check failed:\n${problems.join("\n")}`);
 
+// Stop the build if llms.txt (the plain-language site map for AI answer engines) leaves out any
+// listed page, so new guides can't go live without answer engines being told about them.
+const llms = readFileSync("dist/llms.txt", "utf8");
+const missingFromLlms = builtUrls.filter((url) => !llms.includes(`(${url})`));
+if (missingFromLlms.length) {
+  throw new Error(`Add these pages to public/llms.txt:\n${missingFromLlms.join("\n")}`);
+}
+
+// llms-full.txt: the readable text of every listed page in one plain file, so AI answer engines
+// can read the whole site (and quote it accurately) without running the app.
+const decode = (text) =>
+  text
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#x27;|&#39;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&nbsp;/g, " ");
+const toText = (doc) => {
+  const main = doc.match(/<main\b[\s\S]*?<\/main>/)?.[0] ?? "";
+  return decode(
+    main
+      .replace(/<(script|style|svg|nav)\b[\s\S]*?<\/\1>/g, " ")
+      .replace(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g, (_, href, label) => {
+        const text = label.replace(/<[^>]+>/g, "").trim();
+        if (!text) return " ";
+        const link = href.startsWith("/") ? `${SITE}${href}` : href;
+        return link.startsWith("http") && !text.includes(link)
+          ? ` [${text}](${link}) `
+          : ` ${text} `;
+      })
+      .replace(/<h1\b[^>]*>/g, "\n\n# ")
+      .replace(/<h2\b[^>]*>/g, "\n\n## ")
+      .replace(/<h3\b[^>]*>/g, "\n\n### ")
+      .replace(/<li\b[^>]*>/g, "\n- ")
+      .replace(/<(p|div|section|header|footer|ul|ol|details|summary|br)\b[^>]*>/g, "\n")
+      .replace(/<[^>]+>/g, " "),
+  )
+    .split("\n")
+    .map((line) => line.replace(/[ \t]+/g, " ").trim())
+    .filter(Boolean)
+    .join("\n")
+    .replace(/\n(?=#)/g, "\n\n");
+};
+const fullParts = [
+  llms
+    .split("\n## ")[0]
+    .replace(/\n.*llms-full\.txt.*\n/, "\n")
+    .trim(),
+  "This file holds the readable text of every page on www.sarahateia.com, one page after another. Each page starts with its address.",
+];
+for (const url of builtUrls) {
+  const path = url.slice(SITE.length + 1);
+  const text = toText(readFileSync(`dist/${path}index.html`, "utf8"));
+  if (text) fullParts.push(`---\n\nURL: ${url}\n\n${text}`);
+}
+writeFileSync("dist/llms-full.txt", `${fullParts.join("\n\n")}\n`);
+
 // Old addresses. GitHub Pages can't send a real 301, so each old address gets a tiny page that
 // sends people on at once and tells search engines which page is the real one.
 const REDIRECTS = {
