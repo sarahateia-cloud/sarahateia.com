@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
-# Blank client forms are for reading on the New Clients page, not for search results.
-Disallow: /forms/
+# Blank client forms (/forms/) are open to crawlers on purpose: they're public blank PDFs, and
+# blocking them only made audit tools flag them. Nothing private lives on this site.
 
 # AI search and answer engines are welcome to read and cite the site (same rules as above).
 # Named here so it's clear they are allowed, not just not blocked.
@@ -17,6 +17,5 @@ User-agent: Google-Extended
 User-agent: Applebot-Extended
 User-agent: Bingbot
 Allow: /
-Disallow: /forms/
 
 Sitemap: https://www.sarahateia.com/sitemap.xml
