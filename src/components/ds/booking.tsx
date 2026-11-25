@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
-import { MessageSquare, Phone } from "lucide-react";
+import { CalendarDays, MessageSquare, Phone } from "lucide-react";
 import { ConsultationButton } from "@/components/consultation-dialog";
 import {
   BOOKING_URL,
@@ -8,6 +8,7 @@ import {
   PHONE_DISPLAY,
   PHONE_HREF,
   SESSION_BOOKING_URL,
+  SESSION_PAYMENT_AT_BOOKING,
   SESSION_HOURS,
   SESSION_SMS_HREF,
 } from "@/lib/contact";
@@ -142,8 +143,8 @@ export function StickyCallBar({ bookLabel = "Book a Free Call" }: { bookLabel?: 
 }
 
 /**
- * Self-booking for everyone: pick a time and pay when booking (Calendly + Stripe).
- * Shows the scheduler button once SESSION_BOOKING_URL is set; until then, text or call to book.
+ * Booking for existing clients: a 50-minute session on Calendly. While Calendly can't take
+ * payment (SESSION_PAYMENT_AT_BOOKING false), clients pay through the Stripe links below it.
  */
 export function SessionBooking({ className = "" }: { className?: string }) {
   return (
@@ -153,19 +154,19 @@ export function SessionBooking({ className = "" }: { className?: string }) {
       className={`scroll-mt-28 rounded-3xl border border-border bg-card p-6 sm:p-8 ${className}`}
     >
       <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-        Book a session
+        Existing clients
       </p>
       <h2
         id="book-session-heading"
         className="mt-2 font-serif text-2xl text-foreground sm:text-3xl"
       >
-        Pick a time that works for you.
+        Book your next session.
       </h2>
       <p className="mt-3 text-[1.0625rem] leading-relaxed text-muted-foreground">
         {SESSION_BOOKING_URL
-          ? "Choose a session time and pay securely when you book."
-          : "Text or call to book your session."}{" "}
-        Not sure yet?{" "}
+          ? "Pick a time for a 50-minute session, walk and talk or telehealth."
+          : "Text or call to book your 50-minute session."}{" "}
+        New here?{" "}
         <BookCallLink className="underline underline-offset-4 hover:text-foreground">
           Start with a free 15-minute call
         </BookCallLink>
@@ -184,7 +185,8 @@ export function SessionBooking({ className = "" }: { className?: string }) {
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         {SESSION_BOOKING_URL ? (
           <a href={SESSION_BOOKING_URL} target="_blank" rel="noopener" className={BUTTON.cta}>
-            Book and pay for a session
+            <CalendarDays className="h-4 w-4" aria-hidden />
+            Book a session
             <span className="sr-only"> (opens the scheduler in a new tab)</span>
           </a>
         ) : (
@@ -200,17 +202,25 @@ export function SessionBooking({ className = "" }: { className?: string }) {
       </div>
       <ul className="mt-5 space-y-2 text-sm leading-relaxed text-muted-foreground">
         <li>
-          {SESSION_BOOKING_URL
-            ? "Payment is due when you book."
-            : "Payment is due before each session starts."}{" "}
+          {SESSION_PAYMENT_AT_BOOKING ? (
+            "Payment is due when you book."
+          ) : (
+            <>
+              Payment is due before your session starts.{" "}
+              <a href="#pay" className="underline underline-offset-4 hover:text-foreground">
+                Pay securely here
+              </a>
+              .
+            </>
+          )}{" "}
           Using a reduced rate? Text or call and I’ll book you.
         </li>
         <li>
-          First session? Please read and sign{" "}
+          Please make sure{" "}
           <a href="#forms" className="underline underline-offset-4 hover:text-foreground">
             your consent forms
           </a>{" "}
-          before we meet. We can’t start until they’re signed.
+          are signed before your first session.
         </li>
         <li>
           Please keep booking notes and texts to scheduling. Save anything personal for our session.

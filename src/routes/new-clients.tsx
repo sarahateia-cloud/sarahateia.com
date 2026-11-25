@@ -171,7 +171,7 @@ function NewClients() {
         </p>
 
         {ACTIVE_PAYMENT_LINKS.length > 0 && (
-          <section aria-labelledby="pay-heading" className="mt-12">
+          <section id="pay" aria-labelledby="pay-heading" className="mt-12 scroll-mt-28">
             <h2 id="pay-heading" className="font-serif text-3xl text-foreground">
               Paying for sessions
             </h2>
