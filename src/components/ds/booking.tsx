@@ -163,9 +163,21 @@ export function SessionBooking({ className = "" }: { className?: string }) {
         Book your next session.
       </h2>
       <p className="mt-3 text-[1.0625rem] leading-relaxed text-muted-foreground">
-        {SESSION_BOOKING_URL
-          ? "Pick a time for a 50-minute session, walk and talk or telehealth."
-          : "Text or call to book your 50-minute session."}{" "}
+        {SESSION_BOOKING_URL ? (
+          <>
+            Book a 50-minute session instantly online, walk and talk or telehealth. Need a time that
+            isn’t listed?{" "}
+            <a
+              href={SESSION_SMS_HREF}
+              className="underline underline-offset-4 hover:text-foreground"
+            >
+              Text me
+            </a>
+            .
+          </>
+        ) : (
+          "Text or call to book your 50-minute session."
+        )}{" "}
         New here?{" "}
         <BookCallLink className="underline underline-offset-4 hover:text-foreground">
           Start with a free 15-minute call

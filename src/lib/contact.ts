@@ -3,8 +3,9 @@ export const PHONE_HREF = "tel:+19724829526";
 // Free 15-minute phone consultation on Calendly. Change days and hours in Calendly, not here.
 export const BOOKING_URL = "https://calendly.com/attya-llc/consultation";
 
-// When the free consultation can be booked. Keep this matching the hours set in Calendly.
-export const CONSULT_HOURS = "Free calls available daily, 10 a.m. to 7 p.m. Central.";
+// Shown under the free-call buttons. Open times live in Calendly; other times are by text.
+export const CONSULT_HOURS =
+  "Book instantly online, or text (972) 482-9526 if you need a different time.";
 
 // 50-minute existing-client session on Calendly. Change days and hours in Calendly, not here.
 // Empty string shows "Text to book" instead.
