@@ -146,20 +146,23 @@ export function StickyCallBar({ bookLabel = "Book a Free Call" }: { bookLabel?: 
  * Booking for existing clients: a 50-minute session on Calendly. While Calendly can't take
  * payment (SESSION_PAYMENT_AT_BOOKING false), clients pay through the Stripe links below it.
  */
-export function SessionBooking({ className = "" }: { className?: string }) {
+export function SessionBooking({
+  className = "",
+  id = "book-session",
+}: {
+  className?: string;
+  id?: string;
+}) {
   return (
     <section
-      id="book-session"
-      aria-labelledby="book-session-heading"
+      id={id}
+      aria-labelledby={`${id}-heading`}
       className={`scroll-mt-28 rounded-3xl border border-border bg-card p-6 sm:p-8 ${className}`}
     >
       <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
         Existing clients
       </p>
-      <h2
-        id="book-session-heading"
-        className="mt-2 font-serif text-2xl text-foreground sm:text-3xl"
-      >
+      <h2 id={`${id}-heading`} className="mt-2 font-serif text-2xl text-foreground sm:text-3xl">
         Book your next session.
       </h2>
       <p className="mt-3 text-[1.0625rem] leading-relaxed text-muted-foreground">
@@ -219,7 +222,10 @@ export function SessionBooking({ className = "" }: { className?: string }) {
           ) : (
             <>
               Payment is due before your session starts.{" "}
-              <a href="#pay" className="underline underline-offset-4 hover:text-foreground">
+              <a
+                href="/new-clients/#pay"
+                className="underline underline-offset-4 hover:text-foreground"
+              >
                 Pay securely here
               </a>
               .
@@ -229,7 +235,10 @@ export function SessionBooking({ className = "" }: { className?: string }) {
         </li>
         <li>
           Please make sure{" "}
-          <a href="#forms" className="underline underline-offset-4 hover:text-foreground">
+          <a
+            href="/new-clients/#forms"
+            className="underline underline-offset-4 hover:text-foreground"
+          >
             your consent forms
           </a>{" "}
           are signed before your first session.
