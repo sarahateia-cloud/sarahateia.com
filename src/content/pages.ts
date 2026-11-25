@@ -195,6 +195,14 @@ const LINK = {
     label: "How to manage stress, and when to see a counselor",
     href: "/resources/stress-management/",
   },
+  panicVsAnxiety: {
+    label: "Panic attack vs. anxiety attack",
+    href: "/resources/panic-attack-vs-anxiety-attack/",
+  },
+  anxietyOrStress: {
+    label: "Is it anxiety or just stress?",
+    href: "/resources/anxiety-or-stress/",
+  },
   lifeTransitions: {
     label: "What is life transitions counseling?",
     href: "/resources/life-transitions-counseling/",
@@ -646,6 +654,8 @@ export const TOPICS: ContentPage[] = [
       LINK.groundingGuide,
       LINK.grounding,
       LINK.boxBreathing,
+      LINK.panicVsAnxiety,
+      LINK.anxietyOrStress,
     ],
     title: "Anxiety Therapist in Dallas, TX | Anxiety Therapy",
     description:
@@ -769,6 +779,7 @@ export const TOPICS: ContentPage[] = [
       LINK.youngAdultGuide,
       LINK.screening,
       LINK.burnout,
+      LINK.anxietyOrStress,
     ],
     title: "Depression Counseling in Dallas, TX",
     description:
@@ -4645,6 +4656,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.anxiety,
       LINK.outdoor,
       LINK.groundingGuide,
+      LINK.panicVsAnxiety,
     ],
     title: "Grounding Techniques for Anxiety: How to Use Them",
     description:
@@ -4755,7 +4767,14 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/box-breathing",
     published: "2026-11-21",
-    related: [LINK.grounding, LINK.tools, LINK.regulation, LINK.anxiety, LINK.holisticCounseling],
+    related: [
+      LINK.grounding,
+      LINK.tools,
+      LINK.regulation,
+      LINK.anxiety,
+      LINK.holisticCounseling,
+      LINK.panicVsAnxiety,
+    ],
     title: "Box Breathing: How to Do It and Why It Helps",
     description:
       "How to do box breathing step by step, what a 2023 randomized trial found about breathing exercises and anxiety, and when to use it.",
@@ -5334,7 +5353,14 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/stress-management",
     published: "2026-11-24",
-    related: [LINK.anxiety, LINK.holisticCounseling, LINK.boxBreathing, LINK.burnout, LINK.tools],
+    related: [
+      LINK.anxiety,
+      LINK.holisticCounseling,
+      LINK.boxBreathing,
+      LINK.burnout,
+      LINK.tools,
+      LINK.anxietyOrStress,
+    ],
     title: title("Stress Management in Dallas"),
     description:
       "What stress is, how it differs from anxiety, research-based ways to manage it day to day, and when to see a stress counselor in Dallas–Fort Worth.",
@@ -5422,6 +5448,207 @@ export const ARTICLES: ContentPage[] = [
       {
         q: "Does insurance cover stress counseling?",
         a: "Sarah Ateia, LPC Associate, is self-pay only and doesn’t bill insurance. Sessions are $100, with reduced rates available based on household income and optional session packages.",
+      },
+    ],
+  },
+  {
+    path: "resources/panic-attack-vs-anxiety-attack",
+    published: "2026-11-25",
+    related: [LINK.anxiety, LINK.anxietyOrStress, LINK.grounding, LINK.boxBreathing, LINK.tools],
+    title: title("Panic Attack vs Anxiety Attack"),
+    description:
+      "How a panic attack differs from an “anxiety attack,” what each feels like, what helps in the moment, and when to get support in Dallas–Fort Worth.",
+    eyebrow: "Anxiety",
+    heading: "What’s the difference between a panic attack and an anxiety attack?",
+    intro:
+      "People use “panic attack” and “anxiety attack” to mean the same thing, but they usually describe two different experiences. A panic attack hits suddenly and hard. What people call an anxiety attack tends to build over time around a worry. Knowing which one you’re dealing with can make it less frightening and help you pick what to try.",
+    takeaways: [
+      "A panic attack is a sudden wave of intense fear or a sense of losing control, often with a racing heart, chest pain, shaking, or trouble breathing, even when there’s no clear danger.",
+      "“Anxiety attack” isn’t a medical term. People usually use it for anxiety that builds gradually around a stressor.",
+      "Panic attacks can feel like a heart attack. If you’re not sure what’s happening, get medical care right away.",
+      "Slow breathing and grounding through your senses can help you ride out the peak.",
+      "Psychotherapy is a commonly used treatment for both panic and ongoing anxiety, according to the National Institute of Mental Health.",
+    ],
+    blocks: [
+      {
+        heading: "What is a panic attack?",
+        paragraphs: [
+          "The National Institute of Mental Health (NIMH) describes panic attacks as a sudden wave of fear or discomfort, or a sense of losing control, even when there is no clear danger or trigger. They can happen at any time, sometimes even during sleep ([NIMH](https://www.nimh.nih.gov/health/publications/panic-disorder-when-fear-overwhelms)).",
+          "Common physical signs include ([NIMH](https://www.nimh.nih.gov/health/publications/panic-disorder-when-fear-overwhelms)):",
+        ],
+        list: [
+          "A pounding or racing heart",
+          "Sweating, chills, or trembling",
+          "Trouble breathing",
+          "Weakness or dizziness",
+          "Tingly or numb hands",
+          "Chest pain, stomach pain, or nausea",
+        ],
+      },
+      {
+        heading: "Is an “anxiety attack” a real thing?",
+        paragraphs: [
+          "Not as a diagnosis. Cleveland Clinic notes that the DSM-5-TR, the manual clinicians use to define mental health conditions, doesn’t recognize or define an anxiety attack ([Cleveland Clinic](https://health.clevelandclinic.org/panic-attack-vs-anxiety-attack)). The feeling is still real. People usually use the phrase for anxiety that builds up around something stressful, like a big exam, a hard conversation, or a flight.",
+        ],
+      },
+      {
+        heading: "How can you tell them apart?",
+        paragraphs: ["These differences are general patterns, not a way to diagnose yourself:"],
+        list: [
+          "Onset: anxiety tends to build gradually around a stressor, while panic attacks typically come on suddenly and unexpectedly ([Cleveland Clinic](https://health.clevelandclinic.org/panic-attack-vs-anxiety-attack))",
+          "Intensity: panic usually feels sharper and more physical; building anxiety often feels like worry, tension, and restlessness that rises and falls",
+          "Trigger: anxiety usually has a clear focus; a panic attack can arrive with no obvious cause",
+          "Length: Cleveland Clinic says panic attacks usually last 15 to 20 minutes, and NIMH notes they can last from a few minutes to an hour or sometimes longer",
+        ],
+      },
+      {
+        heading: "Can a panic attack feel like a heart attack?",
+        paragraphs: [
+          "Yes. NIMH notes that panic attacks often include physical symptoms that might feel like a heart attack ([NIMH](https://www.nimh.nih.gov/health/publications/panic-disorder-when-fear-overwhelms)). Don’t assume chest pain is “just anxiety.” If you have chest pain, trouble breathing, or you’re unsure what’s happening, call 911 or go to the nearest emergency room. A primary care doctor can also check for physical causes.",
+        ],
+      },
+      {
+        heading: "What helps during a panic or anxiety attack?",
+        paragraphs: [
+          "The goal in the moment isn’t to force the feeling away. It’s to give your body signals that you’re safe enough to let it pass. These can help:",
+        ],
+        list: [
+          "Slow your breathing, for example with [box breathing](/resources/box-breathing/): in for 4, hold for 4, out for 4, hold for 4",
+          "Name what’s happening: “This is panic. It’s uncomfortable, and it will pass.”",
+          "Ground yourself through your senses with the [5-4-3-2-1 method](/resources/grounding-techniques-for-anxiety/)",
+          "Put your feet flat on the floor or hold something cold",
+          "Once it eases, move gently: a short walk can help your body settle",
+        ],
+      },
+      {
+        heading: "How common are panic attacks?",
+        paragraphs: [
+          "Panic attacks are common, and panic disorder (repeated, unexpected attacks plus ongoing worry about having more) affected an estimated 2.7% of U.S. adults in the past year, based on national survey data NIMH reports ([NIMH](https://www.nimh.nih.gov/health/statistics/panic-disorder)). Having one panic attack doesn’t mean you have panic disorder. Only a qualified health care provider can diagnose it.",
+        ],
+      },
+      {
+        heading: "When should you talk to someone?",
+        paragraphs: [
+          "NIMH says treatment for panic disorder typically involves psychotherapy, medication, or both, and that cognitive behavioral therapy is commonly used ([NIMH](https://www.nimh.nih.gov/health/publications/panic-disorder-when-fear-overwhelms)). It may help to reach out if:",
+        ],
+        list: [
+          "You’ve had more than one panic attack, or you’re worried about the next one",
+          "You’re avoiding places, driving, or people because of anxiety",
+          "Worry is affecting sleep, work, school, or relationships",
+          "You can’t tell whether it’s [anxiety or just stress](/resources/anxiety-or-stress/)",
+        ],
+      },
+      {
+        heading: "Where can I get anxiety counseling in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [talk therapy for anxiety](/anxiety-therapy-dallas/) through walk and talk sessions in Dallas–Fort Worth, usually at Sam Houston Trail Park in Irving, or by [telehealth anywhere in Texas](/telehealth-counseling-texas/), in English or Arabic. Sessions focus on understanding what keeps your alarm system switched on and practicing calming skills you can use on your own.",
+          "Sarah offers talk therapy only. She doesn’t diagnose or prescribe; if medication might help, your doctor or a psychiatric provider is the right person to ask.",
+          "Counseling isn’t a crisis service. If you’re in crisis, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is a panic attack the same as an anxiety attack?",
+        a: "Not quite. A panic attack is a sudden wave of intense fear with strong physical symptoms, often with no clear trigger. “Anxiety attack” isn’t a medical term; people usually use it for anxiety that builds gradually around a stressor.",
+      },
+      {
+        q: "How long does a panic attack last?",
+        a: "Cleveland Clinic says panic attacks usually last 15 to 20 minutes. The National Institute of Mental Health notes they can last from a few minutes to an hour or sometimes longer.",
+      },
+      {
+        q: "Can counseling help with panic attacks?",
+        a: "Psychotherapy is a commonly used treatment for panic, according to the National Institute of Mental Health. Results differ from person to person and there’s no guarantee. Sarah Ateia, LPC Associate, offers talk therapy only.",
+      },
+    ],
+  },
+  {
+    path: "resources/anxiety-or-stress",
+    published: "2026-11-25",
+    related: [LINK.anxiety, LINK.stress, LINK.panicVsAnxiety, LINK.screening, LINK.burnout],
+    title: title("Anxiety or Stress? How to Tell"),
+    description:
+      "How to tell whether you’re stressed or dealing with anxiety, signs that it’s more than stress, what helps, and when to see a counselor in Dallas.",
+    eyebrow: "Anxiety",
+    heading: "How do I know if I have anxiety or I’m just stressed?",
+    intro:
+      "Stress and anxiety feel a lot alike: a tight chest, a busy mind, bad sleep. The main difference is what happens when the pressure lifts. Stress usually eases once the situation does. Anxiety tends to stick around, or show up when nothing is wrong. Here’s how to think it through, and when it makes sense to get support.",
+    takeaways: [
+      "Stress is a response to an outside cause; anxiety can continue even when there’s no current threat, according to the National Institute of Mental Health.",
+      "A useful question: does the feeling ease when the stressful situation ends?",
+      "Worry that’s hard to control on most days for months, with restlessness, tiredness, irritability, tension, or sleep problems, is worth talking to a health care provider about.",
+      "Only a qualified provider can diagnose an anxiety disorder; free screening tools can help you decide whether to ask.",
+      "Movement, a steady sleep routine, less caffeine, and slow breathing help with both.",
+    ],
+    blocks: [
+      {
+        heading: "What’s the difference between stress and anxiety?",
+        paragraphs: [
+          "NIMH describes stress as the physical or mental response to an external cause, like a heavy workload or an illness. Anxiety is the body’s reaction to stress and can occur even if there is no current threat ([NIMH](https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet)).",
+          "In everyday terms: stress is usually about something (a deadline, a move, a bill). Anxiety can feel like the alarm keeps ringing after the thing is handled, or rings before anything has happened.",
+        ],
+      },
+      {
+        heading: "Questions to ask yourself",
+        paragraphs: ["These aren’t a test, just a way to notice patterns:"],
+        list: [
+          "Can I name what I’m worried about, and is it happening now?",
+          "When that situation ends, do I feel better within a few days?",
+          "Do I worry about many different things, even when life is calm?",
+          "Is it hard to stop worrying once I start?",
+          "Am I avoiding things I used to handle fine?",
+          "Is it affecting my sleep, work, school, or relationships?",
+        ],
+      },
+      {
+        heading: "When might it be more than stress?",
+        paragraphs: [
+          "NIMH explains that generalized anxiety disorder involves finding it hard to control worry on most days for at least six months, along with symptoms like feeling restless or on edge, fatigue, trouble concentrating, irritability, muscle tension, or problems with sleep ([NIMH](https://www.nimh.nih.gov/health/publications/generalized-anxiety-disorder-gad)).",
+          "Sudden waves of intense fear with a racing heart or trouble breathing may be panic attacks; see [panic attack vs. anxiety attack](/resources/panic-attack-vs-anxiety-attack/).",
+          "A health care provider can check for physical causes and make a diagnosis if one fits ([NIMH](https://www.nimh.nih.gov/health/publications/generalized-anxiety-disorder-gad)). If you want a starting point, these optional [screening tools](/screening-tools/) are free and private.",
+        ],
+      },
+      {
+        heading: "What helps with both stress and anxiety?",
+        paragraphs: [
+          "NIMH suggests everyday steps like these ([NIMH](https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet)):",
+        ],
+        list: [
+          "Exercise regularly and eat healthy, regular meals",
+          "Stick to a sleep routine",
+          "Avoid too much caffeine, like coffee and soft drinks",
+          "Keep a journal to get worries out of your head",
+          "Practice slow breathing, such as [box breathing](/resources/box-breathing/), or [grounding](/resources/grounding-techniques-for-anxiety/)",
+          "Stay connected with people who are good for you",
+        ],
+      },
+      {
+        heading: "When should you see a counselor?",
+        paragraphs: [
+          "NIMH says it may be time to talk to a professional if you’re struggling to cope or if the symptoms of your stress or anxiety won’t go away. It also notes that psychotherapy (talk therapy) and medication are the two main treatments for anxiety ([NIMH](https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet)).",
+          "You don’t need to be sure it’s anxiety before reaching out. Not knowing is a fine reason to talk it through. For more on stress specifically, see [how to manage stress](/resources/stress-management/).",
+        ],
+      },
+      {
+        heading: "Where can I get help for anxiety or stress in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [anxiety therapy](/anxiety-therapy-dallas/) and [holistic counseling](/holistic-counseling/) through walk and talk sessions in Dallas–Fort Worth, usually at Sam Houston Trail Park in Irving, or by [telehealth anywhere in Texas](/telehealth-counseling-texas/), in English or Arabic. Sarah offers talk therapy only and doesn’t diagnose or prescribe.",
+          "Fees are self-pay; see [affordable therapy in Dallas](/affordable-therapy-dallas/) for costs and reduced rates. Counseling isn’t a crisis service. If you’re in crisis, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I know if I have anxiety or I’m just stressed?",
+        a: "Stress is usually tied to a situation and eases when it ends. Anxiety can continue even when there’s no current threat, according to the National Institute of Mental Health. If worry is hard to control on most days, or won’t go away, talk to a health care provider or counselor.",
+      },
+      {
+        q: "Can stress turn into anxiety?",
+        a: "NIMH describes anxiety as the body’s reaction to stress, so long-running stress and anxiety are closely linked. If you still feel on edge after a stressful period has passed, it’s worth checking in with a professional.",
+      },
+      {
+        q: "Does Sarah diagnose anxiety?",
+        a: "No. Sarah Ateia, LPC Associate, offers talk therapy only and doesn’t diagnose or prescribe. A primary care doctor or other qualified provider can evaluate symptoms and rule out physical causes.",
       },
     ],
   },
