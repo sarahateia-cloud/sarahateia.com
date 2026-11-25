@@ -29,6 +29,8 @@ export type ContentPage = {
   arabicIntro?: string;
   /** Articles only: the date this article first went live (YYYY-MM-DD). Defaults to PUBLISHED. */
   published?: string;
+  /** Articles only: the date the content was last meaningfully changed (YYYY-MM-DD). Defaults to published. */
+  updated?: string;
 };
 
 const LINK = {
@@ -187,6 +189,23 @@ const LINK = {
   rsd: {
     label: "What is rejection sensitive dysphoria in ADHD?",
     href: "/resources/rejection-sensitive-dysphoria-adhd/",
+  },
+  adhdBurnout: { label: "What is ADHD burnout?", href: "/resources/adhd-burnout/" },
+  stress: {
+    label: "How to manage stress, and when to see a counselor",
+    href: "/resources/stress-management/",
+  },
+  panicVsAnxiety: {
+    label: "Panic attack vs. anxiety attack",
+    href: "/resources/panic-attack-vs-anxiety-attack/",
+  },
+  anxietyOrStress: {
+    label: "Is it anxiety or just stress?",
+    href: "/resources/anxiety-or-stress/",
+  },
+  lifeTransitions: {
+    label: "What is life transitions counseling?",
+    href: "/resources/life-transitions-counseling/",
   },
 };
 
@@ -520,6 +539,7 @@ export const TOPICS: ContentPage[] = [
       LINK.slidingScale,
       LINK.firstSession,
       LINK.familyBoundaries,
+      LINK.lifeTransitions,
     ],
     title: "Therapist for Young Adults in Dallas, TX",
     description:
@@ -630,9 +650,12 @@ export const TOPICS: ContentPage[] = [
       LINK.screening,
       LINK.regulation,
       LINK.tools,
+      LINK.stress,
       LINK.groundingGuide,
       LINK.grounding,
       LINK.boxBreathing,
+      LINK.panicVsAnxiety,
+      LINK.anxietyOrStress,
     ],
     title: "Anxiety Therapist in Dallas, TX | Anxiety Therapy",
     description:
@@ -756,6 +779,7 @@ export const TOPICS: ContentPage[] = [
       LINK.youngAdultGuide,
       LINK.screening,
       LINK.burnout,
+      LINK.anxietyOrStress,
     ],
     title: "Depression Counseling in Dallas, TX",
     description:
@@ -874,6 +898,7 @@ export const TOPICS: ContentPage[] = [
       LINK.screening,
       LINK.adhdWomen,
       LINK.rsd,
+      LINK.adhdBurnout,
     ],
     title: "ADHD Therapist in Dallas, TX | Adult ADHD Counseling",
     description:
@@ -990,6 +1015,7 @@ export const TOPICS: ContentPage[] = [
       LINK.outdoor,
       LINK.regulation,
       LINK.burnout,
+      LINK.stress,
     ],
     title: "Holistic Counseling in Dallas | Holistic Therapist",
     description:
@@ -2659,6 +2685,8 @@ export const ARTICLES: ContentPage[] = [
     path: "resources/self-care-for-mental-health",
     published: "2026-11-18",
     related: [
+      LINK.stress,
+      LINK.lifeTransitions,
       LINK.holisticCounseling,
       LINK.depression,
       LINK.outdoor,
@@ -3946,7 +3974,15 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/burnout-vs-depression",
     published: "2026-11-20",
-    related: [LINK.depression, LINK.holisticCounseling, LINK.lasColinas, LINK.selfCare],
+    related: [
+      LINK.depression,
+      LINK.holisticCounseling,
+      LINK.lasColinas,
+      LINK.selfCare,
+      LINK.adhdBurnout,
+      LINK.stress,
+      LINK.lifeTransitions,
+    ],
     title: title("Burnout vs. Depression"),
     description:
       "How burnout and depression differ and overlap, the signs of each, and when to talk with a counselor or doctor. Plain language, with research sources.",
@@ -4288,6 +4324,7 @@ export const ARTICLES: ContentPage[] = [
     path: "resources/nervous-system-regulation-techniques",
     published: "2026-11-20",
     related: [
+      LINK.stress,
       LINK.holisticCounseling,
       LINK.anxiety,
       LINK.selfCare,
@@ -4619,6 +4656,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.anxiety,
       LINK.outdoor,
       LINK.groundingGuide,
+      LINK.panicVsAnxiety,
     ],
     title: "Grounding Techniques for Anxiety: How to Use Them",
     description:
@@ -4729,7 +4767,14 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/box-breathing",
     published: "2026-11-21",
-    related: [LINK.grounding, LINK.tools, LINK.regulation, LINK.anxiety, LINK.holisticCounseling],
+    related: [
+      LINK.grounding,
+      LINK.tools,
+      LINK.regulation,
+      LINK.anxiety,
+      LINK.holisticCounseling,
+      LINK.panicVsAnxiety,
+    ],
     title: "Box Breathing: How to Do It and Why It Helps",
     description:
       "How to do box breathing step by step, what a 2023 randomized trial found about breathing exercises and anxiety, and when to use it.",
@@ -5205,6 +5250,506 @@ export const ARTICLES: ContentPage[] = [
       },
     ],
   },
+  {
+    path: "resources/adhd-burnout",
+    published: "2026-11-24",
+    related: [LINK.adhdTherapy, LINK.burnout, LINK.rsd, LINK.adhdAnxiety, LINK.regulation],
+    title: title("ADHD Burnout: Signs & Recovery"),
+    description:
+      "What ADHD burnout is, common signs, how it differs from depression and job burnout, what early research says, and gentle ways to recover.",
+    eyebrow: "ADHD",
+    heading: "What is ADHD burnout?",
+    intro:
+      "ADHD burnout is a name many adults use for deep exhaustion that builds up after months or years of working hard to keep up, stay organized, and hide how much effort everyday life takes. It isn’t a formal diagnosis, and research on it is new, but the experience is common and there are practical ways to ease it.",
+    takeaways: [
+      "ADHD burnout describes physical, emotional, and mental exhaustion from the constant effort of managing ADHD in daily life.",
+      "It’s an emerging, descriptive term, not a formal diagnosis.",
+      "A 2024 study of 171 employees found that those who screened positive for ADHD reported more job burnout, partly because of difficulties with time management and organization.",
+      "Recovery usually starts with lowering the load, protecting sleep and rest, and building systems that take pressure off willpower.",
+      "If exhaustion comes with hopelessness or lasts for weeks, talk to a doctor or counselor, because it can overlap with depression.",
+    ],
+    blocks: [
+      {
+        heading: "What does ADHD burnout mean?",
+        paragraphs: [
+          "ADHD burnout is a descriptive term for the exhaustion that can follow long stretches of pushing through ADHD symptoms: forcing focus, double-checking everything, catching up late at night, and masking struggles so others don’t notice.",
+          "Researchers have only started to study it. A 2025 qualitative study in Psychology in the Schools called ADHD burnout “an emerging concept” and described it as ongoing bodily, emotional, and mental exhaustion from living in a constant “hyper” state of managing symptoms ([Hossain and Bain, 2025](https://www.open-access.bcu.ac.uk/16467/)). That study listened to parents of children with ADHD, so it’s an early look, not a final definition.",
+        ],
+      },
+      {
+        heading: "What are the signs of ADHD burnout?",
+        paragraphs: [
+          "Everyone’s experience is different. People describing ADHD burnout often mention:",
+        ],
+        list: [
+          "Feeling drained even after rest, or waking up already tired",
+          "Systems and routines that used to work suddenly falling apart",
+          "More forgetfulness, missed deadlines, or trouble starting tasks than usual",
+          "Shorter fuse: irritability, tears, or shutting down over small things",
+          "Pulling away from friends, hobbies, or anything that takes extra energy",
+          "A harsh inner voice that says you’re lazy or failing, even though you’re trying hard",
+        ],
+      },
+      {
+        heading: "Is ADHD burnout the same as job burnout or depression?",
+        paragraphs: [
+          "Not exactly, though they can overlap. The World Health Organization describes burnout as an occupational phenomenon from chronic workplace stress, not a medical condition ([WHO](https://www.who.int/standards/classifications/frequently-asked-questions/burn-out-an-occupational-phenomenon)). ADHD burnout is used more broadly, for exhaustion that comes from managing ADHD across work, home, school, and relationships.",
+          "ADHD does seem to raise the risk of job burnout. In a 2024 study of 171 employees, those who screened positive for ADHD reported noticeably higher burnout, and difficulties with managing time and getting organized helped explain the link ([Turjeman-Levi et al., 2024](https://pmc.ncbi.nlm.nih.gov/articles/PMC11007411/)). The study used a self-report screener rather than a diagnosis, so it shows a connection, not a cause.",
+          "Depression is different. It tends to bring low mood and loss of interest across most of life, not only tiredness. Read [burnout vs. depression](/resources/burnout-vs-depression/) for the differences, and talk with a doctor if you’re unsure.",
+        ],
+      },
+      {
+        heading: "How do you recover from ADHD burnout?",
+        paragraphs: [
+          "Recovery is usually less about trying harder and more about needing less effort to get through the day. These are gentle starting points, not a treatment plan:",
+        ],
+        list: [
+          "Lower the load where you can: drop, delay, or delegate one or two things this week",
+          "Protect sleep and plan real rest, not just collapse at the end of the day",
+          "Make tasks visible and small: a short list, a timer, a body double, a reminder on your phone",
+          "Move your body, ideally outside; even a short walk can help your nervous system settle",
+          "Notice where you’re masking, and find one place where you don’t have to",
+          "Swap self-criticism for curiosity: what made this week harder than usual?",
+        ],
+      },
+      {
+        heading: "How can I prevent ADHD burnout from coming back?",
+        paragraphs: [
+          "Many people find it helps to notice their early warning signs, like routines slipping or sleep getting shorter, and to act before exhaustion takes over.",
+          "Steady basics, such as sleep, movement, time outdoors, and people who feel safe, are part of a [holistic, mind-body approach](/holistic-counseling/). [Nervous system regulation techniques](/resources/nervous-system-regulation-techniques/) and [creative strategies for adults with ADHD](/resources/adhd-creative-strategies/) have more practical ideas.",
+          "If you haven’t had an ADHD evaluation and wonder whether ADHD is part of the picture, a free screener like the ASRS v1.1 on the [screening tools page](/screening-tools/) is a starting point to bring to a doctor, psychiatrist, or psychologist. It isn’t a diagnosis.",
+        ],
+      },
+      {
+        heading: "When should I talk to someone about ADHD burnout?",
+        paragraphs: [
+          "It may be time to reach out if exhaustion lasts for weeks, if you feel hopeless, or if work, school, or relationships are slipping in ways that worry you.",
+          "Counseling isn’t a crisis service. If you’re thinking about harming yourself, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+      {
+        heading: "Where can I get support for ADHD burnout in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [adult ADHD counseling](/adhd-therapy/) through walk and talk sessions in Dallas–Fort Worth or by [telehealth anywhere in Texas](/telehealth-counseling-texas/).",
+          "I don’t diagnose ADHD or prescribe medication. In counseling, we can look at what’s draining you, practice ways to calm your body, and build simple routines that ask less of you. You set the pace and the goals.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is ADHD burnout a real diagnosis?",
+        a: "No. ADHD burnout is a descriptive term, not a formal diagnosis, and research on it is still early. The exhaustion people describe is real, and a doctor or counselor can help sort out what’s behind it.",
+      },
+      {
+        q: "How long does ADHD burnout last?",
+        a: "There’s no set timeline, and no research yet that measures it. Many people notice it eases as the load drops and rest improves. If it lasts for weeks or comes with hopelessness, talk with a doctor or counselor.",
+      },
+      {
+        q: "Can a counselor help with ADHD burnout?",
+        a: "Counseling can give you a steady place to understand what’s draining you and try practical changes. Results differ from person to person and there’s no guarantee. Sarah Ateia, LPC Associate, offers talk therapy only and doesn’t diagnose ADHD or prescribe.",
+      },
+    ],
+  },
+  {
+    path: "resources/stress-management",
+    published: "2026-11-24",
+    related: [
+      LINK.anxiety,
+      LINK.holisticCounseling,
+      LINK.boxBreathing,
+      LINK.burnout,
+      LINK.tools,
+      LINK.anxietyOrStress,
+    ],
+    title: title("Stress Management in Dallas"),
+    description:
+      "What stress is, how it differs from anxiety, research-based ways to manage it day to day, and when to see a stress counselor in Dallas–Fort Worth.",
+    eyebrow: "Stress",
+    heading: "How do you manage stress, and when should you see a counselor?",
+    intro:
+      "Stress is your body and mind responding to pressure, like a deadline, a move, money worries, or caring for someone. A little stress can help you rise to a challenge. When it doesn’t let up, it can wear on sleep, mood, and health. Here’s what stress is, what helps, and when talking to a counselor makes sense.",
+    takeaways: [
+      "Stress is a response to an outside pressure and usually eases once the situation is resolved; anxiety can continue even when there’s no current threat.",
+      "Simple, research-supported basics help: regular movement, sleep, slow breathing, time outdoors, and connection with people.",
+      "In the American Psychological Association’s 2025 survey, 69% of U.S. adults said they needed more emotional support in the past year than they got.",
+      "It may be time to talk to a professional if stress won’t go away or you’re struggling to cope.",
+      "Counseling is available in English or Arabic, walking outdoors in Dallas–Fort Worth or by telehealth across Texas.",
+    ],
+    blocks: [
+      {
+        heading: "What is stress?",
+        paragraphs: [
+          "The National Institute of Mental Health describes stress as the physical or mental response to an outside cause, such as a heavy workload or an illness ([NIMH](https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet)). It can show up as tense muscles, headaches, poor sleep, irritability, or trouble focusing.",
+        ],
+      },
+      {
+        heading: "What’s the difference between stress and anxiety?",
+        paragraphs: [
+          "Stress is tied to a situation and usually goes away once that situation is resolved. Anxiety is the body’s reaction to stress and can stay even when there’s no current threat ([NIMH](https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet)).",
+          "If worry hangs on after the pressure has passed, [anxiety therapy](/anxiety-therapy-dallas/) explains how counseling for anxiety works.",
+        ],
+      },
+      {
+        heading: "Why do so many people feel stressed right now?",
+        paragraphs: [
+          "Many people are carrying more than they used to. In the American Psychological Association’s Stress in America 2025 survey of more than 3,000 U.S. adults, more than six in 10 named societal division as a significant source of stress, about half said they felt isolated or left out at least some of the time, and 69% said they needed more emotional support in the past year than they received ([APA, 2025](https://www.apa.org/news/press/releases/2025/11/nation-suffering-division-loneliness)).",
+          "The same survey found that 92% of adults see relationships as a key source of meaning, which is one reason connection is part of managing stress, not an extra.",
+        ],
+      },
+      {
+        heading: "What are healthy ways to manage stress?",
+        paragraphs: ["These everyday basics have research behind them:"],
+        list: [
+          "Move your body regularly; the CDC recommends 150 minutes a week of moderate activity for adults ([CDC](https://www.cdc.gov/physical-activity-basics/guidelines/adults.html))",
+          "Keep a steady sleep routine and go easy on caffeine ([NIMH](https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet))",
+          "Slow your breathing for a few minutes, for example with [box breathing](/resources/box-breathing/)",
+          "Ground yourself through your senses with [grounding techniques](/resources/grounding-techniques-for-anxiety/)",
+          "Try mind and body practices like relaxation, yoga, or mindfulness ([NCCIH](https://www.nccih.nih.gov/health/providers/digest/mind-and-body-approaches-for-stress-science))",
+          "Write things down: a short journal can get worries out of your head",
+          "Reach out to a friend or family member you trust",
+        ],
+      },
+      {
+        heading: "Can walking outdoors help with stress?",
+        paragraphs: [
+          "Many people find that walking outside takes the edge off. Movement is one of the most consistent stress helpers in research, and being outdoors adds a change of scene. [Walk and talk therapy](/resources/what-is-walk-and-talk-therapy/) brings counseling outside for people who think more clearly on the move.",
+        ],
+      },
+      {
+        heading: "When should you see a counselor for stress?",
+        paragraphs: [
+          "NIMH suggests talking to a professional if you’re struggling to cope or your stress or anxiety symptoms won’t go away ([NIMH](https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet)). Other signs it may help:",
+        ],
+        list: [
+          "Stress is affecting sleep, eating, work, or relationships",
+          "You’re relying on alcohol or other things to get through the day",
+          "You feel stuck, numb, or on edge most of the time",
+          "You can’t tell whether it’s stress, [burnout, or depression](/resources/burnout-vs-depression/)",
+        ],
+      },
+      {
+        heading: "Where can I find stress counseling in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [holistic counseling](/holistic-counseling/) for stress through walk and talk sessions in Dallas–Fort Worth, usually at Sam Houston Trail Park in Irving, or by [telehealth anywhere in Texas](/telehealth-counseling-texas/), in English or Arabic.",
+          "In counseling, we can look at where stress sits in your body and your week, practice ways to calm down, and decide what needs to change. Fees are self-pay; see [affordable therapy in Dallas](/affordable-therapy-dallas/) for costs and reduced rates.",
+          "Counseling isn’t a crisis service. If you’re in crisis, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What’s the fastest way to calm stress in the moment?",
+        a: "Slow breathing is one of the quickest tools. Try breathing in for 4 counts, holding for 4, breathing out for 4, and holding for 4, for about a minute. Grounding through your senses can also help.",
+      },
+      {
+        q: "Is stress the same as anxiety?",
+        a: "No. Stress is a response to an outside pressure and usually eases when the situation is resolved. Anxiety can continue even when there’s no current threat, according to the National Institute of Mental Health.",
+      },
+      {
+        q: "Does insurance cover stress counseling?",
+        a: "Sarah Ateia, LPC Associate, is self-pay only and doesn’t bill insurance. Sessions are $100, with reduced rates available based on household income and optional session packages.",
+      },
+    ],
+  },
+  {
+    path: "resources/panic-attack-vs-anxiety-attack",
+    published: "2026-11-25",
+    related: [LINK.anxiety, LINK.anxietyOrStress, LINK.grounding, LINK.boxBreathing, LINK.tools],
+    title: title("Panic Attack vs Anxiety Attack"),
+    description:
+      "How a panic attack differs from an “anxiety attack,” what each feels like, what helps in the moment, and when to get support in Dallas–Fort Worth.",
+    eyebrow: "Anxiety",
+    heading: "What’s the difference between a panic attack and an anxiety attack?",
+    intro:
+      "People use “panic attack” and “anxiety attack” to mean the same thing, but they usually describe two different experiences. A panic attack hits suddenly and hard. What people call an anxiety attack tends to build over time around a worry. Knowing which one you’re dealing with can make it less frightening and help you pick what to try.",
+    takeaways: [
+      "A panic attack is a sudden wave of intense fear or a sense of losing control, often with a racing heart, chest pain, shaking, or trouble breathing, even when there’s no clear danger.",
+      "“Anxiety attack” isn’t a medical term. People usually use it for anxiety that builds gradually around a stressor.",
+      "Panic attacks can feel like a heart attack. If you’re not sure what’s happening, get medical care right away.",
+      "Slow breathing and grounding through your senses can help you ride out the peak.",
+      "Psychotherapy is a commonly used treatment for both panic and ongoing anxiety, according to the National Institute of Mental Health.",
+    ],
+    blocks: [
+      {
+        heading: "What is a panic attack?",
+        paragraphs: [
+          "The National Institute of Mental Health (NIMH) describes panic attacks as a sudden wave of fear or discomfort, or a sense of losing control, even when there is no clear danger or trigger. They can happen at any time, sometimes even during sleep ([NIMH](https://www.nimh.nih.gov/health/publications/panic-disorder-when-fear-overwhelms)).",
+          "Common physical signs include ([NIMH](https://www.nimh.nih.gov/health/publications/panic-disorder-when-fear-overwhelms)):",
+        ],
+        list: [
+          "A pounding or racing heart",
+          "Sweating, chills, or trembling",
+          "Trouble breathing",
+          "Weakness or dizziness",
+          "Tingly or numb hands",
+          "Chest pain, stomach pain, or nausea",
+        ],
+      },
+      {
+        heading: "Is an “anxiety attack” a real thing?",
+        paragraphs: [
+          "Not as a diagnosis. Cleveland Clinic notes that the DSM-5-TR, the manual clinicians use to define mental health conditions, doesn’t recognize or define an anxiety attack ([Cleveland Clinic](https://health.clevelandclinic.org/panic-attack-vs-anxiety-attack)). The feeling is still real. People usually use the phrase for anxiety that builds up around something stressful, like a big exam, a hard conversation, or a flight.",
+        ],
+      },
+      {
+        heading: "How can you tell them apart?",
+        paragraphs: ["These differences are general patterns, not a way to diagnose yourself:"],
+        list: [
+          "Onset: anxiety tends to build gradually around a stressor, while panic attacks typically come on suddenly and unexpectedly ([Cleveland Clinic](https://health.clevelandclinic.org/panic-attack-vs-anxiety-attack))",
+          "Intensity: panic usually feels sharper and more physical; building anxiety often feels like worry, tension, and restlessness that rises and falls",
+          "Trigger: anxiety usually has a clear focus; a panic attack can arrive with no obvious cause",
+          "Length: Cleveland Clinic says panic attacks usually last 15 to 20 minutes, and NIMH notes they can last from a few minutes to an hour or sometimes longer",
+        ],
+      },
+      {
+        heading: "Can a panic attack feel like a heart attack?",
+        paragraphs: [
+          "Yes. NIMH notes that panic attacks often include physical symptoms that might feel like a heart attack ([NIMH](https://www.nimh.nih.gov/health/publications/panic-disorder-when-fear-overwhelms)). Don’t assume chest pain is “just anxiety.” If you have chest pain, trouble breathing, or you’re unsure what’s happening, call 911 or go to the nearest emergency room. A primary care doctor can also check for physical causes.",
+        ],
+      },
+      {
+        heading: "What helps during a panic or anxiety attack?",
+        paragraphs: [
+          "The goal in the moment isn’t to force the feeling away. It’s to give your body signals that you’re safe enough to let it pass. These can help:",
+        ],
+        list: [
+          "Slow your breathing, for example with [box breathing](/resources/box-breathing/): in for 4, hold for 4, out for 4, hold for 4",
+          "Name what’s happening: “This is panic. It’s uncomfortable, and it will pass.”",
+          "Ground yourself through your senses with the [5-4-3-2-1 method](/resources/grounding-techniques-for-anxiety/)",
+          "Put your feet flat on the floor or hold something cold",
+          "Once it eases, move gently: a short walk can help your body settle",
+        ],
+      },
+      {
+        heading: "How common are panic attacks?",
+        paragraphs: [
+          "Panic attacks are common, and panic disorder (repeated, unexpected attacks plus ongoing worry about having more) affected an estimated 2.7% of U.S. adults in the past year, based on national survey data NIMH reports ([NIMH](https://www.nimh.nih.gov/health/statistics/panic-disorder)). Having one panic attack doesn’t mean you have panic disorder. Only a qualified health care provider can diagnose it.",
+        ],
+      },
+      {
+        heading: "When should you talk to someone?",
+        paragraphs: [
+          "NIMH says treatment for panic disorder typically involves psychotherapy, medication, or both, and that cognitive behavioral therapy is commonly used ([NIMH](https://www.nimh.nih.gov/health/publications/panic-disorder-when-fear-overwhelms)). It may help to reach out if:",
+        ],
+        list: [
+          "You’ve had more than one panic attack, or you’re worried about the next one",
+          "You’re avoiding places, driving, or people because of anxiety",
+          "Worry is affecting sleep, work, school, or relationships",
+          "You can’t tell whether it’s [anxiety or just stress](/resources/anxiety-or-stress/)",
+        ],
+      },
+      {
+        heading: "Where can I get anxiety counseling in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [talk therapy for anxiety](/anxiety-therapy-dallas/) through walk and talk sessions in Dallas–Fort Worth, usually at Sam Houston Trail Park in Irving, or by [telehealth anywhere in Texas](/telehealth-counseling-texas/), in English or Arabic. Sessions focus on understanding what keeps your alarm system switched on and practicing calming skills you can use on your own.",
+          "Sarah offers talk therapy only. She doesn’t diagnose or prescribe; if medication might help, your doctor or a psychiatric provider is the right person to ask.",
+          "Counseling isn’t a crisis service. If you’re in crisis, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is a panic attack the same as an anxiety attack?",
+        a: "Not quite. A panic attack is a sudden wave of intense fear with strong physical symptoms, often with no clear trigger. “Anxiety attack” isn’t a medical term; people usually use it for anxiety that builds gradually around a stressor.",
+      },
+      {
+        q: "How long does a panic attack last?",
+        a: "Cleveland Clinic says panic attacks usually last 15 to 20 minutes. The National Institute of Mental Health notes they can last from a few minutes to an hour or sometimes longer.",
+      },
+      {
+        q: "Can counseling help with panic attacks?",
+        a: "Psychotherapy is a commonly used treatment for panic, according to the National Institute of Mental Health. Results differ from person to person and there’s no guarantee. Sarah Ateia, LPC Associate, offers talk therapy only.",
+      },
+    ],
+  },
+  {
+    path: "resources/anxiety-or-stress",
+    published: "2026-11-25",
+    related: [LINK.anxiety, LINK.stress, LINK.panicVsAnxiety, LINK.screening, LINK.burnout],
+    title: title("Anxiety or Stress? How to Tell"),
+    description:
+      "How to tell whether you’re stressed or dealing with anxiety, signs that it’s more than stress, what helps, and when to see a counselor in Dallas.",
+    eyebrow: "Anxiety",
+    heading: "How do I know if I have anxiety or I’m just stressed?",
+    intro:
+      "Stress and anxiety feel a lot alike: a tight chest, a busy mind, bad sleep. The main difference is what happens when the pressure lifts. Stress usually eases once the situation does. Anxiety tends to stick around, or show up when nothing is wrong. Here’s how to think it through, and when it makes sense to get support.",
+    takeaways: [
+      "Stress is a response to an outside cause; anxiety can continue even when there’s no current threat, according to the National Institute of Mental Health.",
+      "A useful question: does the feeling ease when the stressful situation ends?",
+      "Worry that’s hard to control on most days for months, with restlessness, tiredness, irritability, tension, or sleep problems, is worth talking to a health care provider about.",
+      "Only a qualified provider can diagnose an anxiety disorder; free screening tools can help you decide whether to ask.",
+      "Movement, a steady sleep routine, less caffeine, and slow breathing help with both.",
+    ],
+    blocks: [
+      {
+        heading: "What’s the difference between stress and anxiety?",
+        paragraphs: [
+          "NIMH describes stress as the physical or mental response to an external cause, like a heavy workload or an illness. Anxiety is the body’s reaction to stress and can occur even if there is no current threat ([NIMH](https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet)).",
+          "In everyday terms: stress is usually about something (a deadline, a move, a bill). Anxiety can feel like the alarm keeps ringing after the thing is handled, or rings before anything has happened.",
+        ],
+      },
+      {
+        heading: "Questions to ask yourself",
+        paragraphs: ["These aren’t a test, just a way to notice patterns:"],
+        list: [
+          "Can I name what I’m worried about, and is it happening now?",
+          "When that situation ends, do I feel better within a few days?",
+          "Do I worry about many different things, even when life is calm?",
+          "Is it hard to stop worrying once I start?",
+          "Am I avoiding things I used to handle fine?",
+          "Is it affecting my sleep, work, school, or relationships?",
+        ],
+      },
+      {
+        heading: "When might it be more than stress?",
+        paragraphs: [
+          "NIMH explains that generalized anxiety disorder involves finding it hard to control worry on most days for at least six months, along with symptoms like feeling restless or on edge, fatigue, trouble concentrating, irritability, muscle tension, or problems with sleep ([NIMH](https://www.nimh.nih.gov/health/publications/generalized-anxiety-disorder-gad)).",
+          "Sudden waves of intense fear with a racing heart or trouble breathing may be panic attacks; see [panic attack vs. anxiety attack](/resources/panic-attack-vs-anxiety-attack/).",
+          "A health care provider can check for physical causes and make a diagnosis if one fits ([NIMH](https://www.nimh.nih.gov/health/publications/generalized-anxiety-disorder-gad)). If you want a starting point, these optional [screening tools](/screening-tools/) are free and private.",
+        ],
+      },
+      {
+        heading: "What helps with both stress and anxiety?",
+        paragraphs: [
+          "NIMH suggests everyday steps like these ([NIMH](https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet)):",
+        ],
+        list: [
+          "Exercise regularly and eat healthy, regular meals",
+          "Stick to a sleep routine",
+          "Avoid too much caffeine, like coffee and soft drinks",
+          "Keep a journal to get worries out of your head",
+          "Practice slow breathing, such as [box breathing](/resources/box-breathing/), or [grounding](/resources/grounding-techniques-for-anxiety/)",
+          "Stay connected with people who are good for you",
+        ],
+      },
+      {
+        heading: "When should you see a counselor?",
+        paragraphs: [
+          "NIMH says it may be time to talk to a professional if you’re struggling to cope or if the symptoms of your stress or anxiety won’t go away. It also notes that psychotherapy (talk therapy) and medication are the two main treatments for anxiety ([NIMH](https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet)).",
+          "You don’t need to be sure it’s anxiety before reaching out. Not knowing is a fine reason to talk it through. For more on stress specifically, see [how to manage stress](/resources/stress-management/).",
+        ],
+      },
+      {
+        heading: "Where can I get help for anxiety or stress in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [anxiety therapy](/anxiety-therapy-dallas/) and [holistic counseling](/holistic-counseling/) through walk and talk sessions in Dallas–Fort Worth, usually at Sam Houston Trail Park in Irving, or by [telehealth anywhere in Texas](/telehealth-counseling-texas/), in English or Arabic. Sarah offers talk therapy only and doesn’t diagnose or prescribe.",
+          "Fees are self-pay; see [affordable therapy in Dallas](/affordable-therapy-dallas/) for costs and reduced rates. Counseling isn’t a crisis service. If you’re in crisis, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I know if I have anxiety or I’m just stressed?",
+        a: "Stress is usually tied to a situation and eases when it ends. Anxiety can continue even when there’s no current threat, according to the National Institute of Mental Health. If worry is hard to control on most days, or won’t go away, talk to a health care provider or counselor.",
+      },
+      {
+        q: "Can stress turn into anxiety?",
+        a: "NIMH describes anxiety as the body’s reaction to stress, so long-running stress and anxiety are closely linked. If you still feel on edge after a stressful period has passed, it’s worth checking in with a professional.",
+      },
+      {
+        q: "Does Sarah diagnose anxiety?",
+        a: "No. Sarah Ateia, LPC Associate, offers talk therapy only and doesn’t diagnose or prescribe. A primary care doctor or other qualified provider can evaluate symptoms and rule out physical causes.",
+      },
+    ],
+  },
+  {
+    path: "resources/life-transitions-counseling",
+    published: "2026-11-24",
+    related: [
+      LINK.youngAdult,
+      LINK.familyBoundaries,
+      LINK.culture,
+      LINK.personCentered,
+      LINK.selfCare,
+    ],
+    title: title("Life Transitions Counseling"),
+    description:
+      "What life transitions counseling is, the changes it can help with, what sessions look like, and how to find support in Dallas–Fort Worth or online.",
+    eyebrow: "Life transitions",
+    heading: "What is life transitions counseling?",
+    intro:
+      "Life transitions counseling is talk therapy focused on a big change, like a move, a new job or job loss, graduation, a breakup, becoming a parent, or a loss. Even good changes can shake your sense of who you are. Counseling gives you a steady place to sort through what’s ending, what’s beginning, and what you want next.",
+    takeaways: [
+      "Life transitions counseling is talk therapy for adjusting to a major change, wanted or unwanted.",
+      "Common transitions include moves, immigration, school to work, job changes, relationships, family changes, and loss.",
+      "Feeling unsettled during a big change is normal; counseling can help when it starts to affect sleep, work, or relationships.",
+      "Sessions usually focus on your values, practical next steps, and steadying your body during uncertainty.",
+      "Support is available in English or Arabic, walking outdoors in Dallas–Fort Worth or by telehealth across Texas.",
+    ],
+    blocks: [
+      {
+        heading: "What counts as a life transition?",
+        paragraphs: [
+          "Any change that reshapes your daily life or your sense of who you are. Some common ones:",
+        ],
+        list: [
+          "Moving to a new city or country, or adjusting to a new culture",
+          "Starting or finishing college, or a first full-time job",
+          "A new job, a promotion, a layoff, or retirement",
+          "A new relationship, marriage, separation, or divorce",
+          "Becoming a parent, or children leaving home",
+          "Caring for a parent, a health change, or losing someone close",
+        ],
+      },
+      {
+        heading: "Why can big changes feel so hard, even good ones?",
+        paragraphs: [
+          "Change asks you to let go of routines, roles, and people that helped you feel steady, often before the new ones are in place. That in-between stretch can bring stress, doubt, loneliness, or grief, even when the change is one you wanted.",
+          "Connection matters during these stretches. In the American Psychological Association’s 2025 Stress in America survey, about half of U.S. adults said they felt isolated at least some of the time, and 69% said they needed more emotional support in the past year than they received ([APA, 2025](https://www.apa.org/news/press/releases/2025/11/nation-suffering-division-loneliness)).",
+        ],
+      },
+      {
+        heading: "What happens in life transitions counseling?",
+        paragraphs: ["Every counselor works differently. In my sessions, the work often includes:"],
+        list: [
+          "Naming what you’re losing and what you’re gaining, so both have room",
+          "Clarifying what matters to you now, which may have shifted",
+          "Breaking the next stage into practical, doable steps",
+          "Calming your body during uncertainty, with tools like [grounding](/resources/grounding-techniques-for-anxiety/) and slow breathing",
+          "Looking at family, cultural, or faith expectations that shape the decision",
+        ],
+      },
+      {
+        heading: "Who is life transitions counseling for?",
+        paragraphs: [
+          "It can suit anyone facing a major change, and it’s especially common for [young adults](/young-adult-counseling/) moving from school to work or living on their own for the first time.",
+          "It can also help people adjusting to life in a new country or balancing two cultures. [Choosing a counselor: language and culture](/resources/choosing-a-counselor-language-culture/) covers what to ask if that’s part of your story.",
+        ],
+      },
+      {
+        heading: "When is it time to talk to someone about a life change?",
+        paragraphs: ["It may help to reach out if:"],
+        list: [
+          "The change is affecting your sleep, eating, work, or relationships",
+          "You feel stuck and can’t make a decision you need to make",
+          "Sadness or worry lasts for weeks rather than easing",
+          "You feel alone with it, or the people around you see it differently",
+        ],
+      },
+      {
+        heading: "Where can I find life transitions counseling in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers counseling for life transitions through [walk and talk sessions in Dallas–Fort Worth](/walk-and-talk-therapy-dallas/), usually at Sam Houston Trail Park in Irving, or by [telehealth anywhere in Texas](/telehealth-counseling-texas/), in English or [Arabic](/arabic-counseling/).",
+          "My approach is [person-centered](/resources/what-is-person-centered-therapy/): you set the pace and the goals. The first step is a free 15-minute phone consultation to see if it feels like a fit.",
+          "Counseling isn’t a crisis service. If you’re in crisis, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How long does life transitions counseling take?",
+        a: "It varies. Some people come for a handful of sessions around one decision or change; others stay longer while things settle. You can decide together with your counselor and change your mind at any time.",
+      },
+      {
+        q: "Do I need a diagnosis to get counseling for a life change?",
+        a: "No. Sarah Ateia, LPC Associate, is self-pay and doesn’t bill insurance, so counseling for a life change doesn’t require an insurance diagnosis.",
+      },
+      {
+        q: "Can I do life transitions counseling online?",
+        a: "Yes. Telehealth sessions are available to anyone located in Texas at the time of the session.",
+      },
+    ],
+  },
 ];
 
 // Blog posts live at /blog/. Educational only: each ends with the medical disclaimer.
@@ -5394,6 +5939,18 @@ const faqLabel = (page: ContentPage) =>
       ]
     : [];
 
+// Every outside source an article links to, so answer engines can see what each claim rests on.
+const citations = (page: ContentPage) => {
+  const text = [
+    page.intro,
+    ...(page.takeaways ?? []),
+    ...page.blocks.flatMap((b) => [...(b.paragraphs ?? []), ...(b.list ?? [])]),
+    ...(page.faqs ?? []).map((f) => f.a),
+  ].join(" ");
+  const links = [...text.matchAll(/\]\((https?:\/\/[^)\s]+)\)/g)].map((m) => m[1]);
+  return [...new Set([...links, ...(page.sources ?? []).map((s) => s.url)])];
+};
+
 // The page's own visible heading, so the search label names what the reader sees.
 const crumb = (page: ContentPage) => page.heading.replace(/\.$/, "");
 
@@ -5466,10 +6023,11 @@ export const SITE_PAGES: {
         description: page.description,
         url: url(page.path),
         datePublished: page.published ?? PUBLISHED,
-        dateModified: page.published ?? PUBLISHED,
+        dateModified: page.updated ?? page.published ?? PUBLISHED,
         inLanguage: "en-US",
         author: { ...SARAH, "@type": "Person", name: "Sarah Ateia", jobTitle: "LPC Associate" },
         publisher: PRACTICE,
+        citation: citations(page),
       },
       breadcrumbs(
         ["Home", "https://www.sarahateia.com/"],
@@ -5508,11 +6066,11 @@ export const SITE_PAGES: {
         description: page.description,
         url: url(page.path),
         datePublished: page.published ?? PUBLISHED,
-        dateModified: page.published ?? PUBLISHED,
+        dateModified: page.updated ?? page.published ?? PUBLISHED,
         inLanguage: "en-US",
         author: { ...SARAH, "@type": "Person", name: "Sarah Ateia", jobTitle: "LPC Associate" },
         publisher: PRACTICE,
-        citation: (page.sources ?? []).map((source) => source.url),
+        citation: citations(page),
       },
       breadcrumbs(
         ["Home", "https://www.sarahateia.com/"],
