@@ -1,6 +1,6 @@
 // GitHub Pages serves static files only, so give each extra route its own index.html
 // (with page-specific title, description, and canonical) and an SPA fallback 404.html.
-import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 
 const { render, SITE_PAGES, ARABIC_PAGES, AR_DRAFT } = await import(
@@ -170,21 +170,57 @@ const setAttribute = (doc, tag, value) =>
     (_, open) => `${open}${value}"`,
   );
 
+// Pages that Facebook/Instagram ads link to get a share image matching the ad, so a link preview
+// looks like the ad. Each image carries the supervisor disclosure.
+const SHARE_IMAGES = {
+  "walk-and-talk-therapy-dallas": [
+    "share/share-walk-and-talk.jpg",
+    "Sarah Ateia on an overlook. Walk and talk therapy in Irving and Dallas.",
+  ],
+  "arabic-counseling": [
+    "share/share-arabic.jpg",
+    "Portrait of Sarah Ateia. Counseling in Arabic in Dallas and online in Texas.",
+  ],
+  "telehealth-counseling-texas": [
+    "share/share-online-texas.jpg",
+    "Portrait of Sarah Ateia. Online counseling anywhere in Texas.",
+  ],
+};
+
+const setShareImage = (doc, path) => {
+  const share = SHARE_IMAGES[path];
+  if (!share) return doc;
+  const [file, alt] = share;
+  if (!existsSync(`dist/${file}`)) throw new Error(`Share image missing: ${file}`);
+  return [
+    ['property="og:image"', `${SITE}/${file}`],
+    ['property="og:image:alt"', escapeHtml(alt)],
+    ['name="twitter:image"', `${SITE}/${file}`],
+    ['name="twitter:card"', "summary_large_image"],
+  ].reduce((next, [tag, value]) => setAttribute(next, tag, value), doc);
+};
+
 const setMeta = (doc, { path, title, description, graph }) => {
   const url = `${SITE}/${path}/`;
   const safeTitle = escapeHtml(title);
   const safeDescription = escapeHtml(description);
-  return [
-    ['rel="canonical"', url],
-    ['property="og:url"', url],
-    ['property="og:title"', safeTitle],
-    ['name="twitter:title"', safeTitle],
-    ['name="description"', safeDescription],
-    ['property="og:description"', safeDescription],
-    ['name="twitter:description"', safeDescription],
-  ].reduce(
-    (next, [tag, value]) => setAttribute(next, tag, value),
-    setLabels(doc, graph).replace(/<title>[\s\S]*?<\/title>/, () => `<title>${safeTitle}</title>`),
+  return setShareImage(
+    [
+      ['rel="canonical"', url],
+      ['property="og:url"', url],
+      ['property="og:title"', safeTitle],
+      ['name="twitter:title"', safeTitle],
+      ['name="description"', safeDescription],
+      ['property="og:description"', safeDescription],
+      ['name="twitter:description"', safeDescription],
+    ].reduce(
+      (next, [tag, value]) => setAttribute(next, tag, value),
+      setLabels(doc, graph).replace(
+        /<title>[\s\S]*?<\/title>/,
+        () => `<title>${safeTitle}</title>`,
+      ),
+    ),
+    path,
   );
 };
 
