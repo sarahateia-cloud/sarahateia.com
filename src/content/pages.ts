@@ -211,6 +211,16 @@ const LINK = {
     label: "What is life transitions counseling?",
     href: "/resources/life-transitions-counseling/",
   },
+  trauma: { label: "Trauma counseling in Dallas, TX", href: "/trauma-therapy-dallas/" },
+  chronicIllness: {
+    label: "Counseling for autoimmune and chronic illness",
+    href: "/chronic-illness-counseling/",
+  },
+  bpd: { label: "Counseling for BPD and intense emotions", href: "/bpd-counseling/" },
+  narcissisticAbuse: {
+    label: "Narcissistic abuse recovery counseling",
+    href: "/narcissistic-abuse-recovery/",
+  },
 };
 
 // Titles stay under 60 characters: keyword first, then this ending.
@@ -660,6 +670,7 @@ export const TOPICS: ContentPage[] = [
       LINK.boxBreathing,
       LINK.panicVsAnxiety,
       LINK.anxietyOrStress,
+      LINK.trauma,
     ],
     title: "Anxiety Therapist in Dallas, TX | Anxiety Therapy",
     description:
@@ -784,6 +795,8 @@ export const TOPICS: ContentPage[] = [
       LINK.screening,
       LINK.burnout,
       LINK.anxietyOrStress,
+      LINK.chronicIllness,
+      LINK.trauma,
     ],
     title: "Depression Counseling in Dallas, TX",
     description:
@@ -903,6 +916,7 @@ export const TOPICS: ContentPage[] = [
       LINK.adhdWomen,
       LINK.rsd,
       LINK.adhdBurnout,
+      LINK.trauma,
     ],
     title: "ADHD Therapist in Dallas, TX | Adult ADHD Counseling",
     description:
@@ -1009,6 +1023,345 @@ export const TOPICS: ContentPage[] = [
     ],
   },
   {
+    path: "trauma-therapy-dallas",
+    related: [
+      LINK.abuseRecovery,
+      LINK.narcissisticAbuse,
+      LINK.regulation,
+      LINK.grounding,
+      LINK.screening,
+      LINK.anxiety,
+      LINK.crisis,
+    ],
+    title: "Trauma Therapist in Dallas, TX | Trauma Counseling",
+    description:
+      "Trauma counseling in Dallas, TX for how painful experiences affect your mind and body. Paced, trauma-informed talk therapy in DFW or online in Texas.",
+    eyebrow: "Trauma counseling",
+    heading: "Trauma therapist in Dallas, TX.",
+    intro:
+      "Trauma counseling is talk therapy for the ways painful or frightening experiences can stay with you: in your body, your sleep, your relationships, and how safe the world feels. Trauma is one of my core areas of focus. I offer trauma-informed counseling for adults and young adults through walk and talk sessions in Dallas–Fort Worth or online anywhere in Texas, at a pace you set.",
+    blocks: [
+      {
+        heading: "What can trauma counseling help with?",
+        paragraphs: [
+          "Trauma counseling can help with the after-effects of a single event, like an accident or assault, and with the slower kind of harm that builds up over years, like growing up in a chaotic home or living through an abusive relationship.",
+        ],
+        list: [
+          "Feeling on edge, jumpy, or always on guard",
+          "Nightmares, trouble sleeping, or memories that show up without warning",
+          "Avoiding places, people, or feelings that bring the past back",
+          "Feeling numb, cut off, or far away from your own life",
+          "Shame, self-blame, or a harsh inner voice",
+          "Trouble trusting people, or patterns that repeat in relationships",
+          "Anxiety or low mood that seems tied to what you went through",
+        ],
+      },
+      {
+        heading: "How common is trauma?",
+        paragraphs: [
+          "Trauma is very common. The U.S. Department of Veterans Affairs’ National Center for PTSD notes that most people will go through at least one trauma in their lifetime, and that about 6 out of every 100 people will have PTSD at some point ([National Center for PTSD](https://www.ptsd.va.gov/understand/common/common_adults.asp)).",
+          "The National Institute of Mental Health notes that most people who live through a dangerous event have some reactions at first, but most don’t go on to develop PTSD ([NIMH](https://www.nimh.nih.gov/health/topics/post-traumatic-stress-disorder-ptsd)). You don’t need a PTSD diagnosis for counseling to be worth it.",
+        ],
+      },
+      {
+        heading: "What does trauma-informed counseling look like with me?",
+        paragraphs: [
+          "Trauma-informed counseling with me puts safety, choice, and pacing first. You decide what to talk about and when. We don’t dig into the hardest memories before you have ways to steady yourself.",
+          "Early sessions often focus on understanding how your nervous system learned to protect you, and on simple [grounding](/resources/grounding-techniques-for-anxiety/) and [regulation skills](/resources/nervous-system-regulation-techniques/) you can use in daily life. From there, we work on the patterns, beliefs, and relationships that trauma has shaped, at a speed that feels manageable.",
+          "Because I take a holistic, mind-body view, we also pay attention to sleep, breath, and movement. Some people find it easier to talk about hard things side by side outdoors, which is one reason I offer [walk and talk sessions](/walk-and-talk-therapy-dallas/).",
+        ],
+      },
+      {
+        heading: "What kinds of trauma do you work with?",
+        paragraphs: [
+          "I work with adults and young adults affected by many kinds of painful experiences. A few examples:",
+        ],
+        list: [
+          "Emotional, physical, or sexual abuse, in childhood or adulthood",
+          "Recovering from an abusive or controlling relationship ([healing after an abusive relationship](/resources/healing-after-an-abusive-relationship/))",
+          "Relationships with a narcissistic or manipulative person ([narcissistic abuse recovery](/narcissistic-abuse-recovery/))",
+          "Accidents, sudden loss, or medical experiences that were frightening",
+          "Family conflict, estrangement, or growing up without emotional safety",
+          "Stress tied to migration, displacement, or living between cultures",
+        ],
+      },
+      {
+        heading: "What trauma counseling doesn’t include",
+        paragraphs: [
+          "I offer talk therapy. I don’t diagnose, do psychological testing, write court or disability evaluations, or prescribe medication.",
+          "Counseling isn’t a crisis service. If you’re in danger or thinking about harming yourself, call or text 988, call 911, or see my [crisis resources page](/crisis/).",
+          "If you need a specialized trauma treatment or a higher level of care than weekly sessions, I’ll help you find a good referral.",
+        ],
+      },
+      {
+        heading: "Where do trauma counseling sessions happen?",
+        list: [
+          "Walk and talk sessions outdoors, usually at Sam Houston Trail Park in Irving, or another quiet park we choose together",
+          "[Online therapy](/telehealth-counseling-texas/) from anywhere in Texas, from a private space where you feel safe",
+          "In English or [Arabic](/arabic-counseling/)",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Do I have to talk about what happened in detail?",
+        a: "No. You choose what to share and when. Many people start with how things feel now, and some never go into every detail. Counseling can still help.",
+      },
+      {
+        q: "Do I need a PTSD diagnosis to start trauma counseling?",
+        a: "No, you don’t need a diagnosis. If you’re curious, the free PC-PTSD-5 screener is linked on the [screening tools page](/screening-tools/). It isn’t a diagnosis, and we can look at it together.",
+      },
+      {
+        q: "Is trauma counseling available online?",
+        a: "Yes, trauma counseling is available by telehealth anywhere in Texas. You’ll want a private space where you feel comfortable during the session.",
+      },
+      {
+        q: "Who supervises your trauma work?",
+        a: "I’m Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S. Supervision is part of how LPC Associates practice in Texas. [What is an LPC Associate?](/resources/what-is-an-lpc-associate/)",
+      },
+    ],
+  },
+  {
+    path: "chronic-illness-counseling",
+    related: [
+      LINK.holisticCounseling,
+      LINK.depression,
+      LINK.anxiety,
+      LINK.regulation,
+      LINK.selfCare,
+      LINK.telehealth,
+      LINK.burnout,
+    ],
+    title: "Chronic Illness Counseling | Autoimmune Support, TX",
+    description:
+      "Counseling for the emotional side of living with autoimmune disease or chronic illness. Talk therapy alongside medical care, in DFW or online in Texas.",
+    eyebrow: "Chronic illness and autoimmune counseling",
+    heading: "Counseling for life with autoimmune or chronic illness.",
+    intro:
+      "Living with an autoimmune condition or another chronic illness affects more than your body. It can change your energy, your plans, your work, your relationships, and how you see yourself. I offer counseling for the emotional side of chronic illness: the stress, grief, worry, and fatigue of managing a condition that doesn’t go away. Counseling works alongside your medical care. It doesn’t treat the illness itself.",
+    takeaways: [
+      "This is talk therapy for coping, stress, and emotions. It isn’t medical treatment and doesn’t replace your doctors.",
+      "Keep working with your physicians and specialists on your diagnosis, medications, and care plan.",
+      "People with chronic illness have a higher risk of depression, and depression is treatable even when you have a chronic disease (NIMH).",
+      "Sessions happen online anywhere in Texas, or outdoors in Dallas–Fort Worth when your energy allows.",
+    ],
+    blocks: [
+      {
+        heading: "Who is this counseling for?",
+        paragraphs: [
+          "This counseling is for adults and young adults living with a long-term health condition, including autoimmune conditions like lupus, rheumatoid arthritis, multiple sclerosis, Hashimoto’s, celiac disease, Crohn’s, or psoriasis, and other chronic illnesses. You don’t need to share your diagnosis in detail to start.",
+          "Autoimmune diseases happen when the immune system mistakenly attacks the body’s own healthy cells and tissues ([NIEHS](https://www.niehs.nih.gov/health/topics/conditions/autoimmune)). Many people go through a long road of tests and appointments before they get answers, and that road can be exhausting on its own.",
+        ],
+      },
+      {
+        heading: "What can counseling help with when you have a chronic illness?",
+        paragraphs: [
+          "Counseling can help with the thoughts and feelings that come with living with a health condition, and with the practical stress of managing it.",
+        ],
+        list: [
+          "Stress, worry, or fear about flares, test results, or the future",
+          "Grief for the life, body, or plans you had before",
+          "Low mood, frustration, or feeling like a burden",
+          "Pacing your energy and saying no without guilt",
+          "Feeling dismissed or unheard while waiting for answers",
+          "Changes in work, school, relationships, or identity",
+          "Talking with family and friends about what you need",
+          "Preparing questions for appointments so you feel more heard",
+        ],
+      },
+      {
+        heading: "How are chronic illness and mental health connected?",
+        paragraphs: [
+          "The National Institute of Mental Health notes that people with a chronic disease, including autoimmune diseases, are at higher risk of developing depression. It also says depression is treatable even if you have a chronic disease, usually with psychotherapy, medication, or both ([NIMH](https://www.nimh.nih.gov/health/publications/chronic-illness-mental-health)).",
+          "NIMH also describes collaborative care, where medical and mental health providers work together. With your written permission, I’m glad to coordinate with your doctors so your care fits together.",
+        ],
+      },
+      {
+        heading: "What does counseling look like with me?",
+        paragraphs: [
+          "Counseling with me starts with your day-to-day life with your condition: what’s hardest right now, what helps, and what you want more of. We work on coping skills for stress and uncertainty, ways to pace your energy, and a kinder way of talking to yourself on hard days.",
+          "I take a holistic, mind-body approach, which means we notice sleep, breath, movement, and rest alongside thoughts and feelings. That’s about coping and well-being, not about treating or changing the course of your illness. [What is holistic counseling?](/holistic-counseling/)",
+          "Sessions can flex with your health. If a flare makes it hard to get out, we can meet [online](/telehealth-counseling-texas/) instead of outdoors.",
+        ],
+      },
+      {
+        heading: "What this counseling doesn’t include",
+        paragraphs: [
+          "I’m a counselor, not a medical provider. I don’t diagnose or treat autoimmune disease or any other medical condition, recommend changes to medications, diets, or supplements, or interpret lab results.",
+          "Counseling doesn’t replace medical care. Please keep working with your physicians and specialists, and talk with them before making any change to your treatment. If your symptoms change or get worse, contact your doctor. In an emergency, call 911.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can counseling treat my autoimmune disease?",
+        a: "No. Counseling doesn’t treat autoimmune disease or any medical condition. It helps with the emotional side of living with one, like stress, grief, and low mood, alongside the care you get from your doctors.",
+      },
+      {
+        q: "Should I keep seeing my doctor while in counseling?",
+        a: "Yes. Keep working with your physicians and specialists. Counseling is meant to support your medical care, not replace it, and with your permission I can coordinate with them.",
+      },
+      {
+        q: "What if I’m too tired or unwell to make a session?",
+        a: "Let me know as early as you can. On low-energy days, we can often switch an outdoor session to telehealth so you can join from home.",
+      },
+      {
+        q: "Do I need a confirmed diagnosis to start?",
+        a: "No. Many people come in while they’re still waiting for answers. The stress of not knowing is worth talking about on its own.",
+      },
+    ],
+  },
+  {
+    path: "bpd-counseling",
+    related: [
+      LINK.attachment,
+      LINK.regulation,
+      LINK.trauma,
+      LINK.anxiety,
+      LINK.depression,
+      LINK.youngAdult,
+      LINK.crisis,
+    ],
+    title: "BPD Counseling in Dallas, TX | Intense Emotions",
+    description:
+      "Counseling in Dallas for BPD and intense emotions: steadier moods, calmer relationships, and self-compassion. Walk and talk in DFW or online in Texas.",
+    eyebrow: "BPD and intense emotions",
+    heading: "Counseling for BPD and intense emotions in Dallas, TX.",
+    intro:
+      "If your emotions feel bigger and faster than other people’s, and relationships can swing from close to painful in a day, you’re not alone and you’re not “too much.” I offer counseling for adults and young adults with borderline personality disorder (BPD), or with BPD-like patterns of emotional intensity, through walk and talk sessions in Dallas–Fort Worth or online anywhere in Texas.",
+    blocks: [
+      {
+        heading: "What is borderline personality disorder?",
+        paragraphs: [
+          "The National Institute of Mental Health describes borderline personality disorder as a mental illness that severely affects a person’s ability to regulate their emotions. It notes that effective treatments can help people manage symptoms and improve daily functioning ([NIMH](https://www.nimh.nih.gov/health/topics/borderline-personality-disorder)).",
+          "BPD is a diagnosis made by a qualified professional. You don’t need one to start counseling with me, and I won’t put a label on you. We start with what you’re living with.",
+        ],
+      },
+      {
+        heading: "What can counseling help with?",
+        list: [
+          "Emotions that rise fast and take a long time to settle",
+          "Fear of being left, and the push and pull it brings to relationships",
+          "Feeling empty, or unsure who you are",
+          "Acting on impulse when emotions run high, then regretting it",
+          "Shame and harsh self-criticism after conflict",
+          "Setting and keeping boundaries",
+          "Building a steadier, kinder relationship with yourself",
+        ],
+      },
+      {
+        heading: "What does counseling look like with me?",
+        paragraphs: [
+          "Counseling with me is steady, warm, and direct. We focus on noticing emotions earlier, skills for riding out intense moments, and understanding the patterns that show up in your relationships, including our own working relationship.",
+          "Many people with BPD also carry painful past experiences, so my work is trauma-informed. I draw on person-centered and solution-focused counseling, along with mind-body skills like [grounding](/resources/grounding-techniques-for-anxiety/) and [nervous system regulation](/resources/nervous-system-regulation-techniques/).",
+          "Attachment patterns often play a big part. [How do attachment styles affect relationships?](/resources/attachment-styles-in-relationships/) explains more.",
+        ],
+      },
+      {
+        heading: "Do you offer DBT?",
+        paragraphs: [
+          "I’m not a dialectical behavior therapy (DBT) program. NIMH lists DBT among the established treatments for BPD ([NIMH](https://www.nimh.nih.gov/health/topics/borderline-personality-disorder)). Full DBT usually includes weekly individual sessions, a skills group, and between-session coaching.",
+          "If a structured DBT program fits what you need, I’ll tell you honestly and help you find one. Some people do DBT and individual counseling side by side.",
+        ],
+      },
+      {
+        heading: "When is weekly counseling not enough?",
+        paragraphs: [
+          "Weekly outpatient counseling isn’t a crisis service. If you’re thinking about suicide or self-harm, call or text 988 now, call 911, or go to the nearest emergency room. Local Dallas–Fort Worth options are on my [crisis resources page](/crisis/).",
+          "If you need more support than weekly sessions can give, I’ll help you find a higher level of care.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Do I need a BPD diagnosis to start?",
+        a: "No. You can start with or without a diagnosis. We focus on what you’re experiencing, not on a label.",
+      },
+      {
+        q: "Do you diagnose BPD?",
+        a: "No. I offer talk therapy and don’t do diagnostic evaluations. If you want an evaluation, a psychiatrist or psychologist can help, and we can talk through where to start.",
+      },
+      {
+        q: "Can I do counseling online?",
+        a: "Yes, counseling is available by telehealth anywhere in Texas, or as walk and talk sessions in Dallas–Fort Worth.",
+      },
+    ],
+  },
+  {
+    path: "narcissistic-abuse-recovery",
+    related: [
+      LINK.abuseRecovery,
+      LINK.trauma,
+      LINK.familyBoundaries,
+      LINK.attachment,
+      LINK.anxiety,
+      LINK.crisis,
+    ],
+    title: "Narcissistic Abuse Recovery Counseling | Dallas, TX",
+    description:
+      "Counseling in Dallas for healing after a relationship with a narcissistic or manipulative person: trust yourself again. Walk and talk or online in Texas.",
+    eyebrow: "Narcissistic abuse recovery",
+    heading: "Narcissistic abuse recovery counseling in Dallas, TX.",
+    intro:
+      "Being close to someone who is manipulative, controlling, or always needs to be right can leave you doubting your own memory and worth. That might be a partner, a parent, a sibling, a boss, or a friend. I offer counseling to help you make sense of what happened, trust yourself again, and set the boundaries you need, through walk and talk sessions in Dallas–Fort Worth or online anywhere in Texas. If you’re in danger right now, call 911 or the National Domestic Violence Hotline at 1-800-799-7233.",
+    takeaways: [
+      "“Narcissistic abuse” isn’t a formal diagnosis. It’s a common name for a pattern of manipulation, control, and put-downs.",
+      "Counseling focuses on you and your healing. I don’t diagnose the other person.",
+      "Confusion, self-doubt, and missing the person are common, human reactions.",
+      "If you’re in danger, call 911. The National Domestic Violence Hotline is 1-800-799-7233, or text START to 88788.",
+    ],
+    blocks: [
+      {
+        heading: "What do people mean by narcissistic abuse?",
+        paragraphs: [
+          "People use “narcissistic abuse” to describe a pattern in a relationship: being criticized or put down, being told your memory is wrong, feeling like you’re walking on eggshells, or being idealized and then devalued. It isn’t a clinical diagnosis, but the hurt is real.",
+          "Narcissistic personality disorder (NPD) is a mental health condition that only a qualified professional can diagnose. Cleveland Clinic notes that between 0.5% and 5% of people in the U.S. may have it, and that experts aren’t sure how common it is ([Cleveland Clinic](https://my.clevelandclinic.org/health/diseases/9742-narcissistic-personality-disorder)). Not everyone who behaves in hurtful ways has NPD, and you don’t need a label for them to start healing.",
+        ],
+      },
+      {
+        heading: "What can counseling help with?",
+        list: [
+          "Second-guessing your memory, judgment, or feelings",
+          "Shame, self-blame, or a harsh inner voice you picked up from them",
+          "Missing the person, or feeling pulled back in",
+          "Anxiety, trouble sleeping, or always being on guard",
+          "Setting boundaries, limiting contact, or going no-contact",
+          "Co-parenting or staying in contact with someone difficult",
+          "Rebuilding trust in yourself and in healthier relationships",
+        ],
+      },
+      {
+        heading: "What does recovery counseling look like with me?",
+        paragraphs: [
+          "Counseling with me starts with safety and believing your experience. We put words to what happened, untangle the messages you absorbed about yourself, and practice listening to your own judgment again.",
+          "My work is trauma-informed and holistic. We pay attention to how your body carries stress, and build [grounding](/resources/grounding-techniques-for-anxiety/) skills for moments when contact or memories stir things up. We also look at [attachment patterns](/resources/attachment-styles-in-relationships/) so future relationships feel safer.",
+          "When the person is a parent or relative, culture and family expectations often matter a lot. I offer counseling in English or [Arabic](/arabic-counseling/), and [setting boundaries with family](/resources/setting-boundaries-with-family/) may help too.",
+        ],
+      },
+      {
+        heading: "What if I’m not safe right now?",
+        paragraphs: [
+          "If you’re in danger, call 911. The [National Domestic Violence Hotline](https://www.thehotline.org/) is available 24/7 at 1-800-799-7233, or text START to 88788, and its advocates can help with safety planning.",
+          "For a mental health crisis, call or text 988. Local options are on my [crisis resources page](/crisis/). For more on leaving and recovering, see [how do you heal after an abusive relationship?](/resources/healing-after-an-abusive-relationship/)",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can you tell me if my ex or parent is a narcissist?",
+        a: "No. I can’t diagnose someone I haven’t evaluated, and I don’t diagnose. Counseling focuses on what happened to you, how it affected you, and what you need now.",
+      },
+      {
+        q: "Do you offer couples counseling with the other person?",
+        a: "No. When there’s a pattern of control or abuse, joint sessions often aren’t safe. Counseling with me is individual and focused on you.",
+      },
+      {
+        q: "Is narcissistic abuse recovery counseling available online?",
+        a: "Yes, counseling is available by telehealth anywhere in Texas. Choose a private device and space the other person can’t access.",
+      },
+    ],
+  },
+  {
     path: "holistic-counseling",
     related: [
       LINK.holistic,
@@ -1020,6 +1373,7 @@ export const TOPICS: ContentPage[] = [
       LINK.regulation,
       LINK.burnout,
       LINK.stress,
+      LINK.chronicIllness,
     ],
     title: "Holistic Counseling in Dallas | Holistic Therapist",
     description:
@@ -2467,6 +2821,8 @@ export const ARTICLES: ContentPage[] = [
       LINK.abuseRecovery,
       LINK.selfCare,
       LINK.familyBoundaries,
+      LINK.bpd,
+      LINK.narcissisticAbuse,
     ],
     title: title("Attachment Styles Explained"),
     description:
@@ -2577,7 +2933,15 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/healing-after-an-abusive-relationship",
     published: "2026-11-18",
-    related: [LINK.crisis, LINK.anxiety, LINK.depression, LINK.telehealth, LINK.attachment],
+    related: [
+      LINK.crisis,
+      LINK.anxiety,
+      LINK.depression,
+      LINK.telehealth,
+      LINK.attachment,
+      LINK.trauma,
+      LINK.narcissisticAbuse,
+    ],
     title: title("Healing After Abuse"),
     description:
       "How to heal after an abusive relationship: safety resources, common reactions, and steps that support recovery at your own pace.",
@@ -2701,6 +3065,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.groundingGuide,
       LINK.grounding,
       LINK.familyBoundaries,
+      LINK.chronicIllness,
     ],
     title: title("Self-Care for Mental Health"),
     description:
@@ -4339,6 +4704,8 @@ export const ARTICLES: ContentPage[] = [
       LINK.tools,
       LINK.grounding,
       LINK.boxBreathing,
+      LINK.trauma,
+      LINK.chronicIllness,
     ],
     title: "How to Calm Your Nervous System: Regulation Tips",
     description:
@@ -4963,7 +5330,14 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/setting-boundaries-with-family",
     published: "2026-11-22",
-    related: [LINK.attachment, LINK.anxiety, LINK.selfCare, LINK.grounding, LINK.consultation],
+    related: [
+      LINK.attachment,
+      LINK.anxiety,
+      LINK.selfCare,
+      LINK.grounding,
+      LINK.consultation,
+      LINK.narcissisticAbuse,
+    ],
     title: title("Setting Boundaries With Family"),
     description:
       "A calm, practical guide to setting boundaries with family: what a boundary is, how to say it, handling guilt and pushback, and when counseling can help.",

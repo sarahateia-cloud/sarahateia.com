@@ -11,12 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YoungAdultCounselingRouteImport } from './routes/young-adult-counseling'
 import { Route as WalkAndTalkTherapyDallasRouteImport } from './routes/walk-and-talk-therapy-dallas'
+import { Route as TraumaTherapyDallasRouteImport } from './routes/trauma-therapy-dallas'
 import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as TelehealthCounselingTexasRouteImport } from './routes/telehealth-counseling-texas'
 import { Route as TelehealthCounselingRouteImport } from './routes/telehealth-counseling'
 import { Route as ScreeningToolsRouteImport } from './routes/screening-tools'
 import { Route as ReferralPartnersRouteImport } from './routes/referral-partners'
 import { Route as NewClientsRouteImport } from './routes/new-clients'
+import { Route as NarcissisticAbuseRecoveryRouteImport } from './routes/narcissistic-abuse-recovery'
 import { Route as HolisticCounselingRouteImport } from './routes/holistic-counseling'
 import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as DepressionCounselingDallasRouteImport } from './routes/depression-counseling-dallas'
@@ -27,6 +29,8 @@ import { Route as CounselingGrandPrairieTxRouteImport } from './routes/counselin
 import { Route as CounselingFarmersBranchTxRouteImport } from './routes/counseling-farmers-branch-tx'
 import { Route as CounselingDallasTxRouteImport } from './routes/counseling-dallas-tx'
 import { Route as CounselingCoppellTxRouteImport } from './routes/counseling-coppell-tx'
+import { Route as ChronicIllnessCounselingRouteImport } from './routes/chronic-illness-counseling'
+import { Route as BpdCounselingRouteImport } from './routes/bpd-counseling'
 import { Route as ArabicCounselingRouteImport } from './routes/arabic-counseling'
 import { Route as AnxietyTherapyDallasRouteImport } from './routes/anxiety-therapy-dallas'
 import { Route as AffordableTherapyDallasRouteImport } from './routes/affordable-therapy-dallas'
@@ -54,6 +58,11 @@ const WalkAndTalkTherapyDallasRoute =
     path: '/walk-and-talk-therapy-dallas',
     getParentRoute: () => rootRouteImport,
   } as any)
+const TraumaTherapyDallasRoute = TraumaTherapyDallasRouteImport.update({
+  id: '/trauma-therapy-dallas',
+  path: '/trauma-therapy-dallas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsRoute = ToolsRouteImport.update({
   id: '/tools',
   path: '/tools',
@@ -85,6 +94,12 @@ const NewClientsRoute = NewClientsRouteImport.update({
   path: '/new-clients',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NarcissisticAbuseRecoveryRoute =
+  NarcissisticAbuseRecoveryRouteImport.update({
+    id: '/narcissistic-abuse-recovery',
+    path: '/narcissistic-abuse-recovery',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const HolisticCounselingRoute = HolisticCounselingRouteImport.update({
   id: '/holistic-counseling',
   path: '/holistic-counseling',
@@ -136,6 +151,17 @@ const CounselingDallasTxRoute = CounselingDallasTxRouteImport.update({
 const CounselingCoppellTxRoute = CounselingCoppellTxRouteImport.update({
   id: '/counseling-coppell-tx',
   path: '/counseling-coppell-tx',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChronicIllnessCounselingRoute =
+  ChronicIllnessCounselingRouteImport.update({
+    id: '/chronic-illness-counseling',
+    path: '/chronic-illness-counseling',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const BpdCounselingRoute = BpdCounselingRouteImport.update({
+  id: '/bpd-counseling',
+  path: '/bpd-counseling',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ArabicCounselingRoute = ArabicCounselingRouteImport.update({
@@ -222,6 +248,8 @@ export interface FileRoutesByFullPath {
   '/affordable-therapy-dallas': typeof AffordableTherapyDallasRoute
   '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
+  '/bpd-counseling': typeof BpdCounselingRoute
+  '/chronic-illness-counseling': typeof ChronicIllnessCounselingRoute
   '/counseling-coppell-tx': typeof CounselingCoppellTxRoute
   '/counseling-dallas-tx': typeof CounselingDallasTxRoute
   '/counseling-farmers-branch-tx': typeof CounselingFarmersBranchTxRoute
@@ -232,12 +260,14 @@ export interface FileRoutesByFullPath {
   '/depression-counseling-dallas': typeof DepressionCounselingDallasRoute
   '/glossary': typeof GlossaryRoute
   '/holistic-counseling': typeof HolisticCounselingRoute
+  '/narcissistic-abuse-recovery': typeof NarcissisticAbuseRecoveryRoute
   '/new-clients': typeof NewClientsRoute
   '/referral-partners': typeof ReferralPartnersRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/tools': typeof ToolsRoute
+  '/trauma-therapy-dallas': typeof TraumaTherapyDallasRoute
   '/walk-and-talk-therapy-dallas': typeof WalkAndTalkTherapyDallasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/ar/about': typeof ArAboutRoute
@@ -257,6 +287,8 @@ export interface FileRoutesByTo {
   '/affordable-therapy-dallas': typeof AffordableTherapyDallasRoute
   '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
+  '/bpd-counseling': typeof BpdCounselingRoute
+  '/chronic-illness-counseling': typeof ChronicIllnessCounselingRoute
   '/counseling-coppell-tx': typeof CounselingCoppellTxRoute
   '/counseling-dallas-tx': typeof CounselingDallasTxRoute
   '/counseling-farmers-branch-tx': typeof CounselingFarmersBranchTxRoute
@@ -267,12 +299,14 @@ export interface FileRoutesByTo {
   '/depression-counseling-dallas': typeof DepressionCounselingDallasRoute
   '/glossary': typeof GlossaryRoute
   '/holistic-counseling': typeof HolisticCounselingRoute
+  '/narcissistic-abuse-recovery': typeof NarcissisticAbuseRecoveryRoute
   '/new-clients': typeof NewClientsRoute
   '/referral-partners': typeof ReferralPartnersRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/tools': typeof ToolsRoute
+  '/trauma-therapy-dallas': typeof TraumaTherapyDallasRoute
   '/walk-and-talk-therapy-dallas': typeof WalkAndTalkTherapyDallasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/ar/about': typeof ArAboutRoute
@@ -293,6 +327,8 @@ export interface FileRoutesById {
   '/affordable-therapy-dallas': typeof AffordableTherapyDallasRoute
   '/anxiety-therapy-dallas': typeof AnxietyTherapyDallasRoute
   '/arabic-counseling': typeof ArabicCounselingRoute
+  '/bpd-counseling': typeof BpdCounselingRoute
+  '/chronic-illness-counseling': typeof ChronicIllnessCounselingRoute
   '/counseling-coppell-tx': typeof CounselingCoppellTxRoute
   '/counseling-dallas-tx': typeof CounselingDallasTxRoute
   '/counseling-farmers-branch-tx': typeof CounselingFarmersBranchTxRoute
@@ -303,12 +339,14 @@ export interface FileRoutesById {
   '/depression-counseling-dallas': typeof DepressionCounselingDallasRoute
   '/glossary': typeof GlossaryRoute
   '/holistic-counseling': typeof HolisticCounselingRoute
+  '/narcissistic-abuse-recovery': typeof NarcissisticAbuseRecoveryRoute
   '/new-clients': typeof NewClientsRoute
   '/referral-partners': typeof ReferralPartnersRoute
   '/screening-tools': typeof ScreeningToolsRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/tools': typeof ToolsRoute
+  '/trauma-therapy-dallas': typeof TraumaTherapyDallasRoute
   '/walk-and-talk-therapy-dallas': typeof WalkAndTalkTherapyDallasRoute
   '/young-adult-counseling': typeof YoungAdultCounselingRoute
   '/ar/about': typeof ArAboutRoute
@@ -330,6 +368,8 @@ export interface FileRouteTypes {
     | '/affordable-therapy-dallas'
     | '/anxiety-therapy-dallas'
     | '/arabic-counseling'
+    | '/bpd-counseling'
+    | '/chronic-illness-counseling'
     | '/counseling-coppell-tx'
     | '/counseling-dallas-tx'
     | '/counseling-farmers-branch-tx'
@@ -340,12 +380,14 @@ export interface FileRouteTypes {
     | '/depression-counseling-dallas'
     | '/glossary'
     | '/holistic-counseling'
+    | '/narcissistic-abuse-recovery'
     | '/new-clients'
     | '/referral-partners'
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
     | '/tools'
+    | '/trauma-therapy-dallas'
     | '/walk-and-talk-therapy-dallas'
     | '/young-adult-counseling'
     | '/ar/about'
@@ -365,6 +407,8 @@ export interface FileRouteTypes {
     | '/affordable-therapy-dallas'
     | '/anxiety-therapy-dallas'
     | '/arabic-counseling'
+    | '/bpd-counseling'
+    | '/chronic-illness-counseling'
     | '/counseling-coppell-tx'
     | '/counseling-dallas-tx'
     | '/counseling-farmers-branch-tx'
@@ -375,12 +419,14 @@ export interface FileRouteTypes {
     | '/depression-counseling-dallas'
     | '/glossary'
     | '/holistic-counseling'
+    | '/narcissistic-abuse-recovery'
     | '/new-clients'
     | '/referral-partners'
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
     | '/tools'
+    | '/trauma-therapy-dallas'
     | '/walk-and-talk-therapy-dallas'
     | '/young-adult-counseling'
     | '/ar/about'
@@ -400,6 +446,8 @@ export interface FileRouteTypes {
     | '/affordable-therapy-dallas'
     | '/anxiety-therapy-dallas'
     | '/arabic-counseling'
+    | '/bpd-counseling'
+    | '/chronic-illness-counseling'
     | '/counseling-coppell-tx'
     | '/counseling-dallas-tx'
     | '/counseling-farmers-branch-tx'
@@ -410,12 +458,14 @@ export interface FileRouteTypes {
     | '/depression-counseling-dallas'
     | '/glossary'
     | '/holistic-counseling'
+    | '/narcissistic-abuse-recovery'
     | '/new-clients'
     | '/referral-partners'
     | '/screening-tools'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
     | '/tools'
+    | '/trauma-therapy-dallas'
     | '/walk-and-talk-therapy-dallas'
     | '/young-adult-counseling'
     | '/ar/about'
@@ -436,6 +486,8 @@ export interface RootRouteChildren {
   AffordableTherapyDallasRoute: typeof AffordableTherapyDallasRoute
   AnxietyTherapyDallasRoute: typeof AnxietyTherapyDallasRoute
   ArabicCounselingRoute: typeof ArabicCounselingRoute
+  BpdCounselingRoute: typeof BpdCounselingRoute
+  ChronicIllnessCounselingRoute: typeof ChronicIllnessCounselingRoute
   CounselingCoppellTxRoute: typeof CounselingCoppellTxRoute
   CounselingDallasTxRoute: typeof CounselingDallasTxRoute
   CounselingFarmersBranchTxRoute: typeof CounselingFarmersBranchTxRoute
@@ -446,12 +498,14 @@ export interface RootRouteChildren {
   DepressionCounselingDallasRoute: typeof DepressionCounselingDallasRoute
   GlossaryRoute: typeof GlossaryRoute
   HolisticCounselingRoute: typeof HolisticCounselingRoute
+  NarcissisticAbuseRecoveryRoute: typeof NarcissisticAbuseRecoveryRoute
   NewClientsRoute: typeof NewClientsRoute
   ReferralPartnersRoute: typeof ReferralPartnersRoute
   ScreeningToolsRoute: typeof ScreeningToolsRoute
   TelehealthCounselingRoute: typeof TelehealthCounselingRoute
   TelehealthCounselingTexasRoute: typeof TelehealthCounselingTexasRoute
   ToolsRoute: typeof ToolsRoute
+  TraumaTherapyDallasRoute: typeof TraumaTherapyDallasRoute
   WalkAndTalkTherapyDallasRoute: typeof WalkAndTalkTherapyDallasRoute
   YoungAdultCounselingRoute: typeof YoungAdultCounselingRoute
   ArAboutRoute: typeof ArAboutRoute
@@ -479,6 +533,13 @@ declare module '@tanstack/react-router' {
       path: '/walk-and-talk-therapy-dallas'
       fullPath: '/walk-and-talk-therapy-dallas'
       preLoaderRoute: typeof WalkAndTalkTherapyDallasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trauma-therapy-dallas': {
+      id: '/trauma-therapy-dallas'
+      path: '/trauma-therapy-dallas'
+      fullPath: '/trauma-therapy-dallas'
+      preLoaderRoute: typeof TraumaTherapyDallasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools': {
@@ -521,6 +582,13 @@ declare module '@tanstack/react-router' {
       path: '/new-clients'
       fullPath: '/new-clients'
       preLoaderRoute: typeof NewClientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/narcissistic-abuse-recovery': {
+      id: '/narcissistic-abuse-recovery'
+      path: '/narcissistic-abuse-recovery'
+      fullPath: '/narcissistic-abuse-recovery'
+      preLoaderRoute: typeof NarcissisticAbuseRecoveryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/holistic-counseling': {
@@ -591,6 +659,20 @@ declare module '@tanstack/react-router' {
       path: '/counseling-coppell-tx'
       fullPath: '/counseling-coppell-tx'
       preLoaderRoute: typeof CounselingCoppellTxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chronic-illness-counseling': {
+      id: '/chronic-illness-counseling'
+      path: '/chronic-illness-counseling'
+      fullPath: '/chronic-illness-counseling'
+      preLoaderRoute: typeof ChronicIllnessCounselingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bpd-counseling': {
+      id: '/bpd-counseling'
+      path: '/bpd-counseling'
+      fullPath: '/bpd-counseling'
+      preLoaderRoute: typeof BpdCounselingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/arabic-counseling': {
@@ -708,6 +790,8 @@ const rootRouteChildren: RootRouteChildren = {
   AffordableTherapyDallasRoute: AffordableTherapyDallasRoute,
   AnxietyTherapyDallasRoute: AnxietyTherapyDallasRoute,
   ArabicCounselingRoute: ArabicCounselingRoute,
+  BpdCounselingRoute: BpdCounselingRoute,
+  ChronicIllnessCounselingRoute: ChronicIllnessCounselingRoute,
   CounselingCoppellTxRoute: CounselingCoppellTxRoute,
   CounselingDallasTxRoute: CounselingDallasTxRoute,
   CounselingFarmersBranchTxRoute: CounselingFarmersBranchTxRoute,
@@ -718,12 +802,14 @@ const rootRouteChildren: RootRouteChildren = {
   DepressionCounselingDallasRoute: DepressionCounselingDallasRoute,
   GlossaryRoute: GlossaryRoute,
   HolisticCounselingRoute: HolisticCounselingRoute,
+  NarcissisticAbuseRecoveryRoute: NarcissisticAbuseRecoveryRoute,
   NewClientsRoute: NewClientsRoute,
   ReferralPartnersRoute: ReferralPartnersRoute,
   ScreeningToolsRoute: ScreeningToolsRoute,
   TelehealthCounselingRoute: TelehealthCounselingRoute,
   TelehealthCounselingTexasRoute: TelehealthCounselingTexasRoute,
   ToolsRoute: ToolsRoute,
+  TraumaTherapyDallasRoute: TraumaTherapyDallasRoute,
   WalkAndTalkTherapyDallasRoute: WalkAndTalkTherapyDallasRoute,
   YoungAdultCounselingRoute: YoungAdultCounselingRoute,
   ArAboutRoute: ArAboutRoute,

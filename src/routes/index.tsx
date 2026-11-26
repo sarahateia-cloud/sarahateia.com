@@ -35,9 +35,13 @@ export const Route = createFileRoute("/")({
 });
 
 const SUPPORT_AREAS = [
+  "ADHD / focus",
+  "Trauma / PTSD",
   "Anxiety / stress",
   "Depression / low mood",
-  "ADHD / focus",
+  "Chronic and autoimmune illness",
+  "BPD / intense emotions",
+  "Narcissistic abuse recovery",
   "Young adults / life transitions",
   "Emotional overwhelm",
   "Nervous system regulation",
@@ -187,6 +191,10 @@ const FAQS = [
   {
     q: "What is genetics-informed psychoeducation?",
     a: "It’s an educational way of talking about how biology may relate to patterns in mood, stress, and attention. It’s never medical advice, diagnosis, or treatment. I don’t order or interpret lab tests, and I refer to physicians for medical questions.",
+  },
+  {
+    q: "What is your cancellation policy?",
+    a: "Please give at least 24 hours’ notice if you need to cancel or reschedule. The full policy, including late cancellations and missed sessions, is in the consent and fees form you read before your first session.",
   },
   {
     q: "What if I’m in crisis?",
@@ -484,7 +492,7 @@ function Index() {
         <section id="support" className="ds-section border-t border-border/60 bg-secondary/50">
           <div className="reveal mx-auto max-w-4xl px-6 text-center">
             <SectionHeading title="Who I support" center>
-              <p>Some of the areas I focus on.</p>
+              <p>Some of the areas I focus on, with ADHD and trauma at the core.</p>
             </SectionHeading>
             <ul data-stagger className="mt-8 flex flex-wrap justify-center gap-2">
               {SUPPORT_AREAS.map((item) => (

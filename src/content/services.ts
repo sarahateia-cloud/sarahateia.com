@@ -1,9 +1,13 @@
 // Kept apart from pages.ts so the header and footer don't pull in every page's text.
-/** The main services, linked from the home page and every footer. */
+/** The main services, linked from the home page and every footer. ADHD and trauma are the core focus areas, so they come first. */
 export const SERVICES = [
+  { label: "Adult ADHD counseling", href: "/adhd-therapy/" },
+  { label: "Trauma counseling", href: "/trauma-therapy-dallas/" },
   { label: "Anxiety therapy", href: "/anxiety-therapy-dallas/" },
   { label: "Depression counseling", href: "/depression-counseling-dallas/" },
-  { label: "Adult ADHD counseling", href: "/adhd-therapy/" },
+  { label: "Chronic and autoimmune illness", href: "/chronic-illness-counseling/" },
+  { label: "BPD and intense emotions", href: "/bpd-counseling/" },
+  { label: "Narcissistic abuse recovery", href: "/narcissistic-abuse-recovery/" },
   { label: "Young adults", href: "/young-adult-counseling/" },
   { label: "Holistic counseling", href: "/holistic-counseling/" },
   { label: "Walk and talk therapy", href: "/walk-and-talk-therapy-dallas/" },
