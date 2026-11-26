@@ -157,15 +157,13 @@ export function SessionBooking({
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className={`scroll-mt-28 rounded-3xl border border-border bg-card p-6 sm:p-8 ${className}`}
+      className={`ds-card scroll-mt-28 p-6 sm:p-8 ${className}`}
     >
-      <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-        Existing clients
-      </p>
+      <p className="text-sm font-semibold text-clay">Existing clients</p>
       <h2 id={`${id}-heading`} className="mt-2 font-serif text-2xl text-foreground sm:text-3xl">
         Book your next session.
       </h2>
-      <p className="mt-3 text-[1.0625rem] leading-relaxed text-muted-foreground">
+      <p className="mt-3 text-base leading-relaxed text-muted-foreground">
         {SESSION_BOOKING_URL ? (
           <>
             Book a 50-minute session instantly online, walk and talk or telehealth. Need a time that
