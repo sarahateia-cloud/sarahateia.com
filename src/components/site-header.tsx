@@ -7,7 +7,7 @@ import { LanguageToggle } from "@/components/language-toggle";
 import { AR_DRAFT } from "@/content/arabic-status";
 import { Logo } from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
-import { FOOTER_AREAS, FOOTER_RESOURCES, SERVICES } from "@/content/services";
+import { FOOTER_AREAS, FOOTER_RESOURCES, SERVICES, SERVICE_GROUPS } from "@/content/services";
 
 export { PHONE_DISPLAY, PHONE_HREF };
 
@@ -111,18 +111,31 @@ export function SiteHeader({
               Services
               <ChevronDown className="h-3.5 w-3.5" aria-hidden />
             </summary>
-            <ul className="services-menu absolute left-0 top-full z-40 mt-1 w-64 rounded-2xl border border-border bg-card p-2 shadow-[0_8px_30px_rgb(0_0_0/0.08)]">
-              {SERVICES.map((service) => (
-                <li key={service.href}>
-                  <a
-                    href={service.href}
-                    className="flex min-h-11 items-center rounded-xl px-3 text-foreground transition-colors hover:bg-secondary/60"
-                  >
-                    {service.label}
-                  </a>
-                </li>
+            {/* Solid popover colour: the hero re-points --card to a see-through tint, which let the
+                headline show through the open menu. */}
+            <div className="services-menu absolute left-0 top-full z-40 mt-2 grid w-[36rem] grid-cols-2 gap-x-4 rounded-2xl border border-border bg-popover p-4 shadow-[0_12px_40px_rgb(0_0_0/0.12)]">
+              {[[SERVICE_GROUPS[0], SERVICE_GROUPS[2]], [SERVICE_GROUPS[1]]].map((column, i) => (
+                <div key={i} className="space-y-4">
+                  {column.map((group) => (
+                    <div key={group.label}>
+                      <p className="px-3 pb-1 text-xs font-semibold text-clay">{group.label}</p>
+                      <ul>
+                        {group.items.map((service) => (
+                          <li key={service.href}>
+                            <a
+                              href={service.href}
+                              className="flex min-h-10 items-center rounded-xl px-3 text-foreground transition-colors hover:bg-muted"
+                            >
+                              {service.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
               ))}
-            </ul>
+            </div>
           </details>
           {NAV_LINKS.map((link) => (
             <a
@@ -191,20 +204,24 @@ export function SiteHeader({
                 </li>
               ))}
             </ul>
-            <p className="mt-10 text-sm font-semibold text-clay">Services</p>
-            <ul className="mt-2 grid grid-cols-1 gap-x-6 sm:grid-cols-2">
-              {SERVICES.map((service) => (
-                <li key={service.href}>
-                  <a
-                    href={service.href}
-                    onClick={() => setOpen(false)}
-                    className="inline-flex min-h-11 items-center text-lg text-foreground transition-colors hover:text-cta"
-                  >
-                    {service.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {SERVICE_GROUPS.map((group) => (
+              <div key={group.label} className="mt-8">
+                <p className="text-sm font-semibold text-clay">{group.label}</p>
+                <ul className="mt-2 grid grid-cols-1 gap-x-6 sm:grid-cols-2">
+                  {group.items.map((service) => (
+                    <li key={service.href}>
+                      <a
+                        href={service.href}
+                        onClick={() => setOpen(false)}
+                        className="inline-flex min-h-11 items-center text-lg text-foreground transition-colors hover:text-cta"
+                      >
+                        {service.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
           <div className="space-y-3 px-10 pb-12">
             <BookCallLink className={BUTTON.cta}>Book a Free Call</BookCallLink>
