@@ -245,6 +245,10 @@ function SelfCareToolkit() {
               ],
               ["Grounding techniques for anxiety", "/resources/grounding-techniques-for-anxiety/"],
               ["Free calming tools", "/tools/"],
+              [
+                "A counselor’s gift guide: gifts that teach coping skills",
+                "/resources/calming-gift-guide/",
+              ],
             ].map(([label, href]) => (
               <li key={href}>
                 <a
