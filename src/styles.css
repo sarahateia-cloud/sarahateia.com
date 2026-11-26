@@ -95,6 +95,7 @@
   --clay: #8b4f3a; /* dusty clay, 5.6:1 on cream: small text and marks */
   --clay-soft: #f0ddd2; /* clay tint, small chips and highlights */
   --terracotta: #c98e74; /* logo and illustration warmth */
+  --calligraphy: #d5cebf; /* faded warm gray عطية behind the logo flower */
   --gold: #8fa382; /* legacy accent name, now mid sage */
 
   --accent: #e7e3d3;
@@ -179,6 +180,7 @@
     --sand: #2a2f23;
     --rose: #2f3428;
     --night: #1c2017;
+    --calligraphy: #383c31;
     --cream: #181b13;
     --mist: #262b24;
     --cta: #a9bf95; /* 8.8:1 on canvas */

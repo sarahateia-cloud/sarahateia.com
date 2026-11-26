@@ -1,10 +1,26 @@
+import { ATTYA_RUQAA_THIN as ATTYA } from "@/components/attya-calligraphy";
+
 /**
  * The logo mark. "Attya" means a gift, or one who gives: two open, rooted hands hold a
- * stem that blossoms into an orchid.
+ * stem that blossoms into an orchid. Behind the flower, a small, tilted, faded عطية (Attya)
+ * in Ruqʿah calligraphy. It is drawn slightly outside the 48-unit box, so overflow stays visible.
  */
 export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 48 48" className={className} aria-hidden>
+    <svg viewBox="0 0 48 48" className={className} overflow="visible" aria-hidden>
+      {/* Thin, faded calligraphy: a background-colored edge slims the letters. */}
+      <g transform="rotate(-14 24 10)">
+        <svg
+          x="-0.5"
+          y="-8.5"
+          width="49"
+          height="37"
+          viewBox={`-20 -20 ${ATTYA.w + 40} ${ATTYA.h + 40}`}
+          overflow="visible"
+        >
+          <path d={ATTYA.d} fill="var(--calligraphy)" stroke="var(--background)" strokeWidth="22" />
+        </svg>
+      </g>
       <g fill="none" stroke="var(--taupe)" strokeLinecap="round">
         <path d="M24 41.5c-.4 2.4.4 4.4-.2 7.5" strokeWidth="1.5" />
         <path
