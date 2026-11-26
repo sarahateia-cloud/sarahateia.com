@@ -113,6 +113,35 @@ const PAGES = [
       "Free box breathing guide, 5-4-3-2-1 grounding exercise and stress check-in. No login, nothing saved. From Sarah Ateia, LPC Associate in Irving, TX.",
   },
   {
+    path: "self-care-toolkit",
+    graph: [
+      ...crumbs(
+        ["Resources", `${SITE}/resources/`],
+        ["Self-care toolkit", `${SITE}/self-care-toolkit/`],
+      ),
+      {
+        "@type": "ItemList",
+        "@id": `${SITE}/self-care-toolkit/#list`,
+        name: "Free self-care ideas, sorted by how much time you have",
+        itemListElement: [
+          "Box breathing",
+          "5-4-3-2-1 grounding",
+          "Name the feeling",
+          "A quick stress check-in",
+          "Write it out",
+          "Water and a real snack",
+          "Text one person",
+          "A walk outside",
+          "A gentler wind-down",
+          "Print the grounding guide",
+        ].map((name, i) => ({ "@type": "ListItem", position: i + 1, name })),
+      },
+    ],
+    title: "Self-Care Toolkit: Free Ideas | Sarah Ateia, LPC Associate",
+    description:
+      "Ten free self-care ideas sorted by time: 1-minute breathing and grounding, 5-minute resets, and longer wind-downs. Nothing to buy. Printable.",
+  },
+  {
     path: "new-clients",
     graph: crumbs(["New client forms", `${SITE}/new-clients/`]),
     title: "New Client Forms | Sarah Ateia, LPC Associate",

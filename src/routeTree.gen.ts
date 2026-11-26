@@ -14,6 +14,7 @@ import { Route as WalkAndTalkTherapyDallasRouteImport } from './routes/walk-and-
 import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as TelehealthCounselingTexasRouteImport } from './routes/telehealth-counseling-texas'
 import { Route as TelehealthCounselingRouteImport } from './routes/telehealth-counseling'
+import { Route as SelfCareToolkitRouteImport } from './routes/self-care-toolkit'
 import { Route as ScreeningToolsRouteImport } from './routes/screening-tools'
 import { Route as ReferralPartnersRouteImport } from './routes/referral-partners'
 import { Route as NewClientsRouteImport } from './routes/new-clients'
@@ -67,6 +68,11 @@ const TelehealthCounselingTexasRoute =
 const TelehealthCounselingRoute = TelehealthCounselingRouteImport.update({
   id: '/telehealth-counseling',
   path: '/telehealth-counseling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SelfCareToolkitRoute = SelfCareToolkitRouteImport.update({
+  id: '/self-care-toolkit',
+  path: '/self-care-toolkit',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ScreeningToolsRoute = ScreeningToolsRouteImport.update({
@@ -228,6 +234,7 @@ export interface FileRoutesByFullPath {
   '/new-clients': typeof NewClientsRoute
   '/referral-partners': typeof ReferralPartnersRoute
   '/screening-tools': typeof ScreeningToolsRoute
+  '/self-care-toolkit': typeof SelfCareToolkitRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/tools': typeof ToolsRoute
@@ -262,6 +269,7 @@ export interface FileRoutesByTo {
   '/new-clients': typeof NewClientsRoute
   '/referral-partners': typeof ReferralPartnersRoute
   '/screening-tools': typeof ScreeningToolsRoute
+  '/self-care-toolkit': typeof SelfCareToolkitRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/tools': typeof ToolsRoute
@@ -297,6 +305,7 @@ export interface FileRoutesById {
   '/new-clients': typeof NewClientsRoute
   '/referral-partners': typeof ReferralPartnersRoute
   '/screening-tools': typeof ScreeningToolsRoute
+  '/self-care-toolkit': typeof SelfCareToolkitRoute
   '/telehealth-counseling': typeof TelehealthCounselingRoute
   '/telehealth-counseling-texas': typeof TelehealthCounselingTexasRoute
   '/tools': typeof ToolsRoute
@@ -333,6 +342,7 @@ export interface FileRouteTypes {
     | '/new-clients'
     | '/referral-partners'
     | '/screening-tools'
+    | '/self-care-toolkit'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
     | '/tools'
@@ -367,6 +377,7 @@ export interface FileRouteTypes {
     | '/new-clients'
     | '/referral-partners'
     | '/screening-tools'
+    | '/self-care-toolkit'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
     | '/tools'
@@ -401,6 +412,7 @@ export interface FileRouteTypes {
     | '/new-clients'
     | '/referral-partners'
     | '/screening-tools'
+    | '/self-care-toolkit'
     | '/telehealth-counseling'
     | '/telehealth-counseling-texas'
     | '/tools'
@@ -436,6 +448,7 @@ export interface RootRouteChildren {
   NewClientsRoute: typeof NewClientsRoute
   ReferralPartnersRoute: typeof ReferralPartnersRoute
   ScreeningToolsRoute: typeof ScreeningToolsRoute
+  SelfCareToolkitRoute: typeof SelfCareToolkitRoute
   TelehealthCounselingRoute: typeof TelehealthCounselingRoute
   TelehealthCounselingTexasRoute: typeof TelehealthCounselingTexasRoute
   ToolsRoute: typeof ToolsRoute
@@ -486,6 +499,13 @@ declare module '@tanstack/react-router' {
       path: '/telehealth-counseling'
       fullPath: '/telehealth-counseling'
       preLoaderRoute: typeof TelehealthCounselingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/self-care-toolkit': {
+      id: '/self-care-toolkit'
+      path: '/self-care-toolkit'
+      fullPath: '/self-care-toolkit'
+      preLoaderRoute: typeof SelfCareToolkitRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/screening-tools': {
@@ -700,6 +720,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewClientsRoute: NewClientsRoute,
   ReferralPartnersRoute: ReferralPartnersRoute,
   ScreeningToolsRoute: ScreeningToolsRoute,
+  SelfCareToolkitRoute: SelfCareToolkitRoute,
   TelehealthCounselingRoute: TelehealthCounselingRoute,
   TelehealthCounselingTexasRoute: TelehealthCounselingTexasRoute,
   ToolsRoute: ToolsRoute,

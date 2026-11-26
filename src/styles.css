@@ -1614,3 +1614,49 @@ body:has([aria-label="Visit counting choice"]) .sticky-call {
     transform: translate3d(0, var(--depth, 0px), 0);
   }
 }
+
+/* Printing (the self-care toolkit has a Print button): just the content, in black on white. */
+@media print {
+  header,
+  footer,
+  .sticky-call,
+  .no-print,
+  [aria-label="Visit counting choice"] {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+  main {
+    padding-top: 0 !important;
+  }
+  .ds-card,
+  .ds-card-quiet {
+    box-shadow: none;
+    border-color: #999;
+    background: #fff;
+  }
+  .toolkit-card {
+    break-inside: avoid;
+    padding: 1rem !important;
+  }
+  .toolkit-group > .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .toolkit-group {
+    margin-top: 1.5rem !important;
+  }
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    word-break: break-all;
+  }
+}
