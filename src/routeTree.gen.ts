@@ -37,6 +37,7 @@ import { Route as ResourcesIndexRouteImport } from './routes/resources/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as ArIndexRouteImport } from './routes/ar/index'
 import { Route as ResourcesSelfReflectionRouteImport } from './routes/resources/self-reflection'
+import { Route as ResourcesCalmingGiftGuideRouteImport } from './routes/resources/calming-gift-guide'
 import { Route as ResourcesSlugRouteImport } from './routes/resources/$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as ArArabicCounselingRouteImport } from './routes/ar/arabic-counseling'
@@ -187,6 +188,12 @@ const ResourcesSelfReflectionRoute = ResourcesSelfReflectionRouteImport.update({
   path: '/resources/self-reflection',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResourcesCalmingGiftGuideRoute =
+  ResourcesCalmingGiftGuideRouteImport.update({
+    id: '/resources/calming-gift-guide',
+    path: '/resources/calming-gift-guide',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
   id: '/resources/$slug',
   path: '/resources/$slug',
@@ -237,6 +244,7 @@ export interface FileRoutesByFullPath {
   '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
+  '/resources/calming-gift-guide': typeof ResourcesCalmingGiftGuideRoute
   '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
   '/ar/': typeof ArIndexRoute
   '/blog/': typeof BlogIndexRoute
@@ -271,6 +279,7 @@ export interface FileRoutesByTo {
   '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
+  '/resources/calming-gift-guide': typeof ResourcesCalmingGiftGuideRoute
   '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
   '/ar': typeof ArIndexRoute
   '/blog': typeof BlogIndexRoute
@@ -306,6 +315,7 @@ export interface FileRoutesById {
   '/ar/arabic-counseling': typeof ArArabicCounselingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
+  '/resources/calming-gift-guide': typeof ResourcesCalmingGiftGuideRoute
   '/resources/self-reflection': typeof ResourcesSelfReflectionRoute
   '/ar/': typeof ArIndexRoute
   '/blog/': typeof BlogIndexRoute
@@ -342,6 +352,7 @@ export interface FileRouteTypes {
     | '/ar/arabic-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
+    | '/resources/calming-gift-guide'
     | '/resources/self-reflection'
     | '/ar/'
     | '/blog/'
@@ -376,6 +387,7 @@ export interface FileRouteTypes {
     | '/ar/arabic-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
+    | '/resources/calming-gift-guide'
     | '/resources/self-reflection'
     | '/ar'
     | '/blog'
@@ -410,6 +422,7 @@ export interface FileRouteTypes {
     | '/ar/arabic-counseling'
     | '/blog/$slug'
     | '/resources/$slug'
+    | '/resources/calming-gift-guide'
     | '/resources/self-reflection'
     | '/ar/'
     | '/blog/'
@@ -445,6 +458,7 @@ export interface RootRouteChildren {
   ArArabicCounselingRoute: typeof ArArabicCounselingRoute
   BlogSlugRoute: typeof BlogSlugRoute
   ResourcesSlugRoute: typeof ResourcesSlugRoute
+  ResourcesCalmingGiftGuideRoute: typeof ResourcesCalmingGiftGuideRoute
   ResourcesSelfReflectionRoute: typeof ResourcesSelfReflectionRoute
   ArIndexRoute: typeof ArIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
@@ -649,6 +663,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesSelfReflectionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/resources/calming-gift-guide': {
+      id: '/resources/calming-gift-guide'
+      path: '/resources/calming-gift-guide'
+      fullPath: '/resources/calming-gift-guide'
+      preLoaderRoute: typeof ResourcesCalmingGiftGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/resources/$slug': {
       id: '/resources/$slug'
       path: '/resources/$slug'
@@ -709,6 +730,7 @@ const rootRouteChildren: RootRouteChildren = {
   ArArabicCounselingRoute: ArArabicCounselingRoute,
   BlogSlugRoute: BlogSlugRoute,
   ResourcesSlugRoute: ResourcesSlugRoute,
+  ResourcesCalmingGiftGuideRoute: ResourcesCalmingGiftGuideRoute,
   ResourcesSelfReflectionRoute: ResourcesSelfReflectionRoute,
   ArIndexRoute: ArIndexRoute,
   BlogIndexRoute: BlogIndexRoute,

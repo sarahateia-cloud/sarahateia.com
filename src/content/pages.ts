@@ -110,6 +110,10 @@ const LINK = {
     label: "Is it ADHD, anxiety, or both?",
     href: "/resources/adhd-and-anxiety/",
   },
+  giftGuide: {
+    label: "A counselor’s gift guide: gifts that teach coping skills",
+    href: "/resources/calming-gift-guide/",
+  },
   screening: { label: "Optional screening tools", href: "/screening-tools/" },
   affordable: { label: "Affordable therapy in Dallas", href: "/affordable-therapy-dallas/" },
   irving: { label: "Counseling in Irving, TX", href: "/counseling-irving-tx/" },
@@ -2685,6 +2689,7 @@ export const ARTICLES: ContentPage[] = [
     path: "resources/self-care-for-mental-health",
     published: "2026-11-18",
     related: [
+      LINK.giftGuide,
       LINK.stress,
       LINK.lifeTransitions,
       LINK.holisticCounseling,
@@ -5354,6 +5359,7 @@ export const ARTICLES: ContentPage[] = [
     path: "resources/stress-management",
     published: "2026-11-24",
     related: [
+      LINK.giftGuide,
       LINK.anxiety,
       LINK.holisticCounseling,
       LINK.boxBreathing,
