@@ -196,6 +196,10 @@ const LINK = {
     href: "/resources/rejection-sensitive-dysphoria-adhd/",
   },
   adhdBurnout: { label: "What is ADHD burnout?", href: "/resources/adhd-burnout/" },
+  adhdRelationships: {
+    label: "How does ADHD affect relationships?",
+    href: "/resources/adhd-and-relationships/",
+  },
   stress: {
     label: "How to manage stress, and when to see a counselor",
     href: "/resources/stress-management/",
@@ -917,6 +921,7 @@ export const TOPICS: ContentPage[] = [
       LINK.adhdWomen,
       LINK.rsd,
       LINK.adhdBurnout,
+      LINK.adhdRelationships,
       LINK.trauma,
     ],
     title: "ADHD Therapist in Dallas, TX | Adult ADHD Counseling",
@@ -5527,7 +5532,13 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/rejection-sensitive-dysphoria-adhd",
     published: "2026-11-23",
-    related: [LINK.adhdTherapy, LINK.adhdWomen, LINK.regulation, LINK.adhdAnxiety],
+    related: [
+      LINK.adhdTherapy,
+      LINK.adhdWomen,
+      LINK.regulation,
+      LINK.adhdAnxiety,
+      LINK.adhdRelationships,
+    ],
     title: title("Rejection Sensitive Dysphoria"),
     description:
       "What rejection sensitive dysphoria (RSD) means in ADHD, what it can feel like, what research says, and calm, practical ways to cope with rejection.",
@@ -6129,6 +6140,111 @@ export const ARTICLES: ContentPage[] = [
       {
         q: "Can I do life transitions counseling online?",
         a: "Yes. Telehealth sessions are available to anyone located in Texas at the time of the session.",
+      },
+    ],
+  },
+  {
+    path: "resources/adhd-and-relationships",
+    published: "2026-11-26",
+    related: [LINK.adhdTherapy, LINK.rsd, LINK.attachment, LINK.adhdWomen],
+    title: title("ADHD and Relationships"),
+    description:
+      "How ADHD can affect relationships, what research says, common patterns couples notice, and practical ways to communicate and reconnect.",
+    eyebrow: "ADHD",
+    heading: "How does ADHD affect relationships?",
+    intro:
+      "ADHD can affect relationships through forgetfulness, distraction, impulsive words, and strong emotions, which a partner may read as not caring. Research links adult ADHD with more conflict and less stable relationships, but those patterns aren’t fixed, and understanding them is often the first step toward closeness again.",
+    takeaways: [
+      "ADHD traits like distraction, forgetfulness, and impulsivity can lead to conflict and hurt feelings in relationships.",
+      "A 2021 review found that adults with ADHD often report more relationship conflict and less stable relationships.",
+      "Big emotional reactions, including sensitivity to rejection, can play a large part.",
+      "Calm communication, shared systems, and less of a “parent and child” dynamic can help.",
+      "A free screener like the ASRS v1.1 is a starting point, not a diagnosis.",
+    ],
+    blocks: [
+      {
+        heading: "How can ADHD show up in a relationship?",
+        paragraphs: [
+          "ADHD doesn’t look the same in every person or every relationship. Some patterns people with ADHD and their partners often describe include:",
+        ],
+        list: [
+          "Forgetting plans, dates, or small promises, even ones that matter a lot",
+          "Drifting off mid-conversation, which can feel like not listening",
+          "Saying things in the heat of the moment, then regretting them",
+          "Intense focus at the start of a relationship that later fades into distraction",
+          "Uneven household load, with one partner tracking bills, chores, and calendars",
+          "Strong reactions to criticism or a sharp tone",
+        ],
+      },
+      {
+        heading: "What does research say about ADHD and relationships?",
+        paragraphs: [
+          "Research points to real challenges, and it’s still growing.",
+          "A 2021 review in the Journal of Marital and Family Therapy noted that much of the research shows adults with ADHD having shorter and more conflict-filled romantic relationships. It also found that little research has looked at what strengthens these relationships ([Journal of Marital and Family Therapy, 2021](https://doi.org/10.1111/jmft.12475)). A summary from Duke’s Center for Girls and Women with ADHD adds that women with ADHD are reported to have more social difficulties and a higher divorce rate than men with ADHD ([Duke Psychiatry](https://psychiatry.duke.edu/duke-center-girls-women-adhd/research/research-spotlights/study-summarizes-research-adhds-impact)).",
+          "In a 2025 study, more than 330 adults with ADHD in Ireland described how ADHD affected their romantic relationships. Common themes included an emotional rollercoaster of rejection sensitivity, a pull between passion and distraction, a partner sliding into a caregiver role, and the difference that self-understanding made ([O’Brien et al., 2025](https://pmc.ncbi.nlm.nih.gov/articles/PMC12662942/)). These studies show patterns, not a fixed outcome for any one couple.",
+        ],
+      },
+      {
+        heading: "Why do emotions run so high in ADHD relationships?",
+        paragraphs: [
+          "Strong emotions are common in adult ADHD. A major review estimated that emotion dysregulation shows up in roughly 30% to 70% of adults with ADHD ([Shaw et al., 2014](https://doi.org/10.1176/appi.ajp.2013.13070966)). In a relationship, that can look like a quick temper, deep hurt over a small comment, or shutting down during an argument.",
+          "Many adults with ADHD also describe intense pain around rejection. [What is rejection sensitive dysphoria?](/resources/rejection-sensitive-dysphoria-adhd/) explains that experience and ways to cope. Old relationship patterns can play a part too, and [how attachment styles affect relationships](/resources/attachment-styles-in-relationships/) may help you see your own.",
+        ],
+      },
+      {
+        heading: "What helps couples when one partner has ADHD?",
+        paragraphs: [
+          "Many couples find it helps to treat ADHD as a shared problem to solve, not a character flaw. CHADD, a national ADHD nonprofit, points to poor communication as a common root of these struggles and suggests slowing down to restate and validate what your partner said ([CHADD](https://chadd.org/attention-article/how-can-couples-with-adhd-keep-a-strong-relationship/)). These are gentle starting points, not a treatment plan:",
+        ],
+        list: [
+          "Slow conversations down: one person speaks, the other repeats back what they heard",
+          "Pick a calm time for hard talks, not the middle of a busy evening",
+          "Use shared systems, like a family calendar, reminders, or a weekly check-in",
+          "Divide chores by strengths, and write the plan down",
+          "Take a break when either of you is flooded, and agree on when you’ll come back",
+          "Calm your body first, with [box breathing](/resources/box-breathing/) or a short walk",
+          "Notice what’s working and say it out loud",
+        ],
+      },
+      {
+        heading: "How can I take care of myself in an ADHD relationship?",
+        paragraphs: [
+          "Whether you have ADHD or love someone who does, steady basics like sleep, movement, time outdoors, and friends who feel safe make hard moments easier to handle. This is part of a [holistic, mind-body approach](/holistic-counseling/), and [nervous system regulation techniques](/resources/nervous-system-regulation-techniques/) has simple ways to practice.",
+          "If you wonder whether ADHD is part of the picture, a free screener like the ASRS v1.1 on the [screening tools page](/screening-tools/) is a starting point to bring to a doctor, psychiatrist, or psychologist. It isn’t a diagnosis.",
+          "ADHD can explain forgetfulness or a short fuse. It doesn’t explain or excuse control, threats, or making a partner afraid. If you feel unsafe, call 911, or reach the National Domestic Violence Hotline at 1-800-799-7233 or by texting START to 88788. [How to heal after an abusive relationship](/resources/healing-after-an-abusive-relationship/) has more support.",
+        ],
+      },
+      {
+        heading: "When should I talk to someone about ADHD and my relationship?",
+        paragraphs: [
+          "It may help to reach out if the same arguments keep repeating, if you feel more like a parent or a burden than a partner, or if stress about the relationship is affecting your sleep, work, or mood.",
+          "Counseling isn’t a crisis service. If you’re thinking about harming yourself, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+      {
+        heading: "Where can I get support for ADHD and relationships in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers individual [adult ADHD counseling](/adhd-therapy/) through walk and talk sessions in Dallas–Fort Worth or by [telehealth anywhere in Texas](/telehealth-counseling-texas/).",
+          "I don’t diagnose ADHD, prescribe medication, or offer couples sessions. In individual counseling, we can look at the patterns that keep showing up, practice calming your body before hard conversations, and plan clear, practical steps. You set the pace and the goals. If you and your partner want to work together, a couples therapist who knows ADHD may be a good fit alongside or instead.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can a relationship work when one partner has ADHD?",
+        a: "Many do. Research shows ADHD can bring extra challenges, but understanding how it shows up, sharing practical systems, and communicating calmly can help. Every relationship is different, and there’s no guarantee.",
+      },
+      {
+        q: "Is it ADHD or is my partner just not listening?",
+        a: "It can be hard to tell, and only a doctor, psychiatrist, or psychologist can evaluate for ADHD. Rather than guessing, it often helps to talk about what each of you notices and what you need.",
+      },
+      {
+        q: "Does ADHD affect relationships differently for women?",
+        a: "Research summaries report that women with ADHD may have more social difficulties and a higher divorce rate than men with ADHD. [What are the signs of ADHD in women?](/resources/adhd-signs-in-women/) has more.",
+      },
+      {
+        q: "Do you offer couples counseling for ADHD?",
+        a: "No. Sarah Ateia, LPC Associate, offers individual counseling only. A couples therapist who knows ADHD can work with both partners together.",
       },
     ],
   },
