@@ -102,6 +102,7 @@ const LINK = {
     label: "How do you heal after an abusive relationship?",
     href: "/resources/healing-after-an-abusive-relationship/",
   },
+  toolkit: { label: "Self-care toolkit: free ideas sorted by time", href: "/self-care-toolkit/" },
   selfCare: {
     label: "What does self-care for mental health actually look like?",
     href: "/resources/self-care-for-mental-health/",
@@ -3053,6 +3054,7 @@ export const ARTICLES: ContentPage[] = [
     path: "resources/self-care-for-mental-health",
     published: "2026-11-18",
     related: [
+      LINK.toolkit,
       LINK.giftGuide,
       LINK.stress,
       LINK.lifeTransitions,

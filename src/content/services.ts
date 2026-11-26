@@ -30,6 +30,7 @@ export const FOOTER_RESOURCES = [
   { label: "Self-reflection", href: "/resources/self-reflection/" },
   { label: "Screening tools", href: "/screening-tools/" },
   { label: "Calming tools", href: "/tools/" },
+  { label: "Self-care toolkit", href: "/self-care-toolkit/" },
 ];
 
 /** The cities served in person, plus statewide telehealth. Linked from every footer. */

@@ -295,6 +295,10 @@ function GiftGuide() {
             calming tools
           </a>
           ,{" "}
+          <a href="/self-care-toolkit/" className={LINK}>
+            a free self-care toolkit
+          </a>
+          ,{" "}
           <a href="/resources/grounding-techniques-for-anxiety/" className={LINK}>
             grounding techniques for anxiety
           </a>

@@ -208,6 +208,10 @@ function ToolsPage() {
             >
               grounding techniques for anxiety
             </a>
+            . For more ideas sorted by how much time you have, see the{" "}
+            <a href="/self-care-toolkit/" className="text-foreground underline underline-offset-4">
+              self-care toolkit
+            </a>
             . For more ways to settle your body, read{" "}
             <a
               href="/resources/nervous-system-regulation-techniques/"
