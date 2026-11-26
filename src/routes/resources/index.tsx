@@ -59,7 +59,15 @@ function Resources() {
         </div>
 
         <h2 className="mt-12 font-serif text-2xl text-foreground sm:text-3xl">For reflection</h2>
-        <div className="mt-6">
+        <div className="mt-6 space-y-4">
+          <a href="/resources/calming-gift-guide/" className={LINK_CARD}>
+            <span className="block font-serif text-xl text-foreground">
+              Calming gift ideas for someone who’s stressed
+            </span>
+            <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
+              A holiday gift guide by budget, from under $25 to free.
+            </span>
+          </a>
           <a href="/resources/self-reflection/" className={LINK_CARD}>
             <span className="block font-serif text-xl text-foreground">
               Quotes, personality types, and cognitive functions

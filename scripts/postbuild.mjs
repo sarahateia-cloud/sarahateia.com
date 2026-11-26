@@ -60,6 +60,28 @@ const PAGES = [
       "Steadying quotes plus the Enneagram and cognitive functions, offered for curiosity and self-reflection only. Not scientific and not a diagnosis.",
   },
   {
+    path: "resources/calming-gift-guide",
+    graph: [
+      {
+        "@type": "Article",
+        "@id": `${SITE}/resources/calming-gift-guide/#article`,
+        headline: "Calming gift ideas for someone who's stressed",
+        url: `${SITE}/resources/calming-gift-guide/`,
+        datePublished: "2026-11-26",
+        dateModified: "2026-11-26",
+        author: { "@id": `${SITE}/#sarah` },
+        publisher: { "@id": `${SITE}/#practice` },
+      },
+      ...crumbs(
+        ["Resources", `${SITE}/resources/`],
+        ["Calming gift guide", `${SITE}/resources/calming-gift-guide/`],
+      ),
+    ],
+    title: "Calming Gift Ideas for Stress Relief | Holiday Guide",
+    description:
+      "Cozy, calming holiday gift ideas for someone who's stressed, from under $25 to free, by Sarah Ateia, LPC Associate in Irving, TX.",
+  },
+  {
     path: "crisis",
     graph: crumbs(["Crisis resources", `${SITE}/crisis/`]),
     title: "DFW Crisis Lines & Resources | Sarah Ateia, LPC Associate",
