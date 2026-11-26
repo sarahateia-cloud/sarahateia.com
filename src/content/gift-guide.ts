@@ -1,20 +1,25 @@
-// Holiday gift guide: calming, low-pressure gift ideas, laid out like a shopping roundup.
+// A counselor's holiday gift guide, laid out like a shopping roundup but organized by the coping
+// skill each gift supports. Products stay secondary: the point is the skill and when to seek
+// counseling.
 //
 // Rules for this file (CLAUDE.md):
 // - No specific products, prices or buy links until Sarah picks them AND her supervisor has
-//   OK'd product recommendations. Until then each idea shows a price range only, written as a
-//   typical range, not a quote.
+//   OK'd product recommendations. Until then each idea shows a typical price range only.
 // - If a `shopUrl` is ever added, set `affiliate: true` when the link earns a commission. The
 //   page then shows the FTC disclosure at the top and next to the button automatically.
-// - Blurbs describe comfort and routine, never treatment. Any research claim links its source.
+// - Copy describes comfort, routine and coping skills, never treatment or cure. Any research
+//   claim links its source.
 
 export type GiftIdea = {
   id: string;
   name: string;
-  /** Typical price range for the kind of item, e.g. "Under $25". Not a product price. */
+  /** Typical price range for the kind of item. Not a product price. */
   range: string;
+  /** Why a counselor might suggest it. */
   blurb: string;
-  /** Optional caution shown under the blurb. */
+  /** A short way to use it as a coping skill. */
+  tryThis: string;
+  /** Optional caution. */
   note?: string;
   /** One research link, if the blurb makes a research claim. */
   source?: { label: string; href: string };
@@ -31,9 +36,7 @@ export type GiftIdea = {
     | "blanket"
     | "shoe"
     | "sun"
-    | "plant"
     | "lamp"
-    | "hands"
     | "walk"
     | "letter"
     | "phone";
@@ -52,10 +55,41 @@ export const GIFT_GUIDE_UPDATED = "2026-11-26";
 
 export const GIFT_SECTIONS: GiftSection[] = [
   {
-    id: "under-25",
-    short: "Under $25",
-    heading: "Small, thoughtful gifts under $25",
-    intro: "Easy to wrap, easy to mail, and easy on a budget.",
+    id: "grounding",
+    short: "Grounding",
+    heading: "Gifts for grounding when stress spikes",
+    intro:
+      "Grounding is one of the first skills many counselors teach: bringing attention back to the present through the body and senses.",
+    ideas: [
+      {
+        id: "throw",
+        icon: "sock",
+        name: "A soft throw or cozy socks",
+        range: "Under $25",
+        blurb:
+          "Texture gives the mind something simple and real to hold on to. A soft blanket becomes an easy anchor on a hard evening.",
+        tryThis:
+          "Wrap up and name five things you can see, four you can feel, three you can hear, two you can smell and one you can taste.",
+        related: { label: "Try the 5-4-3-2-1 exercise", href: "/tools/" },
+      },
+      {
+        id: "cards",
+        icon: "cards",
+        name: "Breathing or grounding prompt cards",
+        range: "Under $25",
+        blurb:
+          "When stress is high, it’s hard to remember what helps. A small deck by the bed or in a bag does the remembering for you.",
+        tryThis:
+          "Pull one card a day and practice it while you’re calm, so it’s familiar when you need it.",
+        related: { label: "Box breathing, step by step", href: "/resources/box-breathing/" },
+      },
+    ],
+  },
+  {
+    id: "reflection",
+    short: "Reflection",
+    heading: "Gifts for putting feelings into words",
+    intro: "Naming what you feel is a big part of counseling, and it can start on paper.",
     ideas: [
       {
         id: "journal",
@@ -63,53 +97,41 @@ export const GIFT_SECTIONS: GiftSection[] = [
         name: "A simple journal and a good pen",
         range: "Under $25",
         blurb:
-          "A blank or lightly guided journal gives someone a private place to put a busy mind on paper. Pick one with plenty of open space rather than strict daily prompts, so missing a day never feels like failing.",
+          "Writing can slow racing thoughts and help you notice patterns. Many people bring a few notes to counseling sessions so they remember what mattered that week.",
+        tryThis:
+          "Each night, write one thing that was hard, one thing you handled, and one thing you need tomorrow.",
         related: {
           label: "Self-care for mental health",
           href: "/resources/self-care-for-mental-health/",
         },
       },
+    ],
+  },
+  {
+    id: "rest",
+    short: "Rest",
+    heading: "Gifts for rest and a calmer night",
+    intro:
+      "Stress and sleep affect each other. A steady wind-down routine is something counselors often talk through with clients.",
+    ideas: [
       {
         id: "tea",
         icon: "cup",
         name: "Caffeine-free tea and a favorite mug",
         range: "Under $25",
         blurb:
-          "A warm drink can become a small evening ritual: a cue to slow down and put the phone away. Caffeine-free blends keep it friendly for later in the day.",
+          "A warm drink can become a cue that the day is ending: phone down, lights low, shoulders loose.",
+        tryThis:
+          "Drink it slowly without a screen, and notice the warmth, the smell and the taste.",
       },
-      {
-        id: "socks",
-        icon: "sock",
-        name: "Soft socks or a cozy throw",
-        range: "Under $25",
-        blurb:
-          "Comfort you can feel. Soft textures are an easy anchor for grounding: noticing what you feel is one step of the 5-4-3-2-1 exercise.",
-        related: { label: "Try the 5-4-3-2-1 grounding exercise", href: "/tools/" },
-      },
-      {
-        id: "cards",
-        icon: "cards",
-        name: "Breathing or reflection prompt cards",
-        range: "Under $25",
-        blurb:
-          "A small deck of breathing patterns or gentle questions is something to pull out on a hard afternoon. Pair it with a note that points to free tools they can use any time.",
-        related: { label: "Free box breathing guide", href: "/resources/box-breathing/" },
-      },
-    ],
-  },
-  {
-    id: "25-to-75",
-    short: "$25 to $75",
-    heading: "Cozy gifts from $25 to $75",
-    intro: "A little more of a treat, for winding down and getting outside.",
-    ideas: [
       {
         id: "blanket",
         icon: "blanket",
         name: "A weighted blanket",
         range: "Often $40 and up",
         blurb:
-          "Many people like the steady, hugged feeling of a weighted blanket at night. In one randomized study of adults with insomnia and a psychiatric condition, people using a chain weighted blanket reported better sleep than those using a lighter one.",
+          "Many people like the steady, hugged feeling at night. In one randomized study of adults with insomnia and a psychiatric condition, people using a chain weighted blanket reported better sleep than those using a lighter one.",
+        tryThis: "Pair it with a few minutes of slow breathing before sleep.",
         source: {
           label: "Ekholm et al., Journal of Clinical Sleep Medicine (2020)",
           href: "https://doi.org/10.5664/jcsm.8636",
@@ -117,12 +139,32 @@ export const GIFT_SECTIONS: GiftSection[] = [
         note: "Not for babies or young children, and check the maker’s weight guidance. It isn’t a treatment for any condition.",
       },
       {
+        id: "sunrise",
+        icon: "sun",
+        name: "A sunrise alarm clock",
+        range: "About $30 to $75",
+        blurb:
+          "Light that brightens slowly can make dark winter mornings feel gentler than a loud buzzer.",
+        tryThis: "Keep the same wake time every day, weekends too, to steady your rhythm.",
+      },
+    ],
+  },
+  {
+    id: "outside",
+    short: "Outdoors",
+    heading: "Gifts that get them moving and outside",
+    intro:
+      "Movement and time outdoors are part of how I work: walk and talk sessions happen on park trails in Irving and Dallas.",
+    ideas: [
+      {
         id: "shoes",
         icon: "shoe",
         name: "Comfortable walking shoes or a small trail pack",
         range: "About $30 to $75 for a pack",
         blurb:
           "A gift that invites someone outdoors. Research reviewed by the American Psychological Association links time in nature with lower stress and better attention.",
+        tryThis:
+          "Take a 10-minute walk without headphones and notice three things you haven’t seen before.",
         source: {
           label: "American Psychological Association, “Nurtured by nature”",
           href: "https://www.apa.org/monitor/2020/04/nurtured-nature",
@@ -133,77 +175,31 @@ export const GIFT_SECTIONS: GiftSection[] = [
         },
       },
       {
-        id: "sunrise",
-        icon: "sun",
-        name: "A sunrise alarm clock",
-        range: "About $30 to $75",
-        blurb:
-          "Light that brightens slowly before the alarm can make dark winter mornings feel a little gentler than a loud buzzer.",
-      },
-      {
-        id: "plant",
-        icon: "plant",
-        name: "An easy-care houseplant",
-        range: "About $25 to $50",
-        blurb:
-          "Something green and alive to look after, with low stakes. Pothos, snake plants and ZZ plants forgive a missed watering.",
-      },
-    ],
-  },
-  {
-    id: "splurge",
-    short: "Splurge",
-    heading: "Bigger gifts worth the splurge",
-    intro: "For the person who keeps saying they’ll take care of themselves later.",
-    ideas: [
-      {
-        id: "lamp",
-        icon: "lamp",
-        name: "A light therapy lamp",
-        range: "Often $50 and up",
-        blurb:
-          "Some people use a bright light box on short winter days. The National Institute of Mental Health describes light therapy as one treatment option for seasonal affective disorder, used with guidance from a health care provider.",
-        source: {
-          label: "National Institute of Mental Health, Seasonal Affective Disorder",
-          href: "https://www.nimh.nih.gov/health/publications/seasonal-affective-disorder",
-        },
-        note: "Suggest they ask their doctor before using one, especially if they have eye conditions or bipolar disorder, or take medicines that make skin sensitive to light.",
-      },
-      {
-        id: "massage",
-        icon: "hands",
-        name: "A massage or spa gift card",
-        range: "Varies",
-        blurb:
-          "An hour that is fully theirs, with nothing to plan. Choose a local spot near them so it’s easy to book.",
-      },
-    ],
-  },
-  {
-    id: "free",
-    short: "Free",
-    heading: "Free gifts that mean the most",
-    intro: "Time, attention and a little planning. No shipping needed.",
-    ideas: [
-      {
         id: "walk",
         icon: "walk",
         name: "A standing walk date",
         range: "Free",
         blurb:
-          "Offer a weekly or monthly walk together, on the calendar. Side by side, with no screen between you, conversations often come more easily.",
-        related: {
-          label: "The benefits of walk and talk therapy",
-          href: "/walk-and-talk-therapy-dallas/",
-        },
+          "Side by side, with no screen between you, hard conversations often come more easily. That’s the idea behind walk and talk counseling, too.",
+        tryThis: "Put a weekly or monthly walk on the calendar together, and keep it.",
       },
+    ],
+  },
+  {
+    id: "connection",
+    short: "Connection",
+    heading: "Gifts of connection",
+    intro: "Feeling less alone is one of the most protective things in hard seasons.",
+    ideas: [
       {
         id: "letter",
         icon: "letter",
-        name: "A handwritten letter",
+        name: "A handwritten letter, in your own language",
         range: "Free",
         blurb:
-          "Tell them something specific you appreciate about them. It costs nothing and is often the gift people keep.",
+          "Tell them something specific you appreciate. For families who speak Arabic or another language at home, words in that language can land closer to the heart.",
+        tryThis: "Name one strength you’ve seen in them this year, and one memory you treasure.",
+        related: { label: "Counseling in Arabic", href: "/arabic-counseling/" },
       },
       {
         id: "phone",
@@ -211,7 +207,35 @@ export const GIFT_SECTIONS: GiftSection[] = [
         name: "A phone-free evening",
         range: "Free",
         blurb:
-          "Plan a simple night in: dinner, a board game or a movie, phones in another room. Make it about being together, not about being productive.",
+          "Dinner, a board game or a movie, with phones in another room. Being fully present is a gift most people rarely get.",
+        tryThis: "Agree on a start and end time, so it feels restful, not like a rule.",
+      },
+    ],
+  },
+  {
+    id: "winter",
+    short: "Winter light",
+    heading: "For short, dark winter days",
+    intro: "Some people feel heavier when the days get short. That’s worth talking about.",
+    ideas: [
+      {
+        id: "lamp",
+        icon: "lamp",
+        name: "A light therapy lamp",
+        range: "Often $50 and up",
+        blurb:
+          "The National Institute of Mental Health describes light therapy as one treatment option for seasonal affective disorder, used with guidance from a health care provider. It isn’t a substitute for that care.",
+        tryThis:
+          "If winter low moods come back every year, talk with a doctor or counselor before buying one.",
+        source: {
+          label: "National Institute of Mental Health, Seasonal Affective Disorder",
+          href: "https://www.nimh.nih.gov/health/publications/seasonal-affective-disorder",
+        },
+        note: "Ask a doctor first, especially with eye conditions, bipolar disorder, or medicines that make skin sensitive to light.",
+        related: {
+          label: "Depression counseling in Dallas",
+          href: "/depression-counseling-dallas/",
+        },
       },
     ],
   },

@@ -62,10 +62,10 @@ function Resources() {
         <div className="mt-6 space-y-4">
           <a href="/resources/calming-gift-guide/" className={LINK_CARD}>
             <span className="block font-serif text-xl text-foreground">
-              Calming gift ideas for someone who’s stressed
+              A counselor’s holiday gift guide
             </span>
             <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
-              A holiday gift guide by budget, from under $25 to free.
+              Gifts that go with coping skills, and when to consider counseling.
             </span>
           </a>
           <a href="/resources/self-reflection/" className={LINK_CARD}>

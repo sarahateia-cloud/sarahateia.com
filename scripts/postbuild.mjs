@@ -65,7 +65,7 @@ const PAGES = [
       {
         "@type": "Article",
         "@id": `${SITE}/resources/calming-gift-guide/#article`,
-        headline: "Calming gift ideas for someone who's stressed",
+        headline: "A counselor's holiday gift guide: gifts that teach coping skills",
         url: `${SITE}/resources/calming-gift-guide/`,
         datePublished: "2026-11-26",
         dateModified: "2026-11-26",
@@ -74,12 +74,12 @@ const PAGES = [
       },
       ...crumbs(
         ["Resources", `${SITE}/resources/`],
-        ["Calming gift guide", `${SITE}/resources/calming-gift-guide/`],
+        ["Counselor's gift guide", `${SITE}/resources/calming-gift-guide/`],
       ),
     ],
-    title: "Calming Gift Ideas for Stress Relief | Holiday Guide",
+    title: "A Counselor's Gift Guide for Stress & Anxiety",
     description:
-      "Cozy, calming holiday gift ideas for someone who's stressed, from under $25 to free, by Sarah Ateia, LPC Associate in Irving, TX.",
+      "Holiday gifts that go with coping skills, plus when to consider counseling and how to bring it up. By Sarah Ateia, LPC Associate in Irving, TX.",
   },
   {
     path: "crisis",

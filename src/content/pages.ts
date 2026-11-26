@@ -111,7 +111,7 @@ const LINK = {
     href: "/resources/adhd-and-anxiety/",
   },
   giftGuide: {
-    label: "Calming gift ideas for someone who’s stressed",
+    label: "A counselor’s gift guide: gifts that teach coping skills",
     href: "/resources/calming-gift-guide/",
   },
   screening: { label: "Optional screening tools", href: "/screening-tools/" },
