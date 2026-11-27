@@ -1,20 +1,38 @@
 // Kept apart from pages.ts so the header and footer don't pull in every page's text.
-/** The main services, linked from the home page and every footer. ADHD and trauma are the core focus areas, so they come first. */
-export const SERVICES = [
-  { label: "Adult ADHD counseling", href: "/adhd-therapy/" },
-  { label: "Trauma counseling", href: "/trauma-therapy-dallas/" },
-  { label: "Anxiety therapy", href: "/anxiety-therapy-dallas/" },
-  { label: "Depression counseling", href: "/depression-counseling-dallas/" },
-  { label: "Chronic and autoimmune illness", href: "/chronic-illness-counseling/" },
-  { label: "BPD and intense emotions", href: "/bpd-counseling/" },
-  { label: "Narcissistic abuse recovery", href: "/narcissistic-abuse-recovery/" },
-  { label: "Young adults", href: "/young-adult-counseling/" },
-  { label: "Holistic counseling", href: "/holistic-counseling/" },
-  { label: "Walk and talk therapy", href: "/walk-and-talk-therapy-dallas/" },
-  { label: "Online therapy in Texas", href: "/telehealth-counseling-texas/" },
-  { label: "Counseling in Arabic", href: "/arabic-counseling/" },
-  { label: "Affordable therapy", href: "/affordable-therapy-dallas/" },
+/** The services, grouped for the header menu. ADHD and trauma are the core focus areas, so they come first. */
+export const SERVICE_GROUPS = [
+  {
+    label: "Core focus",
+    items: [
+      { label: "Adult ADHD counseling", href: "/adhd-therapy/" },
+      { label: "Trauma counseling", href: "/trauma-therapy-dallas/" },
+    ],
+  },
+  {
+    label: "Also helping with",
+    items: [
+      { label: "Anxiety therapy", href: "/anxiety-therapy-dallas/" },
+      { label: "Depression counseling", href: "/depression-counseling-dallas/" },
+      { label: "Chronic and autoimmune illness", href: "/chronic-illness-counseling/" },
+      { label: "BPD and intense emotions", href: "/bpd-counseling/" },
+      { label: "Narcissistic abuse recovery", href: "/narcissistic-abuse-recovery/" },
+      { label: "Young adults", href: "/young-adult-counseling/" },
+      { label: "Holistic counseling", href: "/holistic-counseling/" },
+    ],
+  },
+  {
+    label: "Ways to meet",
+    items: [
+      { label: "Walk and talk therapy", href: "/walk-and-talk-therapy-dallas/" },
+      { label: "Online therapy in Texas", href: "/telehealth-counseling-texas/" },
+      { label: "Counseling in Arabic", href: "/arabic-counseling/" },
+      { label: "Affordable therapy", href: "/affordable-therapy-dallas/" },
+    ],
+  },
 ];
+
+/** Every service in one list, linked from the home page and every footer. */
+export const SERVICES = SERVICE_GROUPS.flatMap((group) => group.items);
 
 /** Helpful reading, linked from every footer so no guide depends on a single link. */
 export const FOOTER_RESOURCES = [
