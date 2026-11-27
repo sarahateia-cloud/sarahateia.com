@@ -226,6 +226,32 @@ const LINK = {
     label: "Narcissistic abuse recovery counseling",
     href: "/narcissistic-abuse-recovery/",
   },
+  seasonalDepression: {
+    label: "What is seasonal depression?",
+    href: "/resources/seasonal-depression/",
+  },
+  holidayStress: { label: "How to cope with holiday stress", href: "/resources/holiday-stress/" },
+  highFunctioning: {
+    label: "What is high-functioning anxiety?",
+    href: "/resources/high-functioning-anxiety/",
+  },
+  overthinking: {
+    label: "How to stop overthinking",
+    href: "/resources/how-to-stop-overthinking/",
+  },
+  publicSpeaking: {
+    label: "How to overcome fear of public speaking",
+    href: "/resources/fear-of-public-speaking/",
+  },
+  menTherapy: { label: "Therapy for men in Dallas", href: "/resources/therapy-for-men/" },
+  onlineCost: {
+    label: "How much does online therapy cost in Texas?",
+    href: "/resources/online-therapy-cost/",
+  },
+  arabicOnline: {
+    label: "How to find an Arabic-speaking therapist in Texas",
+    href: "/resources/arabic-speaking-therapist-online/",
+  },
 };
 
 // Titles stay under 60 characters: keyword first, then this ending.
@@ -244,6 +270,7 @@ export const TOPICS: ContentPage[] = [
       LINK.telehealth,
       LINK.irving,
       LINK.consultation,
+      LINK.arabicOnline,
     ],
     title: "Arabic-Speaking Counselor in Dallas, TX",
     description:
@@ -353,7 +380,15 @@ export const TOPICS: ContentPage[] = [
   },
   {
     path: "walk-and-talk-therapy-dallas",
-    related: [LINK.walkTalk, LINK.outdoorFit, LINK.anxiety, LINK.telehealth, LINK.walkBenefits],
+    related: [
+      LINK.walkTalk,
+      LINK.outdoorFit,
+      LINK.anxiety,
+      LINK.telehealth,
+      LINK.walkBenefits,
+      LINK.menTherapy,
+      LINK.seasonalDepression,
+    ],
     title: "Walk and Talk Therapy in Dallas | Outdoor Therapy",
     description:
       "Walk and talk therapy for Dallas and outdoor therapy on a trail in Irving, TX. How sessions, privacy, weather, and getting started work.",
@@ -437,6 +472,8 @@ export const TOPICS: ContentPage[] = [
       LINK.consultation,
       LINK.firstSession,
       LINK.newClients,
+      LINK.onlineCost,
+      LINK.arabicOnline,
     ],
     title: title("Online Therapy in Texas"),
     description:
@@ -559,6 +596,7 @@ export const TOPICS: ContentPage[] = [
       LINK.firstSession,
       LINK.familyBoundaries,
       LINK.lifeTransitions,
+      LINK.menTherapy,
     ],
     title: "Therapist for Young Adults in Dallas, TX",
     description:
@@ -676,6 +714,9 @@ export const TOPICS: ContentPage[] = [
       LINK.panicVsAnxiety,
       LINK.anxietyOrStress,
       LINK.trauma,
+      LINK.highFunctioning,
+      LINK.overthinking,
+      LINK.publicSpeaking,
     ],
     title: "Anxiety Therapist in Dallas, TX | Anxiety Therapy",
     description:
@@ -802,6 +843,8 @@ export const TOPICS: ContentPage[] = [
       LINK.anxietyOrStress,
       LINK.chronicIllness,
       LINK.trauma,
+      LINK.seasonalDepression,
+      LINK.menTherapy,
     ],
     title: "Depression Counseling in Dallas, TX",
     description:
@@ -1484,7 +1527,14 @@ export const TOPICS: ContentPage[] = [
   },
   {
     path: "affordable-therapy-dallas",
-    related: [LINK.cost, LINK.slidingScale, LINK.telehealth, LINK.dallas, LINK.choose],
+    related: [
+      LINK.cost,
+      LINK.slidingScale,
+      LINK.telehealth,
+      LINK.dallas,
+      LINK.choose,
+      LINK.onlineCost,
+    ],
     title: "Sliding Scale Therapy in Dallas, TX",
     description:
       "Sliding scale therapy in Dallas without insurance: self-pay counseling with fees based on household income, optional packages, and a free 15-minute call.",
@@ -2491,6 +2541,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.consultation,
       LINK.telehealth,
       LINK.glossary,
+      LINK.arabicOnline,
     ],
     title: title("Culture & Language in Therapy"),
     description:
@@ -3173,7 +3224,13 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/therapy-cost-without-insurance",
     published: "2026-11-19",
-    related: [LINK.affordable, LINK.slidingScale, LINK.telehealth, LINK.consultation],
+    related: [
+      LINK.affordable,
+      LINK.slidingScale,
+      LINK.telehealth,
+      LINK.consultation,
+      LINK.onlineCost,
+    ],
     title: "Therapy Without Insurance: What It Costs in Texas",
     description:
       "What therapy costs without insurance in Texas, what affects the price, your right to a Good Faith Estimate, and practical ways to lower the cost.",
@@ -4359,6 +4416,8 @@ export const ARTICLES: ContentPage[] = [
       LINK.adhdBurnout,
       LINK.stress,
       LINK.lifeTransitions,
+      LINK.seasonalDepression,
+      LINK.highFunctioning,
     ],
     title: title("Burnout vs. Depression"),
     description:
@@ -5153,6 +5212,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.anxiety,
       LINK.holisticCounseling,
       LINK.panicVsAnxiety,
+      LINK.publicSpeaking,
     ],
     title: "Box Breathing: How to Do It and Why It Helps",
     description:
@@ -5344,6 +5404,7 @@ export const ARTICLES: ContentPage[] = [
       LINK.grounding,
       LINK.consultation,
       LINK.narcissisticAbuse,
+      LINK.holidayStress,
     ],
     title: title("Setting Boundaries With Family"),
     description:
@@ -5753,6 +5814,8 @@ export const ARTICLES: ContentPage[] = [
       LINK.burnout,
       LINK.tools,
       LINK.anxietyOrStress,
+      LINK.holidayStress,
+      LINK.overthinking,
     ],
     title: title("Stress Management in Dallas"),
     description:
@@ -5847,7 +5910,14 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/panic-attack-vs-anxiety-attack",
     published: "2026-11-25",
-    related: [LINK.anxiety, LINK.anxietyOrStress, LINK.grounding, LINK.boxBreathing, LINK.tools],
+    related: [
+      LINK.anxiety,
+      LINK.anxietyOrStress,
+      LINK.grounding,
+      LINK.boxBreathing,
+      LINK.tools,
+      LINK.publicSpeaking,
+    ],
     title: title("Panic Attack vs Anxiety Attack"),
     description:
       "How a panic attack differs from an “anxiety attack,” what each feels like, what helps in the moment, and when to get support in Dallas–Fort Worth.",
@@ -5958,7 +6028,15 @@ export const ARTICLES: ContentPage[] = [
   {
     path: "resources/anxiety-or-stress",
     published: "2026-11-25",
-    related: [LINK.anxiety, LINK.stress, LINK.panicVsAnxiety, LINK.screening, LINK.burnout],
+    related: [
+      LINK.anxiety,
+      LINK.stress,
+      LINK.panicVsAnxiety,
+      LINK.screening,
+      LINK.burnout,
+      LINK.highFunctioning,
+      LINK.overthinking,
+    ],
     title: title("Anxiety or Stress? How to Tell"),
     description:
       "How to tell whether you’re stressed or dealing with anxiety, signs that it’s more than stress, what helps, and when to see a counselor in Dallas.",
@@ -6245,6 +6323,686 @@ export const ARTICLES: ContentPage[] = [
       {
         q: "Do you offer couples counseling for ADHD?",
         a: "No. Sarah Ateia, LPC Associate, offers individual counseling only. A couples therapist who knows ADHD can work with both partners together.",
+      },
+    ],
+  },
+  {
+    path: "resources/seasonal-depression",
+    published: "2026-11-27",
+    related: [LINK.depression, LINK.holidayStress, LINK.outdoor, LINK.burnout, LINK.selfCare],
+    title: title("Seasonal Depression in Texas"),
+    description:
+      "Seasonal depression (SAD) explained: signs, how it differs from the winter blues, what research says helps, and support in Dallas or online in Texas.",
+    eyebrow: "Depression",
+    heading: "What is seasonal depression, and can it happen in Texas?",
+    intro:
+      "Seasonal depression, called seasonal affective disorder (SAD), is a type of depression that comes back around the same time each year, most often in late fall and winter. Texas winters are milder and brighter than many places, but shorter days still affect some people here. Here’s how to tell it apart from a passing low, what helps, and when to reach out.",
+    takeaways: [
+      "NIMH describes SAD as depression with a recurring seasonal pattern, with symptoms lasting about 4 to 5 months of the year.",
+      "Winter-pattern SAD can bring oversleeping, carb cravings and overeating, and pulling away from people.",
+      "It’s linked to changes in daylight, not the calendar, and NIMH says it shouldn’t be confused with the “holiday blues.”",
+      "Light therapy, talk therapy, and medication are the main treatments; talk to a health care provider before trying a light box.",
+      "Morning daylight, regular movement, and staying connected are simple supports that fit a mind-body approach.",
+    ],
+    blocks: [
+      {
+        heading: "What is seasonal affective disorder?",
+        paragraphs: [
+          "The National Institute of Mental Health describes SAD as a type of depression characterized by a recurrent seasonal pattern, with symptoms lasting about 4 to 5 months out of the year. It estimates that millions of Americans experience SAD, and that many may not know they have it ([NIMH](https://www.nimh.nih.gov/health/publications/seasonal-affective-disorder)).",
+          "Most people with SAD notice symptoms starting in late fall or early winter and easing in spring. A less common summer pattern also exists.",
+        ],
+      },
+      {
+        heading: "What are the signs of seasonal depression?",
+        paragraphs: [
+          "SAD includes the signs of depression, like feeling low most of the day, losing interest in things you enjoy, and low energy. NIMH lists these extra signs that are common in the winter pattern ([NIMH](https://www.nimh.nih.gov/health/publications/seasonal-affective-disorder)):",
+        ],
+        list: [
+          "Oversleeping, or feeling like you could sleep all day",
+          "Overeating, especially craving carbohydrates",
+          "Pulling away from friends, family, and plans",
+        ],
+      },
+      {
+        heading: "Is it seasonal depression or the winter blues?",
+        paragraphs: [
+          "Many people feel a bit slower when days get short. SAD is different because it affects how you think, feel, and handle daily life, and it returns season after season.",
+          "NIMH notes that winter-pattern SAD shouldn’t be confused with the “holiday blues,” because SAD is related to changes in daylight hours, not the calendar ([NIMH](https://www.nimh.nih.gov/health/publications/seasonal-affective-disorder)). If the holidays themselves are the hard part, [how to cope with holiday stress](/resources/holiday-stress/) may fit better.",
+          "Only a health care provider can diagnose SAD or any type of depression. If you’re not sure, a free [screening tool](/screening-tools/) can help you decide whether to ask.",
+        ],
+      },
+      {
+        heading: "Can you get seasonal depression in Texas?",
+        paragraphs: [
+          "Yes, though it’s less common here. NIMH says winter-pattern SAD is more common in people living farther north, where winter days are shorter ([NIMH](https://www.nimh.nih.gov/health/publications/seasonal-affective-disorder)). Dallas–Fort Worth still loses daylight in winter, and long workdays indoors can mean leaving home and coming back in the dark.",
+          "NIMH also notes that SAD occurs much more often in women than in men ([NIMH](https://www.nimh.nih.gov/health/publications/seasonal-affective-disorder)). People who moved to Texas from somewhere else, or who notice the same dip every year, may find it helps to plan ahead for the darker months.",
+        ],
+      },
+      {
+        heading: "What helps with seasonal depression?",
+        paragraphs: [
+          "NIMH describes four main treatments for SAD: light therapy, psychotherapy (talk therapy, including a version of CBT adapted for SAD), antidepressant medication, and vitamin D. For winter-pattern SAD, light therapy usually means sitting in front of a 10,000 lux light box for about 30 to 45 minutes each morning from fall to spring ([NIMH](https://www.nimh.nih.gov/health/publications/seasonal-affective-disorder)). Talk to a health care provider before starting a light box or supplements.",
+          "Alongside treatment, these everyday steps support your body’s rhythm:",
+        ],
+        list: [
+          "Get outside in the morning, even for 10 minutes, while the sun is up",
+          "Keep a steady wake time, including weekends",
+          "Move your body most days; a walk counts",
+          "Plan small, easy social contact so the season doesn’t become isolating",
+          "Notice early signs each fall, and start supports before they build",
+        ],
+      },
+      {
+        heading: "Where can I get help for seasonal depression in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [depression counseling](/depression-counseling-dallas/) through [walk and talk sessions](/walk-and-talk-therapy-dallas/) in Dallas–Fort Worth, usually at Sam Houston Trail Park in Irving, which adds daylight and movement to each session. [Telehealth](/telehealth-counseling-texas/) is available anywhere in Texas, in English or Arabic.",
+          "Sarah offers talk therapy only and doesn’t diagnose or prescribe, so she works alongside your doctor if you’re considering light therapy or medication. Counseling isn’t a crisis service. If you’re thinking about harming yourself, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I know if I have seasonal depression?",
+        a: "If low mood, oversleeping, carb cravings, and pulling away from people come back around the same time each year and affect daily life, talk to a health care provider. Only a qualified provider can diagnose SAD.",
+      },
+      {
+        q: "Does seasonal depression happen in Texas?",
+        a: "It can. NIMH says winter-pattern SAD is more common farther north, but shorter winter days in Dallas–Fort Worth still affect some people.",
+      },
+      {
+        q: "Can talk therapy help seasonal depression?",
+        a: "NIMH lists psychotherapy as one of the main treatments for SAD, along with light therapy, medication, and vitamin D. Results vary from person to person.",
+      },
+    ],
+  },
+  {
+    path: "resources/holiday-stress",
+    published: "2026-11-27",
+    related: [LINK.stress, LINK.familyBoundaries, LINK.seasonalDepression, LINK.boxBreathing],
+    title: title("Holiday Stress: Coping Tips"),
+    description:
+      "Why the holidays feel stressful, what a national survey found, and calm, practical ways to cope with money, family, and grief over the season.",
+    eyebrow: "Stress",
+    heading: "How do you cope with holiday stress?",
+    intro:
+      "The holidays can be joyful and exhausting at the same time. Money, travel, family gatherings, and missing people who aren’t there all pile up in a few short weeks. Coping usually comes down to deciding ahead of time what matters most to you, and letting the rest be good enough.",
+    takeaways: [
+      "In a 2023 American Psychological Association survey, 89% of U.S. adults said concerns like money, missing loved ones, and family conflict cause them stress at this time of year.",
+      "Money was the top stressor (58%), then finding the right gifts (40%) and missing family or loved ones (38%).",
+      "Most people (70%) said they were comfortable talking about stress, but only 41% actually did.",
+      "A budget, a plan for hard conversations, and protected rest time make the season easier.",
+      "If low mood lasts past the holidays, or comes back every winter, it may be more than holiday stress.",
+    ],
+    blocks: [
+      {
+        heading: "Why are the holidays so stressful?",
+        paragraphs: [
+          "In a November 2023 survey of 2,061 U.S. adults for the American Psychological Association, nearly nine in 10 (89%) said concerns such as not having enough money, missing loved ones, and anticipating family conflict cause them stress at this time of year. 43% said holiday stress gets in the way of enjoying the holidays, and 36% said the holidays feel like a competition ([APA, 2023](https://www.apa.org/news/press/releases/2023/11/holiday-season-stress)).",
+          "The most common causes in that survey were spending too much or not having enough money to spend (58%), finding the right gifts (40%), and missing family or loved ones (38%) ([APA, 2023](https://www.apa.org/news/press/releases/2023/11/holiday-season-stress)).",
+        ],
+      },
+      {
+        heading: "How can I cope with money stress over the holidays?",
+        paragraphs: ["A few steps that take pressure off:"],
+        list: [
+          "Pick a total holiday budget before you shop, and write it down",
+          "Suggest a gift exchange, a spending limit, or experiences instead of things",
+          "Give time: a meal, a walk, a handwritten note",
+          "Say no to some events without a long explanation",
+        ],
+      },
+      {
+        heading: "How do I handle family stress at holiday gatherings?",
+        paragraphs: [
+          "Family time can bring up old roles and old arguments. It helps to decide in advance what you will and won’t talk about, how long you’ll stay, and what you’ll do if a conversation turns hard, like stepping outside or helping in the kitchen.",
+          "[How to set boundaries with family](/resources/setting-boundaries-with-family/) has simple words to use, including ways to handle guilt and pushback, with room for cultural expectations around family.",
+          "If a gathering involves someone who has hurt you, it’s okay to limit contact or skip it. Your safety comes first.",
+        ],
+      },
+      {
+        heading: "What if I’m grieving or lonely during the holidays?",
+        paragraphs: [
+          "Missing someone can feel sharper when everyone else seems to be celebrating. You can keep a small ritual to remember them, change old traditions, or let this year be quieter.",
+          "If you’re alone, plan a few points of contact ahead of time: a call, a walk with a friend, a volunteer shift. In the APA survey, 70% said they were comfortable talking with others about stress, but only 41% actually did ([APA, 2023](https://www.apa.org/news/press/releases/2023/11/holiday-season-stress)). Reaching out first often helps the other person too.",
+        ],
+      },
+      {
+        heading: "Quick ways to calm down in the middle of it",
+        list: [
+          "Slow your breath with [box breathing](/resources/box-breathing/) for one minute",
+          "Try the 5-4-3-2-1 [grounding exercise](/resources/grounding-techniques-for-anxiety/) when a room feels like too much",
+          "Step outside for a short walk",
+          "Keep regular meals and sleep as much as you can",
+          "Go easy on alcohol, which can make anxiety and low mood worse the next day",
+        ],
+      },
+      {
+        heading: "When is it more than holiday stress?",
+        paragraphs: [
+          "Holiday stress usually eases in January. If low mood, oversleeping, or pulling away from people come back every winter, read about [seasonal depression](/resources/seasonal-depression/). If worry stays high after the pressure is gone, [anxiety or just stress?](/resources/anxiety-or-stress/) can help you sort it out.",
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [stress and anxiety counseling](/anxiety-therapy-dallas/) through walk and talk sessions in Dallas–Fort Worth or by [telehealth anywhere in Texas](/telehealth-counseling-texas/), in English or Arabic. Counseling isn’t a crisis service. If you’re in crisis, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is holiday stress normal?",
+        a: "Very common. In a 2023 American Psychological Association survey, 89% of U.S. adults said money, missing loved ones, or family conflict cause them stress at this time of year.",
+      },
+      {
+        q: "How do I say no to holiday plans without guilt?",
+        a: "Keep it short and kind, like “I can’t make it this year, but I’d love to see you in January.” Guilt often shows up when you change a pattern; it doesn’t mean you did something wrong.",
+      },
+      {
+        q: "What’s the difference between holiday stress and seasonal depression?",
+        a: "Holiday stress is tied to the events of the season and usually eases afterward. Seasonal depression is linked to shorter daylight and tends to last for months and return each year. A health care provider can help you tell them apart.",
+      },
+    ],
+  },
+  {
+    path: "resources/high-functioning-anxiety",
+    published: "2026-11-27",
+    related: [LINK.anxiety, LINK.anxietyOrStress, LINK.overthinking, LINK.burnout],
+    title: title("High-Functioning Anxiety"),
+    description:
+      "What high-functioning anxiety means, common signs behind a calm, capable surface, why it isn’t a formal diagnosis, and what helps.",
+    eyebrow: "Anxiety",
+    heading: "What is high-functioning anxiety?",
+    intro:
+      "High-functioning anxiety is an everyday phrase for people who look calm and capable on the outside while worry drives them on the inside. You may meet every deadline, show up for everyone, and still lie awake replaying the day. It isn’t a formal diagnosis, but the stress behind it is real, and it deserves care.",
+    takeaways: [
+      "“High-functioning anxiety” isn’t a diagnosis; it describes anxiety that’s hidden behind achievement and busyness.",
+      "Common signs include overpreparing, trouble saying no, people-pleasing, and not being able to switch off.",
+      "Many of these overlap with generalized anxiety disorder signs NIMH lists, like trouble controlling worry, restlessness, and poor sleep.",
+      "Doing well on paper doesn’t mean you aren’t struggling, or that support isn’t for you.",
+      "Talk therapy, rest, and nervous system skills can help you keep what works and drop what costs too much.",
+    ],
+    blocks: [
+      {
+        heading: "Is high-functioning anxiety a real diagnosis?",
+        paragraphs: [
+          "No. NIMH lists generalized anxiety disorder, panic disorder, social anxiety disorder, and phobia-related disorders among the anxiety disorders, and “high-functioning anxiety” isn’t one of them ([NIMH](https://www.nimh.nih.gov/health/topics/anxiety-disorders)).",
+          "People use the phrase to describe anxiety that doesn’t stop them from functioning, at least not yet. Some people who relate to it would meet criteria for an anxiety disorder; others wouldn’t. Only a qualified health care provider can tell.",
+        ],
+      },
+      {
+        heading: "What are the signs of high-functioning anxiety?",
+        paragraphs: ["People often describe some of these:"],
+        list: [
+          "Overpreparing, rechecking, or rewriting things that are already fine",
+          "Saying yes to everything, then feeling stretched thin",
+          "Staying busy because slowing down feels uncomfortable",
+          "Replaying conversations and worrying about how you came across",
+          "Trouble falling or staying asleep",
+          "Tight shoulders, headaches, or stomach trouble when stressed",
+          "Feeling like you’re one mistake from everything falling apart",
+        ],
+      },
+      {
+        heading: "How is it related to generalized anxiety?",
+        paragraphs: [
+          "NIMH describes people with generalized anxiety disorder as worrying excessively about everyday things, having trouble controlling their worry, feeling restless or on edge, having a hard time concentrating, and having trouble sleeping. It notes that adults with GAD are often nervous about things like job performance, health, and finances ([NIMH](https://www.nimh.nih.gov/health/publications/generalized-anxiety-disorder-gad)).",
+          "Many people with “high-functioning” anxiety recognize themselves in that list. The difference is often just that the worry is pushing them to work harder rather than shutting them down. [Is it anxiety or just stress?](/resources/anxiety-or-stress/) can help you notice which pattern fits.",
+        ],
+      },
+      {
+        heading: "Why it can be hard to ask for help",
+        paragraphs: [
+          "When you’re the dependable one, it can feel like you don’t have a reason to struggle. Others may not notice, because the results look good.",
+          "But running on worry for years can wear you down. Some people slide toward [burnout](/resources/burnout-vs-depression/), lose sleep, or find the anxiety getting louder after a life change. You don’t need to wait for that point to talk to someone.",
+        ],
+      },
+      {
+        heading: "What helps high-functioning anxiety?",
+        list: [
+          "Notice the worry thoughts, and practice [setting them aside](/resources/how-to-stop-overthinking/) until a set time",
+          "Build in rest that isn’t earned by finishing everything first",
+          "Practice one small “no” a week",
+          "Calm your body with [nervous system regulation](/resources/nervous-system-regulation-techniques/) skills, like slow breathing",
+          "Move your body, ideally outdoors",
+          "Talk with someone who doesn’t need you to be fine",
+        ],
+      },
+      {
+        heading: "Where can I get support for high-functioning anxiety in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [anxiety therapy](/anxiety-therapy-dallas/) through walk and talk sessions in Dallas–Fort Worth, usually at Sam Houston Trail Park in Irving, or by [telehealth anywhere in Texas](/telehealth-counseling-texas/), in English or Arabic. Many people who look fine on the outside find it easier to talk while walking side by side.",
+          "Sarah offers talk therapy only and doesn’t diagnose or prescribe. Counseling isn’t a crisis service. If you’re in crisis, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is high-functioning anxiety a diagnosis?",
+        a: "No. It’s an everyday phrase, not a diagnosis. Some people who relate to it may have an anxiety disorder, which a qualified health care provider can assess.",
+      },
+      {
+        q: "Can you have anxiety and still be successful?",
+        a: "Yes. Many people perform well while feeling anxious much of the time. Doing well doesn’t mean the anxiety isn’t costing you in sleep, health, or relationships.",
+      },
+      {
+        q: "Do I need therapy if I’m coping fine?",
+        a: "You don’t need to be falling apart to deserve support. Counseling can help you keep the strengths that come with being driven while easing the worry behind them.",
+      },
+    ],
+  },
+  {
+    path: "resources/how-to-stop-overthinking",
+    published: "2026-11-27",
+    related: [LINK.anxiety, LINK.highFunctioning, LINK.grounding, LINK.anxietyOrStress],
+    title: title("How to Stop Overthinking"),
+    description:
+      "Why overthinking happens, how to tell problems you can solve from worries you can’t, the NHS “worry time” method, and when to talk to someone.",
+    eyebrow: "Anxiety",
+    heading: "How do I stop overthinking everything?",
+    intro:
+      "You probably can’t stop overthinking by telling yourself to stop. What tends to help is giving worries a time and a place, sorting the ones you can act on from the ones you can’t, and calming your body so your mind has less to react to. Here are a few ways to start.",
+    takeaways: [
+      "Overthinking is repeated worry or replaying that doesn’t lead to a decision.",
+      "The NHS suggests a short daily “worry time,” about 10 to 15 minutes, and setting worries aside until then.",
+      "Sort worries into problems you can act on and hypothetical worries you can’t control.",
+      "For a worry you can act on, make a small plan; for one you can’t, practice noticing and letting it pass.",
+      "If worry is hard to control on most days, it may be worth talking to a health care provider or counselor.",
+    ],
+    blocks: [
+      {
+        heading: "Why do I overthink so much?",
+        paragraphs: [
+          "Overthinking is the mind trying to protect you by solving every possible problem ahead of time. It often shows up when you’re tired, stressed, or facing something uncertain, and it can keep you awake at night.",
+          "The NHS points out that worrying is part of life and can’t be eliminated completely ([NHS](https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/self-help-cbt-techniques/tackling-your-worries/)). The goal is to change your relationship with worry so it takes up less of your day.",
+        ],
+      },
+      {
+        heading: "Try “worry time”",
+        paragraphs: [
+          "The NHS suggests setting aside a short period, about 10 or 15 minutes, every day or so to write worries down and look for solutions. When a worry comes up during the day, you tell yourself you’ll set it aside for worry time ([NHS](https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/self-help-cbt-techniques/tackling-your-worries/)).",
+          "It feels strange at first. With practice, many people find a worry has shrunk by the time they come back to it.",
+        ],
+      },
+      {
+        heading: "Sort what you can solve from what you can’t",
+        paragraphs: [
+          "The NHS describes a “worry tree” that helps you tell problems you can solve from hypothetical worries beyond your control. Ask: is there anything practical I can do about this? If yes, write a simple plan. If not, acknowledge it and accept that it’s out of your hands for now ([NHS](https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/self-help-cbt-techniques/tackling-your-worries/)).",
+        ],
+        list: [
+          "Can act on: “I haven’t replied to that email.” Plan: reply at 9 AM tomorrow",
+          "Can’t act on: “What if something goes wrong next year?” Practice: notice it, name it, return to now",
+        ],
+      },
+      {
+        heading: "Calm your body first",
+        paragraphs: [
+          "Racing thoughts often ride on a body that’s already on alert. A minute of slow breathing, like [box breathing](/resources/box-breathing/), or a [grounding exercise](/resources/grounding-techniques-for-anxiety/) can make thoughts easier to set down. A short walk works for many people too.",
+        ],
+      },
+      {
+        heading: "Small habits that help",
+        list: [
+          "Keep a notepad by your bed to park late-night thoughts",
+          "Limit rereading messages or checking news when you’re anxious",
+          "Make decisions with a deadline, then stop researching",
+          "Notice when you’re replaying a conversation, and ask what you need right now",
+          "Spend time on something absorbing that uses your hands",
+        ],
+      },
+      {
+        heading: "When is overthinking a sign of anxiety?",
+        paragraphs: [
+          "NIMH describes generalized anxiety disorder as having trouble controlling worry on most days for at least six months, along with symptoms like restlessness, fatigue, trouble concentrating, irritability, muscle tension, or sleep problems ([NIMH](https://www.nimh.nih.gov/health/publications/generalized-anxiety-disorder-gad)). Only a health care provider can diagnose it.",
+          "If overthinking looks like that, or if you look calm on the outside while worry runs everything, [high-functioning anxiety](/resources/high-functioning-anxiety/) may sound familiar.",
+        ],
+      },
+      {
+        heading: "Where can I get help with overthinking in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [anxiety therapy](/anxiety-therapy-dallas/) through walk and talk sessions in Dallas–Fort Worth or by [telehealth anywhere in Texas](/telehealth-counseling-texas/), in English or Arabic. Sessions focus on noticing thought patterns, calming the body, and practical next steps.",
+          "Sarah offers talk therapy only and doesn’t diagnose or prescribe. Counseling isn’t a crisis service. If you’re in crisis, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I stop overthinking at night?",
+        a: "Try a short worry time earlier in the evening, write lingering thoughts on a notepad by the bed, and use slow breathing to calm your body. If sleep problems last, talk to a health care provider.",
+      },
+      {
+        q: "Is overthinking a mental illness?",
+        a: "No, overthinking on its own isn’t a diagnosis. But worry that’s hard to control on most days can be part of an anxiety disorder, which a qualified provider can assess.",
+      },
+      {
+        q: "Can therapy help with overthinking?",
+        a: "Many people find talk therapy helps them notice worry patterns and respond differently. Results vary, and there’s no guarantee.",
+      },
+    ],
+  },
+  {
+    path: "resources/fear-of-public-speaking",
+    published: "2026-11-27",
+    related: [LINK.anxiety, LINK.boxBreathing, LINK.overthinking, LINK.highFunctioning],
+    title: title("Fear of Public Speaking"),
+    description:
+      "Why public speaking feels so scary, what happens in your body, practical ways to prepare and calm down, and when it may be social anxiety.",
+    eyebrow: "Anxiety",
+    heading: "How can I overcome my fear of public speaking?",
+    intro:
+      "A racing heart, shaky hands, and a mind that goes blank are some of the most common reactions to speaking in front of people. Fear of public speaking usually eases with steady preparation, small practice runs, and ways to calm your body in the moment. Sometimes it’s part of a bigger pattern, and support can help.",
+    takeaways: [
+      "NIMH notes that for some people, anxiety shows up only in performance situations like giving a speech.",
+      "Blushing, sweating, trembling, a rapid heart rate, and the mind “going blank” are common reactions.",
+      "Practicing out loud, in small steps, tends to help more than avoiding.",
+      "Slow breathing before you speak can calm your body’s alarm.",
+      "If fear lasts for months and affects work, school, or daily life, it may be worth talking to a health care provider.",
+    ],
+    blocks: [
+      {
+        heading: "Why is public speaking so scary?",
+        paragraphs: [
+          "Speaking in front of others means being watched and evaluated, which the body can treat as a threat. NIMH describes people with social anxiety as fearing situations where they may be scrutinized, evaluated, or judged by others, such as speaking in public. It also notes that in some cases, anxiety arises only during performance situations, like giving a speech, playing sports, or performing music on stage ([NIMH](https://www.nimh.nih.gov/health/publications/social-anxiety-disorder-more-than-just-shyness)).",
+        ],
+      },
+      {
+        heading: "What happens in your body",
+        paragraphs: [
+          "NIMH lists common reactions when performing in front of others: blushing, sweating, trembling, a rapid heart rate, and feeling your mind go blank ([NIMH](https://www.nimh.nih.gov/health/publications/social-anxiety-disorder-more-than-just-shyness)). These are your body’s alarm system, not a sign you’re failing. They usually peak early and settle as you keep going.",
+        ],
+      },
+      {
+        heading: "How to prepare",
+        list: [
+          "Know your first two sentences by heart; the start is usually hardest",
+          "Practice out loud, not just in your head",
+          "Start small: speak to one friend, then a few, then a recording",
+          "Use short notes with key points instead of a full script",
+          "Visit the room or test your video setup ahead of time",
+          "Plan what you’ll do if you lose your place: pause, breathe, look at your notes",
+        ],
+      },
+      {
+        heading: "How to calm down right before you speak",
+        list: [
+          "Do one or two minutes of [box breathing](/resources/box-breathing/)",
+          "Press your feet into the floor and notice five things you can see ([grounding](/resources/grounding-techniques-for-anxiety/))",
+          "Take a short walk to use up some of the adrenaline",
+          "Remind yourself the goal is to share information, not to be perfect",
+        ],
+      },
+      {
+        heading: "When is it social anxiety?",
+        paragraphs: [
+          "Nerves before a big talk are very common. NIMH explains that for social anxiety disorder to be diagnosed, the fear must last at least six months and interfere with daily life ([NIMH](https://www.nimh.nih.gov/health/publications/social-anxiety-disorder-more-than-just-shyness)). If you avoid jobs, classes, or opportunities because of it, or the dread starts days ahead, talk to a health care provider. Only a qualified provider can diagnose it.",
+          "NIMH calls cognitive behavioral therapy (CBT) the gold standard psychotherapy for social anxiety disorder ([NIMH](https://www.nimh.nih.gov/health/publications/social-anxiety-disorder-more-than-just-shyness)). If you want a structured CBT program, ask any counselor about their training before you start. Medication questions belong with a doctor.",
+        ],
+      },
+      {
+        heading: "Where can I get help with speaking anxiety in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [anxiety therapy](/anxiety-therapy-dallas/) through walk and talk sessions in Dallas–Fort Worth or by [telehealth anywhere in Texas](/telehealth-counseling-texas/), in English or Arabic. Sessions can include calming skills, looking at the worries underneath, and planning small practice steps.",
+          "Sarah offers talk therapy only and doesn’t diagnose or prescribe. Counseling isn’t a crisis service. If you’re in crisis, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is fear of public speaking normal?",
+        a: "Yes, it’s very common. It becomes something to look at more closely when it lasts for months, leads you to avoid opportunities, or affects daily life.",
+      },
+      {
+        q: "How do I stop shaking when I speak?",
+        a: "Slow breathing beforehand, a short walk to use up adrenaline, and practicing out loud can help. Shaking often eases after the first minute or two.",
+      },
+      {
+        q: "Can counseling help with public speaking anxiety?",
+        a: "Many people find talk therapy helps them understand the fear and practice in small steps. Results vary, and there’s no guarantee.",
+      },
+    ],
+  },
+  {
+    path: "resources/therapy-for-men",
+    published: "2026-11-27",
+    related: [LINK.anxiety, LINK.depression, LINK.outdoor, LINK.adhdTherapy],
+    title: title("Therapy for Men in Dallas"),
+    description:
+      "Why men often skip therapy, how stress and depression can look different in men, what sessions are like, and walk and talk or online options in Texas.",
+    eyebrow: "Men",
+    heading: "Is therapy for men different, and how do I start?",
+    intro:
+      "Therapy for men isn’t a different kind of therapy, but men often come to it differently. Many wait until stress shows up as anger, sleep problems, or drinking more, rather than feeling sad. A plain, practical first conversation, sometimes while walking instead of sitting across a desk, can make starting easier.",
+    takeaways: [
+      "NIMH notes that men are less likely than women to have received mental health treatment in the past year.",
+      "In men, depression and stress can show up as anger, irritability, risk-taking, alcohol or drug use, or feeling flat.",
+      "Men are more likely to die by suicide than women, according to the CDC, as cited by NIMH.",
+      "Sessions can be practical and goal-focused; you choose what to talk about.",
+      "Walk and talk sessions side by side, or telehealth, can feel less formal than an office.",
+    ],
+    blocks: [
+      {
+        heading: "Why do men avoid therapy?",
+        paragraphs: [
+          "NIMH notes that men are less likely than women to have received mental health treatment in the past year, and that the earlier treatment begins, the more effective it can be ([NIMH](https://www.nimh.nih.gov/health/topics/men-and-mental-health)).",
+          "Men often describe reasons like not wanting to look weak, not knowing what to say, thinking they should handle it alone, or not being sure therapy is practical. Those are normal concerns, and a good first session makes room for them.",
+        ],
+      },
+      {
+        heading: "How can stress and depression look in men?",
+        paragraphs: [
+          "NIMH lists signs that are common in men, which may not look like the usual picture of sadness ([NIMH](https://www.nimh.nih.gov/health/topics/men-and-mental-health)):",
+        ],
+        list: [
+          "Anger, irritability, or aggressiveness",
+          "Misusing alcohol, drugs, or both",
+          "Taking more risks than usual",
+          "Feeling flat, or having trouble feeling positive emotions",
+          "Changes in sleep, energy, or appetite",
+          "Pulling away from family and friends",
+        ],
+      },
+      {
+        heading: "What does therapy for men look like?",
+        paragraphs: [
+          "Sessions are a conversation, not an interrogation. You decide what to bring: work pressure, a breakup, being a dad, anger that comes out sideways, [ADHD](/adhd-therapy/), or a [life change](/resources/life-transitions-counseling/). Many men like setting clear goals and practical tools, like ways to cool down before reacting or to sleep better.",
+          "[What happens in a first counseling session](/resources/first-counseling-session/) walks through what to expect.",
+        ],
+      },
+      {
+        heading: "Why walk and talk can help",
+        paragraphs: [
+          "Some men find it easier to talk side by side than face to face. [Walk and talk therapy](/walk-and-talk-therapy-dallas/) happens outdoors, usually at Sam Houston Trail Park in Irving, and adds movement to each session. If you’d rather stay home, [telehealth](/telehealth-counseling-texas/) works anywhere in Texas.",
+        ],
+      },
+      {
+        heading: "When should a man get help right away?",
+        paragraphs: [
+          "Men are more likely to die by suicide than women, according to the Centers for Disease Control and Prevention, as cited by NIMH ([NIMH](https://www.nimh.nih.gov/health/topics/men-and-mental-health)). If you’re thinking about harming yourself, call or text 988 now, or see these [crisis resources](/crisis/). NIMH also says a primary care provider is a good place to start if you’re looking for help.",
+        ],
+      },
+      {
+        heading: "Where can men find a therapist in Dallas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers individual counseling for adults, including [anxiety](/anxiety-therapy-dallas/) and [depression](/depression-counseling-dallas/) counseling, through walk and talk sessions in Dallas–Fort Worth or by telehealth anywhere in Texas, in English or Arabic.",
+          "Sarah offers talk therapy only and doesn’t diagnose or prescribe. A [free consultation](/resources/free-counseling-consultation/) is a low-pressure way to see whether the fit feels right.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Should a man see a male therapist?",
+        a: "Some men prefer a male therapist, and many work well with a female counselor. Fit, trust, and feeling understood tend to matter most. A free consultation can help you decide.",
+      },
+      {
+        q: "What do men talk about in therapy?",
+        a: "Anything you choose: stress at work, relationships, anger, grief, fatherhood, ADHD, or feeling stuck. You set the pace and the goals.",
+      },
+      {
+        q: "Is online therapy for men available in Texas?",
+        a: "Yes. Telehealth sessions are available to anyone located in Texas at the time of the session.",
+      },
+    ],
+  },
+  {
+    path: "resources/online-therapy-cost",
+    published: "2026-11-27",
+    related: [LINK.telehealth, LINK.cost, LINK.slidingScale, LINK.affordable],
+    title: title("Online Therapy Cost in Texas"),
+    description:
+      "How much online therapy costs without insurance in Texas, what affects the price, apps vs. a private counselor, and ways to lower the cost.",
+    eyebrow: "Fees",
+    heading: "How much does online therapy cost in Texas?",
+    intro:
+      "Online therapy in Texas costs whatever the counselor or platform charges, and prices vary widely. Some apps charge a monthly subscription; individual counselors usually charge per session. My fee is $100 per session for telehealth or walk and talk, with session packages and a sliding scale available.",
+    takeaways: [
+      "There’s no single price for online therapy; ask each counselor or platform for their fee in writing.",
+      "Apps often charge a subscription; individual counselors usually charge per session.",
+      "Sarah’s fee is $100 per session, or 6 sessions for $540 and 8 for $640, with a sliding scale based on household income.",
+      "Self-pay clients have a federal right to a written Good Faith Estimate before care starts.",
+      "For online therapy in Texas, you need to be located in Texas at the time of each session with a Texas-licensed counselor.",
+    ],
+    blocks: [
+      {
+        heading: "How much is online therapy without insurance?",
+        paragraphs: [
+          "Without insurance, you pay the full fee directly. Prices depend on the counselor’s license and experience, session length, and whether you’re using a subscription app or seeing one counselor privately.",
+          "The most reliable way to compare is to ask for each fee, the session length, and any other charges up front, and to get it in writing. [How much does therapy cost without insurance in Texas?](/resources/therapy-cost-without-insurance/) goes into more detail.",
+        ],
+      },
+      {
+        heading: "Is online therapy cheaper than in-person therapy?",
+        paragraphs: [
+          "Not always. Many counselors charge the same for telehealth and in-person sessions, because the session time is the same. Online therapy can still save you money and time on travel, parking, and time away from work.",
+          "My fee is the same either way: $100 per session for [telehealth anywhere in Texas](/telehealth-counseling-texas/) or [walk and talk in Dallas–Fort Worth](/walk-and-talk-therapy-dallas/).",
+        ],
+      },
+      {
+        heading: "Therapy apps vs. a private online counselor",
+        paragraphs: ["A few things worth comparing:"],
+        list: [
+          "Pricing: monthly subscription or a fee per session",
+          "Who you see: the same counselor each time, or whoever is available",
+          "Licensing: whether the counselor is licensed in Texas, and at what level",
+          "Session format: live video, phone, or mostly messaging",
+          "Supervision and disclosure: an LPC Associate should tell you who supervises them",
+        ],
+      },
+      {
+        heading: "What does online therapy with Sarah cost?",
+        paragraphs: [
+          "Sessions are $100 each. Packages lower the price of each session: 6 sessions for $540 or 8 sessions for $640. A sliding scale based on household income is available, and we agree on your fee before the first session. Sarah is self-pay only and doesn’t bill insurance; see [affordable therapy in Dallas](/affordable-therapy-dallas/) and [what is sliding scale therapy?](/resources/what-is-sliding-scale-therapy/).",
+        ],
+      },
+      {
+        heading: "What is a Good Faith Estimate?",
+        paragraphs: [
+          "If you don’t have insurance or choose not to use it, the federal No Surprises Act gives you the right to a written estimate of expected charges before services start. If your bill is at least $400 more than the estimate, you can dispute it ([CMS](https://www.cms.gov/nosurprises)).",
+        ],
+      },
+      {
+        heading: "Ways to lower the cost of online therapy",
+        list: [
+          "Ask about packages and sliding scale fees",
+          "Check whether your employer offers an EAP with free sessions",
+          "Ask whether your HSA or FSA can be used for counseling",
+          "Meet every other week once things feel steadier, if your counselor agrees",
+          "Use a [free consultation](/resources/free-counseling-consultation/) to check fit before paying",
+        ],
+      },
+      {
+        heading: "Who offers online therapy across Texas?",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers telehealth counseling to anyone located in Texas at the time of the session, from Dallas–Fort Worth to Houston, Austin, San Antonio, or El Paso, in English or Arabic. Sarah offers talk therapy only and doesn’t diagnose or prescribe.",
+          "Counseling isn’t a crisis service. If you’re in crisis, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How much does online therapy cost per session?",
+        a: "It depends on the provider. Sarah Ateia, LPC Associate, charges $100 per session, with packages of 6 for $540 or 8 for $640 and a sliding scale based on household income.",
+      },
+      {
+        q: "Can I do online therapy in Texas if I live in another state?",
+        a: "Sarah can only see clients who are located in Texas at the time of each session.",
+      },
+      {
+        q: "Does online therapy cost less than in person?",
+        a: "Not always. Many counselors charge the same for both. Sarah’s fee is the same for telehealth and walk and talk sessions.",
+      },
+    ],
+  },
+  {
+    path: "resources/arabic-speaking-therapist-online",
+    published: "2026-11-27",
+    related: [LINK.arabic, LINK.culture, LINK.telehealth, LINK.glossary],
+    title: title("Arabic Therapist Online, TX"),
+    description:
+      "How to find an Arabic-speaking therapist online or near you in Texas, why language matters in counseling, and what to ask before you start.",
+    eyebrow: "Arabic",
+    heading: "How do I find an Arabic-speaking therapist in Texas?",
+    intro:
+      "Finding a therapist who speaks Arabic can be hard, especially outside a few big cities. In Texas, telehealth makes it easier: a counselor licensed in Texas can see you by video anywhere in the state. Here’s why language matters, where to look, and what to ask.",
+    arabicIntro:
+      "إذا كنت تبحث عن معالج نفسي يتحدث العربية في تكساس، يمكنك أن تبدأ بجلسات عن بُعد من أي مكان في الولاية، بالعربية أو الإنجليزية أو بالمزج بينهما.",
+    takeaways: [
+      "Telehealth lets you see an Arabic-speaking counselor licensed in Texas from anywhere in the state.",
+      "Many people find feelings easier to name in the language they grew up with.",
+      "You can switch between Arabic and English in the same session.",
+      "Ask about dialect, cultural understanding, privacy, and the counselor’s license before you start.",
+      "A free consultation is a low-pressure way to check the fit.",
+    ],
+    blocks: [
+      {
+        heading: "Why does language matter in counseling?",
+        paragraphs: [
+          "Counseling relies on putting feelings into words. Many bilingual people find some memories, emotions, or family conversations come more naturally in Arabic, and others in English. Being able to move between both without translating can make sessions feel less effortful.",
+          "Language also carries culture: family roles, respect for elders, expectations around marriage and work, and what it means to ask for help. [Choosing a counselor when language and culture matter](/resources/choosing-a-counselor-language-culture/) goes deeper.",
+        ],
+      },
+      {
+        heading: "Where can I find an Arabic-speaking therapist near me?",
+        paragraphs: ["A few places to look:"],
+        list: [
+          "Therapist directories that let you filter by language, such as Psychology Today",
+          "Telehealth with a Texas-licensed counselor, which works anywhere in Texas",
+          "Referrals from a primary care doctor, community center, or university counseling office",
+          "Asking a counselor directly whether they offer sessions in Arabic, and in which dialect",
+        ],
+      },
+      {
+        heading: "What should I ask before I start?",
+        list: [
+          "Are you licensed in Texas, and at what level? Who supervises you, if anyone?",
+          "Can we use Arabic, English, or both in the same session?",
+          "Which dialects are you comfortable with?",
+          "How do you keep my information private, especially within a small community?",
+          "Do you offer telehealth anywhere in Texas?",
+          "What are your fees, and is there a sliding scale?",
+        ],
+      },
+      {
+        heading: "What if I’m worried about stigma?",
+        paragraphs: [
+          "Some people worry that family or community members will find out they’re in counseling. Counseling is confidential, with a few legal exceptions your counselor should explain at the start, such as safety concerns. Telehealth from home can add a layer of privacy, since no one sees you walk into an office.",
+          "Going to counseling doesn’t mean something is wrong with you or your family. Many people use it to handle stress, life changes, or [boundaries with family](/resources/setting-boundaries-with-family/).",
+        ],
+      },
+      {
+        heading: "Arabic-speaking counseling with Sarah",
+        paragraphs: [
+          "Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers [counseling in Arabic or English](/arabic-counseling/), or a mix of both, by [telehealth anywhere in Texas](/telehealth-counseling-texas/) and through walk and talk sessions in Dallas–Fort Worth, usually at Sam Houston Trail Park in Irving. Focus areas include anxiety, ADHD, trauma, depression, and life transitions.",
+          "Sarah offers talk therapy only and doesn’t diagnose or prescribe. The [English–Arabic counseling glossary](/glossary/) has common therapy words in both languages. Counseling isn’t a crisis service. If you’re in crisis, call or text 988 or see these [crisis resources](/crisis/).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is there an Arabic-speaking therapist in Dallas?",
+        a: "Yes. Sarah Ateia, LPC Associate, supervised by Don Zablosky, LPC-S, offers sessions in Arabic or English through walk and talk in Dallas–Fort Worth and by telehealth anywhere in Texas.",
+      },
+      {
+        q: "Can I have online therapy in Arabic anywhere in Texas?",
+        a: "Yes, as long as you’re located in Texas at the time of each session.",
+      },
+      {
+        q: "Can I mix Arabic and English in sessions?",
+        a: "Yes. Many bilingual clients switch between languages depending on the topic.",
       },
     ],
   },
