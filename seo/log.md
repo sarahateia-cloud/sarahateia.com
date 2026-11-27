@@ -53,3 +53,13 @@ again for 28 days.
 - Build now writes `/llms-full.txt` (readable text of every listed page) and fails if
   `public/llms.txt` leaves out a listed page (it was missing `/blog/`).
 - Monthly AI answer check: prompts and baseline in `seo/AEO.md`.
+
+## 2026-11-27: keyword growth batch (8 guides)
+
+- Semrush: 20 US keywords (Nov 26). API units are used up, so research used saved Semrush data and
+  the free Local SEO tool. Target list: `seo/data/keywords-2026-11-27.md`.
+- New guides: seasonal-depression, holiday-stress, high-functioning-anxiety,
+  how-to-stop-overthinking, fear-of-public-speaking, therapy-for-men, online-therapy-cost,
+  arabic-speaking-therapist-online. Sources: NIMH (SAD, GAD, social anxiety, men), NHS worry time,
+  APA 2023 holiday survey, CMS No Surprises Act. Each gets 2–4 links in from existing pages.
+- The Arabic guide has a one-sentence Arabic intro that Sarah should check.
