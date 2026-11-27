@@ -294,6 +294,10 @@ function Index() {
               </a>
             </div>
           </div>
+          {/* Existing clients book right here, next to the new-client form, not at the bottom. */}
+          <div className="mx-auto mt-10 max-w-6xl px-6">
+            <SessionBooking />
+          </div>
         </section>
 
         {/* 2. At a glance: the facts people check before booking. */}
@@ -861,7 +865,6 @@ function Index() {
                 Standard fee $100 per session. Reduced rates available.
               </p>
             </div>
-            <SessionBooking className="mt-6 text-left" />
           </div>
         </section>
 
