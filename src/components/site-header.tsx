@@ -353,6 +353,16 @@ export function SiteFooter() {
               Verify license
             </a>
           </p>
+          <p className="text-xs">
+            {/* Google's "preferred sources" deep link (plain link, no Google script):
+                https://developers.google.com/search/docs/appearance/preferred-sources */}
+            <a
+              href="https://www.google.com/preferences/source?q=sarahateia.com"
+              className="inline-flex min-h-11 items-center underline underline-offset-4 transition-colors hover:text-foreground"
+            >
+              Add this site as a preferred source on Google
+            </a>
+          </p>
           <p className="mt-1 text-xs">© {new Date().getFullYear()} Attya LLC.</p>
         </div>
       </div>
