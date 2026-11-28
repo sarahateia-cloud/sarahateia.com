@@ -7281,6 +7281,8 @@ export const SITE_PAGES: {
         datePublished: page.published ?? PUBLISHED,
         dateModified: page.updated ?? page.published ?? PUBLISHED,
         inLanguage: "en-US",
+        // Google recommends a large image on articles (Article structured data, Discover).
+        image: "https://www.sarahateia.com/share/share-sarah-overlook.jpg",
         author: { ...SARAH, "@type": "Person", name: "Sarah Ateia", jobTitle: "LPC Associate" },
         publisher: PRACTICE,
         citation: citations(page),
@@ -7324,6 +7326,7 @@ export const SITE_PAGES: {
         datePublished: page.published ?? PUBLISHED,
         dateModified: page.updated ?? page.published ?? PUBLISHED,
         inLanguage: "en-US",
+        image: "https://www.sarahateia.com/share/share-sarah-overlook.jpg",
         author: { ...SARAH, "@type": "Person", name: "Sarah Ateia", jobTitle: "LPC Associate" },
         publisher: PRACTICE,
         citation: citations(page),

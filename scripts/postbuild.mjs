@@ -238,9 +238,16 @@ const SHARE_IMAGES = {
   ],
 };
 
+// Every other page (guides included) gets a plain 1200x675 photo. Google Discover only shows a
+// large preview for images at least 1200px wide, with max-image-preview:large (set in index.html):
+// https://developers.google.com/search/docs/appearance/google-discover
+const DEFAULT_SHARE_IMAGE = [
+  "share/share-sarah-overlook.jpg",
+  "Sarah Ateia, LPC Associate, at a city overlook.",
+];
+
 const setShareImage = (doc, path) => {
-  const share = SHARE_IMAGES[path];
-  if (!share) return doc;
+  const share = SHARE_IMAGES[path] ?? DEFAULT_SHARE_IMAGE;
   const [file, alt] = share;
   if (!existsSync(`dist/${file}`)) throw new Error(`Share image missing: ${file}`);
   return [
